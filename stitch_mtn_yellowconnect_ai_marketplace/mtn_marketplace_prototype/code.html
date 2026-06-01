@@ -224,7 +224,7 @@
                 { path: '/', icon: 'home', label: 'Home' },
                 { path: '/search', icon: 'search', label: 'Search' },
                 { path: '/create', icon: 'add_circle', label: 'Sell' },
-                { path: '#', icon: 'chat_bubble', label: 'Messages' },
+                { path: '/wallet', icon: 'account_balance_wallet', label: 'Wallet' },
                 { path: '/profile', icon: 'person', label: 'Profile' }
             ];
 
@@ -257,7 +257,8 @@
                     <Link to="/" className="text-primary border-b-2 border-primary font-bold hover:bg-surface-container-low px-2 py-1 transition-colors">Home</Link>
                     <Link to="/search" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Search</Link>
                     <Link to="/create" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Sell</Link>
-                    <Link to="#" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Messages</Link>
+                    <Link to="/wallet" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Wallet</Link>
+                    <Link to="/lending" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Lending</Link>
                     <Link to="/profile" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Profile</Link>
                 </nav>
             );
@@ -265,7 +266,7 @@
 
         // --- Screens ---
 
-        // Screen 3: Localized Feed (Home)
+        // Screen: Localized Feed (Home)
         const FeedPage = () => {
             return (
                 <div className="pb-24 md:pb-0">
@@ -332,11 +333,11 @@
                             </div>
                             <div className="flex overflow-x-auto hide-scrollbar gap-gutter pb-4">
                                 {[
-                                    { title: 'MacBook Pro M2 2023', price: '₦ 1,850,000', loc: 'Ikeja, Lagos', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDUY3jjiw2_wYR_bfUFgeWuY2tZUodVYCRRpiBrVS2828IHI1fGnMFC_e_2Z4YAnLrmlIpHtwuEcyIz2aTEIRKq8WjaYscY6valyjPIQ_DKrlPwdKXkrKLtgFtXVzUpAKVzgrlx5wtTImaumcv3nE6RCkc4_Wm479KfkpgVcQmU6njLaqZptPKzIzFWrTXBVw7OqiMkZdHSUF3tdnJWB1GQ0Q31xm8ma-dXqqfB3gmeKpc_Yb9Xtfn7y_iwr_484J4-xX3173GH8gA' },
-                                    { title: 'Toyota Camry 2018 LE', price: '₦ 12,500,000', loc: 'Victoria Island', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAqUyJ-H0EjGhomf5baFPQ0QiSxi8D0Zxhk7iQCu6kQC4kSQ3wA7n46RTZud0nLlhcWODooxj9pLdXdDBLfkM8HJNwdNuNrYN3MuBNHuZ8FUwwcXr36iK1KzQndmPUh8UtXtQ7CdQKhPfFQ88APoY2Cqq4sYYVRZBJ0e3BsvY_VBFSuheGwJwGa_CALlz8C3-MrkzJsUpBsp7iMxgXruqk4w538blwnlVf4qgXc8XPRYwN36oARCwInnEIsdI1RCWHWqK21H0Kmgdw' },
-                                    { title: '3 Bed Semi-Detached', price: '₦ 4,500,000/yr', loc: 'Lekki Phase 1', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAUoJFywGogYjeMv1XVQpSIHrHzi9v-hwKLOEhsGmABiuVapL_8Ho14SPusQr4w82o9BRGuZgWD4AGslMznJMgJWwNGrRrHRmtMTJKIClO1RRMeET87hL7mLVLFL6AQRAMCCS8ci9agIERvnjH7JAqUOymc9mwH_6Ob8oWLitvNFzXH5mhASuSL9rpG3lwQr44RwYLc8Z8HY3xbo5HkiiwylANzY3Wpl44-AVPltrLunjcDhKmbpt7TFcxcxaHgy9lOY1pzfJJQ6-M' }
+                                    { title: 'MacBook Pro M2 2023', price: '₦ 1,850,000', loc: 'Ikeja, Lagos', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDUY3jjiw2_wYR_bfUFgeWuY2tZUodVYCRRpiBrVS2828IHI1fGnMFC_e_2Z4YAnLrmlIpHtwuEcyIz2aTEIRKq8WjaYscY6valyjPIQ_DKrlPwdKXkrKLtgFtXVzUpAKVzgrlx5wtTImaumcv3nE6RCkc4_Wm479KfkpgVcQmU6njLaqZptPKzIzFWrTXBVw7OqiMkZdHSUF3tdnJWB1GQ0Q31xm8ma-dXqqfB3gmeKpc_Yb9Xtfn7y_iwr_484J4-xX3173GH8gA', id: 1 },
+                                    { title: 'Toyota Camry 2018 LE', price: '₦ 12,500,000', loc: 'Victoria Island', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAqUyJ-H0EjGhomf5baFPQ0QiSxi8D0Zxhk7iQCu6kQC4kSQ3wA7n46RTZud0nLlhcWODooxj9pLdXdDBLfkM8HJNwdNuNrYN3MuBNHuZ8FUwwcXr36iK1KzQndmPUh8UtXtQ7CdQKhPfFQ88APoY2Cqq4sYYVRZBJ0e3BsvY_VBFSuheGwJwGa_CALlz8C3-MrkzJsUpBsp7iMxgXruqk4w538blwnlVf4qgXc8XPRYwN36oARCwInnEIsdI1RCWHWqK21H0Kmgdw', id: 2 },
+                                    { title: '3 Bed Semi-Detached', price: '₦ 4,500,000/yr', loc: 'Lekki Phase 1', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAUoJFywGogYjeMv1XVQpSIHrHzi9v-hwKLOEhsGmABiuVapL_8Ho14SPusQr4w82o9BRGuZgWD4AGslMznJMgJWwNGrRrHRmtMTJKIClO1RRMeET87hL7mLVLFL6AQRAMCCS8ci9agIERvnjH7JAqUOymc9mwH_6Ob8oWLitvNFzXH5mhASuSL9rpG3lwQr44RwYLc8Z8HY3xbo5HkiiwylANzY3Wpl44-AVPltrLunjcDhKmbpt7TFcxcxaHgy9lOY', id: 3 }
                                 ].map((item, i) => (
-                                    <div key={i} className="min-w-[240px] w-[240px] bg-surface rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden border border-outline-variant/30 cursor-pointer">
+                                    <Link key={i} to={`/product/${item.id}`} className="min-w-[240px] w-[240px] bg-surface rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden border border-outline-variant/30 cursor-pointer">
                                         <div className="relative h-32 w-full">
                                             <img alt={item.title} className="w-full h-full object-cover" src={item.img}/>
                                             {i < 2 && (
@@ -354,7 +355,7 @@
                                                 <span>{item.loc}</span>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         </section>
@@ -364,7 +365,7 @@
             );
         };
 
-        // Screen 4: Search
+        // Screen: Search
         const SearchPage = () => {
             const [saveSearch, setSaveSearch] = useState(false);
 
@@ -436,7 +437,7 @@
                                         <div className="relative h-48 w-full bg-surface-container">
                                             <img alt="portable power station" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU5fd9wp4AH38GYHvPCJs_jgWWMfZ3dyJkHYbhP8TUPrdCjlKoAQhko0gDRfioqjMUzbOs06MMOBrL2DN5EtjAjCEhjot6CJXBYLQ5JZtxbSnI5IdPf0xTNwMz2lIx8uPdUf2RzNogvtL9o_OjJ2e5hqBfZfBZw-2aORQbbRKVmi9vT_7fCzKBYcvGagkexfbA3hD_uxdX2V25ZEmf8KEcl5tjT8wfmDR_RXvmihnZ-eHzTVUeeRnS0kSxYWTBOE2FF-vp2LeQ9bw"/>
                                             <div className="absolute top-2 left-2 ai-glass px-2 py-1 rounded text-label-caps font-label-caps text-secondary flex items-center gap-1 border-secondary">
-                                                <span className="material-symbols-outlined text-[14px]">auto_awesome</span> Smart Match
+                                                <span className="material-symbols-outlined text-[16px]">auto_awesome</span> Smart Match
                                             </div>
                                         </div>
                                         <div className="p-4">
@@ -455,7 +456,7 @@
             );
         };
 
-        // Screen 1: Listing Creation
+        // Screen: Listing Creation
         const CreateListingPage = () => {
             const navigate = useNavigate();
             const [isAiProcessing, setIsAiProcessing] = useState(false);
@@ -559,8 +560,9 @@
             );
         };
 
-        // Screen 2: Profile
+        // Screen: Profile
         const ProfilePage = () => {
+            const navigate = useNavigate();
             return (
                 <div className="pb-24 md:pb-0">
                     <header className="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-base bg-surface z-50 shadow-sm md:hidden">
@@ -591,7 +593,7 @@
                             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 relative z-10">
                                 <div className="relative">
                                     <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-surface shadow-md">
-                                        <img alt="Seller Avatar" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCAzlwFfKkjOjLbHL3A6DUQzqsHSXDPT4H98zScUN9K40ef3gaQsTNM3b-nY-eHo1anbZwB34BZ51sVZmhpzWnyZFJ7W9ejpssjNXjX61HYvGjw3vcs5-0jhmwJgv7DsMKe6Cr2s_4d2JMmcZ0WYt2CE_i7VUVnnTJ_JN1TDNeUbQrZsDgdM1J8zEh32KRCnFqMPCBG-CZHWCJ3G3mOG-_0vTjDDZ4LQ1LZmRpx8sgajvRfLX2J7jWQ271jyAei3woZe38Z2GRk6o"/>
+                                        <img alt="Seller Avatar" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD27e5xINq72rz2pRrXskF9CFc76saaCaBzsa01oA--niWTaZ28YHLJP59mNnQHIyalx-Hoo6lmnH4BjB5fI5kbMIG0AWE8pC7KRVJUUiPSwgJIb22P8DID6yK9qoIhm7W8-CtclWRBCUJGI1pB9wr-Hro8oexx1yM0zePfsXvvsNXTpqR7qpK6dCgmgcYX_lNhSVx0z4d83GX_Teal_6Ur4TuEwvJ6AC88a-MbsgbqZGlIW7zqfsCIPquMprLdOTuTVLIWP5rPySw"/>
                                     </div>
                                     <div className="absolute bottom-0 right-0 bg-[#FFD700] text-[#8B6508] p-1 rounded-full border-2 border-surface shadow-sm">
                                         <span className="material-symbols-outlined fill-icon text-lg">workspace_premium</span>
@@ -616,7 +618,7 @@
                                             </div>
                                         </div>
                                         <div className="flex flex-row md:flex-col gap-3 w-full md:w-auto mt-4 md:mt-0">
-                                            <button className="flex-1 md:w-full bg-primary text-on-primary-fixed-variant font-bold py-3 px-6 rounded-lg shadow-sm flex items-center justify-center gap-2">
+                                            <button onClick={() => navigate('/chat')} className="flex-1 md:w-full bg-secondary text-on-secondary font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2">
                                                 <span className="material-symbols-outlined">chat_bubble</span> Chat
                                             </button>
                                         </div>
@@ -625,13 +627,31 @@
                             </div>
                         </section>
 
+                        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-section-gap">
+                            {[
+                                { icon: 'account_balance', label: 'Merchant Lending', path: '/lending', color: 'bg-secondary' },
+                                { icon: 'account_balance_wallet', label: 'Wallet', path: '/wallet', color: 'bg-primary' },
+                                { icon: 'verified_user', label: 'Compliance', path: '/compliance', color: 'bg-tertiary' },
+                                { icon: 'insights', label: 'Analytics', path: '/analytics', color: 'bg-outline' },
+                                { icon: 'sell', label: 'My Listings', path: '/listings', color: 'bg-secondary' },
+                                { icon: 'support_agent', label: 'Help Center', path: '/help', color: 'bg-primary' },
+                            ].map((item, idx) => (
+                                <button key={idx} onClick={() => navigate(item.path)} className="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-surface-variant hover:shadow-md transition-all flex flex-col items-center gap-3 text-left">
+                                    <div className={`${item.color} p-3 rounded-full`}>
+                                        <span className="material-symbols-outlined text-white fill-icon">{item.icon}</span>
+                                    </div>
+                                    <h3 className="text-title-md font-title-md font-bold text-on-surface">{item.label}</h3>
+                                </button>
+                            ))}
+                        </section>
+
                         <section>
                             <div className="flex justify-between items-center mb-6">
                                 <h3 className="text-title-md font-title-md font-bold text-on-surface">Active Listings</h3>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
                                 {[
-                                    { title: 'Samsung Galaxy S23 Ultra', price: '₦ 850,000', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBtWL-bo6H9nccNVuFzH6lg55s1EI6Cjra9Jj83IYSFsibnTA-OauNGCPrpA2XIxpwUQzJTJCK5ZsqOajSY2V9DiTV4MW4hMGHhBYkBpf19xk2Ui657MgQD93QrTcXchTDiUwx2Us8QzAn_82FJfB-xkoaRo_CDD6f0aPaF4diBf1PP7hV6eivmE-cMVeoO3HeuyCV7DeE8q8_bOm1y4VNcXFeXMh8wNZmGBw3VTLI12fotIcda5lJDGTi3Pc-MtZm4JhWfYBezEOU' },
+                                    { title: 'Samsung Galaxy S23 Ultra', price: '₦ 850,000', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBtWL-bo6H9nccNVuFzH6lg55s1EI6Cjra9Jj83IYSFsibnTA-OauNGCPrpA2XIyalx-Hoo6lmnH4BjB5fI5kbMIG0AWE8pC7KRVJUUiPSwgJIb22P8DID6yK9qoIhm7W8-CtclWRBCUJGI1pB9wr-Hro8oexx1yM0zePfsXvvsNXTpqR7qpK6dCgmgcYX_lNhSVx0z4d83GX_Teal_6Ur4TuEwvJ6AC88a-MbsgbqZGlIW7zqfsCIPquMprLdOTuTVLIWP5rPySw' },
                                     { title: 'MacBook Air M2 2022', price: '₦ 1,150,000', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFNjwaO-DCMMw2AlQHAPg70uIJ7Uzhn6dPTWbizOi4UYusKvXK-Drfd1svX4tCvnoOsamo9p3Vdq5rRhCGuLmzdulVj7_3bpvX0ZD91jYgg--BMukfywFKEmEmqa2YJeEP_VGlR45yk3lMdTPrRjXt-lNbZUUuqsCyUByolWHosvBw2dcYbltSbEmCDYGwGO707yPJRnFv22JkexERtSwXDEix80IsRnFTSuoQ_j3_bpTYV1swsCRCdtd-7BYSZ_2TIPgCZ3KS2eM' },
                                 ].map((item, idx) => (
                                     <article key={idx} className="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-outline-variant/30 flex flex-col">
@@ -652,15 +672,384 @@
             );
         };
 
+        // Screen: Wallet
+        const WalletPage = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="pb-24 md:pb-0">
+                    <header className="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile py-base bg-surface z-50 shadow-sm md:px-container-margin-desktop h-[64px]">
+                        <button onClick={() => navigate(-1)} aria-label="Back" className="text-primary p-2 hover:bg-surface-container-low rounded-full transition-colors">
+                            <span className="material-symbols-outlined">arrow_back</span>
+                        </button>
+                        <h1 className="text-title-md font-title-md font-bold text-primary text-center flex-1">MoMo Wallet</h1>
+                        <button aria-label="More" className="p-2 text-primary hover:bg-surface-container-low transition-colors rounded-full">
+                            <span className="material-symbols-outlined">more_vert</span>
+                        </button>
+                    </header>
+
+                    <main className="max-w-4xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8">
+                        <section className="bg-gradient-to-br from-primary to-primary-container rounded-3xl p-6 text-on-primary mb-section-shadow-lg">
+                            <p className="text-label-caps font-label-caps opacity-80 mb-2">Available Balance</p>
+                            <p className="text-display-lg font-display-lg font-bold mb-8">₦ 1,245,800</p>
+                            <div className="grid grid-cols-4 gap-4">
+                                {[
+                                    { icon: 'send', label: 'Send' },
+                                    { icon: 'request_quote', label: 'Request' },
+                                    { icon: 'account_balance', label: 'Withdraw' },
+                                    { icon: 'history', label: 'History' },
+                                ].map((item, idx) => (
+                                    <button key={idx} className="flex flex-col items-center gap-2 text-white hover:opacity-90 transition-colors">
+                                        <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                                            <span className="material-symbols-outlined">{item.icon}</span>
+                                        </div>
+                                        <span className="text-label-caps font-label-caps">{item.label}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </section>
+
+                        <section className="mb-section-gap">
+                            <div className="flex justify-between items-center mb-4">
+                                <h2 className="text-title-md font-title-md font-bold text-on-surface">Recent Transactions</h2>
+                            </div>
+                            <div className="space-y-3">
+                                {[
+                                    { title: 'Payment Received', desc: 'From Adebayo O.', amount: '+₦ 45,000', time: '2 hours ago', type: 'credit' },
+                                    { title: 'Lending Repayment', desc: 'Monthly Installment', amount: '-₦ 15,000', time: '1 day ago', type: 'debit' },
+                                    { title: 'Airtime Topup', desc: 'MTN 5GB', amount: '-₦ 5,000', time: '2 days ago', type: 'debit' },
+                                ].map((txn, idx) => (
+                                    <div key={idx} className="bg-surface-container-lowest p-4 rounded-xl border border-surface-variant flex items-center justify-between">
+                                        <div className="flex items-center gap-4">
+                                            <div className={`w-10 h-10 rounded-full flex items-center justify-center ${txn.type === 'credit' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                                                <span className="material-symbols-outlined">{txn.type === 'credit' ? 'arrow_downward' : 'arrow_upward'}</span>
+                                            </div>
+                                            <div>
+                                                <h3 className="text-body-lg font-body-lg font-semibold text-on-surface">{txn.title}</h3>
+                                                <p className="text-body-sm font-body-sm text-on-surface-variant">{txn.desc}</p>
+                                            </div>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className={`text-title-md font-title-md font-bold ${txn.type === 'credit' ? 'text-green-700' : 'text-red-700'}`}>{txn.amount}</p>
+                                            <p className="text-body-sm font-body-sm text-on-surface-variant">{txn.time}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    </main>
+                    <BottomNavBar />
+                </div>
+            );
+        };
+
+        // Screen: Merchant Lending Dashboard
+        const MerchantLendingPage = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="pb-24 md:pb-0">
+                    <header className="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile py-base bg-surface z-50 shadow-sm md:px-container-margin-desktop h-[64px]">
+                        <div className="flex items-center gap-2">
+                            <div className="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high">
+                                <img alt="Merchant Profile" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD27e5xINq72rz2pRrXskF9CFc76saaCaBzsa01oA--niWTaZ28YHLJP59mNnQHIyalx-Hoo6lmnH4BjB5fI5kbMIG0AWE8pC7KRVJUUiPSwgJIb22P8DID6yK9qoIhm7W8-CtclWRBCUJGI1pB9wr-Hro8oexx1yM0zePfsXvvsNXTpqR7qpK6dCgmgcYX_lNhSVx0z4d83GX_Teal_6Ur4TuEwvJ6AC88a-MbsgbqZGlIW7zqfsCIPquMprLdOTuTVLIWP5rPySw"/>
+                            </div>
+                            <span className="text-title-md font-title-md font-bold text-primary">MerchantHub</span>
+                        </div>
+                        <button aria-label="Notifications" className="w-10 h-10 flex items-center justify-center rounded-full text-primary hover:bg-surface-container-high transition-colors">
+                            <span className="material-symbols-outlined">notifications</span>
+                        </button>
+                    </header>
+
+                    <main className="max-w-4xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8">
+                        <section className="mb-section-gap">
+                            <p className="text-label-caps font-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">Total Outstanding Balance</p>
+                            <div className="text-display-lg font-display-lg text-on-background mb-4">₦ 450,000</div>
+                            <button className="w-full bg-secondary text-on-secondary font-title-md text-title-md py-3 px-4 rounded-lg shadow-sm hover:opacity-90 transition-all flex justify-center items-center gap-2">
+                                Make a Payment
+                            </button>
+                        </section>
+
+                        <section className="mb-section-gap relative rounded-xl p-[2px] overflow-hidden shadow-lg group">
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary-container via-secondary to-tertiary z-0 opacity-80"></div>
+                            <div className="relative z-10 bg-white/85 backdrop-blur-md rounded-[10px] p-5 h-full w-full flex flex-col">
+                                <div className="flex items-start justify-between mb-4">
+                                    <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-secondary to-tertiary rounded-full shadow-sm">
+                                        <span className="material-symbols-outlined text-white text-[16px] fill-icon">auto_awesome</span>
+                                        <span className="text-label-caps font-label-caps text-white">AI APPROVED OFFER</span>
+                                    </div>
+                                </div>
+                                <h3 className="text-title-md font-title-md text-on-background mb-2">Instant Capital Advance</h3>
+                                <p className="text-body-sm font-body-sm text-on-surface-variant mb-5">Based on your excellent 30-day sales volume, you are pre-approved for immediate funding.</p>
+                                <div className="mb-6">
+                                    <span className="text-body-sm font-body-sm text-on-surface-variant">Available now:</span>
+                                    <div className="text-headline-lg-mobile text-headline-lg-mobile font-bold text-secondary">Up to ₦ 1,500,000</div>
+                                </div>
+                                <button className="w-full bg-gradient-to-r from-secondary to-tertiary text-on-secondary font-title-md text-title-md py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all flex justify-center items-center gap-2">
+                                    Review Terms
+                                    <span className="material-symbols-outlined">arrow_forward</span>
+                                </button>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div className="flex items-center justify-between mb-4">
+                                <h2 className="text-title-md font-title-md text-on-background">Active Facilities</h2>
+                            </div>
+                            <div className="space-y-4">
+                                <article className="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
+                                    <div className="flex justify-between items-start mb-3">
+                                        <div>
+                                            <h4 className="text-title-md font-title-md text-on-background">Inventory Restock</h4>
+                                            <p className="text-body-sm font-body-sm text-on-surface-variant">Due Oct 15, 2024</p>
+                                        </div>
+                                        <span className="px-2.5 py-1 bg-primary-fixed rounded text-on-primary-fixed-variant text-label-caps font-label-caps">ON TRACK</span>
+                                    </div>
+                                    <div className="flex justify-between items-end mt-4 mb-2">
+                                        <span className="text-body-sm font-body-sm text-on-surface-variant">Remaining</span>
+                                        <span className="text-title-md font-title-md text-on-background">₦ 120,000</span>
+                                    </div>
+                                    <div className="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                                        <div className="bg-secondary h-full rounded-full" style={{width: '65%'}}></div>
+                                    </div>
+                                </article>
+                                <article className="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
+                                    <div className="flex justify-between items-start mb-3">
+                                        <div>
+                                            <h4 className="text-title-md font-title-md text-on-background">Store Renovation</h4>
+                                            <p className="text-body-sm font-body-sm text-on-surface-variant">Due Nov 01, 2024</p>
+                                        </div>
+                                        <span className="px-2.5 py-1 bg-surface-variant rounded text-on-surface-variant text-label-caps font-label-caps">UPCOMING</span>
+                                    </div>
+                                    <div className="flex justify-between items-end mt-4 mb-2">
+                                        <span className="text-body-sm font-body-sm text-on-surface-variant">Remaining</span>
+                                        <span className="text-title-md font-title-md text-on-background">₦ 330,000</span>
+                                    </div>
+                                    <div className="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                                        <div className="bg-primary h-full rounded-full" style={{width: '25%'}}></div>
+                                    </div>
+                                </article>
+                            </div>
+                        </section>
+                    </main>
+                    <BottomNavBar />
+                </div>
+            );
+        };
+
+        // Screen: Product Profile
+        const ProductProfilePage = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="pb-24 md:pb-0">
+                    <header className="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile py-base bg-surface z-50 shadow-sm md:px-container-margin-desktop h-[64px]">
+                        <button onClick={() => navigate(-1)} aria-label="Back" className="text-primary p-2 hover:bg-surface-container-low rounded-full transition-colors">
+                            <span className="material-symbols-outlined">arrow_back</span>
+                        </button>
+                        <h1 className="text-title-md font-title-md font-bold text-primary text-center flex-1">Product Details</h1>
+                        <button aria-label="Share" className="p-2 text-primary hover:bg-surface-container-low transition-colors rounded-full">
+                            <span className="material-symbols-outlined">share</span>
+                        </button>
+                    </header>
+
+                    <main className="max-w-4xl mx-auto">
+                        <div className="relative aspect-video bg-surface-container">
+                            <img alt="Product" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUY3jjiw2_wYR_bfUFgeWuY2tZUodVYCRRpiBrVS2828IHI1fGnMFC_e_2Z4YAnLrmlIpHtwuEcyIz2aTEIRKq8WjaYscY6valyjPIQ_DKrlPwdKXkrKLtgFtXVzUpAKVzgrlx5wtTImaumcv3nE6RCkc4_Wm479KfkpgVcQmU6njLaqZptPKzIzFWrTXBVw7OqiMkZdHSUF3tdnJWB1GQ0Q31xm8ma-dXqqfB3gmeKpc_Yb9Xtfn7y_iwr_484J4-xX3173GH8gA"/>
+                            <div className="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 border border-outline-variant/50">
+                                <span className="material-symbols-outlined text-[12px] text-primary fill-icon">verified</span>
+                                <span className="text-[10px] font-bold text-on-surface">VERIFIED</span>
+                            </div>
+                        </div>
+
+                        <div className="px-container-margin-mobile md:px-container-margin-desktop py-8">
+                            <div className="flex items-start justify-between mb-4">
+                                <div>
+                                    <h1 className="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg font-bold text-on-surface mb-2">MacBook Pro M2 2023</h1>
+                                    <p className="text-title-md font-title-md font-bold text-secondary">₦ 1,850,000</p>
+                                </div>
+                                <button className="p-3 rounded-full bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-colors">
+                                    <span className="material-symbols-outlined text-primary">favorite_border</span>
+                                </button>
+                            </div>
+
+                            <div className="flex items-center gap-2 mb-6 text-on-surface-variant">
+                                <span className="material-symbols-outlined">location_on</span>
+                                <span className="text-body-sm font-body-sm">Ikeja, Lagos • 2km away</span>
+                            </div>
+
+                            <div className="bg-surface-container-lowest p-4 rounded-xl border border-surface-variant mb-6">
+                                <h3 className="text-title-md font-title-md font-bold text-on-surface mb-2">Description</h3>
+                                <p className="text-body-sm font-body-sm text-on-surface-variant">
+                                    Super clean MacBook Pro M2 with 16GB RAM and 512GB SSD. Comes with original charger and box. Battery health at 98%. Perfect condition, no scratches.
+                                </p>
+                            </div>
+
+                            <div className="bg-surface-container-lowest p-4 rounded-xl border border-surface-variant mb-6">
+                                <h3 className="text-title-md font-title-md font-bold text-on-surface mb-4">Seller Information</h3>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+                                        <img alt="Seller" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD27e5xINq72rz2pRrXskF9CFc76saaCaBzsa01oA--niWTaZ28YHLJP59mNnQHIyalx-Hoo6lmnH4BjB5fI5kbMIG0AWE8pC7KRVJUUiPSwgJIb22P8DID6yK9qoIhm7W8-CtclWRBCUJGI1pB9wr-Hro8oexx1yM0zePfsXvvsNXTpqR7qpK6dCgmgcYX_lNhSVx0z4d83GX_Teal_6Ur4TuEwvJ6AC88a-MbsgbqZGlIW7zqfsCIPquMprLdOTuTVLIWP5rPySw"/>
+                                    </div>
+                                    <div className="flex-1">
+                                        <h4 className="text-body-lg font-body-lg font-semibold text-on-surface">TechHub Electronics</h4>
+                                        <div className="flex items-center gap-1 text-primary">
+                                            <span className="material-symbols-outlined fill-icon text-sm">star</span>
+                                            <span className="text-body-sm font-body-sm">4.8 (124 reviews)</span>
+                                        </div>
+                                    </div>
+                                    <button className="px-4 py-2 bg-secondary text-on-secondary rounded-lg font-bold">View Profile</button>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-4">
+                                <button onClick={() => navigate('/chat')} className="flex-1 bg-surface-container-lowest border border-outline-variant text-primary font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2">
+                                    <span className="material-symbols-outlined">chat_bubble</span> Chat
+                                </button>
+                                <button className="flex-1 bg-secondary text-on-secondary font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2">
+                                    <span className="material-symbols-outlined">payments</span> Buy Now
+                                </button>
+                            </div>
+                        </div>
+                    </main>
+                    <BottomNavBar />
+                </div>
+            );
+        };
+
+        // Screen: AI Chat
+        const AIChatPage = () => {
+            const navigate = useNavigate();
+            const [messages, setMessages] = useState([
+                { sender: 'ai', text: 'Hi! I\'m your AI negotiation assistant. How can I help you today?', time: '10:30 AM' },
+            ]);
+            const [input, setInput] = useState('');
+
+            const sendMessage = () => {
+                if (!input.trim()) return;
+                const newMessages = [
+                    ...messages,
+                    { sender: 'user', text: input, time: '10:32 AM' },
+                ];
+                setMessages(newMessages);
+                setInput('');
+                setTimeout(() => {
+                    setMessages([
+                        ...newMessages,
+                        { sender: 'ai', text: 'Thanks for your message! Based on market data, I think ₦1,750,000 is a fair price. Would you like me to help you negotiate?', time: '10:32 AM' }
+                    ]);
+                }, 1000);
+            };
+
+            return (
+                <div className="flex flex-col h-screen">
+                    <header className="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile py-base bg-surface z-50 shadow-sm md:px-container-margin-desktop h-[64px]">
+                        <button onClick={() => navigate(-1)} aria-label="Back" className="text-primary p-2 hover:bg-surface-container-low rounded-full transition-colors">
+                            <span className="material-symbols-outlined">arrow_back</span>
+                        </button>
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-tertiary flex items-center justify-center">
+                                <span className="material-symbols-outlined text-white fill-icon">auto_awesome</span>
+                            </div>
+                            <div>
+                                <h1 className="text-title-md font-title-md font-bold text-on-surface">AI Assistant</h1>
+                                <p className="text-label-caps font-label-caps text-green-600">Online</p>
+                            </div>
+                        </div>
+                        <button aria-label="More" className="p-2 text-primary hover:bg-surface-container-low transition-colors rounded-full">
+                            <span className="material-symbols-outlined">more_vert</span>
+                        </button>
+                    </header>
+
+                    <main className="flex-1 px-container-margin-mobile md:px-container-margin-desktop py-4 overflow-y-auto space-y-4">
+                        {messages.map((msg, idx) => (
+                            <div key={idx} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                                <div className={`max-w-[80%] rounded-2xl p-4 ${msg.sender === 'user' ? 'bg-secondary text-on-secondary rounded-tr-sm' : 'bg-surface-container-lowest border border-surface-variant rounded-tl-sm'}`}>
+                                    <p className="text-body-sm font-body-sm">{msg.text}</p>
+                                    <p className="text-[10px] mt-1 opacity-60 text-right">{msg.time}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </main>
+
+                    <div className="p-4 bg-surface border-t border-outline-variant">
+                        <div className="flex gap-3">
+                            <input
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                                placeholder="Type a message..."
+                                className="flex-1 bg-surface-container-low border border-outline-variant rounded-full px-5 py-3 text-body-sm font-body-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary"
+                            />
+                            <button onClick={sendMessage} className="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-colors">
+                                <span className="material-symbols-outlined">send</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Screen: Login
+        const LoginPage = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="min-h-screen bg-background flex flex-col items-center justify-center px-container-margin-mobile md:px-container-margin-desktop">
+                    <div className="w-full max-w-md">
+                        <div className="text-center mb-12">
+                            <div className="w-20 h-20 bg-primary-container rounded-3xl flex items-center justify-center mx-auto mb-6">
+                                <span className="material-symbols-outlined text-[48px] text-primary">shopping_cart</span>
+                            </div>
+                            <h1 className="text-headline-lg font-headline-lg font-bold text-primary mb-2">MTN Marketplace</h1>
+                            <p className="text-body-lg font-body-lg text-on-surface-variant">Buy & Sell locally with ease</p>
+                        </div>
+
+                        <div className="space-y-6">
+                            <div>
+                                <label className="text-body-sm font-body-sm font-semibold text-on-surface mb-2 block">Phone Number</label>
+                                <input className="w-full bg-surface-container-low border border-transparent focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg px-4 py-3 text-body-lg font-body-lg text-on-surface" placeholder="+234 803 123 4567" type="tel" />
+                            </div>
+
+                            <button onClick={() => navigate('/otp')} className="w-full bg-primary-container text-on-primary-container font-title-md text-title-md font-bold py-3 px-6 rounded-lg hover:bg-[#e6b800] transition-colors shadow-sm">
+                                Continue
+                            </button>
+
+                            <div className="flex items-center gap-4 my-6">
+                                <div className="flex-1 h-px bg-surface-container-high"></div>
+                                <span className="text-label-caps font-label-caps text-on-surface-variant">OR</span>
+                                <div className="flex-1 h-px bg-surface-container-high"></div>
+                            </div>
+
+                            <div className="grid grid-cols-3 gap-4">
+                                {['Google', 'Facebook', 'Apple'].map((provider, idx) => (
+                                    <button key={idx} className="py-3 px-4 bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-surface-container-high transition-colors flex items-center justify-center">
+                                        <span className="material-symbols-outlined text-on-surface-variant">{idx === 0 ? 'mail' : idx === 1 ? 'group' : 'apple'}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <p className="text-center mt-12 text-body-sm font-body-sm text-on-surface-variant">
+                            Don't have an account? <button onClick={() => navigate('/signup')} className="text-secondary font-bold hover:underline">Sign Up</button>
+                        </p>
+                    </div>
+                </div>
+            );
+        };
+
         // --- App Component ---
         const App = () => {
             return (
-                <MemoryRouter>
+                <MemoryRouter initialEntries={['/']}>
                     <Routes>
                         <Route path="/" element={<FeedPage />} />
                         <Route path="/search" element={<SearchPage />} />
                         <Route path="/create" element={<CreateListingPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
+                        <Route path="/wallet" element={<WalletPage />} />
+                        <Route path="/lending" element={<MerchantLendingPage />} />
+                        <Route path="/product/:id" element={<ProductProfilePage />} />
+                        <Route path="/chat" element={<AIChatPage />} />
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="*" element={<FeedPage />} />
                     </Routes>
                 </MemoryRouter>
             );
