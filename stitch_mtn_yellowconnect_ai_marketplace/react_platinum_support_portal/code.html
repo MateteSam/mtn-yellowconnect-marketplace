@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta content="React: Platinum Support Portal" name="component-title"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Platinum Merchant Support</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#d2c5ab",
+                        "on-primary-fixed-variant": "#584400",
+                        "error": "#ba1a1a",
+                        "secondary": "#1f5dae",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-container": "#003c7c",
+                        "outline": "#80765f",
+                        "on-surface-variant": "#4e4632",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-container-high": "#ebe7e7",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-on-surface": "#f3f0ef",
+                        "background": "#fcf9f8",
+                        "tertiary-container": "#00e7fe",
+                        "tertiary": "#006874",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-fixed-dim": "#f1c100",
+                        "surface-container-low": "#f6f3f2",
+                        "on-surface": "#1c1b1b",
+                        "surface-tint": "#745b00",
+                        "primary-container": "#ffcc00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-background": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "surface": "#fcf9f8",
+                        "primary": "#745b00",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#6f5700",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-container": "#76a9ff",
+                        "primary-fixed": "#ffe08b",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#f1c100",
+                        "secondary-fixed-dim": "#aac7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "title-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            /* Forcing a darker theme for this specific portal despite the global light mode instruction, as requested by the prompt for a "dark, premium aesthetic" */
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #f1c100 0%, #ffe08b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#121212] text-white font-body-lg flex flex-col md:flex-row antialiased">
+<!-- Desktop Navigation Drawer (Hidden on Mobile) -->
+<aside class="hidden md:flex flex-col h-screen w-80 bg-inverse-surface border-r border-outline-variant/10 sticky top-0 z-[60] p-6 shadow-2xl transition-all duration-300">
+<div class="flex items-center gap-4 mb-10">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-fixed-dim/30">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRSZ3TuI4D4GYbGlpLykEp5dZ45XSMZzSeLvJT4VoxwK5Sindr5pOW2PFAAXcPdhj0oY2ZiYH0seu5yE74eZhTA3gfGtEtNtBEu0tsYBLovQ_g3u9zAk_yPtcW59DDCqX4F8xwisE45dMKG-Jfqlo2HqPgd_2RM4XZFZzTI3yjmbq7z7evkN4eyyygtRwztf5o7ieJcjk9VyhlKGgElkXAn0V2dZjotjjlmlCHCKPfGocbyL5ybYYSlQyifk1KIJVxgXLcbdK6tc4"/>
+</div>
+<div>
+<h2 class="font-title-md text-inverse-primary leading-tight">Alex M.</h2>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<p class="font-label-caps text-surface-variant uppercase tracking-wider">Platinum</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1.5">
+<a class="flex items-center gap-3 p-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-lg">Payments</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-xl bg-primary-fixed-dim/10 text-primary-fixed-dim font-semibold border border-primary-fixed-dim/20 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">help</span>
+<span class="font-body-lg">Help &amp; Support</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 glass-panel rounded-2xl bg-white/5 border border-white/10">
+<span class="block font-label-caps text-surface-variant mb-1">Queue Status</span>
+<div class="flex items-center gap-2 text-primary-fixed-dim">
+<div class="w-2 h-2 rounded-full bg-primary-fixed-dim animate-pulse shadow-[0_0_8px_#f1c100]"></div>
+<span class="font-title-md font-bold">Priority VIP</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-h-screen max-w-[1280px] mx-auto w-full relative">
+<!-- Mobile TopAppBar -->
+<header class="md:hidden flex justify-between items-center w-full px-container-margin-mobile py-4 bg-inverse-surface/90 backdrop-blur-md fixed top-0 z-50 border-b border-outline-variant/20 shadow-sm">
+<button class="text-inverse-primary active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-inverse-primary">MTN Marketplace</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a businessman in a sleek, dark modern environment. The lighting is cinematic and moody, highlighting his confident expression. He wears a premium dark suit. The overall aesthetic is high-end corporate, with deep shadows and subtle highlights conveying authority and exclusivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsDXlEyN2S4WlZnd97z7JxpKpDdiXnCxmRmSEjZCbkLXXRfMtn3Eal5Tajo6dWQFFYLjvzeAydvullLjzcK2ExoBr8RzOp7zEZs39YtXijFLyvySerfVOM9pytaMZVaroHfl6QSQqfqZE1NkvE3706n6KzS_nfK510WIWKMwvWO4md5di6APyoMQxKzlkk3uZWzuC67Jftv0Td15x4kHRGHlzefXhmRXfpg9yjLrtdCPvzt8806Vf_myDhfoQjoY-2npFwzeiZjPM"/>
+</div>
+</header>
+<div class="flex-1 px-4 md:px-10 py-12 mt-16 md:mt-0 max-w-7xl mx-auto w-full">
+<!-- Header Component Section -->
+<header class="mb-12">
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">Platinum Support</h1>
+<p class="text-lg text-surface-variant max-w-2xl leading-relaxed">Exclusive 24/7 concierge assistance for our top-tier marketplace merchants.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- DedicatedManagerCard Component -->
+<section class="lg:col-span-2 glass-panel rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between min-h-[340px] border border-white/10 shadow-2xl bg-white/[0.03]">
+<div class="absolute -right-32 -top-32 w-80 h-80 bg-primary-fixed-dim/10 rounded-full blur-[100px]"></div>
+<div class="flex flex-col md:flex-row gap-8 items-start relative z-10">
+<div class="w-28 h-28 md:w-40 md:h-40 rounded-2xl overflow-hidden shadow-2xl shrink-0 ring-1 ring-white/20">
+<img alt="Sarah M. Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOY46_L5o1ncNLTCprcY5F-iWMvxWq63TfY13BAqt_cvSI-Rw5d9C_Bbsv3hfeLrcfRx6tfvOU3UmbjNsm2qN0WJQjR9KoYmaIOheNL3nOMAS9IGLGSSNQzdjH0G9Su43LrWq9eXt10m1VcOdF-m0aHDqthdLNjbS56CaMPPhgczVWlQU2JVhPO_0y9_Nkr90Hmanrs7QBrt5UK4wpyURU3eJtdLdD5QEn3n3dNv0PJfzWfiM5-8oXvPgwEImV1iQHPFWVBjFUD0s"/>
+</div>
+<div class="flex flex-col h-full">
+<span class="inline-flex w-fit px-3 py-1 rounded-full bg-primary-container/20 text-primary-fixed-dim border border-primary-fixed-dim/30 font-label-caps text-[10px] uppercase tracking-widest mb-4">Dedicated Manager</span>
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Sarah M.</h2>
+<p class="text-surface-variant text-lg mb-8 leading-relaxed">Senior Logistics &amp; Merchant Success Specialist. Available for priority consultations regarding bulk shipments and strategic marketplace positioning.</p>
+<div class="flex flex-wrap gap-4">
+<button class="flex items-center gap-3 bg-primary-fixed-dim text-black font-semibold px-8 py-4 rounded-2xl hover:brightness-110 active:scale-95 transition-all shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+              Direct Call
+            </button>
+<button class="flex items-center gap-3 bg-white/5 border border-white/10 text-white font-semibold px-8 py-4 rounded-2xl hover:bg-white/10 active:scale-95 transition-all backdrop-blur-md">
+<span class="material-symbols-outlined">chat</span>
+              Priority Chat
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- ServicesGrid Component -->
+<section class="glass-panel rounded-3xl p-8 bg-white/[0.03] border border-white/10 flex flex-col shadow-xl">
+<h3 class="text-xl font-bold text-white mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim">room_service</span>
+        Concierge Services
+      </h3>
+<div class="space-y-4">
+<button class="w-full flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.08] border border-white/5 transition-all group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary-fixed group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<span class="font-semibold text-white">Logistics Escalation</span>
+</div>
+<span class="material-symbols-outlined text-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.08] border border-white/5 transition-all group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed-dim/10 flex items-center justify-center text-primary-fixed-dim group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<span class="font-semibold text-white">Bulk Order Mgt.</span>
+</div>
+<span class="material-symbols-outlined text-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.08] border border-white/5 transition-all group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary-fixed group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<span class="font-semibold text-white">Promotional Boosts</span>
+</div>
+<span class="material-symbols-outlined text-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- RecentTicketsTable Component -->
+<section class="lg:col-span-3 glass-panel rounded-3xl p-8 bg-white/[0.03] border border-white/10 shadow-xl">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+<div>
+<h3 class="text-2xl font-bold text-white mb-1">Recent Priority Tickets</h3>
+<p class="text-surface-variant">Guaranteed <span class="text-primary-fixed-dim font-bold underline decoration-primary-fixed-dim/30">15-minute</span> SLA response time.</p>
+</div>
+<button class="text-primary-fixed-dim font-semibold hover:text-primary-fixed-dim/80 transition-colors flex items-center gap-1 group">
+          View All Activity <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto -mx-2">
+<table class="w-full text-left min-w-[700px]">
+<thead>
+<tr class="text-surface-variant border-b border-white/10 uppercase tracking-widest text-[11px] font-bold">
+<th class="py-5 px-4">Ticket ID</th>
+<th class="py-5 px-4">Subject</th>
+<th class="py-5 px-4">Status</th>
+<th class="py-5 px-4">Resolution Time</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="group hover:bg-white/[0.04] transition-all cursor-pointer">
+<td class="py-5 px-4 text-primary-fixed-dim font-mono">#PT-8942</td>
+<td class="py-5 px-4 text-white font-medium">Customs clearance delay - Order #992A</td>
+<td class="py-5 px-4">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary-fixed border border-secondary-container/30 text-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed animate-pulse"></span> Active
+                </span>
+</td>
+<td class="py-5 px-4 text-surface-variant italic">Manager Reviewing</td>
+</tr>
+<tr class="group hover:bg-white/[0.04] transition-all cursor-pointer">
+<td class="py-5 px-4 text-primary-fixed-dim font-mono">#PT-8810</td>
+<td class="py-5 px-4 text-white font-medium">API Integration Error - Inventory Sync</td>
+<td class="py-5 px-4">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20 text-xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Resolved
+                </span>
+</td>
+<td class="py-5 px-4 text-surface-variant font-medium">12 mins</td>
+</tr>
+<tr class="group hover:bg-white/[0.04] transition-all cursor-pointer">
+<td class="py-5 px-4 text-primary-fixed-dim font-mono">#PT-8755</td>
+<td class="py-5 px-4 text-white font-medium">Chargeback dispute evidence submission</td>
+<td class="py-5 px-4">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20 text-xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Resolved
+                </span>
+</td>
+<td class="py-5 px-4 text-surface-variant font-medium">8 mins</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) - Adjusted for Help context -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-gutter bg-inverse-surface shadow-[0_-4px_12px_rgba(0,0,0,0.2)] rounded-t-xl z-50">
+<a class="flex flex-col items-center justify-center text-surface-variant hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-surface-variant hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Seller</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">help</span>
+<span class="font-label-caps text-label-caps mt-1">Help</span>
+</a>
+<a class="flex flex-col items-center justify-center text-surface-variant hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+<!-- Spacer for mobile nav -->
+<div class="h-20 md:hidden w-full"></div>
+</main>
+</body></html>

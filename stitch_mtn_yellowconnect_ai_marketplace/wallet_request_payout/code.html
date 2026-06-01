@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Request Payout - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "primary": "#745b00",
+                        "on-background": "#1c1b1b",
+                        "secondary": "#1f5dae",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-surface-variant": "#4e4632",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-secondary-container": "#003c7c",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#745b00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "outline": "#80765f",
+                        "primary-fixed": "#ffe08b",
+                        "inverse-primary": "#f1c100",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-low": "#f6f3f2",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#6f5700",
+                        "tertiary": "#006874",
+                        "tertiary-container": "#00e7fe",
+                        "outline-variant": "#d2c5ab",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "secondary-container": "#76a9ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary-fixed": "#95f1ff",
+                        "primary-container": "#ffcc00",
+                        "inverse-surface": "#313030",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-high": "#ebe7e7",
+                        "surface-container": "#f0edec",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#00646e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to right, #745b00, #1f5dae);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col pt-[72px]">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4 transition-transform duration-300 transform translate-y-0" id="top-app-bar">
+<div class="flex items-center gap-4">
+<button aria-label="Close" class="text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-display-lg text-title-md font-bold text-primary dark:text-inverse-primary hidden md:block">MTN Marketplace</h1>
+</div>
+<div class="flex items-center">
+<span class="font-title-md text-title-md text-on-surface">Request Payout</span>
+</div>
+<div class="flex items-center gap-4">
+<!-- Avatar Placeholder for structure, though less relevant on a transactional screen, keeping for balance -->
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center px-container-margin-mobile md:px-container-margin-desktop py-8 md:py-12 w-full max-w-3xl mx-auto pb-24 md:pb-8">
+<!-- Context Header -->
+<div class="w-full text-center mb-8">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background mb-2">Available Balance</h2>
+<div class="font-display-lg text-display-lg text-primary mb-1">GH₵ 4,250.00</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ready to be withdrawn</p>
+</div>
+<!-- Payout Form Card -->
+<div class="w-full bg-surface rounded-xl shadow-lg border border-surface-container-high p-6 md:p-8 mb-6">
+<!-- Amount Input -->
+<div class="mb-section-gap">
+<label class="block font-title-md text-title-md text-on-surface mb-4" for="payout-amount">Amount to Withdraw</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 transform -translate-y-1/2 font-title-md text-title-md text-on-surface-variant">GH₵</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg py-4 pl-14 pr-24 font-title-md text-title-md text-on-background focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" id="payout-amount" name="amount" placeholder="0.00" type="number" value="4250.00"/>
+<button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-surface-container border border-outline-variant text-on-surface font-label-caps text-label-caps px-3 py-2 rounded hover:bg-surface-container-high transition-colors" type="button">MAX</button>
+</div>
+</div>
+<!-- Payout Method -->
+<div class="mb-section-gap">
+<h3 class="font-title-md text-title-md text-on-surface mb-4">Select Payout Method</h3>
+<div class="space-y-3">
+<!-- Method 1: Mobile Money -->
+<label class="flex items-center justify-between p-4 border border-secondary rounded-lg bg-secondary-fixed/10 cursor-pointer transition-colors relative overflow-hidden group">
+<div class="flex items-center gap-4 z-10">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
+</div>
+<div>
+<div class="font-body-lg text-body-lg text-on-background font-semibold">MTN Mobile Money</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">**** 4321</div>
+</div>
+</div>
+<div class="z-10 flex items-center">
+<input checked="" class="w-5 h-5 text-secondary border-outline-variant focus:ring-secondary bg-surface" name="payout_method" type="radio" value="momo"/>
+</div>
+<div class="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
+</label>
+<!-- Method 2: Bank Transfer -->
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-lg bg-surface hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant">account_balance</span>
+</div>
+<div>
+<div class="font-body-lg text-body-lg text-on-background font-semibold">Bank Transfer</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">EcoBank **** 8901</div>
+</div>
+</div>
+<div class="flex items-center">
+<input class="w-5 h-5 text-secondary border-outline-variant focus:ring-secondary bg-surface" name="payout_method" type="radio" value="bank"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Transaction Summary -->
+<div class="bg-surface-container-low rounded-lg p-5">
+<h4 class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider mb-4">Transaction Summary</h4>
+<div class="space-y-2 mb-4">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface">Withdrawal Amount</span>
+<span class="font-body-sm text-body-sm text-on-background font-semibold">GH₵ 4,250.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+                            Transaction Fee (1%)
+                            <span class="material-symbols-outlined text-[14px] text-on-surface-variant cursor-help" title="Standard platform withdrawal fee">info</span>
+</span>
+<span class="font-body-sm text-body-sm text-error font-semibold">- GH₵ 42.50</span>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant flex justify-between items-center">
+<span class="font-title-md text-title-md text-on-background">Total Payout</span>
+<span class="font-title-md text-title-md text-primary font-bold">GH₵ 4,207.50</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-secondary bg-secondary-fixed/20 p-3 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="font-body-sm text-body-sm font-semibold">Estimated Arrival: Instant - 5 Mins</span>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="w-full flex flex-col gap-4">
+<button class="w-full bg-primary-fixed-dim text-on-primary-fixed-variant font-title-md text-title-md py-4 rounded-full shadow-md hover:bg-primary-fixed transition-colors flex items-center justify-center gap-2">
+                Confirm Payout
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-2 text-tertiary mt-2">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Secure 256-bit Encrypted Transaction</span>
+</div>
+</div>
+</main>
+<!-- Navigation shell suppressed as per rules for transactional screen (Request Payout implies a focused task) -->
+<script>
+        // Simple interaction for the top bar hide on scroll
+        let lastScrollTop = 0;
+        const topAppBar = document.getElementById('top-app-bar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                // Downscroll
+                topAppBar.classList.add('-translate-y-full');
+            } else {
+                // Upscroll
+                topAppBar.classList.remove('-translate-y-full');
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body></html>

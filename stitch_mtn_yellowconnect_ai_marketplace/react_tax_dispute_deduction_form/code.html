@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dispute Deduction - MerchantHub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-high": "#ebe7e7",
+                        "inverse-on-surface": "#f3f0ef",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "inverse-primary": "#f1c100",
+                        "primary-container": "#ffcc00",
+                        "on-primary-container": "#6f5700",
+                        "on-background": "#1c1b1b",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary": "#1f5dae",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary": "#745b00",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#00e7fe",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "surface": "#fcf9f8",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f0edec",
+                        "on-secondary-container": "#003c7c",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "background": "#fcf9f8",
+                        "outline": "#80765f",
+                        "tertiary": "#006874",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffe08b",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-bright": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4e4632",
+                        "secondary-container": "#76a9ff",
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-tint": "#745b00",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-surface": "#313030",
+                        "error-container": "#ffdad6"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        "title-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg antialiased">
+<!-- Top App Bar (Task-Focused Sub-page) -->
+<header class="fixed top-0 w-full bg-surface shadow-sm z-50 flex items-center justify-between px-container-margin-mobile h-16">
+<button aria-label="Go back" class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary truncate flex-1 text-center">Dispute Deduction</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-section-gap px-container-margin-mobile md:px-container-margin-desktop max-w-3xl mx-auto">
+<!-- Context / Introduction -->
+<div class="mb-8 text-center md:text-left">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Contest a Charge</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Review the deduction details below and provide a clear reason along with any supporting evidence for your dispute.</p>
+</div>
+<!-- Deduction Details Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant p-6 mb-8 relative overflow-hidden">
+<!-- Decorative accent line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<h3 class="font-title-md text-title-md text-on-surface">Deduction Details</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Deduction Amount</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-error font-bold">-$245.50 <span class="text-body-sm font-body-sm text-on-surface-variant font-normal">USD</span></p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Date Applied</p>
+<p class="font-body-lg text-body-lg text-on-surface font-medium">October 12, 2023</p>
+</div>
+<div class="md:col-span-2 pt-4 border-t border-surface-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Type / Description</p>
+<p class="font-body-lg text-body-lg text-on-surface">Compliance Penalty - Late Document Submission (Q3 2023)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Reference ID: #TX-88392-CMP</p>
+</div>
+</div>
+</section>
+<!-- Form Section -->
+<form action="#" class="space-y-8" id="dispute-form" method="POST">
+<!-- Reason Input -->
+<div>
+<label class="block font-title-md text-title-md text-on-surface mb-3" for="dispute-reason">Reason for Dispute</label>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Please provide a detailed explanation of why you believe this deduction is incorrect. Be specific and reference dates or prior communications if applicable.</p>
+<textarea class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-4 font-body-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all resize-y focus:ring-2" id="dispute-reason" name="dispute-reason" placeholder="e.g., I submitted the required Q3 compliance documents on October 10th, prior to the deadline, and received a confirmation email..." required="" rows="5"></textarea>
+</div>
+<!-- Upload Evidence -->
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-3">Upload Evidence</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Attach relevant documents (e.g., receipts, certificates, email screenshots) to support your case. Max 5MB per file.</p>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 bg-surface-container-lowest flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container-low hover:border-secondary transition-all group" onclick="document.getElementById('evidence-upload').click()">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-fixed text-[28px]">cloud_upload</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface mb-1">Tap or click to upload files</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">PNG, JPG, PDF up to 5MB</p>
+<input accept=".png,.jpg,.jpeg,.pdf" class="hidden" id="evidence-upload" multiple="" name="evidence-files" type="file"/>
+</div>
+<!-- Placeholder for uploaded file (visually hidden initially, shown for design completeness) -->
+<div class="mt-4 flex items-center justify-between p-3 bg-surface-container rounded-lg border border-surface-variant">
+<div class="flex items-center gap-3 overflow-hidden">
+<span class="material-symbols-outlined text-secondary">description</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Q3_Submission_Confirmation.pdf</span>
+</div>
+<button aria-label="Remove file" class="text-error hover:text-error-container p-1 rounded-full hover:bg-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Action Area -->
+<div class="pt-6 mt-8 border-t border-surface-variant flex flex-col-reverse md:flex-row gap-4 justify-end">
+<button class="w-full md:w-auto px-6 py-3 rounded-full font-title-md text-title-md text-secondary hover:bg-surface-container transition-colors active:scale-95" type="button">Cancel</button>
+<button class="w-full md:w-auto px-8 py-3 rounded-full bg-primary-container text-on-primary-container font-title-md text-title-md hover:bg-inverse-primary transition-colors active:scale-95 shadow-sm flex items-center justify-center gap-2 disabled:opacity-50" type="submit"><span class="material-symbols-outlined text-[20px]">send</span><span>Submit Dispute</span></button>
+</div>
+</form>
+</main>
+</body></html>

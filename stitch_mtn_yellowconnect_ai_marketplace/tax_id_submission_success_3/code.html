@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tax ID Submitted</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1c1b1b",
+                        "primary": "#745b00",
+                        "surface": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "surface-tint": "#745b00",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-secondary-container": "#003c7c",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-tertiary-fixed": "#001f24",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-surface-variant": "#4e4632",
+                        "secondary": "#1f5dae",
+                        "tertiary": "#006874",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-low": "#f6f3f2",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#6f5700",
+                        "on-surface": "#1c1b1b",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#f1c100",
+                        "primary-fixed": "#ffe08b",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "outline": "#80765f",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-high": "#ebe7e7",
+                        "surface-container": "#f0edec",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed": "#95f1ff",
+                        "primary-container": "#ffcc00",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-container": "#76a9ff",
+                        "tertiary-container": "#00e7fe",
+                        "outline-variant": "#d2c5ab",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col items-center justify-center relative overflow-x-hidden">
+<!-- Subtle Background Glow for Depth -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<main class="w-full max-w-md mx-auto px-container-margin-mobile md:px-0 py-section-gap flex flex-col items-center relative z-10 min-h-screen md:min-h-0 justify-center">
+<!-- Success Icon -->
+<div class="mb-8 animate-[bounce_1s_ease-in-out_1]">
+<span class="material-symbols-outlined text-[100px] text-primary-container drop-shadow-md" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Header Content -->
+<div class="text-center mb-10 w-full">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-3 tracking-tight">Tax ID Submitted for Review</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[300px] mx-auto">Your compliance documents have been securely transmitted and are currently in our queue.</p>
+</div>
+<!-- Status Tracker Card -->
+<div class="w-full bg-surface-container-lowest shadow-[0_4px_24px_rgba(0,0,0,0.04)] rounded-[24px] p-6 mb-10 border border-outline-variant/30">
+<h2 class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-6">Verification Status</h2>
+<ul class="relative pl-5 border-l-[3px] border-surface-variant ml-4 space-y-8">
+<!-- Step 1: Completed -->
+<li class="relative">
+<div class="absolute -left-[30px] top-[-2px] w-8 h-8 rounded-full bg-primary-container flex items-center justify-center ring-4 ring-surface-container-lowest shadow-sm z-10">
+<span class="material-symbols-outlined text-[18px] text-on-surface" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="pl-4">
+<h3 class="font-title-md text-title-md text-on-surface leading-tight mb-1">Submission Received</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Documents successfully uploaded and encrypted.</p>
+</div>
+</li>
+<!-- Step 2: Current -->
+<li class="relative">
+<div class="absolute -left-[30px] top-[-2px] w-8 h-8 rounded-full bg-surface-container-lowest border-[3px] border-secondary flex items-center justify-center ring-4 ring-surface-container-lowest z-10">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></div>
+</div>
+<div class="pl-4">
+<h3 class="font-title-md text-title-md text-on-surface leading-tight mb-1">Pending Review</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Expected completion in 24-48 hours.</p>
+<div class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary-fixed text-on-secondary-fixed-variant font-label-caps text-label-caps border border-secondary-fixed-dim/50">
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+                            In Progress
+                        </div>
+</div>
+</li>
+</ul>
+</div>
+<!-- Action Buttons -->
+<div class="w-full flex flex-col gap-4 mt-auto md:mt-0">
+<!-- Primary Action -->
+<button class="w-full py-4 px-6 rounded-xl bg-primary-container text-on-surface font-title-md text-title-md flex items-center justify-center gap-3 hover:bg-[#ffe066] transition-all active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+                Return to Compliance Center
+            </button>
+<!-- Secondary Action -->
+<button class="w-full py-4 px-6 rounded-xl bg-secondary text-on-secondary font-title-md text-title-md flex items-center justify-center gap-3 hover:bg-on-secondary-container transition-all active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined">storefront</span>
+                Explore Marketplace
+            </button>
+</div>
+<!-- Trust Indicator -->
+<div class="mt-8 flex items-center gap-2 text-on-surface-variant opacity-70">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-body-sm text-body-sm">Secured by MTN Trust Infrastructure</span>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Marketplace - Help Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#4e4632",
+                        "background": "#fcf9f8",
+                        "primary-fixed": "#ffe08b",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-tint": "#745b00",
+                        "surface-bright": "#fcf9f8",
+                        "primary-container": "#ffcc00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "on-secondary-container": "#003c7c",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#d2c5ab",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary-container": "#00e7fe",
+                        "secondary": "#1f5dae",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface-container-high": "#ebe7e7",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#76a9ff",
+                        "inverse-primary": "#f1c100",
+                        "on-secondary-fixed": "#001b3e",
+                        "tertiary": "#006874",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f0edec",
+                        "inverse-surface": "#313030",
+                        "on-primary-container": "#6f5700",
+                        "outline": "#80765f",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcd9d9",
+                        "primary": "#745b00",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-fixed-dim": "#aac7ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px",
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    fontSize: {
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Custom scrollbar for horizontal lists if needed */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .ai-glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .ai-glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(116, 91, 0, 0.3), rgba(0, 231, 254, 0.3));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg text-body-lg min-h-screen relative overflow-x-hidden">
+<!-- Overlay for Drawer -->
+<div class="fixed inset-0 bg-on-surface/40 z-[55] hidden opacity-0 transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<!-- NavigationDrawer (Shared Component) -->
+<aside class="fixed inset-y-0 left-0 z-[60] flex flex-col p-4 bg-surface shadow-xl h-full w-80 rounded-r-xl transform -translate-x-full transition-transform duration-300 ease-in-out border-r border-surface-container-low" id="nav-drawer">
+<!-- Header: Profile -->
+<div class="flex items-center gap-4 mb-6 p-2">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary-fixed">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A close-up studio portrait of a professional individual with a warm, confident smile, set against a pristine white background. The lighting is bright and high-key, creating a modern, clean aesthetic that aligns with a light-mode corporate design system. The subject is wearing business casual attire in subtle navy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtcU9eR2niq606GHrD9l-2fnFMlO4so5M-fxmCM72gdTtCVzY0haGbBn8F5mCmN84xb9UY1Dd4-qMNFNIg2V-zg6EZQ_MqdbSZKnGKP57MIm9hVz33UrB5omHDGoP8RCzspeBWLVomavg2ZhB-g1XOUgnG4DuwZW84JQJWSofb49FSsCJd_TqqRwWtVq3WtAfUJ5oOgKaiCfBBRSbIbce3l5JXCPqHKvpRzAfuM5QuBz_hwy_CtXVxmKOC3N2GEdGWbY2VFmAVuAQ"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Alex M.</span>
+<span class="font-body-sm text-body-sm text-primary">Gold Merchant</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">Verified Seller</span>
+</div>
+<button class="ml-auto p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="w-full h-px bg-surface-container-low mb-4"></div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 flex-1 overflow-y-auto">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface hover:bg-surface-container-high transition-colors hover:translate-x-1 active:opacity-80" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+<span class="font-body-lg text-body-lg">Account Settings</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface hover:bg-surface-container-high transition-colors hover:translate-x-1 active:opacity-80" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">star</span>
+<span class="font-body-lg text-body-lg">Membership Plan</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface hover:bg-surface-container-high transition-colors hover:translate-x-1 active:opacity-80" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">payments</span>
+<span class="font-body-lg text-body-lg">Payment Methods</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface hover:bg-surface-container-high transition-colors hover:translate-x-1 active:opacity-80" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">dashboard</span>
+<span class="font-body-lg text-body-lg">Seller Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface hover:bg-surface-container-high transition-colors hover:translate-x-1 active:opacity-80" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">military_tech</span>
+<span class="font-body-lg text-body-lg">Performance Badges</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-4 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg mt-2 shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">help</span>
+<span class="font-body-lg text-body-lg">Help &amp; Support</span>
+</a>
+</nav>
+</aside>
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4 transition-all">
+<div class="flex items-center gap-4">
+<button aria-label="Open menu" class="p-2 -ml-2 text-primary hover:bg-surface-container-high rounded-full transition-colors active:scale-95" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-[28px]">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-primary tracking-tight">MTN Marketplace</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-secondary text-[20px]">language</span>
+<span class="font-label-caps text-label-caps text-on-surface">EN / ZA</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high cursor-pointer hover:ring-2 ring-primary transition-all shadow-sm">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up studio portrait of a professional individual with a warm, confident smile, set against a pristine white background. The lighting is bright and high-key, creating a modern, clean aesthetic that aligns with a light-mode corporate design system. The subject is wearing business casual attire in subtle navy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_ek827HJLaGXx-CNOLvim013LVR6sG0rjHw2GC4kes3PQw0af_aeq6ftBzkKDEe78xaUlyPVLOmGts4UJCORb-RzhKGLb15RI0_PM6g-zSjD-G9BMNKKNQNqpimnJYqfq2yD-E1aAscufCOb0xd0eAkTlzNHtgAm5eaUSo7Onmz67NbHQ8I20bi3hmdOEsWopdU9pMVaKaH9mRm5vhb0QuNqX8rj_gNDzr8KshY38fIwujJxV65Byo9BvcS0OOKlPFr1b1cVXSQo"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<!-- Added pt-24 to clear the fixed TopAppBar -->
+<main class="pt-[88px] pb-section-gap flex flex-col items-center w-full">
+<!-- Hero Search Section with Background Pattern -->
+<section class="w-full relative bg-surface-container-low border-b border-outline-variant overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#745b00 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="max-w-[1024px] mx-auto px-container-margin-mobile md:px-container-margin-desktop py-12 md:py-16 relative z-10 flex flex-col items-center text-center">
+<h2 class="font-display-lg text-headline-lg md:text-display-lg text-on-background mb-4">How can we help you today?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl">Search for guides, policies, or contact our support team for specialized assistance with your marketplace account.</p>
+<!-- Prominent Search Bar -->
+<div class="w-full max-w-3xl relative">
+<div class="flex items-center bg-surface rounded-xl shadow-lg border border-outline-variant/50 p-2 focus-within:ring-2 focus-within:ring-secondary focus-within:border-transparent transition-all">
+<span class="material-symbols-outlined text-outline ml-4 mr-2 text-[28px]">search</span>
+<input class="flex-1 bg-transparent border-none outline-none font-body-lg text-body-lg text-on-surface placeholder:text-outline py-3 px-2 w-full" placeholder="Describe your issue (e.g. 'refund policy' or 'update banking details')" type="text"/>
+<button class="bg-primary hover:bg-primary-fixed-dim text-on-primary-fixed font-title-md text-title-md px-6 py-3 rounded-lg transition-colors shadow-sm ml-2 whitespace-nowrap">
+                            Search
+                        </button>
+</div>
+</div>
+<!-- AI Suggested Searches (Glassmorphism) -->
+<div class="mt-8 flex flex-wrap justify-center gap-3 w-full max-w-3xl">
+<div class="w-full text-left mb-2 flex items-center gap-2 pl-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">auto_awesome</span>
+<span class="font-label-caps text-label-caps text-tertiary tracking-wider">AI SUGGESTED TOPICS</span>
+</div>
+<button class="ai-glass-panel px-4 py-2 rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">trending_up</span> Boost listing visibility
+                    </button>
+<button class="ai-glass-panel px-4 py-2 rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">payments</span> Payout schedule updates
+                    </button>
+<button class="ai-glass-panel px-4 py-2 rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span> Verify business account
+                    </button>
+</div>
+</div>
+</section>
+<!-- Main Workspace: Categories & Featured -->
+<div class="max-w-[1280px] w-full mx-auto px-container-margin-mobile md:px-container-margin-desktop py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-section-gap">
+<!-- Left Column: Categories Grid -->
+<section class="lg:col-span-8 flex flex-col gap-6">
+<div class="flex items-center justify-between border-b border-surface-container-high pb-4">
+<h3 class="font-title-md text-title-md text-on-background font-bold">Browse Topics</h3>
+</div>
+<!-- Bento Grid for Categories -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-gutter">
+<!-- Getting Started -->
+<a class="group flex flex-col p-6 bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-surface-container-highest hover:shadow-lg hover:-translate-y-1 transition-all duration-300" href="#">
+<div class="w-12 h-12 rounded-full bg-primary-fixed/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2 group-hover:text-primary transition-colors">Getting Started</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1">Registration, profile setup, and platform basics.</p>
+</a>
+<!-- Buying -->
+<a class="group flex flex-col p-6 bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-surface-container-highest hover:shadow-lg hover:-translate-y-1 transition-all duration-300" href="#">
+<div class="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-[28px]" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2 group-hover:text-secondary transition-colors">Buying</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1">Orders, payments, shipping, and returns.</p>
+</a>
+<!-- Selling -->
+<a class="group flex flex-col p-6 bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-surface-container-highest hover:shadow-lg hover:-translate-y-1 transition-all duration-300" href="#">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-[28px]" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2 group-hover:text-tertiary transition-colors">Selling</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1">Listings, inventory, seller fees, and payouts.</p>
+</a>
+<!-- Safety & Trust -->
+<a class="group flex flex-col p-6 bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-surface-container-highest hover:shadow-lg hover:-translate-y-1 transition-all duration-300" href="#">
+<div class="w-12 h-12 rounded-full bg-error-container/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-error text-[28px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2 group-hover:text-error transition-colors">Safety &amp; Trust</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1">Reporting issues, secure transactions, and policies.</p>
+</a>
+<!-- Account Management -->
+<a class="group flex flex-col p-6 bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-surface-container-highest hover:shadow-lg hover:-translate-y-1 transition-all duration-300 sm:col-span-2 md:col-span-1" href="#">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant text-[28px]" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2 group-hover:text-primary transition-colors">Account Details</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1">Passwords, notifications, and personal data.</p>
+</a>
+<!-- Contact Support CTA (Spans across available space) -->
+<div class="sm:col-span-2 md:col-span-1 flex flex-col justify-center items-center p-6 bg-on-surface text-surface rounded-xl shadow-lg relative overflow-hidden">
+<!-- Abstract pattern -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-fixed to-transparent"></div>
+<span class="material-symbols-outlined text-[40px] mb-3 relative z-10 text-primary-fixed">support_agent</span>
+<h4 class="font-title-md text-title-md mb-2 text-center relative z-10">Still need help?</h4>
+<button class="mt-2 bg-primary text-on-primary-fixed font-title-md text-body-sm px-5 py-2.5 rounded-lg w-full transition-colors hover:bg-primary-fixed-dim relative z-10">
+                            Contact Us
+                        </button>
+</div>
+</div>
+</section>
+<!-- Right Column: Featured Articles & Notices -->
+<aside class="lg:col-span-4 flex flex-col gap-8">
+<!-- Featured Articles List -->
+<div class="bg-surface rounded-xl border border-surface-container-highest p-6 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+<h3 class="font-title-md text-title-md text-on-background font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">star</span>
+                        Featured Articles
+                    </h3>
+<ul class="flex flex-col gap-3">
+<li>
+<a class="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline mt-0.5 group-hover:text-primary transition-colors text-[20px]">description</span>
+<div>
+<h4 class="font-body-lg text-body-sm font-semibold text-on-surface group-hover:underline">How to withdraw funds to Mobile Money</h4>
+<p class="font-body-sm text-[13px] text-on-surface-variant mt-1 line-clamp-1">Step-by-step guide for transferring your seller balance.</p>
+</div>
+</a>
+</li>
+<li class="w-full h-px bg-surface-container-high"></li>
+<li>
+<a class="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline mt-0.5 group-hover:text-primary transition-colors text-[20px]">description</span>
+<div>
+<h4 class="font-body-lg text-body-sm font-semibold text-on-surface group-hover:underline">Understanding the Buyer Protection Policy</h4>
+<p class="font-body-sm text-[13px] text-on-surface-variant mt-1 line-clamp-1">What is covered and how to file a claim.</p>
+</div>
+</a>
+</li>
+<li class="w-full h-px bg-surface-container-high"></li>
+<li>
+<a class="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline mt-0.5 group-hover:text-primary transition-colors text-[20px]">description</span>
+<div>
+<h4 class="font-body-lg text-body-sm font-semibold text-on-surface group-hover:underline">Optimizing your product images for sales</h4>
+<p class="font-body-sm text-[13px] text-on-surface-variant mt-1 line-clamp-1">Best practices for high-converting photography.</p>
+</div>
+</a>
+</li>
+</ul>
+<button class="mt-4 w-full py-2 text-center font-label-caps text-label-caps text-secondary hover:bg-secondary-fixed/50 rounded-lg transition-colors">
+                        VIEW ALL ARTICLES
+                    </button>
+</div>
+<!-- System Status Card -->
+<div class="bg-surface-container-low rounded-xl border border-surface-container-high p-5 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-title-md text-body-lg font-bold text-on-surface">System Status</h3>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-[#E8F5E9] text-[#2E7D32] rounded-full font-label-caps text-[10px]">
+<span class="w-2 h-2 rounded-full bg-[#4CAF50] animate-pulse"></span>
+                            All Systems Operational
+                        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Marketplace services, payments, and messaging are running normally.</p>
+</div>
+</aside>
+</div>
+</main>
+<script>
+        // Simple JS for Navigation Drawer Toggle
+        const drawer = document.getElementById('nav-drawer');
+        const overlay = document.getElementById('drawer-overlay');
+
+        function toggleDrawer() {
+            const isClosed = drawer.classList.contains('-translate-x-full');
+            
+            if (isClosed) {
+                // Open
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                // Small delay to allow display:block to apply before animating opacity
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                }, 10);
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                // Close
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                // Wait for animation to finish before hiding
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body></html>

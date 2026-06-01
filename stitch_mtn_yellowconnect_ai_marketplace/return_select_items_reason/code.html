@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Initiate Return</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Brand Anchors -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#d2c5ab",
+                    "on-secondary-container": "#003c7c",
+                    "primary-fixed": "#ffe08b",
+                    "surface": "#fcf9f8",
+                    "on-primary-fixed": "#241a00",
+                    "on-error-container": "#93000a",
+                    "outline": "#80765f",
+                    "on-tertiary-fixed-variant": "#004f57",
+                    "on-surface-variant": "#4e4632",
+                    "primary-container": "#ffcc00",
+                    "on-background": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#d6e3ff",
+                    "inverse-surface": "#313030",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#aac7ff",
+                    "surface-tint": "#745b00",
+                    "on-tertiary-container": "#00646e",
+                    "tertiary-container": "#00e7fe",
+                    "tertiary-fixed": "#95f1ff",
+                    "secondary": "#1f5dae",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#001b3e",
+                    "tertiary-fixed-dim": "#00daf0",
+                    "secondary-container": "#76a9ff",
+                    "surface-variant": "#e5e2e1",
+                    "on-tertiary-fixed": "#001f24",
+                    "tertiary": "#006874",
+                    "surface-container-high": "#ebe7e7",
+                    "primary": "#745b00",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-secondary-fixed-variant": "#00458d",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#f1c100",
+                    "on-primary": "#ffffff",
+                    "background": "#fcf9f8",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-surface": "#1c1b1b",
+                    "on-error": "#ffffff",
+                    "surface-container": "#f0edec",
+                    "surface-bright": "#fcf9f8",
+                    "inverse-primary": "#f1c100",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary-container": "#6f5700",
+                    "inverse-on-surface": "#f3f0ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap": "48px",
+                    "container-margin-mobile": "16px",
+                    "container-margin-desktop": "40px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "title-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom checkbox styles to match brand */
+        .brand-checkbox {
+            appearance: none;
+            background-color: transparent;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 1.5em;
+            height: 1.5em;
+            border: 2px solid theme('colors.outline');
+            border-radius: 0.25rem;
+            display: grid;
+            place-content: center;
+            transition: all 0.2s ease-in-out;
+        }
+        .brand-checkbox::before {
+            content: "";
+            width: 0.85em;
+            height: 0.85em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em theme('colors.on-primary-container');
+            background-color: theme('colors.on-primary-container');
+            transform-origin: center;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+        .brand-checkbox:checked {
+            border-color: theme('colors.primary-container');
+            background-color: theme('colors.primary-container');
+        }
+        .brand-checkbox:checked::before {
+            transform: scale(1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm flex items-center justify-between px-gutter h-14 transition-colors duration-200">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95 text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-title-md text-title-md font-bold text-on-surface">Marketplace</h1>
+<button aria-label="Account profile" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95 text-primary">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="pt-[88px] pb-[120px] px-container-margin-mobile md:px-container-margin-desktop max-w-[1280px] mx-auto min-h-screen flex flex-col gap-8">
+<!-- Page Title -->
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Initiate Return</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Select the items from your bundle that you wish to return and tell us why.</p>
+</div>
+<!-- Return Items Form -->
+<form class="flex flex-col gap-section-gap">
+<!-- Items Selection -->
+<section class="flex flex-col gap-4">
+<h3 class="font-title-md text-title-md text-on-surface">Items to Return</h3>
+<div class="flex flex-col gap-3">
+<!-- Item 1 -->
+<label class="flex items-center gap-4 p-4 bg-surface rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-transparent hover:border-surface-variant cursor-pointer transition-all">
+<input class="brand-checkbox" name="return_item" type="checkbox" value="ultravision"/>
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A sleek, modern smartphone resting on a pristine white surface under bright, high-key studio lighting. The device features a metallic frame and a glossy glass back, reflecting a subtle, cool blue tint. The aesthetic is extremely clean, corporate, and technologically advanced, perfectly matching a high-trust modern marketplace interface. Shadows are soft and diffused, emphasizing the premium quality of the product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARFYWdIlFAogWjgWWr8o0aPxUMtpT7ShAKdELUIBx464fY83sMHCEXC5jd87l3Hu7l47RrqM8-QwObsjnYqo8d9DP48LSVeHfysdnB2GL1f0I_U7uzHBfYxfeV4mNQFJdFeFMgaEmDXrVuy5g1KJ0HPEza33AN2E3I6h-rtlui2MgAjdvKOTFyZVT_ZfTJ10aJUKxKl_b9l88zytm8_D7qijf_ghsRlXLZEjw2PmojbVX0Wr5FeWbJl2i1OtdWhnOgkjaSDhdglVk"/>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface">UltraVision Pro 5G</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bundle Item 1 of 3</p>
+</div>
+</label>
+<!-- Item 2 -->
+<label class="flex items-center gap-4 p-4 bg-surface rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-transparent hover:border-surface-variant cursor-pointer transition-all">
+<input class="brand-checkbox" name="return_item" type="checkbox" value="sonicbuds"/>
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A pair of premium wireless earbuds sitting partially outside their matte white charging case. The lighting is crisp and even, creating a sterile, high-end commercial photography look. The background is a soft, seamless light gray, maintaining the minimalist and modern corporate style of the user interface. Subtle reflections on the earbuds suggest a smooth, high-quality plastic finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVV9q_kdusKITTx_PsepLNYKiCxryQq3S9Y5as4PssytZ3mj_AeZUeIUlrsO_Oi3V1enuktaAFvi20FlXVqrrY_d28X3oXuT-2vkVo7Zzh_ZlavxzxubMGs8H5aCyCxv2Q9u27xfUdIFQExoU59jqjh0QVtMuoM4vglhtq3__BXxqwX4VB5MNtn77nnQgumGbs9MbXvtt7xrY5PKl7uIRKzOOnpnlSlzrrSHIeifnShgAYGXYOgjLghJ9pmC9uBABvqawmroUrHxY"/>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface">SonicBuds Pro</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bundle Item 2 of 3</p>
+</div>
+</label>
+<!-- Item 3 -->
+<label class="flex items-center gap-4 p-4 bg-surface rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-transparent hover:border-surface-variant cursor-pointer transition-all">
+<input class="brand-checkbox" name="return_item" type="checkbox" value="charger"/>
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline" data-icon="power" style="font-size: 32px;">power</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface">65W GaN Charger</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bundle Item 3 of 3</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Return Details -->
+<section class="flex flex-col gap-6 bg-surface p-6 rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Return Details</h3>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase" for="return_reason">Reason for Return</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low border border-transparent text-on-surface font-body-lg rounded-lg px-4 py-3 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors cursor-pointer" id="return_reason" name="return_reason">
+<option disabled="" selected="" value="">Select a reason...</option>
+<option value="defective">Item is defective or doesn't work</option>
+<option value="changed_mind">Changed my mind / No longer need</option>
+<option value="incorrect">Received incorrect item</option>
+<option value="description">Not as described</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase" for="return_comments">Additional Details (Optional)</label>
+<textarea class="w-full bg-surface-container-low border border-transparent text-on-surface font-body-lg rounded-lg px-4 py-3 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors resize-none" id="return_comments" name="return_comments" placeholder="Please provide any additional context that might help us process your return faster..." rows="4"></textarea>
+</div>
+</section>
+</form>
+</main>
+<!-- Bottom Sticky Action Area -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-md border-t border-surface-variant p-container-margin-mobile md:px-container-margin-desktop z-40 flex justify-center">
+<div class="w-full max-w-[1280px]">
+<button class="w-full md:w-auto md:min-w-[200px] md:float-right flex items-center justify-center gap-2 bg-primary-container text-on-background font-body-lg font-bold rounded-full py-4 px-8 active:scale-[0.98] transition-transform shadow-sm" type="button">
+<span>Continue</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

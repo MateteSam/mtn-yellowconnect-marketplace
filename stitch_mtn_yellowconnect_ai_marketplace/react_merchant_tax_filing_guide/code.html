@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Marketplace - Tax Filing Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed-dim": "#f1c100",
+                        "primary": "#745b00",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary-container": "#6f5700",
+                        "tertiary": "#006874",
+                        "background": "#fcf9f8",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-container": "#003c7c",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-primary": "#f1c100",
+                        "surface-container": "#f0edec",
+                        "on-tertiary-container": "#00646e",
+                        "surface-tint": "#745b00",
+                        "inverse-surface": "#313030",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#4e4632",
+                        "on-error": "#ffffff",
+                        "outline": "#80765f",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "secondary-container": "#76a9ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "tertiary-container": "#00e7fe",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffe08b",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary": "#1f5dae",
+                        "outline-variant": "#d2c5ab",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#ffcc00",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-high": "#ebe7e7",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(241, 193, 0, 0.3); /* Using primary-fixed-dim with opacity */
+        }
+        .ai-gradient-text {
+            background: linear-gradient(135deg, #745b00 0%, #1f5dae 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .accordion-content {
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            max-height: 500px; /* Arbitrary large height */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 shadow-md flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop py-base bg-surface dark:bg-surface-dim transition-all duration-200">
+<div class="flex items-center gap-gutter">
+<button aria-label="Menu" class="md:hidden p-2 text-primary dark:text-primary-fixed hover:bg-surface-container-high rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-primary dark:text-primary-fixed tracking-tight">
+                MTN Marketplace
+            </h1>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="home">home</span> Home
+            </a>
+<a class="font-body-lg text-body-lg text-primary font-bold flex items-center gap-2 bg-primary-container/10 px-4 py-2 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="verified_user">verified_user</span> Compliance
+            </a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="account_balance_wallet">account_balance_wallet</span> Lending
+            </a>
+<button class="ml-4 p-1 rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+<img alt="User profile photo" class="w-10 h-10 rounded-full object-cover border-2 border-surface-container" data-alt="A professional headshot of a business woman in a modern office, smiling gently. The lighting is bright and clear, reflecting a high-trust corporate environment. The image uses a modern color palette with subtle hints of yellow and blue to match the MTN brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZofL09JAv3zcvI8UYijdj5GaMz3Qk0hNszjnG84EjFTNLLyk1S7bEUC-j5pDFO9E4kadblyjUt37nYcy9oZ2C8Fw5CceQ8ieGEjnTz-VjzjN5ivm02-xCDZgdcaVsOsMlv4_p-UGvMRQEb1xx30fFT6cDNF_-fq0rdcbemmThL0vEWp8S5HOF75Xa9EPJHCexih0oWiui_eR3JMo1hXXtX363XmreHPeDYwF2OPxg0ojvcsJ-VZoolaSMaHE0ifaHSFJyq3KBIe8"/>
+</button>
+</nav>
+<!-- Mobile Avatar -->
+<button class="md:hidden p-1 rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+<img alt="User profile photo" class="w-8 h-8 rounded-full object-cover border border-surface-container" data-alt="A professional headshot of a business woman in a modern office, smiling gently. The lighting is bright and clear, reflecting a high-trust corporate environment. The image uses a modern color palette with subtle hints of yellow and blue to match the MTN brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5-fHrux0Zt86vh4ntv_-V0fHIZxJgwLXNPACxXffm9P_Ndg9utXzHeaWLlLdnZU1FPwespQtYaAZ6RhJ1L6ojZ0fjGOJlGkpidkmjhK0GAVb8FqVQBSQMb65jRzE5yxFB0P80K4TacCcvyo_XpXgbSp6-J6sT-SShWtE7Y0lwno0d-KQWXr6SoxvYd1z8J8ihHEwz3eRHRURPBH9vcU4zBmkNCn0Pg4jMhIdl0y8lPv0k-CRYtoefNvAxdCDFpK60iEFVHS9y790"/>
+</button>
+</header>
+<main class="flex-grow flex flex-col items-center px-container-margin-mobile md:px-container-margin-desktop py-section-gap pb-24 md:pb-section-gap w-full max-w-[1280px] mx-auto gap-section-gap">
+<!-- Hero Section -->
+<section class="w-full flex flex-col gap-4 text-center md:text-left md:flex-row md:items-end md:justify-between border-b border-surface-variant pb-8">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full font-label-caps text-label-caps mb-4">
+<span class="material-symbols-outlined text-[16px]" data-icon="receipt_long">receipt_long</span>
+                    TAX COMPLIANCE
+                </div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Merchant Tax Filing Guide</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Navigate your annual tax obligations with confidence. This guide simplifies the process for MTN Marketplace sellers, ensuring compliance and peace of mind.
+                </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-6 md:mt-0">
+<button class="bg-primary text-on-primary font-title-md text-title-md font-bold py-3 px-6 rounded-lg shadow-md hover:bg-surface-tint transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                    Download Tax Statement
+                </button>
+</div>
+</section>
+<!-- Step-by-Step Process (Bento Grid Style) -->
+<section class="w-full flex flex-col gap-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="route">route</span>
+<h3 class="font-title-md text-title-md text-on-surface">Your Filing Journey</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Step 1 -->
+<div class="bg-surface-container-low rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.02)] relative overflow-hidden group hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 border border-transparent hover:border-outline-variant">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-container/20 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-title-md text-title-md mb-4 relative z-10">
+                        1
+                    </div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2 relative z-10">Gather Documents</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 relative z-10">
+                        Collect your MTN Marketplace annual sales summary, expense receipts, and previous year's return.
+                    </p>
+<ul class="space-y-2 relative z-10">
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span> Sales Summary (Form 1099-K equivalent)
+                        </li>
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span> Deductible Expense Records
+                        </li>
+</ul>
+</div>
+<!-- Step 2 (AI Enhanced) -->
+<div class="glass-panel rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300 md:-translate-y-4">
+<div class="absolute top-4 right-4 flex items-center gap-1 bg-secondary-container/30 text-secondary px-2 py-1 rounded font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span> AI Assisted
+                    </div>
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-title-md text-title-md mb-4 relative z-10">
+                        2
+                    </div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2 relative z-10">Review Deductions</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 relative z-10">
+                        Let our intelligent system scan your transaction history to identify potential tax-deductible business expenses automatically.
+                    </p>
+<button class="w-full py-2 bg-gradient-to-r from-secondary to-[#4A2D8D] text-white rounded-lg font-title-md text-[14px] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]" data-icon="troubleshoot">troubleshoot</span>
+                        Scan Expenses
+                    </button>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.02)] relative overflow-hidden group hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 border border-transparent hover:border-outline-variant">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary-container/20 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-title-md text-title-md mb-4 relative z-10">
+                        3
+                    </div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2 relative z-10">File &amp; Pay</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 relative z-10">
+                        Submit your final calculated figures to the local revenue authority portal. Pay any outstanding balances securely.
+                    </p>
+<div class="flex items-center gap-2 p-3 bg-surface-container rounded-lg relative z-10">
+<span class="material-symbols-outlined text-outline" data-icon="calendar_today">calendar_today</span>
+<div>
+<span class="block font-label-caps text-label-caps text-on-surface-variant">DEADLINE</span>
+<span class="block font-title-md text-[14px] text-error font-bold">April 30th, 2024</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Two Column Layout: FAQ & Support CTA -->
+<div class="w-full grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- FAQ Accordion -->
+<section class="md:col-span-8 flex flex-col gap-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="help_center">help_center</span>
+<h3 class="font-title-md text-title-md text-on-surface">Common Filing Questions</h3>
+</div>
+<div class="flex flex-col gap-2">
+<!-- FAQ Item 1 -->
+<div class="bg-surface border border-surface-variant rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-left" onclick="toggleAccordion(this)">
+<span class="font-title-md text-[16px] text-on-surface">Does MTN withhold taxes from my sales?</span>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-300" data-icon="expand_more">expand_more</span>
+</button>
+<div class="accordion-content bg-surface-container-lowest">
+<div class="p-4 pt-0 font-body-sm text-body-sm text-on-surface-variant border-t border-surface-variant mt-2">
+                                No, as an independent merchant on the MTN Marketplace, you are responsible for calculating and remitting your own income and sales taxes to the relevant authorities based on your gross sales volume.
+                            </div>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="bg-surface border border-surface-variant rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-left" onclick="toggleAccordion(this)">
+<span class="font-title-md text-[16px] text-on-surface">Where do I find my annual sales report?</span>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-300" data-icon="expand_more">expand_more</span>
+</button>
+<div class="accordion-content bg-surface-container-lowest">
+<div class="p-4 pt-0 font-body-sm text-body-sm text-on-surface-variant border-t border-surface-variant mt-2">
+                                Navigate to the 'Performance' tab in your Merchant Dashboard. From there, select 'Financial Reports' and choose the 'Annual Summary' option for the relevant tax year to download your consolidated data.
+                            </div>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="bg-surface border border-surface-variant rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-left" onclick="toggleAccordion(this)">
+<span class="font-title-md text-[16px] text-on-surface">Can I deduct marketplace fees?</span>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-300" data-icon="expand_more">expand_more</span>
+</button>
+<div class="accordion-content bg-surface-container-lowest">
+<div class="p-4 pt-0 font-body-sm text-body-sm text-on-surface-variant border-t border-surface-variant mt-2">
+                                Yes, the commission fees and listing charges paid to MTN Marketplace are generally considered deductible business expenses. They are detailed in your monthly billing statements.
+                            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Support CTA -->
+<section class="md:col-span-4 flex">
+<div class="w-full bg-surface-container rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] flex flex-col justify-between border border-surface-variant">
+<div>
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-2xl" data-icon="support_agent">support_agent</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Need Expert Help?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+                            Tax filing can be complex. If you have specific questions about your marketplace data or need technical assistance retrieving documents, our dedicated support team is here.
+                        </p>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full py-3 px-4 border-2 border-primary text-primary font-title-md text-[14px] rounded-lg hover:bg-primary-container/10 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                            Live Chat Support
+                        </button>
+<button class="w-full py-3 px-4 bg-surface-container-highest text-on-surface font-title-md text-[14px] rounded-lg hover:bg-surface-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                            Email Compliance Team
+                        </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-container-low shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center px-container-margin-mobile py-2 transition-transform duration-200">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-xl px-4 py-1 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-[10px] mt-1">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-xl px-4 py-1 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-caps text-[10px] mt-1">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-xl px-4 py-1 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.material-symbols-outlined:last-child');
+            
+            // Close all others
+            document.querySelectorAll('.accordion-content').forEach(el => {
+                if(el !== content) {
+                    el.classList.remove('open');
+                    el.style.paddingTop = '0';
+                    el.style.paddingBottom = '0';
+                    const otherIcon = el.previousElementSibling.querySelector('.material-symbols-outlined:last-child');
+                    if(otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle current
+            content.classList.toggle('open');
+            
+            if (content.classList.contains('open')) {
+                icon.style.transform = 'rotate(180deg)';
+                content.style.paddingTop = '8px';
+                content.style.paddingBottom = '16px';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+                content.style.paddingTop = '0';
+                content.style.paddingBottom = '0';
+            }
+        }
+    </script>
+</body></html>

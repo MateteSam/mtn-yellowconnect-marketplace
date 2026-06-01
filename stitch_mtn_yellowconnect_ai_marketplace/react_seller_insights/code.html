@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>React: Seller Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-primary": "#f1c100",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-container": "#6f5700",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-fixed": "#001f24",
+                        "tertiary": "#006874",
+                        "surface-container-high": "#ebe7e7",
+                        "primary": "#745b00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#001b3e",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "secondary-container": "#76a9ff",
+                        "surface-tint": "#745b00",
+                        "on-tertiary-container": "#00646e",
+                        "tertiary-container": "#00e7fe",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary": "#1f5dae",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#d6e3ff",
+                        "inverse-surface": "#313030",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-surface-variant": "#4e4632",
+                        "primary-container": "#ffcc00",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary-container": "#003c7c",
+                        "primary-fixed": "#ffe08b",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed": "#241a00",
+                        "on-error-container": "#93000a",
+                        "outline": "#80765f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "title-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar from JSON -->
+<header class="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-base bg-surface z-50 shadow-sm transition-colors duration-200">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-surface-container-low p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">language</span>
+</button>
+<h1 class="text-title-md font-title-md font-bold text-primary">MTN Marketplace</h1>
+</div>
+<button class="text-primary hover:bg-surface-container-low p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-[1280px] mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8 pb-32 md:pb-16 flex flex-col gap-section-gap">
+<!-- Page Header -->
+<section class="flex flex-col gap-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Seller Insights</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Performance overview and intelligent recommendations for your inventory.</p>
+</section>
+<!-- High-Level Metrics (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Component: StatsCard -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant flex flex-col gap-4 relative overflow-hidden group hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="font-title-md text-title-md">Total Views</span>
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface">45.2K</div>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center text-tertiary bg-tertiary/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>
+<span class="font-label-caps text-label-caps">+12.5%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">vs last 30 days</span>
+</div>
+<!-- Abstract Trend Line (Decorative) -->
+<svg class="absolute bottom-0 left-0 w-full h-12 text-tertiary opacity-20" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0,30 L0,15 Q25,5 50,20 T100,5 L100,30 Z" fill="currentColor"></path>
+</svg>
+</div>
+<!-- Component: StatsCard -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant flex flex-col gap-4 relative overflow-hidden group hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="font-title-md text-title-md">Clicks</span>
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">touch_app</span>
+</div>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface">8,405</div>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center text-tertiary bg-tertiary/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>
+<span class="font-label-caps text-label-caps">+5.2%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">vs last 30 days</span>
+</div>
+<!-- Abstract Trend Line (Decorative) -->
+<svg class="absolute bottom-0 left-0 w-full h-12 text-secondary opacity-20" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0,30 L0,20 Q25,25 50,10 T100,15 L100,30 Z" fill="currentColor"></path>
+</svg>
+</div>
+<!-- Component: StatsCard -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant flex flex-col gap-4 relative overflow-hidden group hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="font-title-md text-title-md">Conversion Rate</span>
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">shopping_cart_checkout</span>
+</div>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface">3.8%</div>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center text-error bg-error-container/50 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_down</span>
+<span class="font-label-caps text-label-caps">-1.1%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">vs last 30 days</span>
+</div>
+<!-- Abstract Trend Line (Decorative) -->
+<svg class="absolute bottom-0 left-0 w-full h-12 text-error opacity-20" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0,30 L0,5 Q25,15 50,10 T100,25 L100,30 Z" fill="currentColor"></path>
+</svg>
+</div>
+</section>
+<!-- AI Pricing Recommendations (Glassmorphic) -->
+<!-- Component: InsightCard -->
+<section class="relative rounded-xl border border-secondary/20 bg-surface-bright/90 backdrop-blur-xl shadow-lg p-6 overflow-hidden">
+<!-- Glassmorphic ambient glow -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-tertiary-container/30 rounded-full mix-blend-multiply filter blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-secondary-container/20 rounded-full mix-blend-multiply filter blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+<div class="flex flex-col gap-2 flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps text-tertiary tracking-wider uppercase">AI Enhanced Insight</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface">Slow-Moving Inventory Detected</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xl">
+                        Based on current market demand and competitor pricing, lowering the price of your <strong>Samsung Galaxy S22 Ultra</strong> slightly could increase your conversion probability by 40% this week.
+                    </p>
+</div>
+<div class="bg-surface-container-lowest/80 rounded-lg p-4 flex flex-col gap-3 min-w-[280px] border border-surface-variant/50">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Current Price</span>
+<span class="font-title-md text-title-md text-on-surface line-through decoration-error/50">R 15,500</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm font-bold text-secondary">Suggested Price</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold">R 14,800</span>
+</div>
+<button class="mt-2 w-full py-3 rounded-lg bg-gradient-to-r from-secondary to-tertiary text-on-primary font-title-md text-title-md shadow-md hover:shadow-lg transition-all flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">magic_button</span>
+                        Apply Optimization
+                    </button>
+</div>
+</div>
+</section>
+<!-- Active Listings -->
+<section class="flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h3 class="font-title-md text-title-md text-on-surface">Active Listings</h3>
+<button class="font-body-sm text-body-sm text-secondary hover:underline flex items-center gap-1">
+                    View All <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Component: ActiveListingItem -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant overflow-hidden flex flex-col group">
+<div class="h-48 bg-surface-container relative">
+<img alt="A sleek smartphone" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A sleek, modern smartphone resting on a minimalist concrete surface bathed in soft, natural daylight. The lighting is high-key and bright, emphasizing the phone's premium metallic finish and glossy screen. The overall aesthetic is clean, modern corporate, utilizing a sophisticated palette of soft grays, bright whites, and subtle blue reflections. The mood is high-trust and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB98mjRyamHPcV_3GZao3OaNn46iOkWzygVQaXoQMT1jFytQA2CjXg0ABMZ8p_HrkClEbP780TSFbYUjxtZ4w6uDDVuXxYWA1YbSGNRlWBtftfnw7aPL8kNTBBTQPnO7_Shlx7c3im-eZ7lO0vatCcQCn5vKhm2VRw3JdPU291DtBCwww3vboAOvdrJFpg17X37y9kzb2Cp74nnn0NBZpMbxgH3Hfr8LI9PkE5VniLCKTjMrd7WkyWbpDFLohNh5jaaEUWykGBIZzo"/>
+<div class="absolute top-2 right-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-1 rounded font-label-caps text-label-caps text-secondary flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">flag</span> ZA
+                        </div>
+</div>
+<div class="p-4 flex flex-col flex-1 gap-3">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface line-clamp-1">Apple iPhone 13 Pro Max - 256GB</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Electronics &gt; Smartphones</p>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold mt-auto">
+                            R 18,999
+                        </div>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-sm text-body-sm mb-2">
+<div class="flex items-center gap-1" title="Views"><span class="material-symbols-outlined text-[16px]">visibility</span> 1.2k</div>
+<div class="flex items-center gap-1" title="Clicks"><span class="material-symbols-outlined text-[16px]">touch_app</span> 340</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-surface-container-high text-on-surface font-title-md text-title-md py-2 rounded-lg hover:bg-surface-container-highest transition-colors flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">edit</span> Edit
+                            </button>
+<button class="bg-primary-container text-on-primary-container font-title-md text-title-md py-2 rounded-lg hover:bg-primary-fixed transition-colors font-bold flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">campaign</span> Promote
+                            </button>
+</div>
+</div>
+</div>
+<!-- Component: ActiveListingItem -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant overflow-hidden flex flex-col group">
+<div class="h-48 bg-surface-container relative">
+<img alt="A premium wireless headset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A premium pair of wireless noise-canceling headphones displayed elegantly on a clean, white background. The studio lighting is soft but directional, casting gentle drop shadows that give the product a raised, tactile appearance. The design uses a modern corporate aesthetic with a focus on product clarity, utilizing crisp whites, deep slate blacks of the headphones, and a subtle hint of MTN yellow in the reflection. The mood is reliable and sleek." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfDUqQW-qi484F7edgXPOMhx48RNbHUKby2e-GtPT1tYt6pbl4e3tqfm0Cl-8Dbh96ZImSNG9JWHBQwz9UW5GnJVjuZg8aq5oMZgLyNGkNg7i7NEY_cLpo3HKm7Cjd6a1zJd-7q821nG1BwmN1XepSGMr_4RSq5aYjXES2k1SWPEUd9HVpUNvYCrL22BWFj3jKd1FqbyBghwy-acmXhMLsNF8MB62AClLyzldjvDqr7Q2nj_PpdCP0rYxnqjPc804-phXl591Wxf8"/>
+<div class="absolute top-2 right-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-1 rounded font-label-caps text-label-caps text-secondary flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">flag</span> ZA
+                        </div>
+</div>
+<div class="p-4 flex flex-col flex-1 gap-3">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface line-clamp-1">Sony WH-1000XM5 Headphones</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Electronics &gt; Audio</p>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold mt-auto">
+                            R 6,499
+                        </div>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-sm text-body-sm mb-2">
+<div class="flex items-center gap-1" title="Views"><span class="material-symbols-outlined text-[16px]">visibility</span> 850</div>
+<div class="flex items-center gap-1" title="Clicks"><span class="material-symbols-outlined text-[16px]">touch_app</span> 120</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-surface-container-high text-on-surface font-title-md text-title-md py-2 rounded-lg hover:bg-surface-container-highest transition-colors flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">edit</span> Edit
+                            </button>
+<button class="bg-primary-container text-on-primary-container font-title-md text-title-md py-2 rounded-lg hover:bg-primary-fixed transition-colors font-bold flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">campaign</span> Promote
+                            </button>
+</div>
+</div>
+</div>
+<!-- Component: ActiveListingItem -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border-2 border-tertiary-container overflow-hidden flex flex-col group relative">
+<!-- Subtle AI badge -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-tertiary z-10"></div>
+<div class="h-48 bg-surface-container relative">
+<img alt="Samsung Galaxy phone" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A modern smartphone standing upright on a minimalist glass pedestal. The background features a subtle, frosted glassmorphism effect, blurring gentle pastel blue and violet hues behind the product to signal AI enhancement. The lighting is crisp and bright, establishing a high-trust, light-mode atmosphere. The overall composition is clean, corporate, and emphasizes speed and localized relevance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCStRCvk1KuCQ4BuVsgdjcb7VCzMOKCLWoi2jEdG9w1LqCWr4ul7M5hoHG09nRVhdCE1ellDMa_aahd3LDc0IS1pZdACSMiWVBBuPLvNql5dKbc7O3krYp6XY6OFTfjmxl6Q3GokqLK18Ylym0nRU1y7ESH030bA066MGEe2BBHJ4q8-VzLwWTD2L3y84a2cytomxDRSJh1RF_5orVAMe578c-TediLWj4F3KtKIhtjFYRa6pDKVEhsQmw3GoLU6DBmoicnQFt-ysc"/>
+<div class="absolute top-2 right-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-1 rounded font-label-caps text-label-caps text-secondary flex items-center gap-1 shadow-sm z-10">
+<span class="material-symbols-outlined text-[14px]">flag</span> ZA
+                        </div>
+<div class="absolute bottom-2 left-2 bg-tertiary-container/90 backdrop-blur-sm text-on-tertiary-container px-2 py-1 rounded font-label-caps text-label-caps flex items-center gap-1 shadow-sm z-10">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span> Action Needed
+                        </div>
+</div>
+<div class="p-4 flex flex-col flex-1 gap-3">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface line-clamp-1">Samsung Galaxy S22 Ultra</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Electronics &gt; Smartphones</p>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold mt-auto flex items-center gap-2">
+                            R 15,500
+                            <span class="material-symbols-outlined text-error" title="Price may be too high">warning</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-sm text-body-sm mb-2">
+<div class="flex items-center gap-1" title="Views"><span class="material-symbols-outlined text-[16px]">visibility</span> 3,420</div>
+<div class="flex items-center gap-1" title="Clicks"><span class="material-symbols-outlined text-[16px]">touch_app</span> 15</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-surface-container-high text-on-surface font-title-md text-title-md py-2 rounded-lg hover:bg-surface-container-highest transition-colors flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">edit</span> Edit
+                            </button>
+<button class="bg-gradient-to-r from-secondary to-tertiary text-on-primary font-title-md text-title-md py-2 rounded-lg hover:shadow-md transition-all font-bold flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span> Fix Price
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar from JSON (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full flex justify-around items-center px-4 py-2 z-50 bg-surface dark:bg-inverse-surface rounded-t-xl shadow-lg border-t-0 shadow-[0_-4px_16px_rgba(0,0,0,0.1)]">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<!-- Search (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+<span class="font-label-caps text-label-caps mt-1">Search</span>
+</a>
+<!-- Sell (Active) - Semantic mapping based on Seller Insights -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 hover:bg-surface-container-high transition-all scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-label-caps text-label-caps mt-1">Sell</span>
+</a>
+<!-- Messages (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">chat_bubble</span>
+<span class="font-label-caps text-label-caps mt-1">Messages</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

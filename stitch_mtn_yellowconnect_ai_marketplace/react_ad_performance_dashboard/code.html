@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Marketplace - Ad Performance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-tint": "#745b00",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-surface": "#313030",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4e4632",
+                        "secondary-container": "#76a9ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-bright": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "background": "#fcf9f8",
+                        "outline": "#80765f",
+                        "tertiary": "#006874",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffe08b",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f0edec",
+                        "on-secondary-container": "#003c7c",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary": "#1f5dae",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary": "#745b00",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#00e7fe",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "surface": "#fcf9f8",
+                        "primary-container": "#ffcc00",
+                        "on-primary-container": "#6f5700",
+                        "on-background": "#1c1b1b",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-container-high": "#ebe7e7",
+                        "inverse-on-surface": "#f3f0ef",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "inverse-primary": "#f1c100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(118, 169, 255, 0.2);
+        }
+        .ai-gradient-border {
+            position: relative;
+        }
+        .ai-gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(to right, #745b00, #1f5dae);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased pb-24 md:pb-0"><!-- Header -->
+<div class="bg-background text-on-background min-h-screen pb-24 md:pb-0" id="root">
+<!-- Navigation -->
+<header class="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile py-base bg-surface z-50 shadow-sm hidden md:flex">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">language</span>
+<h1 class="text-title-md font-bold text-primary">MTN Marketplace</h1>
+</div>
+<nav class="flex gap-6">
+<a class="text-on-surface-variant font-medium px-3 py-2 rounded-lg" href="#">Home</a>
+<a class="text-on-surface-variant font-medium px-3 py-2 rounded-lg" href="#">Search</a>
+<a class="text-primary border-b-2 border-primary font-bold px-3 py-2 rounded-lg" href="#">Sell</a>
+<a class="text-on-surface-variant font-medium px-3 py-2 rounded-lg" href="#">Messages</a>
+<a class="text-on-surface-variant font-medium px-3 py-2 rounded-lg" href="#">Profile</a>
+</nav>
+<span class="material-symbols-outlined text-primary cursor-pointer p-2" style="font-variation-settings: 'FILL' 0;">search</span>
+</header>
+<header class="md:hidden sticky top-0 w-full bg-surface shadow-sm z-40 px-container-margin-mobile py-4 flex items-center gap-3">
+<button class="material-symbols-outlined text-on-surface">arrow_back</button>
+<h1 class="text-title-md font-bold text-on-surface">Ad Performance</h1>
+</header>
+<main class="max-w-[1280px] mx-auto px-container-margin-mobile md:px-container-margin-desktop py-6">
+<!-- Metric Section -->
+<section class="mb-section-gap">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-headline-lg-mobile md:text-headline-lg text-on-surface">Campaign Overview</h2>
+<div class="bg-surface-variant text-on-surface-variant text-label-caps px-3 py-1 rounded-full flex items-center gap-1">
+<span>Last 7 Days</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Metric Components -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant shadow-sm">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary">visibility</span>
+<span class="text-body-sm">Total Reach</span>
+</div>
+<div class="text-headline-lg text-on-surface">45.2k</div>
+<div class="text-body-sm text-tertiary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>+12%
+          </div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant shadow-sm">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">touch_app</span>
+<span class="text-body-sm">Total Clicks</span>
+</div>
+<div class="text-headline-lg-mobile font-bold text-on-surface">3,842</div>
+<div class="text-body-sm text-tertiary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>+5.2%
+          </div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant shadow-sm">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-error">payments</span>
+<span class="text-body-sm">Total Spend</span>
+</div>
+<div class="text-headline-lg-mobile font-bold text-on-surface">R 1,250</div>
+<div class="text-[10px] text-on-surface-variant mt-1 italic">Avg R 2.50 / click</div>
+</div>
+<!-- AI Card Component -->
+<div class="glass-panel ai-gradient-border rounded-xl p-4 flex flex-col justify-between border border-outline-variant col-span-2 md:col-span-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-label-caps text-secondary uppercase">AI Insight</span>
+</div>
+<p class="text-body-sm text-on-surface my-2">Samsung Galaxy S22 is underperforming. Shift budget to morning.</p>
+<button class="text-label-caps text-on-primary bg-secondary rounded-full py-2 px-4 w-full">Optimize</button>
+</div>
+</div>
+</section>
+<!-- Chart Section Component -->
+<section class="mb-section-gap">
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-title-md text-on-surface">Performance Trend</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-secondary"></span><span class="text-label-caps">Views</span></div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-primary"></span><span class="text-label-caps">Clicks</span></div>
+</div>
+</div>
+<div class="h-48 flex items-end justify-between border-b border-surface-variant pb-2 relative">
+<div class="absolute inset-0 flex flex-col justify-between opacity-10 pointer-events-none">
+<div class="border-b border-on-surface w-full h-0"></div>
+<div class="border-b border-on-surface w-full h-0"></div>
+<div class="border-b border-on-surface w-full h-0"></div>
+</div>
+<!-- Bar generation placeholder -->
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full flex items-end justify-center gap-1 h-32">
+<div class="w-3 bg-secondary rounded-t-sm h-full"></div>
+<div class="w-3 bg-primary rounded-t-sm h-[40%]"></div>
+</div>
+<span class="text-[10px] mt-2">Mon</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full flex items-end justify-center gap-1 h-32">
+<div class="w-3 bg-secondary rounded-t-sm h-[80%]"></div>
+<div class="w-3 bg-primary rounded-t-sm h-[50%]"></div>
+</div>
+<span class="text-[10px] mt-2">Tue</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full flex items-end justify-center gap-1 h-32">
+<div class="w-3 bg-secondary rounded-t-sm h-[60%]"></div>
+<div class="w-3 bg-primary rounded-t-sm h-[20%]"></div>
+</div>
+<span class="text-[10px] mt-2">Wed</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full flex items-end justify-center gap-1 h-32">
+<div class="w-3 bg-secondary rounded-t-sm h-full"></div>
+<div class="w-3 bg-primary rounded-t-sm h-[60%]"></div>
+</div>
+<span class="text-[10px] mt-2">Thu</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full flex items-end justify-center gap-1 h-32">
+<div class="w-3 bg-secondary rounded-t-sm h-[70%]"></div>
+<div class="w-3 bg-primary rounded-t-sm h-[30%]"></div>
+</div>
+<span class="text-[10px] mt-2">Fri</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full flex items-end justify-center gap-1 h-32">
+<div class="w-3 bg-secondary rounded-t-sm h-full"></div>
+<div class="w-3 bg-primary rounded-t-sm h-full"></div>
+</div>
+<span class="text-[10px] mt-2">Sat</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full flex items-end justify-center gap-1 h-32">
+<div class="w-3 bg-secondary rounded-t-sm h-[90%]"></div>
+<div class="w-3 bg-primary rounded-t-sm h-[40%]"></div>
+</div>
+<span class="text-[10px] mt-2">Sun</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Campaign List Section Component -->
+<section>
+<h2 class="text-title-md font-bold text-on-surface mb-4">Active Campaigns</h2>
+<div class="flex flex-col gap-4">
+<!-- Campaign Item Component -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant flex flex-col sm:flex-row gap-4 items-center">
+<div class="w-20 h-20 rounded-lg bg-surface-variant overflow-hidden relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmw2IF2WJx_QA2WkY8ZWyEdxrRs6QagnOqOIyKnAYmaU9MeMb9HfJ-kMHWxwsoBtJ4oQ3Q2ToEqjkV9azzDpLWQWvVlRRMRejeYS9EGQuo39uvkzE4LA1C5y2PFPfwSD9MPtBDKhrt1ig0RRQgfzr_TmFTFU4P7ofihZsK4-sGOdJ2OOUQzTEIaFTfuj7LTcOMXhvifNnTi6fzimfbLB7kGWczBB5IACfnQLofNzQHKyeokMB2WI5pJTtkBytdWSPzu2gYI_UKM3c"/>
+<div class="absolute top-1 left-1 bg-primary text-on-primary-fixed text-[8px] font-bold px-1.5 py-0.5 rounded uppercase">Boosted</div>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-center">
+<h4 class="text-body-lg font-semibold">Samsung Galaxy S22 Ultra 256GB</h4>
+<span class="text-body-sm bg-surface-container px-2 py-1 rounded-md">Active</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-2 bg-surface p-2 rounded-lg">
+<div class="text-center"><p class="text-[10px] uppercase text-on-surface-variant">Views</p><p class="font-bold">1.2k</p></div>
+<div class="text-center"><p class="text-[10px] uppercase text-on-surface-variant">CTR</p><p class="font-bold text-tertiary">5.4%</p></div>
+<div class="text-center"><p class="text-[10px] uppercase text-on-surface-variant">Spent</p><p class="font-bold">R450</p></div>
+</div>
+</div>
+<div class="flex sm:flex-col gap-2 w-full sm:w-auto">
+<button class="flex-1 border border-secondary text-secondary rounded-full py-2 px-6 text-label-caps">Edit</button>
+<button class="flex-1 bg-error-container text-error rounded-full py-2 px-6 text-label-caps">Pause</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant flex flex-col sm:flex-row gap-4 items-center">
+<div class="w-20 h-20 rounded-lg bg-surface-variant overflow-hidden relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC543gQW8HyAliQDNXHy6MxgiSJegCROjKuUVmitB0YSfPT5Aw0hvdaOO4Qp5E8QY003AOkX3fnUuIY37bmStVDl_hTzZglSBnQGuyGwcbnHti0QuNJUvdSQSzLXLsC0hwN2utUUBGwIHKTTnhI0MVRSiCUR1bAbgppifJDD-1-09O17-zD1T4KdZP-hiwbyz1nCy-Qf7U7AQnUFrQIRBt49H7HUJQ6SIEA0hQkvwAdupcVSKUUBM_lqnPCBbAFDEJQbSgVFcZrxxw"/>
+<div class="absolute top-1 left-1 bg-primary text-on-primary-fixed text-[8px] font-bold px-1.5 py-0.5 rounded uppercase">Boosted</div>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-center">
+<h4 class="text-body-lg font-semibold">Nike Air Max 270 - Red</h4>
+<span class="text-body-sm bg-surface-container px-2 py-1 rounded-md">Active</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-2 bg-surface p-2 rounded-lg">
+<div class="text-center"><p class="text-[10px] uppercase text-on-surface-variant">Views</p><p class="font-bold">850</p></div>
+<div class="text-center"><p class="text-[10px] uppercase text-on-surface-variant">CTR</p><p class="font-bold text-tertiary">3.2%</p></div>
+<div class="text-center"><p class="text-[10px] uppercase text-on-surface-variant">Spent</p><p class="font-bold">R210</p></div>
+</div>
+</div>
+<div class="flex sm:flex-col gap-2 w-full sm:w-auto">
+<button class="flex-1 border border-secondary text-secondary rounded-full py-2 px-6 text-label-caps">Edit</button>
+<button class="flex-1 bg-error-container text-error rounded-full py-2 px-6 text-label-caps">Pause</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB Component -->
+<button class="fixed bottom-24 md:bottom-8 right-4 md:right-8 bg-primary text-on-primary-fixed shadow-lg rounded-2xl p-4 flex items-center gap-2 group transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+<span class="text-label-caps max-w-0 overflow-hidden group-hover:max-w-xs transition-all whitespace-nowrap">Create Campaign</span>
+</button>
+<!-- Bottom Nav Component -->
+<nav class="fixed bottom-0 w-full flex justify-around items-center px-4 py-2 bg-surface border-t border-outline-variant md:hidden z-50">
+<a class="flex flex-col items-center text-on-surface-variant" href="#"><span class="material-symbols-outlined">home</span><span class="text-[10px]">Home</span></a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#"><span class="material-symbols-outlined">search</span><span class="text-[10px]">Search</span></a>
+<a class="flex flex-col items-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span><span class="text-[10px] font-bold">Sell</span></a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#"><span class="material-symbols-outlined">chat_bubble</span><span class="text-[10px]">Messages</span></a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#"><span class="material-symbols-outlined">person</span><span class="text-[10px]">Profile</span></a>
+</nav>
+</div></body></html>

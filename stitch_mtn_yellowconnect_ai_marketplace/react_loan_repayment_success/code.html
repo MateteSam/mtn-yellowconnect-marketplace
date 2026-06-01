@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Loan Repayment Success</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf9f8",
+                        "on-surface-variant": "#4e4632",
+                        "outline-variant": "#d2c5ab",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffe08b",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#f1c100",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-background": "#1c1b1b",
+                        "primary-fixed-dim": "#f1c100",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "primary-container": "#ffcc00",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container-high": "#ebe7e7",
+                        "surface-container": "#f0edec",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-primary-fixed": "#241a00",
+                        "primary": "#745b00",
+                        "on-primary-container": "#6f5700",
+                        "on-tertiary-container": "#00646e",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#745b00",
+                        "outline": "#80765f",
+                        "tertiary-container": "#00e7fe",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "secondary-container": "#76a9ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-dim": "#dcd9d9",
+                        "inverse-surface": "#313030",
+                        "secondary": "#1f5dae",
+                        "surface-bright": "#fcf9f8",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf9f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#003c7c",
+                        "tertiary": "#006874",
+                        "inverse-on-surface": "#f3f0ef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center p-container-margin-mobile antialiased">
+<!-- Main Content Canvas (Navigation suppressed per transactional rule) -->
+<main class="w-full max-w-md flex flex-col items-center animate-[fadeIn_0.5s_ease-out]">
+<!-- Celebratory Header -->
+<div class="flex flex-col items-center text-center mb-8">
+<div class="w-20 h-20 bg-tertiary-container rounded-full flex items-center justify-center mb-4 shadow-[0_4px_12px_rgba(0,231,254,0.3)]">
+<span class="material-symbols-outlined text-on-tertiary-container text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-2">Payment Successful</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your loan repayment has been securely processed.</p>
+</div>
+<!-- Transaction Receipt Card -->
+<div class="w-full bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant p-6 mb-8 relative overflow-hidden">
+<!-- Decorative Top Accent -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary-container"></div>
+<div class="text-center mb-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider mb-1">Amount Paid</p>
+<p class="font-display-lg text-display-lg text-on-background">R4,500<span class="text-2xl text-on-surface-variant">.00</span></p>
+</div>
+<div class="w-full h-px bg-surface-variant border-dashed border-b border-outline-variant mb-6 relative">
+<div class="absolute -left-8 -top-3 w-6 h-6 bg-background rounded-full"></div>
+<div class="absolute -right-8 -top-3 w-6 h-6 bg-background rounded-full"></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Transaction ID</span>
+<span class="font-title-md text-title-md text-on-background text-[16px]">MTN-LRP-882910</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Date &amp; Time</span>
+<span class="font-title-md text-title-md text-on-background text-[16px]">Oct 24, 2023, 14:32</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Remaining Balance</span>
+<span class="font-title-md text-title-md text-on-background text-[16px]">R12,000.00</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-surface-variant mt-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-bold">Next Due Date</span>
+<span class="font-title-md text-title-md text-secondary text-[16px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                        Nov 24, 2023
+                    </span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full flex flex-col gap-4">
+<button class="w-full bg-secondary text-on-secondary rounded-lg py-4 px-6 flex items-center justify-center gap-2 font-title-md text-title-md hover:bg-secondary/90 transition-colors shadow-sm active:scale-[0.98]">
+<span class="material-symbols-outlined">download</span>
+                Download Receipt
+            </button>
+<button class="w-full bg-primary-container text-on-background rounded-lg py-4 px-6 flex items-center justify-center font-title-md text-title-md font-bold hover:bg-primary-fixed transition-colors shadow-sm active:scale-[0.98]">
+                Back to Lending Dashboard
+            </button>
+</div>
+</main>
+<style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body></html>

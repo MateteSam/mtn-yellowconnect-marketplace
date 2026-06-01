@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Marketplace - Localized Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "secondary": "#1f5dae",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "secondary-container": "#76a9ff",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "primary-fixed-dim": "#f1c100",
+                        "outline-variant": "#d2c5ab",
+                        "tertiary": "#006874",
+                        "on-surface": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#80765f",
+                        "on-error": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "on-surface-variant": "#4e4632",
+                        "inverse-primary": "#f1c100",
+                        "surface-tint": "#745b00",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#003c7c",
+                        "surface-container-low": "#f6f3f2",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary-container": "#6f5700",
+                        "primary-container": "#ffcc00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-variant": "#e5e2e1",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#00646e",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "primary": "#745b00",
+                        "surface-container": "#f0edec",
+                        "tertiary-container": "#00e7fe",
+                        "background": "#fcf9f8",
+                        "surface-container-high": "#ebe7e7",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-background": "#1c1b1b",
+                        "on-primary-fixed": "#241a00",
+                        "primary-fixed": "#ffe08b",
+                        "surface-dim": "#dcd9d9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .glass-ai::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #745b00, #1f5dae);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased font-body-sm pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-base bg-surface dark:bg-inverse-surface z-50 shadow-sm transition-transform duration-300 transform translate-y-0" id="topAppBar">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" style="font-variation-settings: 'FILL' 1;">language</span>
+<div class="flex flex-col">
+<span class="text-title-md font-title-md font-bold text-primary dark:text-primary-fixed">MTN Marketplace</span>
+<div class="flex items-center gap-1 cursor-pointer">
+<span class="text-label-caps font-label-caps text-on-surface-variant">NIGERIA</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex gap-6">
+<a class="text-primary border-b-2 border-primary font-bold hover:bg-surface-container-low px-2 py-1 transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors" href="#">Search</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors" href="#">Sell</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors" href="#">Messages</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors" href="#">Profile</a>
+</nav>
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary cursor-pointer hover:bg-surface-container-low rounded-full p-2 transition-colors">search</span>
+</header>
+<main class="max-w-7xl mx-auto w-full flex flex-col gap-section-gap pt-6 px-container-margin-mobile md:px-container-margin-desktop">
+<!-- Search Hero Section -->
+<section class="flex flex-col gap-4">
+<div class="relative w-full max-w-2xl mx-auto shadow-sm rounded-2xl">
+<input class="w-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant border-none rounded-2xl py-4 pl-4 pr-16 focus:ring-2 focus:ring-secondary transition-shadow text-body-lg font-body-lg" placeholder="Search phones, cars, property in Nigeria..." type="text"/>
+<button class="absolute right-1 top-1 bottom-1 bg-primary-container text-on-primary-container rounded-xl px-4 flex items-center justify-center font-bold hover:bg-primary hover:text-on-primary transition-colors">
+                    Search
+                </button>
+</div>
+<!-- Quick Chips -->
+<div class="flex gap-2 overflow-x-auto hide-scrollbar py-2 max-w-2xl mx-auto w-full">
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors text-body-sm font-body-sm">Lagos</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors text-body-sm font-body-sm">Abuja</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors text-body-sm font-body-sm">Port Harcourt</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors text-body-sm font-body-sm">Kano</button>
+</div>
+</section>
+<!-- Categories Bento Grid -->
+<section class="flex flex-col gap-4">
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-surface">Explore Categories</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="relative rounded-2xl overflow-hidden aspect-square group cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-secondary/20 transition-colors z-10"></div>
+<img alt="Electronics Category" class="w-full h-full object-cover" data-alt="A modern, high-key image of various electronics like a sleek laptop, a smartphone, and wireless headphones arranged neatly on a pristine white surface. The lighting is soft and diffused, creating a premium, clean aesthetic consistent with a modern corporate tech brand. Subtle hints of deep blue and vibrant yellow accent the otherwise minimalist composition. The mood is efficient and innovative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn3-uhTrqrAOZ_7zRjd7wKEYK1PKExpnNEjLGUmHsticMQ0PKNTHPF7jd8rfwFN3SVIWGAjbnadoUzfEspUI_cZEQUOEhYsAtJcbXP85DSRQpakTj-aLJiFftIyLtze1tP7GzMwZ99l4d0Psgc-wtSP1c55_b34fPUlRk9CIX4G7wVK5S9mJ6ByuWSNeZo_XQ9yropWXq3iV65L0GE3DXInNv_2CyusAv__PPQYeEdlxkN5LVnRZzOKr-raOzmh6HfO9d2P7lk7C4"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="material-symbols-outlined text-surface-container-lowest bg-secondary p-2 rounded-full mb-2 block w-fit">devices</span>
+<h3 class="text-title-md font-title-md text-surface-container-lowest font-bold drop-shadow-md">Electronics</h3>
+</div>
+</div>
+<div class="relative rounded-2xl overflow-hidden aspect-square group cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors z-10"></div>
+<img alt="Vehicles Category" class="w-full h-full object-cover" data-alt="A dynamic, slightly angled shot of a modern sedan parked on a sleek, well-lit urban street at dusk. The vehicle features smooth, aerodynamic lines and a metallic finish that reflects the surrounding city lights. The overall color palette is cool, with deep blues and crisp whites, enhanced by the warm glow of the streetlights. The aesthetic is contemporary, reliable, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdBqwKA1AbkkXjkisOUJ3teqEewPDrLzkCaOYD2Y2f9xwKYB8Z77OLImmdR9t8Bh_nk6Bp3frUHJaU9IY_K87hhSvdF_5ICtxNFml9UoHX7yq4AReqsFBNVcJeliKG7RfqCTSfiB4YzfzVzu_FbN_jzljfOW8ivSW1nHXCb-fVliakiVobrFsXoa-Dce7EvWTaYYtEAnKGoAHccCdgaX0ZWk1vg7xQCv6cSD0fOh3xEm3mnVro_KjuTh3xt9kfAkoep19KxMISYlo"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="material-symbols-outlined text-surface-container-lowest bg-primary p-2 rounded-full mb-2 block w-fit">directions_car</span>
+<h3 class="text-title-md font-title-md text-surface-container-lowest font-bold drop-shadow-md">Vehicles</h3>
+</div>
+</div>
+<div class="relative rounded-2xl overflow-hidden aspect-square group cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute inset-0 bg-tertiary/10 group-hover:bg-tertiary/20 transition-colors z-10"></div>
+<img alt="Property Category" class="w-full h-full object-cover" data-alt="A bright, inviting exterior shot of a modern residential property featuring clean architectural lines, large glass windows, and a manicured green lawn. The scene is bathed in natural daylight, highlighting the crisp white facade and warm wooden accents. The sky above is a clear, vibrant blue. The overall mood is aspirational, secure, and high-trust, fitting for a premium real estate marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJJi8EssSfX5_8MSxKPLC2fRaZ25Z3-JIhGEjyfS0bt6y4CisthKRARyvQh_dEeBDkS0pJvHIPcMHqPKA1_Flituw-hQRGDkQmByuftgdzzQJU7Lbyc-4uB7SjuaL2LRe_j2uTsROc3zkjm9tiY744t_M6CxNQMXzEPAezqI0engF54CIRWSntA6n7PkUIuw2ZQstytUjiq2wWGmCREGuZs9tUrMfjo9eshLaAjyHqy7fpymUQ1avVq4Suwtbp1TAhVV5RCqFsboY"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="material-symbols-outlined text-surface-container-lowest bg-tertiary p-2 rounded-full mb-2 block w-fit">real_estate_agent</span>
+<h3 class="text-title-md font-title-md text-surface-container-lowest font-bold drop-shadow-md">Property</h3>
+</div>
+</div>
+<div class="relative rounded-2xl overflow-hidden aspect-square group cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute inset-0 bg-outline/10 group-hover:bg-outline/20 transition-colors z-10"></div>
+<img alt="Fashion Category" class="w-full h-full object-cover" data-alt="A stylish, flat-lay composition of contemporary fashion items including a tailored blazer, a sleek leather bag, and modern accessories on a smooth, light-grey background. The lighting is bright and even, casting soft shadows that emphasize the textures of the fabrics. The color palette incorporates neutral tones with strategic pops of deep blue and bright yellow. The aesthetic is clean, trendy, and commercially appealing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAirwkU6q2NLlTaocaVDE25pZSS9A4ZQeypqLDrK3C4aUo3qXLGRFJl3URUqtiw7x7rebo6nRE3_EFM5SSCZ7_M6vpWN-Qrr6MJLk3XW0E3MixuW4lwCXPTdrCd6T8Cy5K8SfA0UKrKQ4nFhWA08RV7fHk7QBsTqT1gxACFuakrENpXZOxj5DxB6ssMUUmxPQoSDVH40pK8PRQVllRkXMTn6wtjEn9J6VXe36tyqy2ZD-zRC_MM8hu8wNt4VIleoS0VY_shOXTz4NY"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="material-symbols-outlined text-surface-container-lowest bg-outline p-2 rounded-full mb-2 block w-fit">checkroom</span>
+<h3 class="text-title-md font-title-md text-surface-container-lowest font-bold drop-shadow-md">Fashion</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- AI "For You" Section (Glassmorphic) -->
+<section class="flex flex-col gap-4 rounded-3xl p-6 glass-ai">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="text-title-md font-title-md text-on-surface font-bold">Picked for You in Lagos</h2>
+</div>
+<button class="text-label-caps font-label-caps text-secondary font-bold hover:underline">VIEW ALL</button>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-gutter pb-4">
+<!-- AI Card 1 -->
+<div class="min-w-[240px] w-[240px] bg-surface rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden border border-outline-variant/30">
+<div class="relative h-32 w-full">
+<img alt="Macbook Pro" class="w-full h-full object-cover" data-alt="A close-up, high-key shot of an open, sleek silver laptop sitting on a minimalist white desk. The screen displays a subtle, abstract gradient wallpaper. The lighting is bright and modern, creating soft reflections on the metallic surface. The overall tone is professional, clean, and highly technological, aligning with a premium corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUY3jjiw2_wYR_bfUFgeWuY2tZUodVYCRRpiBrVS2828IHI1fGnMFC_e_2Z4YAnLrmlIpHtwuEcyIz2aTEIRKq8WjaYscY6valyjPIQ_DKrlPwdKXkrKLtgFtXVzUpAKVzgrlx5wtTImaumcv3nE6RCkc4_Wm479KfkpgVcQmU6njLaqZptPKzIzFWrTXBVw7OqiMkZdHSUF3tdnJWB1GQ0Q31xm8ma-dXqqfB3gmeKpc_Yb9Xtfn7y_iwr_484J4-xX3173GH8gA"/>
+<div class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 border border-outline-variant/50">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-on-surface">VERIFIED</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h4 class="text-body-sm font-body-sm text-on-surface truncate font-semibold">MacBook Pro M2 2023</h4>
+<div class="text-title-md font-title-md text-secondary font-bold">₦ 1,850,000</div>
+<div class="flex items-center text-on-surface-variant text-[12px] gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Ikeja, Lagos</span>
+</div>
+</div>
+</div>
+<!-- AI Card 2 -->
+<div class="min-w-[240px] w-[240px] bg-surface rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden border border-outline-variant/30">
+<div class="relative h-32 w-full">
+<img alt="Toyota Camry" class="w-full h-full object-cover" data-alt="A clear, side-profile shot of a polished, silver sedan parked against a neutral, light-grey studio background. The vehicle looks pristine and well-maintained, with bright reflections highlighting its contours. The lighting is even and professional, typical of a high-quality automotive listing. The mood is trustworthy and commercial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqUyJ-H0EjGhomf5baFPQ0QiSxi8D0Zxhk7iQCu6kQC4kSQ3wA7n46RTZud0nLlhcWODooxj9pLdXdDBLfkM8HJNwdNuNrYN3MuBNHuZ8FUwwcXr36iK1KzQndmPUh8UtXtQ7CdQKhPfFQ88APoY2Cqq4sYYVRZBJ0e3BsvY_VBFSuheGwJwGa_CALlz8C3-MrkzJsUpBsp7iMxgXruqk4w538blwnlVf4qgXc8XPRYwN36oARCwInnEIsdI1RCWHWqK21H0Kmgdw"/>
+<div class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 border border-outline-variant/50">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-on-surface">VERIFIED</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h4 class="text-body-sm font-body-sm text-on-surface truncate font-semibold">Toyota Camry 2018 LE</h4>
+<div class="text-title-md font-title-md text-secondary font-bold">₦ 12,500,000</div>
+<div class="flex items-center text-on-surface-variant text-[12px] gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Victoria Island</span>
+</div>
+</div>
+</div>
+<!-- AI Card 3 -->
+<div class="min-w-[240px] w-[240px] bg-surface rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden border border-outline-variant/30">
+<div class="relative h-32 w-full">
+<img alt="Apartment" class="w-full h-full object-cover" data-alt="An inviting interior view of a modern, spacious living room in an upscale apartment. The room features contemporary furniture, large windows letting in abundant natural light, and clean, white walls. Accents of warm wood and subtle blue decor elements tie the space together. The atmosphere is comfortable, premium, and highly desirable for real estate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUoJFywGogYjeMv1XVQpSIHrHzi9v-hwKLOEhsGmABiuVapL_8Ho14SPusQr4w82o9BRGuZgWD4AGslMznJMgJWwNGrRrHRmtMTJKIClO1RRMeET87hL7mLVLFL6AQRAMCCS8ci9agIERvnjH7JAqUOymc9mwH_6Ob8oWLitvNFzXH5mhASuSL9rpG3lwQr44RwYLc8Z8HY3xbo5HkiiwylANzY3Wpl44-AVPltrLunjcDhKmbpt7TFcxcxaHgy9lOY1pzfJJQ6-M"/>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h4 class="text-body-sm font-body-sm text-on-surface truncate font-semibold">3 Bed Semi-Detached</h4>
+<div class="text-title-md font-title-md text-secondary font-bold">₦ 4,500,000/yr</div>
+<div class="flex items-center text-on-surface-variant text-[12px] gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Lekki Phase 1</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full flex justify-around items-center px-4 py-2 z-50 md:hidden bg-surface dark:bg-inverse-surface rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-outline-variant transition-transform duration-300 transform translate-y-0" id="bottomNavBar">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 scale-90 duration-200 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-caps font-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-caps font-label-caps mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-label-caps font-label-caps mt-1">Sell</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-label-caps font-label-caps mt-1">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-caps font-label-caps mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple scroll behavior to hide/show nav bars for better canvas space
+        let lastScrollY = window.scrollY;
+        const topBar = document.getElementById('topAppBar');
+        const bottomBar = document.getElementById('bottomNavBar');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                // Scrolling down - hide top bar slightly, hide bottom bar on mobile
+                topBar.style.transform = 'translateY(-100%)';
+                if(bottomBar) bottomBar.style.transform = 'translateY(100%)';
+            } else {
+                // Scrolling up - show both
+                topBar.style.transform = 'translateY(0)';
+                if(bottomBar) bottomBar.style.transform = 'translateY(0)';
+            }
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+    </script>
+</body></html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Inventory Overview - Merchant Central</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "primary": "#745b00",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "primary-container": "#ffcc00",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0edec",
+                        "surface": "#fcf9f8",
+                        "secondary": "#1f5dae",
+                        "primary-fixed": "#ffe08b",
+                        "secondary-container": "#76a9ff",
+                        "primary-fixed-dim": "#f1c100",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-secondary-fixed": "#001b3e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "inverse-primary": "#f1c100",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-tertiary-container": "#00646e",
+                        "on-surface-variant": "#4e4632",
+                        "tertiary-container": "#00e7fe",
+                        "outline-variant": "#d2c5ab",
+                        "tertiary": "#006874",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "inverse-surface": "#313030",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-secondary-container": "#003c7c",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#6f5700",
+                        "surface-container-high": "#ebe7e7",
+                        "outline": "#80765f",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "background": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .glass-ai::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(to right, #745b00, #1f5dae);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col md:flex-row pb-24 md:pb-0 pt-16 md:pt-0">
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden fixed top-0 w-full z-50 shadow-md dark:shadow-none bg-surface flex justify-between items-center px-container-margin-mobile h-16 w-full">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="material-symbols-outlined text-primary-fixed-dim" data-icon="storefront" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">Merchant Central</span>
+</div>
+<button aria-label="notifications" class="active:opacity-80 transition-opacity">
+<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- NavigationDrawer (Desktop) -->
+<aside class="hidden md:flex h-screen sticky top-0 w-72 rounded-r-xl bg-surface-container-low shadow-xl flex-col py-6 z-40">
+<!-- Header Profile -->
+<div class="px-6 mb-8 flex items-center gap-4 left_align">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-primary-container flex items-center justify-center shrink-0">
+<img alt="Merchant User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPyJzAKbINj0giXBirkDCvAntsvvt-eo-3kwRaME4ftYaEe9zKviV5cSLd_hypWXs4BPdnWu9mrIjm-1KE9hlT6HVtLEAjp5gkDwh65hfLOozLzeX2eKwWSC-7Dw7rcMPwes-FXDPZ7JnI8eBFjCoZgrzMgvfiXQVPe2gTV10wMRF0R9kRpsVEvKdGvmAGSRpZlvnwCBBrxqUutUjxwfKLIuh7vnWIHFrWVsmK_erRQM6ieMWHwqV1cUcE3BZJ2EhXDiaXWvgN7po"/>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Store Manager</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary" data-icon="verified" style="font-size: 16px; font-variation-settings: 'FILL' 1;">verified</span> Verified Merchant
+                </p>
+</div>
+</div>
+<!-- Nav Items -->
+<nav class="flex-1 flex flex-col gap-2 px-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container mx-2 hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="dashboard">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-full mx-2 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+<span class="font-body-lg text-body-lg">Catalog</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container mx-2 hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="analytics">analytics</span>
+<span class="font-body-lg text-body-lg">Insights</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container mx-2 hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="forum">forum</span>
+<span class="font-body-lg text-body-lg">Review Feed</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container mx-2 hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="help">help</span>
+<span class="font-body-lg text-body-lg">Help</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8 flex flex-col gap-section-gap">
+<!-- Header & Top Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg md:font-display-lg md:text-display-lg text-on-background">Inventory Overview</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">Manage your catalog across 3 active regions.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative inline-block text-left">
+<button aria-expanded="true" aria-haspopup="true" class="inline-flex justify-center w-full rounded-full border border-outline-variant shadow-sm px-4 py-2 bg-surface text-body-sm font-title-md text-on-surface hover:bg-surface-container-low focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary items-center gap-2" id="region-menu-button" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="public">public</span>
+                        All Regions
+                        <span class="material-symbols-outlined text-[20px]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary-fixed-variant font-title-md text-title-md px-6 py-2 rounded-full hover:bg-primary-fixed-dim transition-colors flex items-center gap-2 active:scale-95 duration-150 shadow-sm">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    New Item
+                </button>
+</div>
+</div>
+<!-- Inventory Stats Bento -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface rounded-xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant flex flex-col">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Items</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-1">1,248</span>
+</div>
+<div class="bg-surface rounded-xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant flex flex-col">
+<span class="material-symbols-outlined text-tertiary mb-2" data-icon="check_circle">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Active Listings</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-1">1,102</span>
+</div>
+<div class="bg-error-container rounded-xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-error/20 flex flex-col">
+<span class="material-symbols-outlined text-error mb-2" data-icon="warning">warning</span>
+<span class="font-body-sm text-body-sm text-on-error-container">Low Stock</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-error-container mt-1">42</span>
+</div>
+<div class="bg-surface rounded-xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant flex flex-col">
+<span class="material-symbols-outlined text-on-surface-variant mb-2" data-icon="block">block</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Out of Stock</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-1">18</span>
+</div>
+</section>
+<!-- AI Restock Suggestion Banner -->
+<section class="glass-ai rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white" data-icon="auto_awesome" style="font-size: 20px;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+                        AI Restock Intelligence
+                        <span class="bg-secondary-container text-on-secondary-container font-label-caps text-label-caps px-2 py-0.5 rounded-full">BETA</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-2xl">Based on predictive modeling and upcoming regional holidays, we suggest restocking "Premium Wireless Earbuds" before Nov 15th to prevent stockouts.</p>
+</div>
+</div>
+<button class="bg-gradient-to-r from-secondary to-tertiary text-white font-title-md text-body-sm px-5 py-2 rounded-full hover:opacity-90 transition-opacity flex items-center gap-2 shrink-0 shadow-sm w-full md:w-auto justify-center">
+                Review Predictions
+                <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+<!-- Search & Filter -->
+<section class="flex flex-col md:flex-row gap-4 items-center bg-surface-container-low p-4 rounded-xl">
+<div class="relative w-full flex-1">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface border border-outline-variant text-on-surface rounded-xl pl-12 pr-4 py-3 font-body-lg text-body-lg focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-shadow shadow-inner" placeholder="Search by product name, SKU, or category..." type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 hide-scrollbar shrink-0">
+<button class="bg-primary text-on-primary-fixed-variant border border-primary px-4 py-2 rounded-full font-body-sm text-body-sm whitespace-nowrap flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                    All Categories
+                </button>
+<button class="bg-surface text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-variant transition-colors">
+                    Electronics
+                </button>
+<button class="bg-surface text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-variant transition-colors">
+                    Home &amp; Living
+                </button>
+<button class="bg-surface text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-variant transition-colors">
+                    Fashion
+                </button>
+</div>
+</section>
+<!-- Product List (Table Layout for Desktop, Cards for Mobile) -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant overflow-hidden">
+<!-- Desktop Table Header -->
+<div class="hidden md:grid grid-cols-12 gap-4 px-6 py-4 bg-surface-container-lowest border-b border-surface-variant font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">
+<div class="col-span-4">Product details</div>
+<div class="col-span-2">SKU</div>
+<div class="col-span-2 text-right">Price</div>
+<div class="col-span-2">Status</div>
+<div class="col-span-2 text-right">Stock Level</div>
+</div>
+<!-- Product Rows -->
+<div class="divide-y divide-surface-variant">
+<!-- Product 1: Low Stock -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 p-4 md:px-6 md:py-4 items-center hover:bg-surface-container-lowest transition-colors group">
+<div class="col-span-1 md:col-span-4 flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low overflow-hidden shrink-0 border border-outline-variant">
+<!-- Placeholder Image Style -->
+<div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&amp;fit=crop&amp;q=80&amp;w=200')] bg-cover bg-center" data-alt="A close-up studio shot of a modern smartwatch with a black silicone band on a clean white background. Bright, high-key lighting creates a sterile, professional e-commerce aesthetic. The modern corporate style emphasizes clarity and product details, fitting for a tech-focused marketplace interface."></div>
+</div>
+<div>
+<h4 class="font-title-md text-body-lg text-on-surface truncate group-hover:text-secondary transition-colors cursor-pointer">Series 7 Smartwatch</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Electronics &gt; Wearables</p>
+</div>
+</div>
+<div class="hidden md:block col-span-2 font-body-sm text-body-sm text-on-surface-variant">
+                        SKU-WTCH-007
+                    </div>
+<div class="hidden md:block col-span-2 font-body-lg text-body-lg text-on-surface font-semibold text-right">
+                        $299.00
+                    </div>
+<div class="col-span-1 md:col-span-2 flex items-center justify-between md:justify-start gap-4">
+<!-- Mobile Price (Hidden on Desktop) -->
+<span class="md:hidden font-body-lg text-body-lg text-on-surface font-semibold">$299.00</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Active
+                        </span>
+</div>
+<div class="col-span-1 md:col-span-2 flex items-center justify-between md:justify-end gap-2">
+<!-- Mobile Label -->
+<span class="md:hidden font-body-sm text-body-sm text-on-surface-variant">Stock:</span>
+<div class="flex items-center gap-2 bg-error-container text-on-error-container px-3 py-1.5 rounded-lg border border-error/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span>
+<span class="font-title-md text-body-sm font-semibold">12 units</span>
+</div>
+</div>
+</div>
+<!-- Product 2: Normal -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 p-4 md:px-6 md:py-4 items-center hover:bg-surface-container-lowest transition-colors group">
+<div class="col-span-1 md:col-span-4 flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low overflow-hidden shrink-0 border border-outline-variant">
+<div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&amp;fit=crop&amp;q=80&amp;w=200')] bg-cover bg-center" data-alt="A pair of premium over-ear headphones in sleek black resting against a slightly textured dark grey background. Dramatic side lighting highlights the metallic accents and matte finish. The image conveys a high-end, sophisticated aesthetic suitable for a modern electronics marketplace, emphasizing quality and modern design."></div>
+</div>
+<div>
+<h4 class="font-title-md text-body-lg text-on-surface truncate group-hover:text-secondary transition-colors cursor-pointer">Pro Noise-Cancelling Headphones</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Electronics &gt; Audio</p>
+</div>
+</div>
+<div class="hidden md:block col-span-2 font-body-sm text-body-sm text-on-surface-variant">
+                        SKU-AUD-092
+                    </div>
+<div class="hidden md:block col-span-2 font-body-lg text-body-lg text-on-surface font-semibold text-right">
+                        $349.50
+                    </div>
+<div class="col-span-1 md:col-span-2 flex items-center justify-between md:justify-start gap-4">
+<span class="md:hidden font-body-lg text-body-lg text-on-surface font-semibold">$349.50</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Active
+                        </span>
+</div>
+<div class="col-span-1 md:col-span-2 flex items-center justify-between md:justify-end gap-2">
+<span class="md:hidden font-body-sm text-body-sm text-on-surface-variant">Stock:</span>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg">
+<span class="font-title-md text-body-sm text-on-surface">156 units</span>
+</div>
+</div>
+</div>
+<!-- Product 3: Out of Stock -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 p-4 md:px-6 md:py-4 items-center hover:bg-surface-container-lowest transition-colors group opacity-75">
+<div class="col-span-1 md:col-span-4 flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low overflow-hidden shrink-0 border border-outline-variant grayscale">
+<div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1528114620025-0be11664c76b?auto=format&amp;fit=crop&amp;q=80&amp;w=200')] bg-cover bg-center" data-alt="A minimalist ceramic coffee mug set on a light wood tabletop, bathed in soft, natural morning light. The setting is clean and modern, evoking a sense of calm domesticity. The aesthetic aligns with a high-trust, refined marketplace offering home goods, utilizing a warm, neutral color palette."></div>
+</div>
+<div>
+<h4 class="font-title-md text-body-lg text-on-surface truncate cursor-pointer line-through text-on-surface-variant">Artisan Ceramic Mug Set</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Home &amp; Living &gt; Kitchen</p>
+</div>
+</div>
+<div class="hidden md:block col-span-2 font-body-sm text-body-sm text-on-surface-variant">
+                        SKU-HME-104
+                    </div>
+<div class="hidden md:block col-span-2 font-body-lg text-body-lg text-on-surface-variant text-right">
+                        $45.00
+                    </div>
+<div class="col-span-1 md:col-span-2 flex items-center justify-between md:justify-start gap-4">
+<span class="md:hidden font-body-lg text-body-lg text-on-surface-variant">$45.00</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-caps text-label-caps">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Inactive
+                        </span>
+</div>
+<div class="col-span-1 md:col-span-2 flex items-center justify-between md:justify-end gap-2">
+<span class="md:hidden font-body-sm text-body-sm text-on-surface-variant">Stock:</span>
+<div class="flex items-center gap-2 bg-surface-variant text-on-surface-variant px-3 py-1.5 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="block">block</span>
+<span class="font-title-md text-body-sm font-semibold">0 units</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 border-t border-surface-variant flex items-center justify-between bg-surface-container-lowest">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 1-3 of 1,248 items</span>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-2 bg-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl py-1 px-4 active:scale-95 transition-transform duration-150 group" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-caps text-label-caps">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 duration-150 py-1 px-4 rounded-xl group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-caps text-label-caps group-hover:text-primary transition-colors">AI Editor</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 duration-150 py-1 px-4 rounded-xl group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="rate_review">rate_review</span>
+<span class="font-label-caps text-label-caps group-hover:text-primary transition-colors">Reviews</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 duration-150 py-1 px-4 rounded-xl group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps group-hover:text-primary transition-colors">Settings</span>
+</a>
+</nav>
+<style>
+        /* Hide scrollbar for horizontal scrolling filter chips */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Safe area padding for mobile bottom nav on newer devices */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .pb-safe {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
+</body></html>

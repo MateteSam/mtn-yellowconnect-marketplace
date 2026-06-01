@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Merchant Central - Review Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "primary": "#745b00",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "primary-container": "#ffcc00",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0edec",
+                        "surface": "#fcf9f8",
+                        "secondary": "#1f5dae",
+                        "primary-fixed": "#ffe08b",
+                        "secondary-container": "#76a9ff",
+                        "primary-fixed-dim": "#f1c100",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-secondary-fixed": "#001b3e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "inverse-primary": "#f1c100",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-tertiary-container": "#00646e",
+                        "on-surface-variant": "#4e4632",
+                        "tertiary-container": "#00e7fe",
+                        "outline-variant": "#d2c5ab",
+                        "tertiary": "#006874",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "inverse-surface": "#313030",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-secondary-container": "#003c7c",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#6f5700",
+                        "surface-container-high": "#ebe7e7",
+                        "outline": "#80765f",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "background": "#fcf9f8"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px",
+                        "gutter": "16px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #dcd9d9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #80765f; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg flex h-screen overflow-hidden antialiased">
+<!-- DESKTOP: Navigation Drawer -->
+<aside class="hidden md:flex flex-col h-full w-72 rounded-r-xl bg-surface dark:bg-on-background bg-surface-container-low shadow-xl py-6 shrink-0 z-40">
+<div class="px-6 mb-8 flex items-center gap-4 left_align">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant flex-shrink-0">
+<img alt="Merchant Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a mature female store manager with a warm smile, wearing a neat business casual outfit. The lighting is soft and flattering, set against a blurred office background, conveying trust and competence in a corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBInFMcszReaq6P1fhrsHJU0IfXXyeX6RcETJGk_jeLyeyvUFoquFBJT4kaV2lIrtY4g-y0yEd42E4Ak0MeGOp8D2KvkZl0_Jjn3Zx6oRiYHmmM3ATHmSKOcalDENVIkwKxPOJWBIGIohhr9hSdl0A-WUr33mx22C5Wi0Og9AiOH3-jgPskxlwDRq4eQ1H8lK1ex7i-cuakyM2F_YW2WC7rBkxWY3-ngaLmu26yj-_latgY9vOzIfnRYm5gLOg4IgFytRH4n9Bi2cM"/>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Store Manager</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Verified Merchant</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container mx-2 hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container mx-2 hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span>Catalog</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container mx-2 hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Insights</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-full mx-2 hover:bg-surface-variant transition-all duration-200 ease-in-out font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined filled" data-icon="forum" data-weight="fill">forum</span>
+<span>Review Feed</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container mx-2 hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-full font-body-lg text-body-lg mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="flex-1 flex flex-col relative min-w-0">
+<!-- MOBILE: Top App Bar -->
+<header class="md:hidden flex justify-between items-center px-container-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface dark:bg-on-background shadow-md dark:shadow-none">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant">
+<img alt="Merchant Profile" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a professional woman with a warm expression, suitable for a mobile top navigation bar. Soft studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB70WgUD6JibnSsCNhrC8haiYuvOEbhIcgAbeNuujYtgUJLPk3Q2QzrKILp6VotldsEbhj8XliUh-QRMwwhzUHfTDVBcCvfFwbXcUZ1RqdRTP2MKDnkPA27-EHyaxhz8f8xHghJ-0ZjEUK1JnBJY5ErgnbQfXCtNZPbw183ETR1ANFA68cQCI4SYJheh06mH-OO8uWxacnFtJqEz4tPBdL8ol9jCn-7OJsgbmr7RBHsyFdivPlz7mensluscCLqAqy7zDSJg-AQAXo"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">Merchant Central</h1>
+</div>
+<button class="text-primary dark:text-primary-fixed p-2 rounded-full hover:bg-surface-container-low transition-colors active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto pt-20 pb-24 md:pt-8 md:pb-8 px-container-margin-mobile md:px-container-margin-desktop w-full max-w-[1280px] mx-auto bg-background">
+<div class="flex justify-between items-end mb-section-gap">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-background">Customer Feedback</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Manage and respond to reviews across your catalog.</p>
+</div>
+<button class="hidden md:flex items-center gap-2 bg-primary text-on-primary-fixed font-title-md px-6 py-3 rounded-lg hover:bg-primary-fixed-dim transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+                    Export Report
+                </button>
+</div>
+<!-- Bento Grid: Overview & AI Summary -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-section-gap">
+<!-- RatingOverview Component -->
+<div class="col-span-1 bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant p-6 flex flex-col justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-on-background mb-4">Overall Rating</h3>
+<div class="flex items-end gap-4 mb-6">
+<span class="font-display-lg text-display-lg text-on-background leading-none">4.6</span>
+<div class="flex flex-col pb-1">
+<div class="flex text-primary-container mb-1">
+<span class="material-symbols-outlined filled text-[24px]">star</span>
+<span class="material-symbols-outlined filled text-[24px]">star</span>
+<span class="material-symbols-outlined filled text-[24px]">star</span>
+<span class="material-symbols-outlined filled text-[24px]">star</span>
+<span class="material-symbols-outlined text-[24px]">star_half</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Based on 1,284 reviews</span>
+</div>
+</div>
+</div>
+<div class="space-y-2 w-full">
+<div class="flex items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="w-8">5</span>
+<span class="material-symbols-outlined text-[16px] mr-2 text-primary-container">star</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 75%"></div>
+</div>
+</div>
+<div class="flex items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="w-8">4</span>
+<span class="material-symbols-outlined text-[16px] mr-2 text-primary-container">star</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 15%"></div>
+</div>
+</div>
+<div class="flex items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="w-8">3</span>
+<span class="material-symbols-outlined text-[16px] mr-2 text-primary-container">star</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 5%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- AISentimentSummary Component -->
+<div class="col-span-1 lg:col-span-2 relative bg-white/80 backdrop-blur-[12px] rounded-xl shadow-lg border border-secondary/20 p-6 overflow-hidden flex flex-col justify-between">
+<!-- Glassmorphism subtle gradient glow -->
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/5 pointer-events-none"></div>
+<div class="relative z-10 flex justify-between items-start mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[24px]" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-title-md text-title-md text-on-background">AI Sentiment Analysis</h3>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full font-label-caps text-label-caps">LAST 30 DAYS</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 relative z-10">
+                        Customers consistently praise product <strong class="text-on-background">Quality</strong> and <strong class="text-on-background">Durability</strong>. There is a slight negative trend regarding <strong class="text-on-background">Delivery Speed</strong> in rural regions requiring attention.
+                    </p>
+<div class="flex flex-wrap gap-3 relative z-10">
+<div class="flex items-center gap-2 bg-surface-container-highest px-4 py-2 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">thumb_up</span>
+<span class="font-title-md text-[14px] leading-tight text-on-background">Build Quality</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-highest px-4 py-2 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">thumb_up</span>
+<span class="font-title-md text-[14px] leading-tight text-on-background">Value for Money</span>
+</div>
+<div class="flex items-center gap-2 bg-error-container px-4 py-2 rounded-lg border border-error/30">
+<span class="material-symbols-outlined text-error text-[18px]">schedule</span>
+<span class="font-title-md text-[14px] leading-tight text-on-error-container">Delivery Speed</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ReviewFilterTabs Component -->
+<div class="flex overflow-x-auto hide-scrollbar gap-2 mb-6 pb-2 border-b border-surface-variant">
+<button class="px-5 py-2 rounded-full font-title-md text-[14px] whitespace-nowrap bg-on-background text-surface transition-colors">
+                    All Reviews
+                </button>
+<button class="px-5 py-2 rounded-full font-title-md text-[14px] whitespace-nowrap bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant transition-colors flex items-center gap-2">
+                    Unanswered <span class="bg-error text-on-error rounded-full px-2 py-0.5 text-[10px]">12</span>
+</button>
+<button class="px-5 py-2 rounded-full font-title-md text-[14px] whitespace-nowrap bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant transition-colors">
+                    5 Stars
+                </button>
+<button class="px-5 py-2 rounded-full font-title-md text-[14px] whitespace-nowrap bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant transition-colors">
+                    Critical
+                </button>
+</div>
+<!-- ReviewList Component -->
+<div class="space-y-6">
+<!-- MerchantReplyCard 1 (Needs Reply) -->
+<article class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant p-5 md:p-6 transition-shadow hover:shadow-lg">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-title-md">
+                                JD
+                            </div>
+<div>
+<h4 class="font-title-md text-[16px] text-on-background leading-tight">John Doe</h4>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined filled text-[16px]">star</span>
+<span class="material-symbols-outlined filled text-[16px]">star</span>
+<span class="material-symbols-outlined filled text-[16px]">star</span>
+<span class="material-symbols-outlined filled text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">2 days ago</span>
+</div>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-background">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="mb-4">
+<p class="font-title-md text-[16px] text-on-background mb-1">Great quality, slow shipping</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            The smartphone itself is fantastic, exactly as described and feels very premium. However, the delivery took 4 days longer than expected without any updates.
+                        </p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden focus-within:border-secondary transition-colors">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-body-lg p-4 text-on-background placeholder-on-surface-variant resize-none" placeholder="Write a public reply to John Doe..." rows="2"></textarea>
+<div class="bg-surface-container-low px-4 py-3 flex justify-between items-center border-t border-outline-variant">
+<button class="text-secondary hover:text-on-secondary-container font-title-md text-[14px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                                AI Draft Suggestion
+                            </button>
+<button class="bg-primary text-on-primary-fixed font-title-md text-[14px] px-4 py-2 rounded hover:bg-primary-fixed-dim transition-colors">
+                                Post Reply
+                            </button>
+</div>
+</div>
+</article>
+<!-- MerchantReplyCard 2 (Replied) -->
+<article class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant p-5 md:p-6">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-title-md">
+                                SM
+                            </div>
+<div>
+<h4 class="font-title-md text-[16px] text-on-background leading-tight">Sarah M.</h4>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined filled text-[16px]">star</span>
+<span class="material-symbols-outlined filled text-[16px]">star</span>
+<span class="material-symbols-outlined filled text-[16px]">star</span>
+<span class="material-symbols-outlined filled text-[16px]">star</span>
+<span class="material-symbols-outlined filled text-[16px]">star</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">1 week ago</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-5">
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Absolutely perfect. The setup was instant and it works flawlessly with my existing smart home setup. Highly recommend this seller!
+                        </p>
+</div>
+<!-- Merchant Reply Block -->
+<div class="ml-4 md:ml-8 pl-4 border-l-4 border-primary bg-surface-container-lowest p-4 rounded-r-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="storefront">storefront</span>
+<span class="font-title-md text-[14px] text-on-background">Your Reply</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant ml-auto">6 days ago</span>
+</div>
+<p class="font-body-lg text-body-sm text-on-surface-variant">
+                            Hi Sarah, thank you so much for the 5-star review! We're thrilled to hear it integrated seamlessly with your smart home setup. Let us know if you need any assistance in the future.
+                        </p>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- MOBILE: Bottom Nav Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-2 bg-surface dark:bg-on-background shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 transition-transform duration-150 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-caps text-label-caps">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 transition-transform duration-150 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-caps text-label-caps">AI Editor</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl py-1 px-4 hover:bg-surface-container-high transition-all active:scale-95 transition-transform duration-150 h-16" href="#">
+<span class="material-symbols-outlined filled mb-1" data-icon="rate_review" data-weight="fill">rate_review</span>
+<span class="font-label-caps text-label-caps">Reviews</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 transition-transform duration-150 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+</body></html>

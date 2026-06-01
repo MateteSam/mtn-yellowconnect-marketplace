@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Moderator Panel - Payout Frequency Audit Log</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed-dim": "#f1c100",
+                        "primary": "#745b00",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary-container": "#6f5700",
+                        "tertiary": "#006874",
+                        "background": "#fcf9f8",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-container": "#003c7c",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-primary": "#f1c100",
+                        "surface-container": "#f0edec",
+                        "on-tertiary-container": "#00646e",
+                        "surface-tint": "#745b00",
+                        "inverse-surface": "#313030",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#4e4632",
+                        "on-error": "#ffffff",
+                        "outline": "#80765f",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "secondary-container": "#76a9ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "tertiary-container": "#00e7fe",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffe08b",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary": "#1f5dae",
+                        "outline-variant": "#d2c5ab",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#ffcc00",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-high": "#ebe7e7",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Glassmorphism utility for AI Enhanced areas */
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .ai-glass::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(to right, #745b00, #1f5dae);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-sm flex overflow-hidden">
+<!-- NavigationDrawer (Left Sidebar - Hidden on Mobile) -->
+<aside class="hidden md:flex flex-col h-full w-80 fixed left-0 top-0 z-[60] bg-surface-container-low dark:bg-surface-container-high shadow-xl overflow-y-auto transition-transform duration-300 transform -translate-x-full md:translate-x-0" id="desktopSidebar">
+<!-- Header -->
+<div class="p-6 border-b border-surface-variant flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-lg overflow-hidden relative" data-alt="A professional headshot of a corporate moderator with a welcoming yet authoritative expression, clear modern lighting, set against a neutral corporate background, signaling high-trust and competence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCuDyfyWrP0cI6JynzTI9iib0T4CoZiY1oaPUiCbWxuO_thwx_qqTxjt2KRSOqXDHfSx98Z99tw5riZ4XXjxgQsiZ1_iuBz0iLCS9eptSKrnTFb822PPmO2Df4M7NIL0ZThbK2eUlEqQu1h4icRR7UA1t0gInxn53MAP4YGOgSfB0wN8xwtKmYYHnyhp_6floIug8f_NqX-KYGFdl-kRnFWjTl0-Mvn2MoMMzO1-qTAAF5zjrVjZMcDXjwZPZVlwclFBLp_bV4ddA'); background-size: cover; background-position: center;">
+<!-- Avatar fallback -->
+</div>
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed">Moderator Panel</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trust &amp; Safety Division</p>
+<span class="font-label-caps text-label-caps text-secondary mt-1 block">V2.4.0</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-body-lg text-body-lg">Audit Logs</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-lg text-body-lg">Payout Rules</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-body-lg text-body-lg">Merchant Disputes</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-body-lg text-body-lg">Risk Alerts</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-80 flex flex-col h-screen overflow-hidden bg-background">
+<!-- TopAppBar (Mobile & Desktop Header) -->
+<header class="fixed top-0 w-full md:w-[calc(100%-20rem)] z-50 bg-surface shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Button -->
+<button aria-label="Open menu" class="md:hidden text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2 active:scale-95 duration-150" onclick="document.getElementById('mobileDrawer').classList.toggle('hidden')">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Marketplace Trust</h1>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant md:hidden" data-alt="A professional headshot of a corporate moderator with a welcoming yet authoritative expression, clear modern lighting, set against a neutral corporate background, signaling high-trust and competence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgnM7OBWTS01_GtiK1fNM1VpjzKW1_xlQIW6pywOQ9QTjYyuzFlclNI0mqmJjei-KRj0RBb9dHrrAEYmfKgzrb5mLwJciAVWg2SbAhT07_epdbYSU2ZFkZr-RyKWwn7itflaPUV1Pr_tonSlUZg95HHUmcOLvHKGoCS8qSYiLfanDJ0txgEMm-xi9qH3l5smmlUrQfrIUWW7bMsz8q7AcknzNCKvfwnZMWj4cBVQBZtXWCWICzdPcSYuVGGEwnq-OEVr0dHmQR4PY'); background-size: cover; background-position: center;"></div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 mt-16 overflow-y-auto px-container-margin-mobile md:px-container-margin-desktop py-8 pb-24 md:pb-8">
+<!-- Page Header & Filters -->
+<div class="mb-section-gap flex flex-col gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Payout Frequency Audit Log</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Track modifications to merchant payout schedules across all regions.</p>
+</div>
+<!-- Advanced Filters (Glassmorphic style for focus) -->
+<div class="bg-surface-container-low rounded-xl p-4 md:p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex flex-col lg:flex-row gap-4 lg:items-end">
+<!-- Search Bar -->
+<div class="flex-1 relative">
+<label class="sr-only" for="search-audit">Search Merchant ID or Name</label>
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border border-outline-variant rounded-xl bg-surface focus:ring-secondary focus:border-secondary transition-colors font-body-lg" id="search-audit" placeholder="Search Merchant ID or Name..." type="text"/>
+</div>
+<!-- Date Range -->
+<div class="flex gap-4">
+<div class="w-full sm:w-auto">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Start Date</label>
+<input class="block w-full py-2 px-3 border border-outline-variant rounded-lg bg-surface focus:ring-secondary focus:border-secondary font-body-sm text-on-surface" type="date"/>
+</div>
+<div class="w-full sm:w-auto">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">End Date</label>
+<input class="block w-full py-2 px-3 border border-outline-variant rounded-lg bg-surface focus:ring-secondary focus:border-secondary font-body-sm text-on-surface" type="date"/>
+</div>
+</div>
+<!-- Filter Actions -->
+<div class="flex gap-3 mt-4 lg:mt-0">
+<button class="px-4 py-2 border border-outline rounded-lg font-title-md text-title-md text-on-surface hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                            Filters
+                        </button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-lg font-title-md text-title-md font-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors shadow-sm">
+                            Apply
+                        </button>
+</div>
+</div>
+</div>
+<!-- AI Insights Banner (Glassmorphic) -->
+<div class="mb-8 ai-glass rounded-xl p-4 flex items-start sm:items-center gap-4 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-[#8B5CF6] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white text-xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+                        AI Anomaly Detection Active
+                        <span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded font-label-caps text-label-caps">BETA</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Detected 3 unusual frequency changes from 'Weekly' to 'Daily' in the West Africa region within the last 24 hours.</p>
+</div>
+<button class="hidden sm:block px-4 py-2 bg-gradient-to-r from-secondary to-[#8B5CF6] text-white rounded-lg font-title-md text-title-md text-sm hover:opacity-90 transition-opacity whitespace-nowrap">
+                    Review Flags
+                </button>
+</div>
+<!-- Audit Log Data Table (Bento/Card layout for better readability than standard tables) -->
+<div class="space-y-4">
+<!-- Log Entry 1: High Risk Flag -->
+<div class="bg-surface rounded-xl p-0 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-error-container overflow-hidden group hover:border-error transition-colors relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<div class="p-5 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+<!-- Merchant Info -->
+<div class="flex items-center gap-4 w-full md:w-1/3">
+<div class="w-12 h-12 rounded bg-surface-container-high border border-outline-variant/30 flex items-center justify-center shrink-0 overflow-hidden relative" data-alt="A clean, modern storefront or market stall in an urban African setting, bright daylight, conveying commerce and local business activity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANij6gmogAItOf2kD3TP9wEcXz1iqZ4c7SIBX-3iS_4-eBTfVmNiTWoFUNkZ9W8m8uADUTHxXV89zfYVObG424skWPGsycg0I0cTuPhUbODwQnepww64Zdjs9Bgk3tYRn57J3DPO8mI4_NHhFO9LuzyQnvp70wbwlJk070TAcgTARlW9GvzlHCxsVInhCF--mOGWPqKp3Br77XLaedhlLCg0MRUAlGfZUd6QwPckXQhUF3-tNa1fQBHoZKXtgQ3kWGJVbm7c_g8Ek'); background-size: cover; background-position: center;">
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface truncate">Nairobi Tech Hub</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-caps text-label-caps text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> KEN
+                                    </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">ID: M-9938-KEN</span>
+</div>
+</div>
+</div>
+<!-- Change Details -->
+<div class="flex-1 w-full flex items-center gap-4 justify-between md:justify-center bg-surface-container-low p-3 rounded-lg border border-outline-variant/20">
+<div class="text-center flex-1">
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Previous</span>
+<span class="font-title-md text-body-lg text-on-surface bg-surface px-2 py-1 rounded shadow-sm border border-outline-variant/10">Weekly</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="arrow_forward">arrow_forward</span>
+<div class="text-center flex-1">
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-1">New</span>
+<span class="font-title-md text-body-lg text-error bg-error-container/30 px-2 py-1 rounded shadow-sm border border-error-container">Instant</span>
+</div>
+</div>
+<!-- Meta & Actions -->
+<div class="w-full md:w-1/4 flex items-center justify-between md:justify-end gap-4">
+<div class="text-left md:text-right">
+<span class="block font-body-sm text-body-sm text-on-surface">Oct 24, 2023</span>
+<span class="block font-body-sm text-[12px] text-on-surface-variant">14:32 EAT by System</span>
+</div>
+<button aria-label="View details" class="p-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Log Entry 2: Normal Change -->
+<div class="bg-surface rounded-xl p-0 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 overflow-hidden hover:border-secondary transition-colors relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary opacity-50"></div>
+<div class="p-5 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+<!-- Merchant Info -->
+<div class="flex items-center gap-4 w-full md:w-1/3">
+<div class="w-12 h-12 rounded bg-surface-container-high border border-outline-variant/30 flex items-center justify-center shrink-0 overflow-hidden relative" data-alt="A modern agricultural supply warehouse interior, organized and clean, highlighting reliable supply chain operations in a bright light-mode style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKz27veuHgZl0rb5vvKmL0e3iMDXg6d794WK8EfCxLFYYMU5fETs8Uf7qfPqNXi-WmMiLfmldlUPOGAd2jciaCdzxn_sCKQMbbnWvCCGsWIk9HcuLmSwJ7-DQ8QwlIV_QSHGsqX6XMslGWn7o0fFBZInM6ZXDneAk6TYRDtVLBnyk4FKkWMoWeUrC5Wpb1wVfW8xGZwNqkSVX1JVl5r7Mg-_E7j_7qoFFSCr9ZHyI6J1MJ8DM5B1OD7JcYLxmT_f7yAbM0RpVbzFo'); background-size: cover; background-position: center;">
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface truncate">Agri-Supplies Co.</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-caps text-label-caps text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> NGA
+                                    </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">ID: M-4421-NGA</span>
+</div>
+</div>
+</div>
+<!-- Change Details -->
+<div class="flex-1 w-full flex items-center gap-4 justify-between md:justify-center bg-surface-container-low p-3 rounded-lg border border-outline-variant/20">
+<div class="text-center flex-1">
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Previous</span>
+<span class="font-title-md text-body-lg text-on-surface bg-surface px-2 py-1 rounded shadow-sm border border-outline-variant/10">Monthly</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="arrow_forward">arrow_forward</span>
+<div class="text-center flex-1">
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-1">New</span>
+<span class="font-title-md text-body-lg text-on-surface bg-surface px-2 py-1 rounded shadow-sm border border-outline-variant/10">Bi-Weekly</span>
+</div>
+</div>
+<!-- Meta & Actions -->
+<div class="w-full md:w-1/4 flex items-center justify-between md:justify-end gap-4">
+<div class="text-left md:text-right">
+<span class="block font-body-sm text-body-sm text-on-surface">Oct 23, 2023</span>
+<span class="block font-body-sm text-[12px] text-on-surface-variant">09:15 WAT by Admin A.</span>
+</div>
+<button aria-label="View details" class="p-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Log Entry 3: Admin Override -->
+<div class="bg-surface rounded-xl p-0 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 overflow-hidden hover:border-tertiary transition-colors relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="p-5 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+<!-- Merchant Info -->
+<div class="flex items-center gap-4 w-full md:w-1/3">
+<div class="w-12 h-12 rounded bg-surface-container-high border border-outline-variant/30 flex items-center justify-center shrink-0 overflow-hidden relative" data-alt="A professional consulting office setting, modern furniture, high-trust corporate environment, bright and airy." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzP8n4RFri93uwkp8P4KFItang-ky2rwNUIBlTbIddoEdGan06dYL1-EjwZDFK9_y9z7GomNvZm87sEMydHZLHMlNApcN1uCCcrIgTHUDg-6mYYi9ZIKXvGqNDSQWHRWrqrNVhe76Ykq6wPzg-IUA5PDqofO9ENowfVL7Z5rwnE6HjqfVpoYs3F68FTK8lRaRVKSZqn_sNPybQA5_FungVh_THg9z_zFsSDPS0r0Y27Q2jsBuDH0PyamP55l0ecslXUYdTu0Su134'); background-size: cover; background-position: center;">
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface truncate">Lagos Logistics Ltd.</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-caps text-label-caps text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> NGA
+                                    </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">ID: M-1102-NGA</span>
+</div>
+</div>
+</div>
+<!-- Change Details -->
+<div class="flex-1 w-full flex items-center gap-4 justify-between md:justify-center bg-surface-container-low p-3 rounded-lg border border-outline-variant/20">
+<div class="text-center flex-1">
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Previous</span>
+<span class="font-title-md text-body-lg text-on-surface bg-surface px-2 py-1 rounded shadow-sm border border-outline-variant/10">Daily</span>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="arrow_forward">arrow_forward</span>
+<div class="text-center flex-1">
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-1">New</span>
+<span class="font-title-md text-body-lg text-tertiary bg-tertiary-container/30 px-2 py-1 rounded shadow-sm border border-tertiary-container">Hold (Compliance)</span>
+</div>
+</div>
+<!-- Meta & Actions -->
+<div class="w-full md:w-1/4 flex items-center justify-between md:justify-end gap-4">
+<div class="text-left md:text-right">
+<span class="block font-body-sm text-body-sm text-on-surface">Oct 22, 2023</span>
+<span class="block font-body-sm text-[12px] text-on-surface-variant">16:45 WAT by Compliance Team</span>
+</div>
+<button aria-label="View details" class="p-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-8 flex items-center justify-between border-t border-outline-variant/30 pt-4">
+<span class="font-body-sm text-on-surface-variant">Showing 1 to 3 of 45 entries</span>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:bg-secondary-fixed transition-colors">1</button>
+<button class="px-4 py-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors">2</button>
+<button class="px-4 py-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors">3</button>
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Drawer Overlay -->
+<div class="hidden md:hidden fixed inset-0 z-[70] bg-on-background/50 backdrop-blur-sm transition-opacity" id="mobileDrawer">
+<aside class="flex flex-col h-full w-80 bg-surface-container-low shadow-xl overflow-y-auto">
+<!-- Header -->
+<div class="p-6 border-b border-surface-variant flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant relative" data-alt="A professional headshot of a corporate moderator with a welcoming yet authoritative expression, clear modern lighting, set against a neutral corporate background, signaling high-trust and competence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7Ryyh6ZOIHLMnTB3wLG-bO8bOOF85RCX-ePFgtLrdA4ah1XsL3vEl_2MKifdyibu4ypvNqYfLTk8v3oQKwS56XUZs3FXEUUrIWN-CRE1FDlRVK2VRxf0wgfI6_OnUrf-VRc7RfvDdHY-2iEHKkFV6Bf3Agew8P3I1Xqm_5EH7g2p0bJB-IQNBk8FGfaETm4c7xFyxHM1uHFmOf7tE_SEyYo-e-ckgGj2jllakUdOtp2vYYfhlQnYrEwodQpLhdfSq9olQppZBhlQ'); background-size: cover; background-position: center;"></div>
+<div>
+<h2 class="font-title-md text-title-md text-primary">Moderator Panel</h2>
+<span class="font-label-caps text-label-caps text-secondary">V2.4.0</span>
+</div>
+</div>
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-variant" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- Mobile Nav -->
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg m-2 p-3" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-body-lg text-body-lg">Audit Logs</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-lg text-body-lg">Payout Rules</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-body-lg text-body-lg">Merchant Disputes</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-body-lg text-body-lg">Risk Alerts</span>
+</a>
+</nav>
+</aside>
+</div>
+</body></html>

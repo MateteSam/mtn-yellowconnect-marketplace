@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payout Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#ebe7e7",
+                      "inverse-on-surface": "#f3f0ef",
+                      "outline-variant": "#d2c5ab",
+                      "on-secondary-fixed-variant": "#00458d",
+                      "inverse-primary": "#f1c100",
+                      "primary-container": "#ffcc00",
+                      "on-primary-container": "#6f5700",
+                      "on-background": "#1c1b1b",
+                      "secondary-fixed": "#d6e3ff",
+                      "surface-container-highest": "#e5e2e1",
+                      "secondary": "#1f5dae",
+                      "on-secondary-fixed": "#001b3e",
+                      "on-tertiary-fixed": "#001f24",
+                      "primary": "#745b00",
+                      "tertiary-fixed-dim": "#00daf0",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#00e7fe",
+                      "on-surface": "#1c1b1b",
+                      "surface-dim": "#dcd9d9",
+                      "surface": "#fcf9f8",
+                      "surface-variant": "#e5e2e1",
+                      "surface-container-low": "#f6f3f2",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#f0edec",
+                      "on-secondary-container": "#003c7c",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#f1c100",
+                      "on-tertiary-container": "#00646e",
+                      "secondary-fixed-dim": "#aac7ff",
+                      "background": "#fcf9f8",
+                      "outline": "#80765f",
+                      "tertiary": "#006874",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#ffe08b",
+                      "on-primary-fixed-variant": "#584400",
+                      "surface-bright": "#fcf9f8",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#004f57",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#4e4632",
+                      "secondary-container": "#76a9ff",
+                      "tertiary-fixed": "#95f1ff",
+                      "surface-tint": "#745b00",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed": "#241a00",
+                      "inverse-surface": "#313030",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "48px",
+                      "gutter": "16px",
+                      "container-margin-mobile": "16px",
+                      "container-margin-desktop": "40px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "title-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                      "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                      "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                      "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                      "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), linear-gradient(to right, #745b00, #1f5dae);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+        .btn-ai {
+            background: linear-gradient(135deg, #1f5dae, #6b21a8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopAppBar (Suppressed default nav due to Settings context, using specific Settings App Bar) -->
+<header class="fixed top-0 w-full z-50 shadow-sm bg-surface dark:bg-surface-dim">
+<div class="flex items-center justify-between px-container-margin-mobile h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-4">
+<button aria-label="Go back" class="active:scale-95 transition-transform text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high rounded-full p-2">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-primary dark:text-primary-fixed-dim">Payout Settings</h1>
+</div>
+<div class="flex items-center">
+<!-- Empty trailing space to balance flex-between -->
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[80px] pb-[100px] px-container-margin-mobile md:px-container-margin-desktop max-w-3xl mx-auto w-full">
+<!-- Next Payout Preview (AI Enhanced / Predictive) -->
+<section class="mb-section-gap">
+<div class="glass-ai rounded-xl p-6 shadow-md relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-secondary text-on-secondary px-3 py-1 rounded-bl-lg font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span> Estimated
+                </div>
+<h2 class="font-title-md text-title-md text-on-surface mb-2">Next Scheduled Payout</h2>
+<div class="flex flex-col md:flex-row md:items-end md:justify-between mt-4">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Expected Date</p>
+<p class="font-title-md text-title-md text-primary mt-1">Oct 25, 2023</p>
+</div>
+<div class="mt-4 md:mt-0 text-left md:text-right">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Estimated Amount</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold mt-1">GHS 12,450.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Frequency Selection -->
+<section class="mb-section-gap">
+<h2 class="font-title-md text-title-md text-on-surface mb-4">Payout Frequency</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Daily Option -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="frequency" type="radio" value="daily"/>
+<div class="rounded-xl border border-outline-variant bg-surface p-4 transition-all hover:bg-surface-container hover:shadow-sm peer-checked:border-primary peer-checked:bg-primary-container peer-checked:shadow-md ring-1 ring-transparent peer-checked:ring-primary">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-on-surface-variant peer-checked:text-on-primary-container">calendar_today</span>
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant peer-checked:border-primary flex items-center justify-center bg-surface">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface peer-checked:text-on-primary-container">Daily</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">Every business day</p>
+</div>
+</label>
+<!-- Weekly Option (Active) -->
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="frequency" type="radio" value="weekly"/>
+<div class="rounded-xl border border-outline-variant bg-surface p-4 transition-all hover:bg-surface-container hover:shadow-sm peer-checked:border-primary peer-checked:bg-primary-container peer-checked:shadow-md ring-1 ring-transparent peer-checked:ring-primary">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary">calendar_view_week</span>
+<div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center bg-surface">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-100 transition-opacity"></div>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-primary-container">Weekly</h3>
+<p class="font-body-sm text-body-sm text-on-primary-container mt-1">Every Friday</p>
+</div>
+</label>
+<!-- Monthly Option -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="frequency" type="radio" value="monthly"/>
+<div class="rounded-xl border border-outline-variant bg-surface p-4 transition-all hover:bg-surface-container hover:shadow-sm peer-checked:border-primary peer-checked:bg-primary-container peer-checked:shadow-md ring-1 ring-transparent peer-checked:ring-primary">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-on-surface-variant peer-checked:text-on-primary-container">calendar_month</span>
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant peer-checked:border-primary flex items-center justify-center bg-surface">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface peer-checked:text-on-primary-container">Monthly</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">1st of every month</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Payout Method -->
+<section class="mb-section-gap">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-title-md text-title-md text-on-surface">Payout Method</h2>
+<button class="font-label-caps text-label-caps text-secondary hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">add</span> Add New
+                </button>
+</div>
+<div class="space-y-4">
+<!-- MoMo Wallet -->
+<label class="flex items-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container transition-colors bg-surface relative overflow-hidden group">
+<input checked="" class="peer sr-only" name="method" type="radio" value="momo"/>
+<!-- Active Indicator Border -->
+<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary rounded-xl pointer-events-none"></div>
+<div class="flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-high text-on-surface-variant mr-4">
+<span class="material-symbols-outlined">smartphone</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-title-md text-title-md text-on-surface">MTN MoMo Wallet</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">024 •••• 7890</p>
+</div>
+<div class="ml-4 flex items-center">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center group-has-[:checked]:border-primary group-has-[:checked]:bg-primary-container">
+<span class="material-symbols-outlined text-[16px] text-primary opacity-0 group-has-[:checked]:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+<!-- Bank Account -->
+<label class="flex items-center p-4 border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container transition-colors bg-surface relative overflow-hidden group">
+<input class="peer sr-only" name="method" type="radio" value="bank"/>
+<!-- Active Indicator Border -->
+<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary rounded-xl pointer-events-none"></div>
+<div class="flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-high text-on-surface-variant mr-4">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-title-md text-title-md text-on-surface">Ecobank Ghana</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Acct •••• 1234</p>
+</div>
+<div class="ml-4 flex items-center">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center group-has-[:checked]:border-primary group-has-[:checked]:bg-primary-container">
+<span class="material-symbols-outlined text-[16px] text-primary opacity-0 group-has-[:checked]:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+</div>
+</section>
+<!-- Save Action -->
+<div class="mt-8 flex justify-end">
+<button class="bg-primary text-on-primary font-title-md text-title-md px-8 py-3 rounded-lg shadow-sm hover:bg-primary-container hover:text-on-primary-container hover:shadow-md transition-all active:scale-95 w-full md:w-auto">
+                Save Preferences
+            </button>
+</div>
+</main>
+<!-- Suppressed BottomNavBar due to Setting context, but included for structural requirement if needed in other views, hidden here intentionally by CSS or semantic exclusion. -->
+<!-- In a real app context, standard nav is often suppressed on focused settings screens -->
+</body></html>

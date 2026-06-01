@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2FA Activation Success</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#80765f",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-background": "#1c1b1b",
+                        "background": "#fcf9f8",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary": "#1f5dae",
+                        "inverse-primary": "#f1c100",
+                        "tertiary-fixed": "#95f1ff",
+                        "surface": "#fcf9f8",
+                        "tertiary": "#006874",
+                        "primary-container": "#ffcc00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-secondary-fixed": "#001b3e",
+                        "tertiary-container": "#00e7fe",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#6f5700",
+                        "surface-variant": "#e5e2e1",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0edec",
+                        "on-surface-variant": "#4e4632",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "primary-fixed": "#ffe08b",
+                        "on-tertiary-container": "#00646e",
+                        "on-secondary-container": "#003c7c",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "primary": "#745b00",
+                        "on-primary-fixed": "#241a00",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#584400",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-surface": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "secondary-container": "#76a9ff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "outline-variant": "#d2c5ab",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container-high": "#ebe7e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "container-margin-desktop": "40px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .code-block {
+            font-family: monospace;
+            letter-spacing: 0.1em;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-sans">
+<!-- Top Navigation Placeholder (Since it's a linear transactional screen, we might typically suppress nav, but keeping a simple header for structure if needed, or just a back button area) -->
+<header class="w-full px-container-margin-mobile md:px-container-margin-desktop py-4 flex items-center justify-start border-b border-surface-variant">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined font-bold">arrow_back</span>
+<span class="font-title-md text-title-md">Security</span>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-container-margin-mobile md:p-container-margin-desktop">
+<div class="max-w-lg w-full">
+<!-- Success Header -->
+<div class="text-center mb-8">
+<div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-container text-on-primary-container mb-4 mx-auto shadow-md">
+<span class="material-symbols-outlined text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-2">2FA Activated Successfully</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your account is now protected with Two-Factor Authentication.</p>
+</div>
+<!-- Recovery Codes Section (Glassmorphic) -->
+<div class="glass-panel rounded-xl p-6 mb-8 relative overflow-hidden">
+<!-- Subtle gradient accent -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-primary-container"></div>
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-title-md text-title-md text-on-background">Recovery Codes</h2>
+<span class="material-symbols-outlined text-tertiary">key</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-4 mb-4 border border-outline-variant/30">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                        Save these codes in a secure place. If you lose access to your device, you can use these to recover your account. Each code can only be used once.
+                    </p>
+<!-- Code Grid -->
+<div class="grid grid-cols-2 gap-x-4 gap-y-2 mb-4" id="recovery-codes-grid">
+<!-- Simulated codes -->
+<div class="code-block text-on-surface-variant bg-surface-container py-1 px-2 rounded text-center">A1B2-C3D4</div>
+<div class="code-block text-on-surface-variant bg-surface-container py-1 px-2 rounded text-center">E5F6-G7H8</div>
+<div class="code-block text-on-surface-variant bg-surface-container py-1 px-2 rounded text-center">I9J0-K1L2</div>
+<div class="code-block text-on-surface-variant bg-surface-container py-1 px-2 rounded text-center">M3N4-O5P6</div>
+<div class="code-block text-on-surface-variant bg-surface-container py-1 px-2 rounded text-center">Q7R8-S9T0</div>
+<div class="code-block text-on-surface-variant bg-surface-container py-1 px-2 rounded text-center">U1V2-W3X4</div>
+<div class="code-block text-on-surface-variant bg-surface-container py-1 px-2 rounded text-center">Y5Z6-A7B8</div>
+<div class="code-block text-on-surface-variant bg-surface-container py-1 px-2 rounded text-center">C9D0-E1F2</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 flex items-center justify-center gap-2 bg-secondary text-on-secondary font-title-md text-body-lg py-3 px-4 rounded-lg hover:bg-secondary-container hover:text-on-secondary-container transition-colors shadow-sm" id="copy-btn">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                        Copy All
+                    </button>
+<button class="flex-1 flex items-center justify-center gap-2 bg-surface text-secondary border border-secondary font-title-md text-body-lg py-3 px-4 rounded-lg hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Download txt
+                    </button>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-primary text-on-primary font-title-md text-title-md py-4 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm flex justify-center items-center gap-2">
+                Back to Security Settings
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+<script>
+        document.getElementById('copy-btn').addEventListener('click', function() {
+            const btn = this;
+            const originalContent = btn.innerHTML;
+            
+            // Visual feedback
+            btn.innerHTML = '<span class="material-symbols-outlined text-sm">check</span> Copied!';
+            btn.classList.add('bg-tertiary', 'text-on-tertiary');
+            btn.classList.remove('bg-secondary', 'text-on-secondary');
+            
+            // Reset after 2 seconds
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.classList.remove('bg-tertiary', 'text-on-tertiary');
+                btn.classList.add('bg-secondary', 'text-on-secondary');
+            }, 2000);
+        });
+    </script>
+</body></html>

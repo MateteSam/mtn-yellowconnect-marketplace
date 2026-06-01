@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Gold Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#006874",
+                        "surface-dim": "#dcd9d9",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0edec",
+                        "on-secondary-fixed": "#001b3e",
+                        "primary": "#745b00",
+                        "on-surface": "#1c1b1b",
+                        "outline-variant": "#d2c5ab",
+                        "on-background": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary-container": "#6f5700",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "inverse-surface": "#313030",
+                        "inverse-primary": "#f1c100",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-container": "#76a9ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "outline": "#80765f",
+                        "primary-fixed": "#ffe08b",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#745b00",
+                        "secondary": "#1f5dae",
+                        "on-tertiary-fixed": "#001f24",
+                        "tertiary-fixed": "#95f1ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-container": "#003c7c",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-container": "#ffcc00",
+                        "tertiary-container": "#00e7fe",
+                        "on-primary-fixed": "#241a00",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-surface-variant": "#4e4632",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 204, 0, 0.3);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffcc00 0%, #f1c100 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm pb-24 md:pb-0">
+<!-- Top App Bar (Transactional - Supressed main nav elements) -->
+<header class="bg-surface/80 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-container-margin-mobile md:px-container-margin-desktop py-4">
+<button class="text-on-surface hover:bg-surface-container-high p-2 rounded-full transition-colors active:scale-95 flex items-center">
+<span class="material-symbols-outlined" data-icon="arrow_back" data-weight="regular">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-on-surface text-center flex-1">Secure Checkout</h1>
+<div class="w-10"></div> <!-- Spacer for balance -->
+</div>
+</header>
+<main class="flex-1 mt-20 px-container-margin-mobile md:px-container-margin-desktop max-w-4xl mx-auto w-full flex flex-col gap-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-8">
+<!-- Left Column: Checkout Details -->
+<div class="md:col-span-7 flex flex-col gap-6">
+<!-- Plan Summary Card -->
+<section class="bg-surface rounded-xl p-6 shadow-lg border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container rounded-bl-full opacity-20 -mr-8 -mt-8 pointer-events-none"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider mb-1 block">Selected Plan</span>
+<h2 class="font-title-md text-title-md text-on-surface">MTN Gold Membership</h2>
+</div>
+<div class="text-right">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">R 199</span>
+<span class="text-on-surface-variant font-body-sm block">/month</span>
+</div>
+</div>
+<div class="border-t border-surface-variant pt-4 mt-2">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-3 uppercase">Gold Benefits Included:</h3>
+<ul class="space-y-2">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle" data-weight="fill">check_circle</span>
+<span class="font-body-sm text-on-surface">Zero transaction fees on marketplace</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle" data-weight="fill">check_circle</span>
+<span class="font-body-sm text-on-surface">Priority AI product recommendations</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle" data-weight="fill">check_circle</span>
+<span class="font-body-sm text-on-surface">Exclusive partner discounts</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Payment Methods -->
+<section class="bg-surface rounded-xl p-6 shadow-sm border border-outline-variant">
+<h3 class="font-title-md text-title-md text-on-surface mb-6">Payment Method</h3>
+<div class="space-y-4">
+<!-- MoMo Option -->
+<label class="relative flex items-center justify-between p-4 rounded-lg border-2 border-primary bg-primary-container/10 cursor-pointer transition-all hover:bg-primary-container/20 group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" data-weight="fill">account_balance_wallet</span>
+</div>
+<div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold block">MTN MoMo</span>
+<span class="font-body-sm text-on-surface-variant">Pay instantly with Mobile Money</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+</div>
+<input checked="" class="hidden" name="payment" type="radio" value="momo"/>
+</label>
+<!-- Credit Card Option -->
+<label class="relative flex items-center justify-between p-4 rounded-lg border border-surface-variant bg-surface cursor-pointer transition-all hover:bg-surface-container-low group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="credit_card" data-weight="regular">credit_card</span>
+</div>
+<div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold block">Credit / Debit Card</span>
+<span class="font-body-sm text-on-surface-variant">Visa, Mastercard</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-surface-variant flex items-center justify-center group-hover:border-primary">
+</div>
+<input class="hidden" name="payment" type="radio" value="card"/>
+</label>
+<!-- Airtime Option -->
+<label class="relative flex items-center justify-between p-4 rounded-lg border border-surface-variant bg-surface cursor-pointer transition-all hover:bg-surface-container-low group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="phone_iphone" data-weight="regular">phone_iphone</span>
+</div>
+<div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold block">MTN Airtime</span>
+<span class="font-body-sm text-on-surface-variant">Deduct from airtime balance</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-surface-variant flex items-center justify-center group-hover:border-primary">
+</div>
+<input class="hidden" name="payment" type="radio" value="airtime"/>
+</label>
+</div>
+<!-- MoMo Input Field (Conditional visibility based on selection) -->
+<div class="mt-6 pt-6 border-t border-surface-variant">
+<label class="font-body-sm text-on-surface-variant mb-2 block">Enter MoMo Number</label>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-surface-variant focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary transition-all">
+<span class="pl-3 text-on-surface-variant">+27</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-lg p-3" placeholder="00 000 0000" type="tel"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary & CTA -->
+<div class="md:col-span-5">
+<div class="sticky top-28 bg-surface rounded-xl p-6 shadow-sm border border-outline-variant flex flex-col gap-6">
+<h3 class="font-title-md text-title-md text-on-surface">Order Summary</h3>
+<div class="space-y-3 font-body-sm">
+<div class="flex justify-between text-on-surface">
+<span>Subtotal</span>
+<span>R 199.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Taxes (15%)</span>
+<span>R 29.85</span>
+</div>
+<div class="border-t border-surface-variant my-2 pt-2"></div>
+<div class="flex justify-between items-center">
+<span class="font-title-md text-title-md text-on-surface">Total</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">R 228.85</span>
+</div>
+</div>
+<p class="font-body-sm text-on-surface-variant text-center text-xs">
+                        By clicking "Pay Now", you agree to our Terms of Service and authorize this recurring monthly payment.
+                    </p>
+<button class="w-full gold-gradient text-on-primary-fixed font-title-md py-4 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="lock" data-weight="fill">lock</span>
+                        Pay Now
+                    </button>
+<div class="flex items-center justify-center gap-2 text-on-surface-variant mt-2">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user" data-weight="regular">verified_user</span>
+<span class="text-xs font-body-sm">Secure 256-bit Encryption</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Supressed for checkout flow per instructions -->
+<script>
+        // Simple interaction for radio buttons to update visual state
+        document.addEventListener('DOMContentLoaded', () => {
+            const radioLabels = document.querySelectorAll('label:has(input[type="radio"])');
+            const inputs = document.querySelectorAll('input[type="radio"]');
+
+            inputs.forEach(input => {
+                input.addEventListener('change', (e) => {
+                    // Reset all
+                    radioLabels.forEach(label => {
+                        label.classList.remove('border-2', 'border-primary', 'bg-primary-container/10');
+                        label.classList.add('border', 'border-surface-variant', 'bg-surface');
+                        const indicator = label.querySelector('.rounded-full.border-2');
+                        indicator.classList.remove('border-primary');
+                        indicator.classList.add('border-surface-variant');
+                        indicator.innerHTML = ''; // Remove dot
+                    });
+
+                    // Set active
+                    const activeLabel = e.target.closest('label');
+                    activeLabel.classList.remove('border', 'border-surface-variant', 'bg-surface');
+                    activeLabel.classList.add('border-2', 'border-primary', 'bg-primary-container/10');
+                    
+                    const activeIndicator = activeLabel.querySelector('.rounded-full.border-2');
+                    activeIndicator.classList.remove('border-surface-variant');
+                    activeIndicator.classList.add('border-primary');
+                    activeIndicator.innerHTML = '<div class="w-3 h-3 rounded-full bg-primary"></div>';
+                });
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compliance History - Merchant Finance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#fcf9f8",
+                    "on-surface-variant": "#4e4632",
+                    "outline-variant": "#d2c5ab",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#ffe08b",
+                    "tertiary-fixed-dim": "#00daf0",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#f1c100",
+                    "secondary-fixed": "#d6e3ff",
+                    "on-background": "#1c1b1b",
+                    "primary-fixed-dim": "#f1c100",
+                    "secondary-fixed-dim": "#aac7ff",
+                    "primary-container": "#ffcc00",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container-high": "#ebe7e7",
+                    "surface-container": "#f0edec",
+                    "on-secondary-fixed-variant": "#00458d",
+                    "on-primary-fixed": "#241a00",
+                    "primary": "#745b00",
+                    "on-primary-container": "#6f5700",
+                    "on-tertiary-container": "#00646e",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#745b00",
+                    "outline": "#80765f",
+                    "tertiary-container": "#00e7fe",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e5e2e1",
+                    "on-surface": "#1c1b1b",
+                    "tertiary-fixed": "#95f1ff",
+                    "on-tertiary-fixed": "#001f24",
+                    "secondary-container": "#76a9ff",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-tertiary-fixed-variant": "#004f57",
+                    "surface-dim": "#dcd9d9",
+                    "inverse-surface": "#313030",
+                    "secondary": "#1f5dae",
+                    "surface-bright": "#fcf9f8",
+                    "error-container": "#ffdad6",
+                    "background": "#fcf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-secondary-fixed": "#001b3e",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#003c7c",
+                    "tertiary": "#006874",
+                    "inverse-on-surface": "#f3f0ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-margin-desktop": "40px",
+                    "gutter": "16px",
+                    "section-gap": "48px",
+                    "container-margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "title-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 104, 116, 0.2); /* using tertiary hue for subtle border */
+        }
+        .ai-gradient-bg {
+            background: linear-gradient(135deg, #f6f3f2 0%, #d6e3ff 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-sm min-h-screen flex flex-col pt-16 pb-20 md:pb-0 md:pt-0">
+<!-- TopAppBar (Mobile) / Top Nav (Desktop) -->
+<header class="fixed top-0 w-full z-50 bg-primary dark:bg-primary-container shadow-md flex items-center justify-between px-container-margin-mobile h-16 transition-colors duration-200 md:hidden">
+<button aria-label="Menu" class="text-on-primary dark:text-on-primary-container p-2 -ml-2 rounded-full hover:bg-primary-container/20 transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-primary dark:text-on-primary-container tracking-tight">Merchant Finance</h1>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden border-2 border-on-primary/20">
+<img alt="Merchant Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a confident female entrepreneur. She has a warm smile and is wearing a modern business blouse. The background is softly blurred, showing a bright, contemporary office space with natural lighting. The overall mood conveys trust, success, and approachability in a corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfbkZ5YVjkyAJl9y2HkkaeYnG5yFII4cP-igBpLuLoEY6X9L4upHo7NJUpqtw1qr-YjCm9fO3sQ73aHg2JtAUu5A_9FIVnjJbWnrWyRXnwfm4hp8VT1-sWtNi75FmBse2n5VNrAeSK0x0Da9eI4ePCleMYqvHNfOZykgVnkrplKHZ2v_Nywy6xz6HhFRB9yxWJzV37V_xGIwrrz9vuAIHYk8j0r8_GQhsqWNgXocEKXXOsRCndoaF19F4FR5tEopIoPWaopL142Cw"/>
+</div>
+</header>
+<!-- Desktop Sidebar/Layout Wrapper -->
+<div class="flex flex-1 w-full max-w-[1280px] mx-auto relative h-full">
+<!-- NavigationDrawer (Desktop Only) -->
+<nav class="hidden md:flex flex-col h-screen sticky top-0 w-80 rounded-r-xl shadow-xl bg-surface dark:bg-surface-container-low p-6 space-y-4 z-40">
+<div class="flex items-center space-x-4 mb-8">
+<div class="h-12 w-12 rounded-lg bg-surface-container-highest overflow-hidden shrink-0">
+<img alt="Merchant Business Logo" class="w-full h-full object-cover" data-alt="A minimalist logo mark for a modern wholesale business. It features clean geometric lines in dark corporate blue and vibrant yellow accents. The logo is displayed on a clean, light surface, communicating professionalism, scale, and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8KPb6eSQ6i0ebRvERSBZvruMan6TrmYKlkgKjkzSII9ERGbPHQd1EqWccnaK71ur7t-VIUs5lVNH_HQkCbQNGVtA2zCGvsLA9244TsR2ph1EJDMb5Q8aLWIv4wsd2i-0JA6bto_1PLKbDNo1rFA0wnlYjKx0huc9AL_7QSCfkIi-tF4K87bkeXhKTvXVHzwZNF1bPXOePe2OtB5sAJLjOa7LDWMDe6fRfihLZXVAxmiV_Y9PXD4XAO1ADI6VX_I1I8nzIEPok4ks"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-primary truncate w-full">Asha's Wholesale</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center"><span class="material-symbols-outlined text-[16px] mr-1 text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>Verified Merchant</span>
+<span class="font-body-sm text-body-sm text-outline text-xs">ID: 882910</span>
+</div>
+</div>
+<div class="flex flex-col space-y-2 flex-1">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-body-lg text-body-lg">Loan Offers</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-lg text-body-lg">Repayment Schedule</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg cursor-pointer active:opacity-80 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+<span class="font-body-lg text-body-lg">Compliance Docs</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors cursor-pointer active:opacity-80 mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full px-container-margin-mobile md:px-container-margin-desktop py-6 overflow-y-auto">
+<div class="max-w-3xl mx-auto space-y-section-gap">
+<!-- Page Header -->
+<div class="flex flex-col space-y-2">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight">Compliance History</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage and review your submitted regulatory documentation.</p>
+</div>
+<!-- AI Alert Banner (Glassmorphic) -->
+<section class="glass-panel rounded-xl p-6 relative overflow-hidden ai-gradient-bg">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl text-secondary">auto_awesome</span>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="h-10 w-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-caps text-label-caps bg-surface/50 text-secondary px-2 py-0.5 rounded border border-secondary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span> AI ALERT
+                                    </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface">Action Required: Expiring License</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Your 'Commercial Trade License' is set to expire in 14 days. Please upload a renewed copy to avoid service disruption.</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary-fixed-variant font-title-md text-body-sm px-6 py-2.5 rounded-lg shadow-sm hover:shadow-md transition-shadow whitespace-nowrap self-stretch sm:self-auto flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+                            Update Now
+                        </button>
+</div>
+</section>
+<!-- Document List Section -->
+<section class="flex flex-col space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2">
+<h3 class="font-title-md text-title-md text-on-surface">Recent Submissions</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg font-body-sm text-body-sm text-on-surface focus:ring-2 focus:ring-secondary w-full max-w-[200px] transition-all" placeholder="Search docs..." type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- List Item 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex items-center justify-between hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-lg text-on-surface">Annual Tax Clearance - 2023</span>
+<span class="font-body-sm text-body-sm text-outline">Submitted: Oct 12, 2023 • PDF • 1.2MB</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="bg-tertiary-container/30 text-on-tertiary-container font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-1 border border-tertiary-container">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Verified
+                                </span>
+<button aria-label="Download" class="text-outline hover:text-secondary transition-colors p-2">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex items-center justify-between hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[24px]">assignment_ind</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-lg text-on-surface">Director KYC Identification</span>
+<span class="font-body-sm text-body-sm text-outline">Submitted: Aug 05, 2023 • JPG • 4.5MB</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-1 border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]">pending</span> Pending Review
+                                </span>
+<button aria-label="Download" class="text-outline hover:text-secondary transition-colors p-2">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="bg-surface-container-lowest border border-error-container bg-error-container/10 rounded-xl p-4 flex items-center justify-between hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-error-container text-on-error-container flex items-center justify-center group-hover:bg-error group-hover:text-on-error transition-colors">
+<span class="material-symbols-outlined text-[24px]">error</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-lg text-on-surface">Commercial Trade License</span>
+<span class="font-body-sm text-body-sm text-error">Expires in 14 Days • Last updated: Jan 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-error-container hover:text-error transition-colors font-label-caps text-label-caps underline">
+                                    UPDATE
+                                </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center h-20 pb-safe md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:bg-surface-container-high active:scale-95 transition-transform w-full py-2" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="payments">payments</span>
+<span class="font-label-caps text-label-caps">Loans</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 hover:bg-surface-container-high active:scale-95 transition-transform w-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-caps text-label-caps">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:bg-surface-container-high active:scale-95 transition-transform w-full py-2" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-label-caps text-label-caps">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:bg-surface-container-high active:scale-95 transition-transform w-full py-2" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="storefront">storefront</span>
+<span class="font-label-caps text-label-caps">Account</span>
+</a>
+</nav>
+</body></html>

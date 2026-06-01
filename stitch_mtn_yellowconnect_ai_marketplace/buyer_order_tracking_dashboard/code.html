@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Tracking - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1c1b1b",
+                        "on-tertiary-container": "#00646e",
+                        "on-secondary-fixed": "#001b3e",
+                        "secondary": "#1f5dae",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary-fixed": "#001f24",
+                        "inverse-surface": "#313030",
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-primary-fixed": "#241a00",
+                        "primary": "#745b00",
+                        "outline-variant": "#d2c5ab",
+                        "secondary-container": "#76a9ff",
+                        "outline": "#80765f",
+                        "surface-dim": "#dcd9d9",
+                        "tertiary-fixed": "#95f1ff",
+                        "tertiary-container": "#00e7fe",
+                        "surface-container-low": "#f6f3f2",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf9f8",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary": "#006874",
+                        "surface-container": "#f0edec",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "primary-fixed": "#ffe08b",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#4e4632",
+                        "primary-container": "#ffcc00",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-high": "#ebe7e7",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "inverse-primary": "#f1c100",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary-container": "#6f5700",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#003c7c",
+                        "secondary-fixed-dim": "#aac7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-mobile": "16px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to right, #745b00, #1f5dae);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim font-title-md text-title-md docked full-width top-0 shadow-sm dark:bg-surface-container-high high-elevation shadow-md flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 w-full sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<button class="md:hidden text-on-surface-variant p-2 -ml-2 rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User Profile Picture" class="w-full h-full object-cover" data-alt="A close up, high quality studio portrait of a modern professional looking at the camera. The background is a clean, neutral white studio backdrop. The lighting is soft and flattering, creating a high-trust, premium corporate vibe consistent with a professional marketplace setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHL9vggo_uLjElowoh-dZNMUTDA9FbxLkExF_9E2Vsyp6y48EHAsUtYNG5QAJLl5kxqhmVqesPICqYVDNQc2FaYAB3yQJJCZnQjsTHTBAm_gHLJCci6WOqRntGHUhaUiT9jz25q0FcqH1ZHYWI-FVW9pQtZ3iKrOXVOFBfnbRK7IqxY9bqRbeBP_xlOzs-PSfAj3MRpECDEudeJEElkLNnqVGPQl2GaFx7BGV2FZaIlDd64tXU3rAW0AJNxoC2W7QkrBZOf68Oal0"/>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim hidden md:block">MTN Marketplace</span>
+<span class="font-title-md text-title-md font-bold text-on-background md:hidden">Track Order</span>
+</div>
+<div class="hidden md:flex gap-6 items-center">
+<nav class="flex gap-6">
+<a class="text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 duration-100 px-3 py-2 rounded-lg" href="#">Home</a>
+<a class="text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 duration-100 px-3 py-2 rounded-lg" href="#">Browse</a>
+<a class="text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 duration-100 px-3 py-2 rounded-lg" href="#">AI Scout</a>
+<a class="text-primary font-bold active:scale-95 duration-100 px-3 py-2 rounded-lg" href="#">Orders</a>
+</nav>
+</div>
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-6 space-y-6">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<p class="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-1">Order #MTN-8472-9X</p>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">In Transit</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Estimated delivery: Tomorrow, 2:00 PM - 5:00 PM</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high text-on-surface font-title-md text-body-sm font-semibold py-2 px-4 rounded-lg hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="receipt_long">receipt_long</span> View Invoice
+                </button>
+<button class="bg-secondary text-on-secondary font-title-md text-body-sm font-semibold py-2 px-4 rounded-lg hover:bg-on-secondary-fixed-variant transition-colors shadow-[0px_4px_12px_rgba(0,0,0,0.1)] flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="support_agent">support_agent</span> Support
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Tracking Timeline (Left Column on Desktop) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container border-opacity-50 flex flex-col h-full">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-title-md text-title-md text-on-background">Tracking Status</h2>
+<span class="material-symbols-outlined text-outline" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="relative flex-grow pl-4 py-2">
+<!-- Vertical Line -->
+<div class="absolute left-[1.35rem] top-4 bottom-4 w-0.5 bg-surface-variant"></div>
+<!-- Active Line Overlay -->
+<div class="absolute left-[1.35rem] top-4 h-[60%] w-0.5 bg-secondary"></div>
+<!-- Step 1: Placed -->
+<div class="relative flex gap-4 mb-8">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center z-10 shrink-0 mt-1 shadow-sm">
+<span class="material-symbols-outlined text-[12px] text-on-secondary" data-icon="check" data-weight="fill">check</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-background">Order Placed</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Oct 24, 09:15 AM</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Payment confirmed and order received.</p>
+</div>
+</div>
+<!-- Step 2: Shipped -->
+<div class="relative flex gap-4 mb-8">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center z-10 shrink-0 mt-1 shadow-sm">
+<span class="material-symbols-outlined text-[12px] text-on-secondary" data-icon="check" data-weight="fill">check</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-background">Shipped</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Oct 25, 14:30 PM</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Package has left the regional facility.</p>
+</div>
+</div>
+<!-- Step 3: Out for Delivery (Active) -->
+<div class="relative flex gap-4 mb-8">
+<div class="w-6 h-6 rounded-full bg-primary-container border-2 border-surface-container-lowest flex items-center justify-center z-10 shrink-0 mt-1 shadow-md animate-pulse">
+<div class="w-2 h-2 rounded-full bg-on-primary-container"></div>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-primary">In Transit</h3>
+<p class="font-body-sm text-body-sm text-secondary font-medium">Oct 26, 08:45 AM</p>
+<!-- AI Enhanced Glass Card inside timeline -->
+<div class="glass-ai rounded-lg p-3 mt-3 shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-12 h-12 bg-secondary opacity-10 rounded-full blur-xl"></div>
+<div class="flex gap-2 items-start">
+<span class="material-symbols-outlined text-secondary text-sm mt-0.5" data-icon="auto_awesome">auto_awesome</span>
+<div>
+<p class="font-label-caps text-[10px] text-secondary uppercase tracking-wider mb-0.5">AI Logistics Prediction</p>
+<p class="font-body-sm text-[13px] text-on-surface-variant leading-tight">Traffic is light on the delivery route. Expected to arrive 15 mins earlier than initial estimate.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 4: Delivered -->
+<div class="relative flex gap-4">
+<div class="w-6 h-6 rounded-full bg-surface-variant border-2 border-surface-container-lowest flex items-center justify-center z-10 shrink-0 mt-1">
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-outline">Delivered</h3>
+<p class="font-body-sm text-body-sm text-outline-variant">Pending</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column Grid -->
+<div class="lg:col-span-7 flex flex-col gap-gutter">
+<!-- Map Widget -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container border-opacity-50 h-[300px] relative group">
+<img alt="Map Location" class="w-full h-full object-cover" data-alt="A highly detailed, clean, top-down digital map view of a modern city grid. The map uses a light-mode color palette with soft gray roads, subtle green parks, and white building blocks. A bright blue route line and a glowing yellow delivery truck icon indicate active tracking. The overall aesthetic is sleek, corporate, and technologically advanced, perfectly suited for a premium logistics dashboard." data-location="Accra" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQvJtR9PKRzSlw18wf52xJgkwg7KdUumR1ZJ-s5Ajc1cayp1Hvb2zQbY0DXYMTvHRU6GOmRwu9niOLNT5EDyVACEmbUn7gUVH7NlCwoGA9XRyeBI6xHPi7QNcSTWJFqhUEGGzkHSMVgJTvvhM5XHN7M2JI2xFVIPKvHhxidhMnRWgWL9h9WLvQ7QHWQS2TN906CaK1vxdOetWCL2S8T510K9LQA4BWuBFcgRnYAh6-VWFQolGGo-7gNNgWEYAV4vahJsZZO4Co2rw"/>
+<!-- Overlay Controls -->
+<div class="absolute bottom-4 right-4 flex flex-col gap-2">
+<button class="w-10 h-10 bg-surface-container-lowest rounded-lg shadow-md flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="w-10 h-10 bg-surface-container-lowest rounded-lg shadow-md flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+</div>
+<div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm rounded-lg shadow-md p-3 flex items-center gap-3 border border-surface-container">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="two_wheeler">two_wheeler</span>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Driver</p>
+<p class="font-body-sm text-body-sm font-semibold text-on-background">Kwasi Appiah</p>
+</div>
+</div>
+</div>
+<!-- Delivery Details Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter flex-grow">
+<!-- Address Card -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container border-opacity-50">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="home_pin">home_pin</span>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-background">Delivery Address</h3>
+</div>
+<p class="font-body-sm text-body-sm font-medium text-on-background">MTN Ridge Headquarters</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Independence Avenue, West Ridge</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Accra, Greater Accra</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ghana</p>
+<div class="mt-4 pt-4 border-t border-surface-variant">
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase mb-1">Contact for Delivery</p>
+<p class="font-body-sm text-body-sm text-on-background">+233 24 123 4567</p>
+</div>
+</div>
+<!-- Logistics Partner Card -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container border-opacity-50 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="inventory_2">inventory_2</span>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-background">Package Info</h3>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="smartphone">smartphone</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm font-medium text-on-background">Samsung Galaxy S24 Ultra</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant mt-0.5">Qty: 1 • 0.4 kg</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 border border-surface-variant">
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase mb-1">Logistics Partner</p>
+<div class="flex justify-between items-center">
+<p class="font-body-sm text-body-sm font-semibold text-on-background">MTN Express Logistics</p>
+<span class="text-xs text-secondary font-medium">Verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions (Mobile focus) -->
+<div class="md:hidden mt-8 flex flex-col gap-3">
+<button class="w-full bg-surface-container-high text-error font-title-md text-body-sm font-semibold py-3 px-4 rounded-lg hover:bg-error-container transition-colors border border-outline-variant border-opacity-50">
+                Cancel Order
+            </button>
+</div>
+<!-- Desktop Cancel Action (Subtle) -->
+<div class="hidden md:flex justify-end mt-4">
+<button class="text-error font-body-sm text-body-sm hover:underline hover:text-on-error-container transition-colors py-2 px-4">
+                Cancel Order
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) - Excluded as per "Linear/Transactional" rule in Shared Components Logic, but keeping it commented as a shell example if needed for other top-level pages.
+         Since this is an order details page, it implies a task-focused flow away from main nav.
+         Wait, the user is on an Order Tracking dashboard, which might be a sub-page of "Orders". The rules state: "Automatic Suppression: You MUST exclude the navigation shell if the page intent is: ... Task-Focused: Any sub-page featuring a "Close" or "Back" action that implies a temporary departure from the main navigation flow."
+         I added a back button in the header, implying this is a detail view. Therefore, BottomNavBar is suppressed.
+    -->
+</body></html>

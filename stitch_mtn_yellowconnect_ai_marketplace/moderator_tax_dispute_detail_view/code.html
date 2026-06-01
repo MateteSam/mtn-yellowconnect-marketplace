@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tax Dispute Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#745b00",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-bright": "#fcf9f8",
+                        "surface-tint": "#745b00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary": "#1f5dae",
+                        "surface-container-low": "#f6f3f2",
+                        "outline": "#80765f",
+                        "on-secondary-container": "#003c7c",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "outline-variant": "#d2c5ab",
+                        "tertiary-container": "#00e7fe",
+                        "surface-container-high": "#ebe7e7",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "background": "#fcf9f8",
+                        "surface-variant": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#ffcc00",
+                        "surface-container": "#f0edec",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#00646e",
+                        "on-background": "#1c1b1b",
+                        "on-primary-container": "#6f5700",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-container": "#76a9ff",
+                        "on-surface-variant": "#4e4632",
+                        "inverse-primary": "#f1c100",
+                        "surface-dim": "#dcd9d9",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#006874",
+                        "surface": "#fcf9f8",
+                        "primary-fixed": "#ffe08b",
+                        "secondary-fixed-dim": "#aac7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "container-margin-desktop": "40px",
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "title-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low text-on-surface font-body-lg min-h-screen">
+<!-- TopAppBar (Transactional - Hidden Nav Shell per instructions) -->
+<header class="w-full sticky top-0 z-50 shadow-md flex items-center justify-between px-container-margin-desktop md:px-container-margin-desktop py-base bg-surface">
+<div class="flex items-center gap-4">
+<button aria-label="Go Back" class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">arrow_back</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">Dispute Review</h1>
+</div>
+<div class="flex items-center gap-4 hidden md:flex">
+<button class="bg-surface-variant text-on-surface-variant px-4 py-2 rounded-lg font-title-md text-title-md hover:bg-surface-container-high transition-colors">
+                Escalate
+            </button>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-container-margin-mobile md:px-0 py-section-gap">
+<!-- Case Header -->
+<div class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-gutter mb-6 border border-surface-variant">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="font-label-caps text-label-caps bg-primary-container text-on-primary-container px-2 py-1 rounded-full uppercase tracking-wider">Pending Review</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Case ID: #DSP-89221-TX</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">Zikora Electronics Ltd.</h2>
+</div>
+<div class="text-right">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Submitted</p>
+<p class="font-title-md text-title-md">Oct 24, 2023</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Left Column: Details & Statement -->
+<div class="md:col-span-2 space-y-6">
+<!-- Deduction Details -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-gutter border border-surface-variant">
+<h3 class="font-title-md text-title-md font-semibold mb-4 border-b border-surface-variant pb-2">Contested Deduction</h3>
+<div class="flex items-center justify-between mb-4 bg-error-container/20 p-4 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">receipt_long</span>
+<span class="font-body-lg text-body-lg font-medium">Withholding Tax (WHT)</span>
+</div>
+<span class="font-title-md text-title-md text-error font-bold">-$245.50</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Transaction Ref</p>
+<p class="font-body-lg text-body-lg">TRX-9982-A4</p>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Date Applied</p>
+<p class="font-body-lg text-body-lg">Oct 20, 2023</p>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Original Payout</p>
+<p class="font-body-lg text-body-lg">$2,455.00</p>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Tax Rate Applied</p>
+<p class="font-body-lg text-body-lg">10%</p>
+</div>
+</div>
+</section>
+<!-- Merchant Statement -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-gutter border border-surface-variant relative overflow-hidden">
+<!-- Glassmorphic AI Accent indicating system analysis of text -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/20 blur-[40px] rounded-full pointer-events-none"></div>
+<h3 class="font-title-md text-title-md font-semibold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">chat</span>
+                        Merchant Statement
+                    </h3>
+<div class="bg-surface-container-low p-4 rounded-lg relative z-10 border border-surface-container-high">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                            "I am contesting this WHT deduction because we are currently operating under a pioneer status exemption certificate valid until December 2024. The 10% deduction should not apply to our hardware sales on the marketplace. I have attached the certificate provided by the investment promotion commission for your review."
+                        </p>
+</div>
+</section>
+<!-- Evidence Section -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-gutter border border-surface-variant">
+<h3 class="font-title-md text-title-md font-semibold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">attachment</span>
+                        Attached Evidence
+                    </h3>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<!-- Doc 1 -->
+<div class="border border-outline-variant rounded-lg p-2 hover:bg-surface-container-high cursor-pointer transition-colors group">
+<div class="bg-surface-container w-full h-24 rounded flex items-center justify-center mb-2 overflow-hidden relative">
+<img alt="Tax Document Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A macro shot of a formal business document printed on crisp white paper with official stamps and signatures in blue ink. The document is illuminated by bright, cool-toned office lighting, creating a professional and bureaucratic mood. The image fits the modern corporate style with a focus on administrative clarity and compliance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHHthg_151a1m9sRV6mtrTuOsmV0qlVNZiJ2W1Fq0xv_FgWp8H_LItSs_LuJuG7WkJ26WFwA7CrcHIDGrjH15hSeQ6_nvwonKs80ZOne5e8ufYm6vO42VE9y0tn_HddhLUkAGMiofMbZx4A6_vDN19Ez6fJHmnNEE1rZehMMxa3bWRRSsoizB98483Q36a4HzuGfjCuOmOrQE3tKgZNq2pRv34pcOEVCaO8Wr93bSQFbURVyBK5NMYbpuWwIBxuIxGdZypMPU6Flo"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+<span class="material-symbols-outlined absolute text-surface bg-on-surface/50 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">zoom_in</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant truncate">Pioneer_Cert_2023.pdf</p>
+<p class="font-body-sm text-body-sm text-outline text-[10px]">1.2 MB</p>
+</div>
+<!-- Doc 2 -->
+<div class="border border-outline-variant rounded-lg p-2 hover:bg-surface-container-high cursor-pointer transition-colors group">
+<div class="bg-surface-container w-full h-24 rounded flex items-center justify-center mb-2 overflow-hidden relative">
+<img alt="Invoice Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A close-up view of a printed invoice resting on a clean wooden desk. A blurred calculator is visible in the background. The lighting is soft and natural, emphasizing the professional, financial nature of the scene. The aesthetic is clean, corporate, and trustworthy, aligning with standard accounting imagery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADpHIUcVFQ86Cvy-q4yaXF2UapCF8-rKlA-wiWVRUrsv9wJJn5WQTCMAXW2vqIr2baZNFbJ7KOr7iMH0R9A_8enfOtD8Upvn4EvWP9Ny0_kEDhSKwwD_z-56xxTN1cP-OW8d18O7yIqwrQ4jq02YzRzjUi8HYJRTL1Eq1xEQjyzPSIlO6fj5YOn9yT0vZ_GYObfT_SD3tWk9GPSTsrmg3ybPqjv2OXbIf06Ss9yZyucBzBMAcpj3n4yk2TOn2dpZPIW5SgzcPYqqw"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+<span class="material-symbols-outlined absolute text-surface bg-on-surface/50 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">zoom_in</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant truncate">Invoice_9982.jpg</p>
+<p class="font-body-sm text-body-sm text-outline text-[10px]">850 KB</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Actions & Meta -->
+<div class="space-y-6">
+<!-- Action Card -->
+<div class="bg-surface rounded-xl shadow-lg p-gutter border border-surface-variant sticky top-24">
+<h3 class="font-title-md text-title-md font-semibold mb-4">Resolution Actions</h3>
+<div class="space-y-3">
+<button class="w-full bg-secondary text-on-secondary font-title-md text-title-md py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-on-secondary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined">check_circle</span>
+                            Approve Dispute
+                        </button>
+<button class="w-full border-2 border-error text-error font-title-md text-title-md py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined">cancel</span>
+                            Reject Dispute
+                        </button>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-variant">
+<label class="font-body-sm text-body-sm text-on-surface-variant block mb-2">Moderator Notes (Internal)</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline rounded-lg p-3 font-body-sm text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary transition-all resize-none" placeholder="Add resolution notes..." rows="3"></textarea>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

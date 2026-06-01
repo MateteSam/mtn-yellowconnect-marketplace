@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>React: Merchant Tax &amp; Compliance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#00646e",
+                        "tertiary-container": "#00e7fe",
+                        "surface-tint": "#745b00",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary": "#1f5dae",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d6e3ff",
+                        "inverse-surface": "#313030",
+                        "on-background": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#ffcc00",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-surface-variant": "#4e4632",
+                        "primary-fixed": "#ffe08b",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary-container": "#003c7c",
+                        "outline": "#80765f",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed": "#241a00",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-container": "#6f5700",
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-primary": "#f1c100",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "tertiary": "#006874",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary": "#745b00",
+                        "surface-container-high": "#ebe7e7",
+                        "on-secondary-fixed": "#001b3e",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#76a9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 204, 0, 0.3);
+        }
+        .ai-gradient-text {
+            background: linear-gradient(90deg, #1f5dae, #00daf0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-sm pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex items-center justify-between px-container-margin-mobile h-16 w-full z-50 shadow-sm bg-surface dark:bg-surface-dim">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-title-md">
+<span class="material-symbols-outlined text-sm" data-icon="storefront">storefront</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">MerchantHub</h1>
+</div>
+<button aria-label="Notifications" class="w-10 h-10 flex items-center justify-center rounded-full text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-container-margin-mobile flex flex-col gap-section-gap">
+<!-- Header Section -->
+<section class="flex flex-col gap-2 pt-4">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background">Tax &amp; Compliance</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage your annual filings and business standing.</p>
+</section>
+<!-- Annual Summary Grid (Bento Style) -->
+<section class="grid grid-cols-2 gap-4">
+<!-- Tax Year Status -->
+<div class="col-span-2 bg-surface-container rounded-xl p-4 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container opacity-20 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Current Status</span>
+<span class="bg-[#e6f4ea] text-[#137333] px-2 py-1 rounded-md font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> Compliant
+                    </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-background mb-1">2023 Tax Year</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">All filings submitted. Next deadline: Q1 2024 VAT.</p>
+</div>
+<!-- Est Tax -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">Est. Tax Liability</span>
+<div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-background">R 45,200</span>
+<p class="font-body-sm text-body-sm text-tertiary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_down">trending_down</span> 12% vs last year
+                    </p>
+</div>
+</div>
+<!-- Deductions Logged -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">Logged Deductions</span>
+<div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-background">R 12,850</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">From 34 receipts</p>
+</div>
+</div>
+</section>
+<!-- AI Insight Glassmorphism Card -->
+<section class="glass-panel rounded-xl p-5 relative overflow-hidden">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps uppercase ai-gradient-text">AI Tax Insight</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-background mb-2">Potential Deductions Found</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                We noticed an increase in logistics spending last quarter. You may be eligible for the 'Transport &amp; Fuel' rebate which could reduce liability by an estimated R 3,500.
+            </p>
+<button class="w-full bg-gradient-to-r from-secondary to-tertiary-fixed-dim text-white font-title-md text-title-md py-3 rounded-lg shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                Review Deductions
+                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+<!-- Business Profile Details -->
+<section class="flex flex-col gap-4">
+<h3 class="font-title-md text-title-md text-on-background">Business Details</h3>
+<div class="bg-surface-container rounded-xl p-1">
+<div class="flex items-center justify-between p-3 border-b border-outline-variant last:border-0">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Entity Name</p>
+<p class="font-body-lg text-body-lg text-on-background">Amani Local Goods Trading</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 border-b border-outline-variant last:border-0">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="tag">tag</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Registration Number</p>
+<p class="font-body-lg text-body-lg text-on-background">2021/458922/07</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 border-b border-outline-variant last:border-0">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">VAT Number</p>
+<p class="font-body-lg text-body-lg text-on-background">4890284411</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Downloadable Documents -->
+<section class="flex flex-col gap-4 mb-8">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-background">Tax Documents</h3>
+<button class="text-secondary font-label-caps text-label-caps uppercase hover:underline">View All</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Doc 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex items-center justify-between shadow-sm hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-background font-semibold">2023 Annual Assessment</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">PDF • 1.2 MB</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<!-- Doc 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex items-center justify-between shadow-sm hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-background font-semibold">Q3 VAT Return</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">PDF • 0.8 MB</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pb-4 pt-2 px-2 bg-surface-container-lowest dark:bg-surface-container-low border-t border-outline-variant shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1 hover:text-primary transition-all active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-label-caps">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="account_balance">account_balance</span>
+<span class="font-label-caps text-label-caps">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+</body></html>

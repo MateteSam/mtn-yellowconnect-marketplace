@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Loan Application - Select Amount</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#4e4632",
+                        "background": "#fcf9f8",
+                        "primary-fixed": "#ffe08b",
+                        "surface-bright": "#fcf9f8",
+                        "primary-container": "#ffcc00",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-tint": "#745b00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#f1c100",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1c1b1b",
+                        "on-secondary-container": "#003c7c",
+                        "surface-container-low": "#f6f3f2",
+                        "outline-variant": "#d2c5ab",
+                        "tertiary-container": "#00e7fe",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface-container-high": "#ebe7e7",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary": "#1f5dae",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#76a9ff",
+                        "inverse-primary": "#f1c100",
+                        "on-secondary-fixed": "#001b3e",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#006874",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f0edec",
+                        "inverse-surface": "#313030",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-container": "#6f5700",
+                        "outline": "#80765f",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "primary": "#745b00",
+                        "on-tertiary-container": "#00646e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px",
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Slider Styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background: #ffcc00; /* primary-container */
+            cursor: pointer;
+            margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+            border: 2px solid #ffffff;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #d2c5ab; /* outline-variant */
+            border-radius: 4px;
+        }
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #80765f; /* outline */
+        }
+        
+        /* Duration Chip Active State */
+        .chip-active {
+            background-color: #ffcc00; /* primary-container */
+            color: #6f5700; /* on-primary-container */
+            border-color: #ffcc00;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-background font-sans antialiased">
+<!-- TopAppBar (From JSON, modified for transaction flow - leading icon changed to back, trailing removed for focus) -->
+<header class="flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 w-full z-50 sticky top-0 bg-surface dark:bg-surface-container shadow-md dark:shadow-none transition-colors duration-200">
+<button class="text-on-surface-variant hover:bg-surface-variant p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">
+            Merchant Central
+        </div>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-3xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8 md:py-12 flex flex-col gap-section-gap">
+<!-- Header Section -->
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Step 2 of 4 • Application</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Customize Your Loan</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select an amount within your pre-approved limit and choose a repayment timeline that works for your business.</p>
+</div>
+<!-- Interactive Selection Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant p-6 md:p-8 flex flex-col gap-8">
+<!-- Amount Display -->
+<div class="flex flex-col items-center justify-center py-4">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">You are requesting</p>
+<div class="font-display-lg text-display-lg text-primary tracking-tight" id="displayAmount">₦250,000</div>
+</div>
+<!-- Slider Control -->
+<div class="w-full flex flex-col gap-3">
+<input class="w-full appearance-none bg-transparent focus:outline-none" id="loanSlider" max="500000" min="50000" step="10000" type="range" value="250000"/>
+<div class="flex justify-between items-center px-1">
+<span class="font-label-caps text-label-caps text-outline">MIN ₦50,000</span>
+<span class="font-label-caps text-label-caps text-outline">MAX ₦500,000</span>
+</div>
+</div>
+<!-- Duration Selector -->
+<div class="flex flex-col gap-4 mt-2">
+<div class="flex items-center justify-between">
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">Repayment Duration</p>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary-container/20 px-2 py-1 rounded">2.5% Monthly Interest</span>
+</div>
+<div class="flex gap-3 overflow-x-auto pb-2 -mx-2 px-2 sm:mx-0 sm:px-0" id="durationContainer">
+<button class="duration-chip px-6 py-3 rounded-full border-2 border-outline-variant font-title-md text-title-md text-on-surface hover:bg-surface-variant transition-all whitespace-nowrap" data-months="3">3 Months</button>
+<button class="duration-chip chip-active px-6 py-3 rounded-full border-2 border-primary-container font-title-md text-title-md shadow-sm transition-all whitespace-nowrap" data-months="6">6 Months</button>
+<button class="duration-chip px-6 py-3 rounded-full border-2 border-outline-variant font-title-md text-title-md text-on-surface hover:bg-surface-variant transition-all whitespace-nowrap" data-months="9">9 Months</button>
+<button class="duration-chip px-6 py-3 rounded-full border-2 border-outline-variant font-title-md text-title-md text-on-surface hover:bg-surface-variant transition-all whitespace-nowrap" data-months="12">12 Months</button>
+</div>
+</div>
+</section>
+<!-- Summary & Calculator Card -->
+<section class="bg-surface-container-low rounded-xl border border-outline-variant p-6 relative overflow-hidden">
+<!-- Decorative glassmorphic element -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary-container/30 rounded-full blur-2xl pointer-events-none"></div>
+<h3 class="font-title-md text-title-md text-on-surface mb-6 flex items-center gap-2 relative z-10">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">calculate</span>
+                Loan Summary
+            </h3>
+<div class="flex flex-col gap-5 relative z-10">
+<div class="flex justify-between items-end border-b border-surface-variant pb-4">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Principal Amount</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface" id="summaryPrincipal">₦250,000</span>
+</div>
+<div class="flex justify-between items-end border-b border-surface-variant pb-4">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Estimated Monthly Repayment</span>
+<span class="font-label-caps text-label-caps text-secondary mt-1">FOR <span id="summaryMonths">6</span> MONTHS</span>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary" id="summaryMonthly">₦47,917</span>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="font-title-md text-title-md text-on-surface">Total Repayment</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface" id="summaryTotal">₦287,500</span>
+</div>
+</div>
+</section>
+<!-- Action Area -->
+<div class="mt-4 pb-12">
+<button class="w-full flex justify-center items-center gap-2 bg-primary-container text-on-primary-container py-4 rounded-lg font-title-md text-title-md shadow-md hover:opacity-90 transition-opacity">
+                Continue to Review
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="font-body-sm text-body-sm text-center text-on-surface-variant mt-4 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+                Secure, encrypted process
+            </p>
+</div>
+</main>
+<!-- Interactive Logic -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.getElementById('loanSlider');
+            const displayAmount = document.getElementById('displayAmount');
+            const summaryPrincipal = document.getElementById('summaryPrincipal');
+            const summaryMonthly = document.getElementById('summaryMonthly');
+            const summaryTotal = document.getElementById('summaryTotal');
+            const summaryMonthsLabel = document.getElementById('summaryMonths');
+            const durationChips = document.querySelectorAll('.duration-chip');
+            
+            const INTEREST_RATE = 0.025; // 2.5% monthly
+            let currentAmount = parseInt(slider.value);
+            let currentMonths = 6;
+
+            // Formatter for NGN Currency
+            const formatCurrency = (amount) => {
+                return new Intl.NumberFormat('en-NG', {
+                    style: 'currency',
+                    currency: 'NGN',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(amount);
+            };
+
+            const calculateLoan = () => {
+                // Simple interest calculation for demo purposes
+                // Total = Principal + (Principal * Rate * Time)
+                const interest = currentAmount * INTEREST_RATE * currentMonths;
+                const totalRepayment = currentAmount + interest;
+                const monthlyRepayment = totalRepayment / currentMonths;
+
+                // Update DOM
+                displayAmount.textContent = formatCurrency(currentAmount);
+                summaryPrincipal.textContent = formatCurrency(currentAmount);
+                summaryTotal.textContent = formatCurrency(totalRepayment);
+                summaryMonthly.textContent = formatCurrency(monthlyRepayment);
+                summaryMonthsLabel.textContent = currentMonths;
+            };
+
+            // Event Listeners
+            slider.addEventListener('input', (e) => {
+                currentAmount = parseInt(e.target.value);
+                calculateLoan();
+            });
+
+            durationChips.forEach(chip => {
+                chip.addEventListener('click', (e) => {
+                    // Update active styling
+                    durationChips.forEach(c => {
+                        c.classList.remove('chip-active', 'border-primary-container');
+                        c.classList.add('border-outline-variant', 'text-on-surface');
+                    });
+                    
+                    const target = e.currentTarget;
+                    target.classList.remove('border-outline-variant', 'text-on-surface');
+                    target.classList.add('chip-active', 'border-primary-container');
+                    
+                    // Update value and recalculate
+                    currentMonths = parseInt(target.dataset.months);
+                    calculateLoan();
+                });
+            });
+
+            // Initial calculation
+            calculateLoan();
+        });
+    </script>
+</body></html>

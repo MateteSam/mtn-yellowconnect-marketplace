@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Pricing Insights - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glass-border {
+            position: relative;
+        }
+        .ai-glass-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, #76a9ff, #00e7fe);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        .trend-gradient {
+            background: linear-gradient(180deg, rgba(118, 169, 255, 0.2) 0%, rgba(118, 169, 255, 0) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "inverse-surface": "#313030",
+                        "primary-fixed": "#ffe08b",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "primary-fixed-dim": "#f1c100",
+                        "surface": "#fcf9f8",
+                        "on-primary-container": "#6f5700",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "inverse-primary": "#f1c100",
+                        "outline": "#80765f",
+                        "background": "#fcf9f8",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#ebe7e7",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "secondary-container": "#76a9ff",
+                        "surface-tint": "#745b00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#241a00",
+                        "surface-variant": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#001f24",
+                        "tertiary-container": "#00e7fe",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-secondary-container": "#003c7c",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-fixed": "#001b3e",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-surface-variant": "#4e4632",
+                        "surface-container": "#f0edec",
+                        "primary-container": "#ffcc00",
+                        "surface-dim": "#dcd9d9",
+                        "on-background": "#1c1b1b",
+                        "tertiary": "#006874",
+                        "primary": "#745b00",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#d2c5ab",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary": "#1f5dae",
+                        "on-tertiary-container": "#00646e"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "container-margin-mobile": "16px",
+                        "section-gap": "48px"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "title-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-sm antialiased overflow-x-hidden">
+<!-- Contextual Task Header (Navigation Shell Suppressed per rules) -->
+<header class="sticky top-0 z-50 bg-surface/95 backdrop-blur-md px-container-margin-mobile py-4 flex items-center justify-between border-b border-surface-variant shadow-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-title-md text-title-md text-on-surface">Pricing Insights</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<main class="px-container-margin-mobile pt-6 pb-32 space-y-section-gap max-w-3xl mx-auto">
+<!-- AI Price Health Hero Component -->
+<section class="relative">
+<!-- Decorative AI background glow -->
+<div class="absolute -top-10 -left-10 w-48 h-48 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-tertiary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="ai-glass-border bg-surface-container-lowest/80 backdrop-blur-xl rounded-xl p-6 shadow-lg relative z-10 overflow-hidden flex flex-col items-center text-center">
+<!-- AI Badge -->
+<div class="inline-flex items-center gap-1 bg-surface-variant/50 text-on-surface border border-outline-variant rounded-full px-3 py-1 mb-4">
+<span class="material-symbols-outlined text-[14px] text-tertiary">auto_awesome</span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase">AI Market Analysis</span>
+</div>
+<div class="flex items-center gap-4 mb-6 w-full">
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container-high shrink-0">
+<img alt="Samsung Galaxy S22" class="w-full h-full object-cover" data-alt="A sleek, modern smartphone, specifically a Samsung Galaxy S22, resting on a clean, minimalist white surface. The lighting is soft and high-key, creating a premium, corporate aesthetic typical of a high-trust digital marketplace. Subtle shadows indicate depth, while the vibrant screen display is turned off to emphasize the device's hardware design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5u_Fvzjp7wKEI9iIFkLtL-5PYDZ31HKbAt92KEtXOQpCJ4fOOST_6HzZAwEQnB6jl-DUFwyN9RwZuzSPBITYrvbQH-E_k9_cIdv1K8VSh1HGu2VA155JaUhbWlpqT2bVyh8jx_ELJogZwXe3nmx-KElvYETAReu5NoWkRkoOReSGdQXOcW7zRfMwc4nnnHDtooImjfgiucRfnFdNCGnslRSW5EwIcO79_RjOmaqvWc2Y3tJa00eL8-epX_38jt6KWk9JBndzvSzE"/>
+</div>
+<div class="text-left flex-1">
+<h2 class="font-title-md text-title-md text-on-surface line-clamp-1">Samsung Galaxy S22 256GB</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Condition: Like New</p>
+</div>
+</div>
+<!-- Score and Price Comparison -->
+<div class="grid grid-cols-2 gap-4 w-full bg-surface-container-low rounded-xl p-4">
+<div class="flex flex-col items-center justify-center border-r border-outline-variant pr-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">Price Health Score</span>
+<div class="relative w-16 h-16 flex items-center justify-center rounded-full border-4 border-error text-error mb-1">
+<span class="font-title-md text-title-md">42</span>
+</div>
+<span class="font-label-caps text-label-caps text-error">Needs Attention</span>
+</div>
+<div class="flex flex-col justify-center pl-2 space-y-3">
+<div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Your Current Price</span>
+<span class="font-title-md text-title-md text-on-surface line-through decoration-error decoration-2 opacity-70">₦ 450,000</span>
+</div>
+<div>
+<span class="font-body-sm text-body-sm text-tertiary font-medium block">AI Suggested Price</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary-fixed-dim">₦ 385,000</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Market Comparison Chart -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-title-md text-title-md text-on-surface">Market Comparison</h3>
+<span class="material-symbols-outlined text-on-surface-variant" title="Data based on recent successful sales">info</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant">
+<div class="flex items-end justify-around h-40 gap-4 mb-4">
+<!-- Your Price Bar -->
+<div class="flex flex-col items-center w-full group relative">
+<div class="absolute -top-8 bg-surface-container-highest px-2 py-1 rounded text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">₦ 450k</div>
+<div class="w-full max-w-[48px] bg-error/80 rounded-t-lg h-[95%] transition-all duration-500"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-3 text-center">Your<br/>Price</span>
+</div>
+<!-- Market Avg Bar -->
+<div class="flex flex-col items-center w-full group relative">
+<div class="absolute -top-8 bg-surface-container-highest px-2 py-1 rounded text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">₦ 410k</div>
+<div class="w-full max-w-[48px] bg-surface-variant rounded-t-lg h-[75%] transition-all duration-500 delay-100"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-3 text-center">Market<br/>Avg</span>
+</div>
+<!-- Top Performing Bar -->
+<div class="flex flex-col items-center w-full group relative">
+<div class="absolute -top-8 bg-surface-container-highest px-2 py-1 rounded text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">₦ 385k</div>
+<div class="w-full max-w-[48px] bg-tertiary rounded-t-lg h-[65%] transition-all duration-500 delay-200 relative overflow-hidden">
+<div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary mt-3 text-center">Suggested<br/>(Fast Sell)</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-surface-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-0.5">trending_down</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your current price is <strong>17% above</strong> the price point where similar items are successfully selling.</p>
+</div>
+</div>
+</section>
+<!-- Demand Heatmap / Trend -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-title-md text-title-md text-on-surface">Demand Trend (30 Days)</h3>
+<div class="bg-surface-container px-2 py-1 rounded font-label-caps text-label-caps text-on-surface-variant">Views &amp; Saves</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant relative h-32 overflow-hidden flex items-end">
+<!-- Abstract CSS Trend Line Representation -->
+<div class="absolute inset-0 trend-gradient opacity-50"></div>
+<div class="relative w-full h-24 flex items-end justify-between gap-1 px-2 z-10">
+<!-- Generating a pseudo-curve with CSS bars -->
+<div class="w-full bg-secondary-container rounded-t-sm h-[20%]"></div>
+<div class="w-full bg-secondary-container rounded-t-sm h-[25%]"></div>
+<div class="w-full bg-secondary-container rounded-t-sm h-[35%]"></div>
+<div class="w-full bg-secondary-container rounded-t-sm h-[50%]"></div>
+<div class="w-full bg-secondary-container rounded-t-sm h-[65%]"></div>
+<div class="w-full bg-secondary-container rounded-t-sm h-[80%]"></div>
+<div class="w-full bg-secondary-container rounded-t-sm h-[90%]"></div>
+<div class="w-full bg-secondary-container rounded-t-sm h-[100%] bg-tertiary"></div>
+</div>
+<div class="absolute bottom-2 left-4 right-4 flex justify-between font-label-caps text-label-caps text-on-surface-variant mix-blend-multiply opacity-70">
+<span>Oct 1</span>
+<span class="text-tertiary font-bold">Peak Demand Now</span>
+</div>
+</div>
+</section>
+<!-- Competitor Benchmarks -->
+<section>
+<h3 class="font-title-md text-title-md text-on-surface mb-4">Similar Active Listings</h3>
+<div class="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory -mx-container-margin-mobile px-container-margin-mobile scrollbar-hide">
+<!-- Competitor Card 1 -->
+<div class="min-w-[160px] bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden snap-center flex flex-col">
+<div class="h-24 bg-surface-container-high relative">
+<img alt="Competitor Phone" class="w-full h-full object-cover" data-alt="A clean, brightly lit product shot of a dark grey smartphone laying flat on a white table. The aesthetic is modern and corporate, fitting for a digital marketplace. The image uses a high-trust, neutral color palette with soft shadows, emphasizing the sleekness of the device." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXpUylx1HtCbs77f-Iire7Fep3V5cchfj_Q183jm65e25ItWXXKcPxi5IU32X4kXjxXhs9pv6T0a7V8MF8kKpp8iMM3-E96qyno11V79g4gWDVe22ek8hWq0TijB_jl8w5SZf7NAt6nZPzESvSrhk-lMxmyZO9BOQGkSR2ldIPS4y9kVYFFpR9osuux_XzyMCz8r8D9FcXHtRPAT8bKFo-oXeCh5OefI80RZM2xsjgsJ4bdQz4Lekku_SxcH6Hyaj2Jhr04O1BWwo"/>
+<div class="absolute top-2 right-2 bg-surface text-on-surface text-[10px] font-bold px-1.5 py-0.5 rounded">2d ago</div>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<span class="font-body-sm text-body-sm font-medium text-on-surface line-clamp-1 mb-1">Galaxy S22 256GB</span>
+<span class="font-body-sm text-body-sm text-secondary font-bold">₦ 380,000</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-auto pt-2">Like New</span>
+</div>
+</div>
+<!-- Competitor Card 2 -->
+<div class="min-w-[160px] bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden snap-center flex flex-col">
+<div class="h-24 bg-surface-container-high relative">
+<img alt="Competitor Phone" class="w-full h-full object-cover" data-alt="Close-up angled shot of a modern smartphone in a light color, resting on a clean surface. The image is styled for a professional e-commerce platform, featuring bright, even lighting and a shallow depth of field to keep the focus on the device's camera module and premium finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJFTAqw9s-RYEImd5ICZD2nPL9PaMSFaWGUGHAlmVDa05P_esBmmB3Y6kP7Wq6QxM4ZVHx4JvnhlWDdi1HvBFaNG5wM-BuPHNyHFc2p6gjF1RsWP0UqOFtG34jYglJRmKEdvSsZF3-xgErZg9i6dQwamr0mxpzzKXCtGwCNSFks5rBlEGdPUAI95UAXi0okfKb_Ik43CkpXEHdr8GYmkpRZiZBRQ6WzmrUsQ7fvdGlCL82COzmbzstYFlz7K_fKJ9ru1RN2AFbTq0"/>
+<div class="absolute top-2 right-2 bg-surface text-on-surface text-[10px] font-bold px-1.5 py-0.5 rounded">5h ago</div>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<span class="font-body-sm text-body-sm font-medium text-on-surface line-clamp-1 mb-1">S22 (Mint Cond.)</span>
+<span class="font-body-sm text-body-sm text-secondary font-bold">₦ 390,000</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-auto pt-2">Excellent</span>
+</div>
+</div>
+<!-- Competitor Card 3 -->
+<div class="min-w-[160px] bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden snap-center flex flex-col">
+<div class="h-24 bg-surface-container-high relative flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-4xl">smartphone</span>
+<div class="absolute top-2 right-2 bg-surface text-on-surface text-[10px] font-bold px-1.5 py-0.5 rounded">1w ago</div>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<span class="font-body-sm text-body-sm font-medium text-on-surface line-clamp-1 mb-1">Samsung S22</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through text-xs">₦ 420,000</span>
+<span class="font-body-sm text-body-sm text-error font-bold">₦ 375,000</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-auto pt-2 text-error flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">arrow_downward</span> Price Drop</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Action (Task Focused) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-lg border-t border-surface-variant p-4 z-50 shadow-[0_-4px_16px_rgba(0,0,0,0.05)]">
+<div class="max-w-3xl mx-auto flex flex-col items-center">
+<div class="flex items-center gap-2 mb-3 text-tertiary">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="font-body-sm text-body-sm font-medium">Projected to sell <strong>~3x faster</strong> at this price.</span>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container hover:bg-primary-fixed-dim transition-colors rounded-xl py-4 px-6 flex items-center justify-center gap-2 shadow-md">
+<span class="font-title-md text-title-md font-bold">Apply Suggested Price</span>
+<span class="material-symbols-outlined font-bold">check_circle</span>
+</button>
+</div>
+</div>
+<style>
+        /* Hide scrollbar for competitor horizontal list */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

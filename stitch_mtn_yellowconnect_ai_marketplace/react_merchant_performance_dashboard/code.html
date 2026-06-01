@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>React: Merchant Performance Dashboard</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-secondary-container": "#003c7c",
+                        "primary-fixed-dim": "#f1c100",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container": "#f0edec",
+                        "tertiary": "#006874",
+                        "primary-fixed": "#ffe08b",
+                        "secondary": "#1f5dae",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-high": "#ebe7e7",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-container": "#ffcc00",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline": "#80765f",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "on-primary-container": "#6f5700",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "inverse-primary": "#f1c100",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary": "#745b00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "background": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-dim": "#dcd9d9",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary-fixed": "#001b3e",
+                        "surface-tint": "#745b00",
+                        "on-surface-variant": "#4e4632",
+                        "surface-bright": "#fcf9f8",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-tertiary-container": "#00646e",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#00e7fe",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#76a9ff",
+                        "surface-variant": "#e5e2e1"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px",
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "safe": "100px" // Adjusted for bottom nav space
+                    },
+                    fontFamily: {
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom Glassmorphism Utility */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(118, 169, 255, 0.3); /* Subtle secondary-container tint */
+        }
+        
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e5e2e1;
+            border-radius: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-lg flex">
+<!-- DESKTOP NAVIGATION DRAWER (Hidden on Mobile) -->
+<aside class="hidden md:flex flex-col h-full w-80 rounded-r-xl bg-surface-container-low dark:bg-surface-container-highest shadow-xl fixed left-0 top-0 z-[60] py-6">
+<!-- Header -->
+<div class="px-6 mb-8">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined filled text-[24px]">storefront</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Merchant Portal</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Verified Merchant</p>
+<p class="font-label-caps text-label-caps text-outline mt-1">ID: 882910</p>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 overflow-y-auto">
+<ul class="flex flex-col gap-1">
+<!-- Active Item: Dashboard -->
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-full cursor-pointer transition-all" href="#">
+<span class="material-symbols-outlined filled">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+</li>
+<!-- Inactive Items -->
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer rounded-full" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-lg text-body-lg">Sales Reports</span>
+</a>
+</li>
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer rounded-full" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-body-lg text-body-lg">Merchant Tools</span>
+</a>
+</li>
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer rounded-full" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-body-lg text-body-lg">Support</span>
+</a>
+</li>
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer rounded-full" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<!-- MAIN CONTENT WRAPPER -->
+<div class="flex-1 flex flex-col w-full md:ml-80 relative min-h-screen">
+<!-- MOBILE TOP APP BAR (Hidden on Desktop) -->
+<header class="md:hidden flex items-center justify-between px-gutter w-full h-16 bg-surface dark:bg-surface-dim shadow-sm dark:bg-surface-container-high w-full top-0 sticky z-50">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high transition-colors active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-title-md text-title-md font-bold text-on-surface dark:text-on-surface-variant">MTN Marketplace</h1>
+<button class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">person</span>
+</button>
+</header>
+<!-- DASHBOARD CONTENT -->
+<main class="flex-1 p-container-margin-mobile md:p-container-margin-desktop pb-safe md:pb-container-margin-desktop">
+<!-- Page Header Area -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-section-gap">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-2">Performance Dashboard</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Overview of your store's recent activity and metrics.</p>
+</div>
+<!-- Health Standing Indicator -->
+<div class="inline-flex items-center gap-2 bg-secondary-container/20 text-secondary border border-secondary-container rounded-full px-4 py-2 self-start md:self-auto">
+<span class="material-symbols-outlined filled text-[20px]">verified</span>
+<span class="font-title-md text-title-md text-[14px]">Excellent health standing</span>
+</div>
+</div>
+<!-- AI Insight Banner (Glassmorphism) -->
+<div class="glass-panel rounded-xl p-6 mb-8 flex flex-col md:flex-row items-start md:items-center gap-4 relative overflow-hidden shadow-sm">
+<div class="absolute inset-0 bg-gradient-to-r from-secondary-container/10 to-transparent pointer-events-none"></div>
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-[#6b21a8] flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined text-white">auto_awesome</span>
+</div>
+<div class="flex-1 relative z-10">
+<h3 class="font-label-caps text-label-caps text-secondary mb-1">AI ENHANCED INSIGHT</h3>
+<p class="font-body-lg text-body-lg text-on-surface">Based on regional trends, increasing your inventory of <span class="font-bold text-on-background">Smart Accessories</span> could boost next week's sales by up to 18%.</p>
+</div>
+<button class="shrink-0 bg-secondary text-on-secondary px-6 py-3 rounded-lg font-title-md text-title-md text-[14px] hover:opacity-90 transition-opacity">
+                    View Recommendations
+                </button>
+</div>
+<!-- BENTO GRID DATA CARDS -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter md:gap-6 mb-section-gap">
+<!-- Card 1: Sales Volume (Large Span) -->
+<div class="bg-surface-container-low rounded-xl p-6 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container md:col-span-2 flex flex-col justify-between group hover:shadow-md transition-shadow cursor-default">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Sales Volume</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Last 30 days</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+</div>
+<div class="flex items-end gap-4 mb-6">
+<div class="font-display-lg text-display-lg text-on-background tracking-tight">CFA 4,250,000</div>
+<div class="flex items-center gap-1 bg-[#d1fae5] text-[#065f46] px-2 py-1 rounded font-title-md text-[14px] mb-2">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+                            12.5%
+                        </div>
+</div>
+<!-- Abstract Chart Representation using CSS styling -->
+<div class="h-24 w-full relative flex items-end gap-2 mt-auto">
+<div class="w-full h-full absolute bottom-0 left-0 bg-gradient-to-t from-primary-container/20 to-transparent rounded-b-xl -mx-6 -mb-6 px-6 pt-6"></div>
+<div class="flex-1 bg-surface-variant rounded-t-sm h-[30%] relative z-10 group-hover:bg-primary/40 transition-colors"></div>
+<div class="flex-1 bg-surface-variant rounded-t-sm h-[50%] relative z-10 group-hover:bg-primary/40 transition-colors"></div>
+<div class="flex-1 bg-surface-variant rounded-t-sm h-[40%] relative z-10 group-hover:bg-primary/40 transition-colors"></div>
+<div class="flex-1 bg-surface-variant rounded-t-sm h-[70%] relative z-10 group-hover:bg-primary/40 transition-colors"></div>
+<div class="flex-1 bg-surface-variant rounded-t-sm h-[60%] relative z-10 group-hover:bg-primary/40 transition-colors"></div>
+<div class="flex-1 bg-primary rounded-t-sm h-[90%] relative z-10 shadow-sm shadow-primary/50"></div>
+</div>
+</div>
+<!-- Column for smaller cards -->
+<div class="flex flex-col gap-gutter md:gap-6">
+<!-- Card 2: Platform Fees -->
+<div class="bg-surface-container-low rounded-xl p-6 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container flex-1 flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-title-md text-title-md text-on-surface">Platform Fees</h3>
+<span class="material-symbols-outlined text-on-surface-variant">account_balance_wallet</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-background mb-1">CFA 85,000</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2% standard rate applied</p>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex justify-between items-center text-secondary">
+<span class="font-body-sm text-body-sm font-semibold">View breakdown</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Card 3: Refund Rate -->
+<div class="bg-surface-container-low rounded-xl p-6 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container flex-1 flex flex-col justify-between group hover:shadow-md transition-shadow relative overflow-hidden">
+<!-- Decorative subtle gradient -->
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary-fixed/20 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<h3 class="font-title-md text-title-md text-on-surface">Refund Rate</h3>
+<span class="material-symbols-outlined text-on-surface-variant">assignment_return</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-1">
+<div class="font-headline-lg text-headline-lg text-on-background">0.8%</div>
+<div class="flex items-center gap-1 text-[#065f46] font-title-md text-[14px]">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+                                    0.2%
+                                </div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Well below market average (2.5%)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Skeleton Section -->
+<div>
+<h2 class="font-title-md text-title-md text-on-background mb-4">Recent Transactions</h2>
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container overflow-hidden">
+<!-- List Item 1 -->
+<div class="flex items-center justify-between p-4 border-b border-surface-container hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-[14px] text-on-surface mb-0.5">Order #892-MTN</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Today, 10:42 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-title-md text-title-md text-[14px] text-on-background">+CFA 12,500</p>
+<p class="font-body-sm text-[12px] text-secondary">Completed</p>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center justify-between p-4 border-b border-surface-container hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-[14px] text-on-surface mb-0.5">Order #891-MTN</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Yesterday, 4:15 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-title-md text-title-md text-[14px] text-on-background">+CFA 45,000</p>
+<p class="font-body-sm text-[12px] text-secondary">Completed</p>
+</div>
+</div>
+<div class="p-4 text-center bg-surface-container-lowest">
+<button class="font-title-md text-title-md text-[14px] text-secondary hover:underline">View all transactions</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- MOBILE BOTTOM NAVIGATION BAR (Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-base pb-6 pt-2 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline shadow-lg z-50 rounded-t-xl">
+<!-- Active Tab: Home (Mapping to Dashboard conceptually) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined filled">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-caps text-label-caps mt-1">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-caps text-label-caps mt-1">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

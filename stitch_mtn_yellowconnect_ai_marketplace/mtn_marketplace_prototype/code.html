@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>MTN Marketplace Prototype</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- React & ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    
+    <!-- React Router -->
+    <script src="https://unpkg.com/history@5/umd/history.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-router@6.3.0/umd/react-router.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.development.js" crossorigin></script>
+    
+    <!-- Babel for in-browser JSX compilation -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "secondary": "#1f5dae",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "secondary-container": "#76a9ff",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "primary-fixed-dim": "#f1c100",
+                        "outline-variant": "#d2c5ab",
+                        "tertiary": "#006874",
+                        "on-surface": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#80765f",
+                        "on-error": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "on-surface-variant": "#4e4632",
+                        "inverse-primary": "#f1c100",
+                        "surface-tint": "#745b00",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#003c7c",
+                        "surface-container-low": "#f6f3f2",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary-container": "#6f5700",
+                        "primary-container": "#ffcc00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-variant": "#e5e2e1",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#00646e",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "primary": "#745b00",
+                        "surface-container": "#f0edec",
+                        "tertiary-container": "#00e7fe",
+                        "background": "#fcf9f8",
+                        "surface-container-high": "#ebe7e7",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-background": "#1c1b1b",
+                        "on-primary-fixed": "#241a00",
+                        "primary-fixed": "#ffe08b",
+                        "surface-dim": "#dcd9d9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem"
+                    },
+                    spacing: {
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px",
+                        "container-margin-desktop": "40px"
+                    },
+                    fontFamily: {
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    fontSize: {
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }]
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body { min-height: max(884px, 100dvh); }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .fill-icon { font-variation-settings: 'FILL' 1; }
+        
+        /* Utility classes for specific screens */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .glass-ai::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #745b00, #1f5dae);
+        }
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(118, 169, 255, 0.3);
+        }
+        .ai-gradient-text {
+            background: linear-gradient(90deg, #1f5dae, #76a9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .ai-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-sm antialiased">
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // Destructure React dependencies
+        const { useState, useEffect } = React;
+        const { createRoot } = ReactDOM;
+        const { MemoryRouter, Routes, Route, Link, useNavigate, useLocation } = ReactRouterDOM;
+
+        // --- Shared Components ---
+
+        const TopAppBar = ({ title = "MTN Marketplace", showBack = false, customHeader = null }) => {
+            const navigate = useNavigate();
+            
+            if (customHeader) return customHeader;
+
+            return (
+                <header className="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile py-base bg-surface z-50 shadow-sm md:px-container-margin-desktop h-[64px]">
+                    {showBack ? (
+                        <button onClick={() => navigate(-1)} aria-label="Back" className="text-primary p-2 hover:bg-surface-container-low rounded-full transition-colors">
+                            <span className="material-symbols-outlined">arrow_back</span>
+                        </button>
+                    ) : (
+                        <button aria-label="Language" className="p-2 text-primary hover:bg-surface-container-low transition-colors rounded-full">
+                            <span className="material-symbols-outlined">language</span>
+                        </button>
+                    )}
+                    
+                    <h1 className="text-title-md font-title-md font-bold text-primary text-center flex-1">{title}</h1>
+                    
+                    <button aria-label="Search" className="p-2 text-primary hover:bg-surface-container-low transition-colors rounded-full">
+                        <span className="material-symbols-outlined">search</span>
+                    </button>
+                </header>
+            );
+        };
+
+        const BottomNavBar = () => {
+            const location = useLocation();
+            
+            const navItems = [
+                { path: '/', icon: 'home', label: 'Home' },
+                { path: '/search', icon: 'search', label: 'Search' },
+                { path: '/create', icon: 'add_circle', label: 'Sell' },
+                { path: '#', icon: 'chat_bubble', label: 'Messages' },
+                { path: '/profile', icon: 'person', label: 'Profile' }
+            ];
+
+            return (
+                <nav className="fixed bottom-0 w-full flex justify-around items-center px-4 py-2 z-50 bg-surface border-t border-outline-variant shadow-lg rounded-t-xl md:hidden">
+                    {navItems.map(item => {
+                        const isActive = location.pathname === item.path;
+                        return (
+                            <Link 
+                                key={item.label}
+                                to={item.path} 
+                                className={`flex flex-col items-center justify-center p-2 rounded-lg w-[64px] transition-all ${isActive ? 'bg-primary-container text-on-primary-container rounded-xl px-3 py-1 scale-90' : 'text-on-surface-variant hover:bg-surface-container-high'}`}
+                            >
+                                <span className="material-symbols-outlined" style={isActive ? {fontVariationSettings: "'FILL' 1"} : {}}>
+                                    {item.icon}
+                                </span>
+                                <span className={`text-label-caps font-label-caps mt-1 ${isActive ? 'font-bold' : ''}`}>
+                                    {item.label}
+                                </span>
+                            </Link>
+                        );
+                    })}
+                </nav>
+            );
+        };
+
+        const DesktopNav = () => {
+             return (
+                <nav className="hidden md:flex gap-6 items-center">
+                    <Link to="/" className="text-primary border-b-2 border-primary font-bold hover:bg-surface-container-low px-2 py-1 transition-colors">Home</Link>
+                    <Link to="/search" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Search</Link>
+                    <Link to="/create" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Sell</Link>
+                    <Link to="#" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Messages</Link>
+                    <Link to="/profile" className="text-on-surface-variant font-medium hover:bg-surface-container-low px-2 py-1 transition-colors">Profile</Link>
+                </nav>
+            );
+        }
+
+        // --- Screens ---
+
+        // Screen 3: Localized Feed (Home)
+        const FeedPage = () => {
+            return (
+                <div className="pb-24 md:pb-0">
+                    <header className="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-base bg-surface z-50 shadow-sm transition-transform duration-300">
+                        <div className="flex items-center gap-2">
+                            <span className="material-symbols-outlined text-primary fill-icon">language</span>
+                            <div className="flex flex-col">
+                                <span className="text-title-md font-title-md font-bold text-primary">MTN Marketplace</span>
+                                <div className="flex items-center gap-1 cursor-pointer">
+                                    <span className="text-label-caps font-label-caps text-on-surface-variant">NIGERIA</span>
+                                    <span className="material-symbols-outlined text-[14px] text-on-surface-variant">expand_more</span>
+                                </div>
+                            </div>
+                        </div>
+                        <DesktopNav />
+                        <Link to="/search">
+                            <span className="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-low rounded-full p-2 transition-colors">search</span>
+                        </Link>
+                    </header>
+
+                    <main className="max-w-7xl mx-auto w-full flex flex-col gap-section-gap pt-6 px-container-margin-mobile md:px-container-margin-desktop">
+                        <section className="flex flex-col gap-4">
+                            <div className="relative w-full max-w-2xl mx-auto shadow-sm rounded-2xl">
+                                <input className="w-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant border-none rounded-2xl py-4 pl-4 pr-16 focus:ring-2 focus:ring-secondary transition-shadow text-body-lg font-body-lg" placeholder="Search phones, cars, property in Nigeria..." type="text"/>
+                                <Link to="/search" className="absolute right-1 top-1 bottom-1 bg-primary-container text-on-primary-container rounded-xl px-4 flex items-center justify-center font-bold hover:bg-primary hover:text-on-primary transition-colors">
+                                    Search
+                                </Link>
+                            </div>
+                            <div className="flex gap-2 overflow-x-auto hide-scrollbar py-2 max-w-2xl mx-auto w-full">
+                                {['Lagos', 'Abuja', 'Port Harcourt', 'Kano'].map(city => (
+                                    <button key={city} className="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors text-body-sm font-body-sm">{city}</button>
+                                ))}
+                            </div>
+                        </section>
+
+                        <section className="flex flex-col gap-4">
+                            <h2 className="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-surface">Explore Categories</h2>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+                                {[
+                                    { name: 'Electronics', icon: 'devices', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCn3-uhTrqrAOZ_7zRjd7wKEYK1PKExpnNEjLGUmHsticMQ0PKNTHPF7jd8rfwFN3SVIWGAjbnadoUzfEspUI_cZEQUOEhYsAtJcbXP85DSRQpakTj-aLJiFftIyLtze1tP7GzMwZ99l4d0Psgc-wtSP1c55_b34fPUlRk9CIX4G7wVK5S9mJ6ByuWSNeZo_XQ9yropWXq3iV65L0GE3DXInNv_2CyusAv__PPQYeEdlxkN5LVnRZzOKr-raOzmh6HfO9d2P7lk7C4', color: 'bg-secondary' },
+                                    { name: 'Vehicles', icon: 'directions_car', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCdBqwKA1AbkkXjkisOUJ3teqEewPDrLzkCaOYD2Y2f9xwKYB8Z77OLImmdR9t8Bh_nk6Bp3frUHJaU9IY_K87hhSvdF_5ICtxNFml9UoHX7yq4AReqsFBNVcJeliKG7RfqCTSfiB4YzfzVzu_FbN_jzljfOW8ivSW1nHXCb-fVliakiVobrFsXoa-Dce7EvWTaYYtEAnKGoAHccCdgaX0ZWk1vg7xQCv6cSD0fOh3xEm3mnVro_KjuTh3xt9kfAkoep19KxMISYlo', color: 'bg-primary' },
+                                    { name: 'Property', icon: 'real_estate_agent', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJJi8EssSfX5_8MSxKPLC2fRaZ25Z3-JIhGEjyfS0bt6y4CisthKRARyvQh_dEeBDkS0pJvHIPcMHqPKA1_Flituw-hQRGDkQmByuftgdzzQJU7Lbyc-4uB7SjuaL2LRe_j2uTsROc3zkjm9tiY744t_M6CxNQMXzEPAezqI0engF54CIRWSntA6n7PkUIuw2ZQstytUjiq2wWGmCREGuZs9tUrMfjo9eshLaAjyHqy7fpymUQ1avVq4Suwtbp1TAhVV5RCqFsboY', color: 'bg-tertiary' },
+                                    { name: 'Fashion', icon: 'checkroom', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAirwkU6q2NLlTaocaVDE25pZSS9A4ZQeypqLDrK3C4aUo3qXLGRFJl3URUqtiw7x7rebo6nRE3_EFM5SSCZ7_M6vpWN-Qrr6MJLk3XW0E3MixuW4lwCXPTdrCd6T8Cy5K8SfA0UKrKQ4nFhWA08RV7fHk7QBsTqT1gxACFuakrENpXZOxj5DxB6ssMUUmxPQoSDVH40pK8PRQVllRkXMTn6wtjEn9J6VXe36tyqy2ZD-zRC_MM8hu8wNt4VIleoS0VY_shOXTz4NY', color: 'bg-outline' },
+                                ].map(cat => (
+                                    <div key={cat.name} className="relative rounded-2xl overflow-hidden aspect-square group cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+                                        <div className={`absolute inset-0 ${cat.color}/10 group-hover:${cat.color}/20 transition-colors z-10`}></div>
+                                        <img alt={cat.name} className="w-full h-full object-cover" src={cat.img}/>
+                                        <div className="absolute bottom-4 left-4 z-20">
+                                            <span className={`material-symbols-outlined text-surface-container-lowest ${cat.color} p-2 rounded-full mb-2 block w-fit`}>{cat.icon}</span>
+                                            <h3 className="text-title-md font-title-md text-surface-container-lowest font-bold drop-shadow-md">{cat.name}</h3>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        <section className="flex flex-col gap-4 rounded-3xl p-6 glass-ai">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    <span className="material-symbols-outlined text-secondary fill-icon">auto_awesome</span>
+                                    <h2 className="text-title-md font-title-md text-on-surface font-bold">Picked for You in Lagos</h2>
+                                </div>
+                                <button className="text-label-caps font-label-caps text-secondary font-bold hover:underline">VIEW ALL</button>
+                            </div>
+                            <div className="flex overflow-x-auto hide-scrollbar gap-gutter pb-4">
+                                {[
+                                    { title: 'MacBook Pro M2 2023', price: '₦ 1,850,000', loc: 'Ikeja, Lagos', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDUY3jjiw2_wYR_bfUFgeWuY2tZUodVYCRRpiBrVS2828IHI1fGnMFC_e_2Z4YAnLrmlIpHtwuEcyIz2aTEIRKq8WjaYscY6valyjPIQ_DKrlPwdKXkrKLtgFtXVzUpAKVzgrlx5wtTImaumcv3nE6RCkc4_Wm479KfkpgVcQmU6njLaqZptPKzIzFWrTXBVw7OqiMkZdHSUF3tdnJWB1GQ0Q31xm8ma-dXqqfB3gmeKpc_Yb9Xtfn7y_iwr_484J4-xX3173GH8gA' },
+                                    { title: 'Toyota Camry 2018 LE', price: '₦ 12,500,000', loc: 'Victoria Island', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAqUyJ-H0EjGhomf5baFPQ0QiSxi8D0Zxhk7iQCu6kQC4kSQ3wA7n46RTZud0nLlhcWODooxj9pLdXdDBLfkM8HJNwdNuNrYN3MuBNHuZ8FUwwcXr36iK1KzQndmPUh8UtXtQ7CdQKhPfFQ88APoY2Cqq4sYYVRZBJ0e3BsvY_VBFSuheGwJwGa_CALlz8C3-MrkzJsUpBsp7iMxgXruqk4w538blwnlVf4qgXc8XPRYwN36oARCwInnEIsdI1RCWHWqK21H0Kmgdw' },
+                                    { title: '3 Bed Semi-Detached', price: '₦ 4,500,000/yr', loc: 'Lekki Phase 1', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAUoJFywGogYjeMv1XVQpSIHrHzi9v-hwKLOEhsGmABiuVapL_8Ho14SPusQr4w82o9BRGuZgWD4AGslMznJMgJWwNGrRrHRmtMTJKIClO1RRMeET87hL7mLVLFL6AQRAMCCS8ci9agIERvnjH7JAqUOymc9mwH_6Ob8oWLitvNFzXH5mhASuSL9rpG3lwQr44RwYLc8Z8HY3xbo5HkiiwylANzY3Wpl44-AVPltrLunjcDhKmbpt7TFcxcxaHgy9lOY1pzfJJQ6-M' }
+                                ].map((item, i) => (
+                                    <div key={i} className="min-w-[240px] w-[240px] bg-surface rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden border border-outline-variant/30 cursor-pointer">
+                                        <div className="relative h-32 w-full">
+                                            <img alt={item.title} className="w-full h-full object-cover" src={item.img}/>
+                                            {i < 2 && (
+                                                <div className="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 border border-outline-variant/50">
+                                                    <span className="material-symbols-outlined text-[12px] text-primary fill-icon">verified</span>
+                                                    <span className="text-[10px] font-bold text-on-surface">VERIFIED</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="p-3 flex flex-col gap-1">
+                                            <h4 className="text-body-sm font-body-sm text-on-surface truncate font-semibold">{item.title}</h4>
+                                            <div className="text-title-md font-title-md text-secondary font-bold">{item.price}</div>
+                                            <div className="flex items-center text-on-surface-variant text-[12px] gap-1 mt-1">
+                                                <span className="material-symbols-outlined text-[14px]">location_on</span>
+                                                <span>{item.loc}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    </main>
+                    <BottomNavBar />
+                </div>
+            );
+        };
+
+        // Screen 4: Search
+        const SearchPage = () => {
+            const [saveSearch, setSaveSearch] = useState(false);
+
+            return (
+                <div className="pb-[100px] md:pb-0">
+                    <TopAppBar title="MTN Marketplace" />
+                    <main className="w-full max-w-[1280px] mx-auto">
+                        <section className="px-container-margin-mobile pt-section-gap pb-4 md:px-container-margin-desktop">
+                            <div className="relative w-full flex items-center bg-surface-container-low rounded-xl shadow-inner border border-surface-variant">
+                                <span className="material-symbols-outlined absolute left-4 text-on-surface-variant">search</span>
+                                <input className="w-full pl-12 pr-24 py-4 bg-transparent text-body-lg font-body-lg text-on-surface border-none focus:ring-2 focus:ring-secondary focus:outline-none rounded-xl" placeholder="What are you looking for?" type="text" defaultValue="Solar Generators 5kW"/>
+                                <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-bold text-body-sm transition-transform active:scale-95">
+                                    Search
+                                </button>
+                            </div>
+                            <div className="flex items-center justify-between mt-6">
+                                <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-2 w-full">
+                                    <button className="flex items-center gap-1 px-4 py-2 bg-surface-container-highest rounded-full text-label-caps font-label-caps text-on-surface-variant whitespace-nowrap border border-outline-variant hover:bg-surface-container-high transition-colors">
+                                        <span className="material-symbols-outlined text-[18px]">near_me</span> Nearby
+                                    </button>
+                                    <button className="flex items-center gap-1 px-4 py-2 bg-surface-container-highest rounded-full text-label-caps font-label-caps text-on-surface-variant whitespace-nowrap border border-outline-variant hover:bg-surface-container-high transition-colors">
+                                        <span className="material-symbols-outlined text-[18px]">payments</span> Price Range
+                                    </button>
+                                </div>
+                                <div className="flex items-center gap-2 pl-4 border-l border-surface-variant shrink-0">
+                                    <span className="text-label-caps font-label-caps text-on-surface-variant">Save</span>
+                                    <button onClick={() => setSaveSearch(!saveSearch)} className={`w-10 h-6 rounded-full relative transition-colors focus:outline-none ${saveSearch ? 'bg-secondary' : 'bg-surface-variant'}`}>
+                                        <div className={`w-5 h-5 bg-surface-container-lowest rounded-full absolute left-[2px] top-[2px] shadow-sm transition-transform ${saveSearch ? 'translate-x-[16px]' : 'translate-x-0'}`}></div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="mt-4 flex gap-2 overflow-x-auto hide-scrollbar items-center">
+                                <span className="material-symbols-outlined text-secondary text-[20px]">auto_awesome</span>
+                                <span className="text-label-caps font-label-caps text-secondary mr-2">AI Filters:</span>
+                                {['Off-Grid Ready', 'With Installation', 'Hybrid Inverters'].map(f => (
+                                    <button key={f} className="px-3 py-1 ai-glass rounded-full text-label-caps font-label-caps text-tertiary shadow-sm">{f}</button>
+                                ))}
+                            </div>
+                        </section>
+
+                        <section className="px-container-margin-mobile md:px-container-margin-desktop py-8">
+                            <div className="text-center mb-section-gap">
+                                <div className="inline-flex items-center justify-center w-16 h-16 bg-error-container text-on-error-container rounded-full mb-4">
+                                    <span className="material-symbols-outlined text-[32px]">search_off</span>
+                                </div>
+                                <h2 className="text-title-md font-title-md text-on-surface">No exact matches found</h2>
+                                <p className="text-body-sm font-body-sm text-on-surface-variant mt-2">We couldn't find "Solar Generators 5kW" nearby. But based on your search intent, our AI has curated the best alternatives.</p>
+                            </div>
+                            
+                            <div className="ai-glass rounded-[24px] p-6 shadow-lg relative overflow-hidden">
+                                <div className="flex items-center gap-2 mb-6 relative z-10">
+                                    <span className="material-symbols-outlined text-secondary fill-icon">auto_awesome</span>
+                                    <h3 className="text-title-md font-title-md font-bold text-on-surface">AI Recommended Alternatives</h3>
+                                </div>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter relative z-10">
+                                    <div className="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+                                        <div className="relative h-48 w-full bg-surface-container">
+                                            <img alt="solar panel system" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQf8ANngXYc-YWoOd43K_qvhrUVBkHFuL_l4hKGtGtl5y466VKntncoJXA6BG0A6bBb9Q5rHhcOOMF7LoiHDu_LCy_qt8qxLtNBGRTkSg2RMRsrqkGjBFH4fug9kUdDkEYe6hdwuv7U51KHUDjiCjUu0ondzxsDqU5HUSwPHZdN9m1Tf62ytodwNkUqSn0fan1NKcVcrkPTYGQ2aFBP_hktBhfsf0t9gxzS5jjeojhe3arEJswQHosqy6aZlkndXmwhfsIUuJGXKM"/>
+                                        </div>
+                                        <div className="p-4">
+                                            <h4 className="text-body-lg font-body-lg font-bold text-on-surface line-clamp-2 mb-2">Complete 3kW Hybrid Solar System Kit</h4>
+                                            <div className="flex items-center gap-2 mb-3">
+                                                <span className="text-title-md font-title-md font-bold text-secondary">R 45,000</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+                                        <div className="relative h-48 w-full bg-surface-container">
+                                            <img alt="portable power station" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU5fd9wp4AH38GYHvPCJs_jgWWMfZ3dyJkHYbhP8TUPrdCjlKoAQhko0gDRfioqjMUzbOs06MMOBrL2DN5EtjAjCEhjot6CJXBYLQ5JZtxbSnI5IdPf0xTNwMz2lIx8uPdUf2RzNogvtL9o_OjJ2e5hqBfZfBZw-2aORQbbRKVmi9vT_7fCzKBYcvGagkexfbA3hD_uxdX2V25ZEmf8KEcl5tjT8wfmDR_RXvmihnZ-eHzTVUeeRnS0kSxYWTBOE2FF-vp2LeQ9bw"/>
+                                            <div className="absolute top-2 left-2 ai-glass px-2 py-1 rounded text-label-caps font-label-caps text-secondary flex items-center gap-1 border-secondary">
+                                                <span className="material-symbols-outlined text-[14px]">auto_awesome</span> Smart Match
+                                            </div>
+                                        </div>
+                                        <div className="p-4">
+                                            <h4 className="text-body-lg font-body-lg font-bold text-on-surface line-clamp-2 mb-2">High-Capacity Portable Power Station 2000W</h4>
+                                            <div className="flex items-center gap-2 mb-3">
+                                                <span className="text-title-md font-title-md font-bold text-secondary">R 18,500</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    <BottomNavBar />
+                </div>
+            );
+        };
+
+        // Screen 1: Listing Creation
+        const CreateListingPage = () => {
+            const navigate = useNavigate();
+            const [isAiProcessing, setIsAiProcessing] = useState(false);
+
+            const handlePhotoClick = () => {
+                setIsAiProcessing(true);
+                setTimeout(() => setIsAiProcessing(false), 2000);
+            };
+
+            const customHeader = (
+                <header className="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile py-base bg-surface z-50 shadow-sm md:px-container-margin-desktop h-[64px]">
+                    <button onClick={() => navigate(-1)} aria-label="Close" className="text-primary p-2 hover:bg-surface-container-low rounded-full transition-colors">
+                        <span className="material-symbols-outlined">close</span>
+                    </button>
+                    <h1 className="text-title-md font-title-md font-bold text-primary text-center flex-1">Create Listing</h1>
+                    <div className="w-10"></div>
+                </header>
+            );
+
+            return (
+                <div className="pb-24 md:pb-0">
+                    <TopAppBar customHeader={customHeader} />
+                    <main className="w-full max-w-3xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-6">
+                        <div className="flex items-center justify-between mb-8">
+                            <div className="flex flex-col items-center flex-1">
+                                <div className="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-label-caps font-label-caps font-bold z-10 relative">1</div>
+                                <span className="text-label-caps font-label-caps text-primary mt-2">Details</span>
+                            </div>
+                            <div className="flex-1 h-1 bg-surface-container-high -ml-10 -mr-10 relative z-0 top-[-10px] rounded-full">
+                                <div className="w-1/2 h-full bg-primary-container rounded-full"></div>
+                            </div>
+                            <div className="flex flex-col items-center flex-1">
+                                <div className="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center text-label-caps font-label-caps font-bold z-10 relative">2</div>
+                                <span className="text-label-caps font-label-caps text-on-surface-variant mt-2">Preview</span>
+                            </div>
+                            <div className="flex-1 h-1 bg-surface-container-high -ml-10 -mr-10 relative z-0 top-[-10px] rounded-full"></div>
+                            <div className="flex flex-col items-center flex-1">
+                                <div className="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center text-label-caps font-label-caps font-bold z-10 relative">3</div>
+                                <span className="text-label-caps font-label-caps text-on-surface-variant mt-2">Publish</span>
+                            </div>
+                        </div>
+
+                        <form className="space-y-section-gap">
+                            <section className="space-y-4">
+                                <h2 className="text-title-md font-title-md text-on-surface">Photos</h2>
+                                <div onClick={handlePhotoClick} className="relative w-full h-48 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-container-highest transition-colors overflow-hidden group cursor-pointer">
+                                    <div className="flex flex-col items-center justify-center opacity-100 group-hover:opacity-80 transition-opacity">
+                                        <span className="material-symbols-outlined text-4xl text-outline mb-2">add_photo_alternate</span>
+                                        <p className="text-body-sm font-body-sm text-on-surface-variant">Tap to upload photos</p>
+                                    </div>
+                                    {isAiProcessing && (
+                                        <div className="absolute inset-0 bg-surface/90 flex flex-col items-center justify-center">
+                                            <div className="ai-glass px-4 py-2 rounded-full flex items-center gap-2 ai-pulse border-secondary-container">
+                                                <span className="material-symbols-outlined text-secondary fill-icon">auto_awesome</span>
+                                                <span className="text-body-sm font-body-sm font-semibold ai-gradient-text">AI Enhancing Images...</span>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </section>
+
+                            <section className="space-y-2 relative">
+                                <label className="text-body-sm font-body-sm font-semibold text-on-surface">Title</label>
+                                <div className="relative">
+                                    <input className="w-full bg-[#F5F5F5] border border-transparent focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg px-4 py-3 text-body-lg font-body-lg text-on-surface transition-colors pr-12" placeholder="What are you selling?" type="text"/>
+                                    <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors group" type="button">
+                                        <span className="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform">magic_button</span>
+                                    </button>
+                                </div>
+                                <div className="mt-2 flex items-center gap-2">
+                                    <div className="ai-glass inline-flex items-center gap-1.5 px-3 py-1 rounded-full">
+                                        <span className="material-symbols-outlined text-[16px] text-secondary">auto_awesome</span>
+                                        <span className="text-label-caps font-label-caps text-on-surface">Suggested: Electronics</span>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section className="space-y-2 pb-8">
+                                <label className="text-body-sm font-body-sm font-semibold text-on-surface">Price</label>
+                                <div className="relative">
+                                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-body-lg font-body-lg text-on-surface-variant font-semibold">₦</span>
+                                    <input className="w-full bg-[#F5F5F5] border border-transparent focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg pl-8 pr-4 py-3 text-body-lg font-body-lg text-on-surface transition-colors" placeholder="0.00" type="number"/>
+                                </div>
+                                <div className="mt-3 ai-glass rounded-xl p-3 flex items-start gap-3 border-l-4 border-l-secondary">
+                                    <span className="material-symbols-outlined text-secondary mt-0.5">trending_up</span>
+                                    <div>
+                                        <p className="text-body-sm font-body-sm font-semibold text-on-surface">AI Suggested Price: ₦ 45,000 - ₦ 55,000</p>
+                                        <p className="text-label-caps font-label-caps text-on-surface-variant mt-1">Based on recent sales.</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div className="fixed bottom-0 left-0 w-full p-4 bg-surface/90 backdrop-blur-md border-t border-outline-variant z-40 md:relative md:bg-transparent md:border-none md:p-0 md:pt-4">
+                                <button className="w-full bg-primary-container text-on-primary-container font-title-md text-title-md font-bold py-3 px-6 rounded-lg hover:bg-[#e6b800] transition-colors shadow-sm" type="button" onClick={() => navigate('/profile')}>
+                                    Next Step
+                                </button>
+                            </div>
+                        </form>
+                    </main>
+                </div>
+            );
+        };
+
+        // Screen 2: Profile
+        const ProfilePage = () => {
+            return (
+                <div className="pb-24 md:pb-0">
+                    <header className="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-base bg-surface z-50 shadow-sm md:hidden">
+                        <Link to="/" className="text-primary hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center">
+                            <span className="material-symbols-outlined">arrow_back</span>
+                        </Link>
+                        <h1 className="text-headline-lg-mobile font-headline-lg-mobile font-bold text-primary">MTN Marketplace</h1>
+                        <button className="text-primary hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center">
+                            <span className="material-symbols-outlined">more_vert</span>
+                        </button>
+                    </header>
+                    
+                    <header className="hidden md:flex sticky top-0 w-full justify-between items-center px-container-margin-desktop py-base bg-surface z-50 shadow-sm border-b border-surface-container">
+                        <div className="flex items-center gap-4">
+                            <h1 className="text-headline-lg font-headline-lg font-bold text-primary">MTN Marketplace</h1>
+                        </div>
+                        <DesktopNav />
+                        <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+                                <img alt="User Profile" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKXaUD3uEdkdCAgr-1HIQHpXlkRjfcNMJ6CHGWJE21o-_ukeGgBL6i_TbEZwxotzpP47aMwE7zyDaLNIOk1hPOs653WkAO1ziJPRPi_JKkmgHBcwCEIT44nUO8uav4K2LJ4NQpb0X6MIS7gAWdoy4QIDHYhXEyjUPPcvtxUidQChezWygLwEV4_ttrQaufvv3Bl2sls8jw3kqcrQL2ZbYrwitu7SEzc3EQ1X5S0CdvIL13vn0fqA7zuwASF_vzRVzUNBLWj7Rhcys"/>
+                            </div>
+                        </div>
+                    </header>
+
+                    <main className="max-w-7xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8">
+                        <section className="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-container p-6 mb-section-gap relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-primary-fixed opacity-10 rounded-bl-full -z-0 pointer-events-none"></div>
+                            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 relative z-10">
+                                <div className="relative">
+                                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-surface shadow-md">
+                                        <img alt="Seller Avatar" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCAzlwFfKkjOjLbHL3A6DUQzqsHSXDPT4H98zScUN9K40ef3gaQsTNM3b-nY-eHo1anbZwB34BZ51sVZmhpzWnyZFJ7W9ejpssjNXjX61HYvGjw3vcs5-0jhmwJgv7DsMKe6Cr2s_4d2JMmcZ0WYt2CE_i7VUVnnTJ_JN1TDNeUbQrZsDgdM1J8zEh32KRCnFqMPCBG-CZHWCJ3G3mOG-_0vTjDDZ4LQ1LZmRpx8sgajvRfLX2J7jWQ271jyAei3woZe38Z2GRk6o"/>
+                                    </div>
+                                    <div className="absolute bottom-0 right-0 bg-[#FFD700] text-[#8B6508] p-1 rounded-full border-2 border-surface shadow-sm">
+                                        <span className="material-symbols-outlined fill-icon text-lg">workspace_premium</span>
+                                    </div>
+                                </div>
+                                <div className="flex-1">
+                                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                                        <div>
+                                            <h2 className="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg font-bold text-on-surface mb-1">TechHub Electronics</h2>
+                                            <p className="text-body-lg font-body-lg text-on-surface-variant flex items-center gap-1 mb-2">
+                                                <span className="material-symbols-outlined text-sm">location_on</span> Lagos, Nigeria
+                                            </p>
+                                            <div className="flex items-center gap-2 mb-4">
+                                                <div className="flex text-primary">
+                                                    <span className="material-symbols-outlined fill-icon text-xl">star</span>
+                                                    <span className="material-symbols-outlined fill-icon text-xl">star</span>
+                                                    <span className="material-symbols-outlined fill-icon text-xl">star</span>
+                                                    <span className="material-symbols-outlined fill-icon text-xl">star</span>
+                                                    <span className="material-symbols-outlined text-xl">star_half</span>
+                                                </div>
+                                                <span className="text-title-md font-title-md font-semibold text-on-surface">4.8</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-row md:flex-col gap-3 w-full md:w-auto mt-4 md:mt-0">
+                                            <button className="flex-1 md:w-full bg-primary text-on-primary-fixed-variant font-bold py-3 px-6 rounded-lg shadow-sm flex items-center justify-center gap-2">
+                                                <span className="material-symbols-outlined">chat_bubble</span> Chat
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div className="flex justify-between items-center mb-6">
+                                <h3 className="text-title-md font-title-md font-bold text-on-surface">Active Listings</h3>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                                {[
+                                    { title: 'Samsung Galaxy S23 Ultra', price: '₦ 850,000', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBtWL-bo6H9nccNVuFzH6lg55s1EI6Cjra9Jj83IYSFsibnTA-OauNGCPrpA2XIxpwUQzJTJCK5ZsqOajSY2V9DiTV4MW4hMGHhBYkBpf19xk2Ui657MgQD93QrTcXchTDiUwx2Us8QzAn_82FJfB-xkoaRo_CDD6f0aPaF4diBf1PP7hV6eivmE-cMVeoO3HeuyCV7DeE8q8_bOm1y4VNcXFeXMh8wNZmGBw3VTLI12fotIcda5lJDGTi3Pc-MtZm4JhWfYBezEOU' },
+                                    { title: 'MacBook Air M2 2022', price: '₦ 1,150,000', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFNjwaO-DCMMw2AlQHAPg70uIJ7Uzhn6dPTWbizOi4UYusKvXK-Drfd1svX4tCvnoOsamo9p3Vdq5rRhCGuLmzdulVj7_3bpvX0ZD91jYgg--BMukfywFKEmEmqa2YJeEP_VGlR45yk3lMdTPrRjXt-lNbZUUuqsCyUByolWHosvBw2dcYbltSbEmCDYGwGO707yPJRnFv22JkexERtSwXDEix80IsRnFTSuoQ_j3_bpTYV1swsCRCdtd-7BYSZ_2TIPgCZ3KS2eM' },
+                                ].map((item, idx) => (
+                                    <article key={idx} className="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-outline-variant/30 flex flex-col">
+                                        <div className="h-48 w-full bg-surface-variant relative overflow-hidden">
+                                            <img alt={item.title} className="w-full h-full object-cover" src={item.img}/>
+                                        </div>
+                                        <div className="p-4 flex flex-col flex-1">
+                                            <h4 className="text-body-lg font-body-lg font-semibold text-on-surface line-clamp-2 mb-2">{item.title}</h4>
+                                            <p className="text-title-md font-title-md font-bold text-secondary mt-auto">{item.price}</p>
+                                        </div>
+                                    </article>
+                                ))}
+                            </div>
+                        </section>
+                    </main>
+                    <BottomNavBar />
+                </div>
+            );
+        };
+
+        // --- App Component ---
+        const App = () => {
+            return (
+                <MemoryRouter>
+                    <Routes>
+                        <Route path="/" element={<FeedPage />} />
+                        <Route path="/search" element={<SearchPage />} />
+                        <Route path="/create" element={<CreateListingPage />} />
+                        <Route path="/profile" element={<ProfilePage />} />
+                    </Routes>
+                </MemoryRouter>
+            );
+        };
+
+        // Render App
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2FA SMS Setup - MerchantHub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#80765f",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-background": "#1c1b1b",
+                        "background": "#fcf9f8",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary": "#1f5dae",
+                        "inverse-primary": "#f1c100",
+                        "tertiary-fixed": "#95f1ff",
+                        "surface": "#fcf9f8",
+                        "tertiary": "#006874",
+                        "primary-container": "#ffcc00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-secondary-fixed": "#001b3e",
+                        "tertiary-container": "#00e7fe",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#6f5700",
+                        "surface-variant": "#e5e2e1",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0edec",
+                        "on-surface-variant": "#4e4632",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "primary-fixed": "#ffe08b",
+                        "on-tertiary-container": "#00646e",
+                        "on-secondary-container": "#003c7c",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "primary": "#745b00",
+                        "on-primary-fixed": "#241a00",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#584400",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-surface": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "secondary-container": "#76a9ff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "outline-variant": "#d2c5ab",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container-high": "#ebe7e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "container-margin-desktop": "40px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center font-body-lg">
+<!-- Top Navigation Suppressed: Linear/Transactional Intent (2FA Setup) -->
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md px-container-margin-mobile md:px-0 flex-grow flex flex-col justify-center">
+<!-- Header Section -->
+<div class="mb-8 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-fixed mb-6">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">phonelink_lock</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-2">Two-Factor Authentication</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Secure your account with an SMS code. Please enter your mobile number below.</p>
+</div>
+<!-- Glassmorphic Form Card -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-6 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant mb-6 relative overflow-hidden">
+<!-- Subtle top gradient accent -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary"></div>
+<form action="#" class="space-y-6" method="POST">
+<!-- Phone Input Group -->
+<div>
+<label class="block font-title-md text-title-md text-on-surface mb-2" for="phone-number">Phone Number</label>
+<div class="flex rounded-lg shadow-sm border border-outline-variant focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary overflow-hidden bg-[#F5F5F5] transition-colors">
+<!-- Country Code Selector -->
+<div class="relative flex items-center">
+<select class="h-full py-0 pl-3 pr-8 border-transparent bg-transparent text-on-surface focus:ring-0 focus:border-transparent font-body-lg text-body-lg appearance-none cursor-pointer" id="country-code" name="country-code">
+<option value="ZA">🇿🇦 +27</option>
+<option value="NG">🇳🇬 +234</option>
+<option value="GH">🇬🇭 +233</option>
+<option value="US">🇺🇸 +1</option>
+<option value="UK">🇬🇧 +44</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 pointer-events-none text-on-surface-variant text-sm">expand_more</span>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 h-3/5 w-px bg-outline-variant"></div>
+</div>
+<!-- Number Input -->
+<input class="flex-1 block w-full min-w-0 rounded-none rounded-r-lg sm:text-sm border-transparent focus:ring-0 focus:border-transparent bg-transparent font-body-lg text-body-lg text-on-surface py-3 px-4 placeholder-on-surface-variant/50" id="phone-number" name="phone-number" placeholder="e.g. 82 123 4567" required="" type="tel"/>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-DEFAULT shadow-sm font-title-md text-title-md text-on-primary-fixed bg-primary-container hover:bg-primary-fixed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" type="submit">
+                    Send Code
+                    <span class="material-symbols-outlined ml-2 text-[20px]">send</span>
+</button>
+</form>
+</div>
+<!-- Help/Alternative Link -->
+<div class="text-center">
+<a class="font-body-sm text-body-sm text-secondary hover:underline flex items-center justify-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">help</span>
+                Need help or use another method?
+            </a>
+</div>
+</main>
+<!-- Bottom Navigation Suppressed: Linear/Transactional Intent (2FA Setup) -->
+</body></html>

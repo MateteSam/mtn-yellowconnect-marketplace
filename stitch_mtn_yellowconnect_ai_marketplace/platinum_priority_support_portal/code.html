@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Platinum Merchant Support</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#d2c5ab",
+                        "on-primary-fixed-variant": "#584400",
+                        "error": "#ba1a1a",
+                        "secondary": "#1f5dae",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-container": "#003c7c",
+                        "outline": "#80765f",
+                        "on-surface-variant": "#4e4632",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-container-high": "#ebe7e7",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-on-surface": "#f3f0ef",
+                        "background": "#fcf9f8",
+                        "tertiary-container": "#00e7fe",
+                        "tertiary": "#006874",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-fixed-dim": "#f1c100",
+                        "surface-container-low": "#f6f3f2",
+                        "on-surface": "#1c1b1b",
+                        "surface-tint": "#745b00",
+                        "primary-container": "#ffcc00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-background": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "surface": "#fcf9f8",
+                        "primary": "#745b00",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#6f5700",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-container": "#76a9ff",
+                        "primary-fixed": "#ffe08b",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#f1c100",
+                        "secondary-fixed-dim": "#aac7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "title-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            /* Forcing a darker theme for this specific portal despite the global light mode instruction, as requested by the prompt for a "dark, premium aesthetic" */
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #f1c100 0%, #ffe08b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col md:flex-row font-body-lg">
+<!-- Desktop Navigation Drawer (Hidden on Mobile) -->
+<aside class="hidden md:flex flex-col h-screen w-80 bg-inverse-surface border-r border-outline-variant/20 sticky top-0 z-[60] p-4 shadow-xl">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a businessman in a sleek, dark modern environment. The lighting is cinematic and moody, highlighting his confident expression. He wears a premium dark suit. The overall aesthetic is high-end corporate, with deep shadows and subtle highlights conveying authority and exclusivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRSZ3TuI4D4GYbGlpLykEp5dZ45XSMZzSeLvJT4VoxwK5Sindr5pOW2PFAAXcPdhj0oY2ZiYH0seu5yE74eZhTA3gfGtEtNtBEu0tsYBLovQ_g3u9zAk_yPtcW59DDCqX4F8xwisE45dMKG-Jfqlo2HqPgd_2RM4XZFZzTI3yjmbq7z7evkN4eyyygtRwztf5o7ieJcjk9VyhlKGgElkXAn0V2dZjotjjlmlCHCKPfGocbyL5ybYYSlQyifk1KIJVxgXLcbdK6tc4"/>
+</div>
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-inverse-primary">Alex M.</h2>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary-fixed-dim" style="font-size: 16px; font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<p class="font-label-caps text-label-caps text-surface-variant">Platinum Merchant</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg text-body-lg">Seller Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-lg text-body-lg">Payment Methods</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-body-lg text-body-lg">Performance Badges</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-highest text-inverse-primary font-bold transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">help</span>
+<span class="font-body-lg text-body-lg">Help &amp; Support</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Account Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 glass-panel rounded-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-surface-variant mb-1">Queue Status</span>
+<span class="font-title-md text-title-md gradient-text flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim animate-pulse"></span>
+                    Priority VIP
+                </span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-h-screen max-w-[1280px] mx-auto w-full relative">
+<!-- Mobile TopAppBar -->
+<header class="md:hidden flex justify-between items-center w-full px-container-margin-mobile py-4 bg-inverse-surface/90 backdrop-blur-md fixed top-0 z-50 border-b border-outline-variant/20 shadow-sm">
+<button class="text-inverse-primary active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-inverse-primary">MTN Marketplace</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a businessman in a sleek, dark modern environment. The lighting is cinematic and moody, highlighting his confident expression. He wears a premium dark suit. The overall aesthetic is high-end corporate, with deep shadows and subtle highlights conveying authority and exclusivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsDXlEyN2S4WlZnd97z7JxpKpDdiXnCxmRmSEjZCbkLXXRfMtn3Eal5Tajo6dWQFFYLjvzeAydvullLjzcK2ExoBr8RzOp7zEZs39YtXijFLyvySerfVOM9pytaMZVaroHfl6QSQqfqZE1NkvE3706n6KzS_nfK510WIWKMwvWO4md5di6APyoMQxKzlkk3uZWzuC67Jftv0Td15x4kHRGHlzefXhmRXfpg9yjLrtdCPvzt8806Vf_myDhfoQjoY-2npFwzeiZjPM"/>
+</div>
+</header>
+<div class="flex-1 px-container-margin-mobile md:px-container-margin-desktop py-section-gap mt-16 md:mt-0">
+<div class="mb-12">
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg font-bold text-white mb-2">Platinum Support</h1>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-2xl">Exclusive 24/7 concierge assistance for our top-tier marketplace merchants.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Dedicated Manager Profile (Takes 2 columns on lg) -->
+<div class="lg:col-span-2 glass-panel rounded-xl p-6 md:p-8 relative overflow-hidden flex flex-col justify-between">
+<!-- Decorative abstract background element -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px]"></div>
+<div class="flex flex-col md:flex-row gap-6 items-start relative z-10">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden shadow-2xl shrink-0 border border-outline-variant/20">
+<img alt="Sarah M. Profile" class="w-full h-full object-cover" data-alt="A professional portrait of a female support manager in a sophisticated, dimly lit modern office. She looks approachable yet highly competent, wearing a smart dark blazer. The lighting is soft and studio-quality, emphasizing trust and premium service within a dark, corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOY46_L5o1ncNLTCprcY5F-iWMvxWq63TfY13BAqt_cvSI-Rw5d9C_Bbsv3hfeLrcfRx6tfvOU3UmbjNsm2qN0WJQjR9KoYmaIOheNL3nOMAS9IGLGSSNQzdjH0G9Su43LrWq9eXt10m1VcOdF-m0aHDqthdLNjbS56CaMPPhgczVWlQU2JVhPO_0y9_Nkr90Hmanrs7QBrt5UK4wpyURU3eJtdLdD5QEn3n3dNv0PJfzWfiM5-8oXvPgwEImV1iQHPFWVBjFUD0s"/>
+</div>
+<div>
+<div class="inline-block px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps mb-3">Your Dedicated Manager</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-white mb-1">Sarah M.</h2>
+<p class="font-body-lg text-body-lg text-surface-variant mb-4">Senior Logistics &amp; Merchant Success Specialist. Available for priority consultations regarding bulk shipments and strategic marketplace positioning.</p>
+<div class="flex flex-wrap gap-3 mt-auto">
+<button class="flex items-center gap-2 bg-primary text-on-primary-fixed font-title-md text-title-md px-6 py-3 rounded-lg hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                                    Direct Call
+                                </button>
+<button class="flex items-center gap-2 glass-panel text-white font-title-md text-title-md px-6 py-3 rounded-lg hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">chat</span>
+                                    Priority Chat
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Concierge Requests (Takes 1 column on lg) -->
+<div class="glass-panel rounded-xl p-6 flex flex-col">
+<h3 class="font-title-md text-title-md font-semibold text-white mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed-dim">room_service</span>
+                        Concierge Services
+                    </h3>
+<div class="space-y-3 flex-1">
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-surface/5 hover:bg-surface/10 border border-white/5 transition-colors text-left">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div>
+<span class="block font-body-lg text-body-lg text-white">Logistics Escalation</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-variant">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-surface/5 hover:bg-surface/10 border border-white/5 transition-colors text-left">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<span class="block font-body-lg text-body-lg text-white">Bulk Order Mgt.</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-variant">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-surface/5 hover:bg-surface/10 border border-white/5 transition-colors text-left">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary-fixed">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div>
+<span class="block font-body-lg text-body-lg text-white">Promotional Boosts</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-variant">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Priority Ticket History (Spans full width below) -->
+<div class="lg:col-span-3 glass-panel rounded-xl p-6 mt-4">
+<div class="flex justify-between items-end mb-6 border-b border-outline-variant/10 pb-4">
+<div>
+<h3 class="font-title-md text-title-md font-semibold text-white mb-1">Recent Priority Tickets</h3>
+<p class="font-body-sm text-body-sm text-surface-variant">Guaranteed <span class="text-primary-fixed-dim">15-minute</span> SLA response time.</p>
+</div>
+<button class="text-primary-fixed-dim font-body-sm text-body-sm hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[600px]">
+<thead>
+<tr class="text-surface-variant font-label-caps text-label-caps border-b border-white/5">
+<th class="py-3 px-4">Ticket ID</th>
+<th class="py-3 px-4">Subject</th>
+<th class="py-3 px-4">Status</th>
+<th class="py-3 px-4">Resolution Time</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm">
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
+<td class="py-4 px-4 text-surface-variant">#PT-8942</td>
+<td class="py-4 px-4 text-white">Customs clearance delay - Order #992A</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-secondary/20 text-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]">autorenew</span> Active
+                                        </span>
+</td>
+<td class="py-4 px-4 text-surface-variant">Manager Reviewing</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
+<td class="py-4 px-4 text-surface-variant">#PT-8810</td>
+<td class="py-4 px-4 text-white">API Integration Error - Inventory Sync</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-green-500/20 text-green-400">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Resolved
+                                        </span>
+</td>
+<td class="py-4 px-4 text-surface-variant">12 mins</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors cursor-pointer">
+<td class="py-4 px-4 text-surface-variant">#PT-8755</td>
+<td class="py-4 px-4 text-white">Chargeback dispute evidence submission</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-green-500/20 text-green-400">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Resolved
+                                        </span>
+</td>
+<td class="py-4 px-4 text-surface-variant">8 mins</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) - Adjusted for Help context -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-gutter bg-inverse-surface shadow-[0_-4px_12px_rgba(0,0,0,0.2)] rounded-t-xl z-50">
+<a class="flex flex-col items-center justify-center text-surface-variant hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-surface-variant hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Seller</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">help</span>
+<span class="font-label-caps text-label-caps mt-1">Help</span>
+</a>
+<a class="flex flex-col items-center justify-center text-surface-variant hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+<!-- Spacer for mobile nav -->
+<div class="h-20 md:hidden w-full"></div>
+</main>
+</body></html>

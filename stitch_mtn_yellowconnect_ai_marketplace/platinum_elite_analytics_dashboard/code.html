@@ -1,0 +1,359 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MTN Platinum Seller Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#76a9ff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-surface-variant": "#4e4632",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-secondary-fixed": "#001b3e",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e5e2e1",
+                        "secondary": "#1f5dae",
+                        "on-tertiary-container": "#00646e",
+                        "surface-bright": "#fcf9f8",
+                        "primary-fixed": "#ffe08b",
+                        "on-surface": "#1c1b1b",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d6e3ff",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "outline-variant": "#d2c5ab",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#006874",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "surface-container-high": "#ebe7e7",
+                        "primary": "#745b00",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-container": "#ffcc00",
+                        "inverse-primary": "#f1c100",
+                        "surface-tint": "#745b00",
+                        "on-background": "#1c1b1b",
+                        "outline": "#80765f",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary-container": "#6f5700",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f0edec",
+                        "surface-dim": "#dcd9d9",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#003c7c",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#00e7fe",
+                        "inverse-surface": "#313030",
+                        "background": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "section-gap": "48px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #121212; color: #ffffff; }
+        .glass-panel {
+            background: rgba(49, 48, 48, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .platinum-gradient-text {
+            background: linear-gradient(135deg, #e0e0e0 0%, #9e9e9e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .chart-mockup {
+            background: linear-gradient(180deg, rgba(118, 169, 255, 0.2) 0%, rgba(118, 169, 255, 0) 100%);
+            border-bottom: 2px solid #76a9ff;
+            position: relative;
+        }
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            border-top: 2px solid #76a9ff;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            clip-path: polygon(0 100%, 0 40%, 20% 60%, 40% 20%, 60% 70%, 80% 30%, 100% 50%, 100% 100%);
+            background: linear-gradient(180deg, rgba(118, 169, 255, 0.3) 0%, rgba(118, 169, 255, 0) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-lg text-body-lg antialiased bg-inverse-surface text-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-inverse-surface/80 backdrop-blur-md shadow-sm border-b border-outline">
+<div class="flex justify-between items-center w-full px-container-margin-mobile md:px-container-margin-desktop py-4">
+<div class="flex items-center gap-4">
+<button class="text-inverse-primary hover:bg-surface-container-highest transition-colors rounded-full p-2 active:scale-95 transition-transform md:hidden">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<div class="font-display-lg text-title-md font-bold text-inverse-primary">
+                    MTN Marketplace <span class="platinum-gradient-text ml-2 text-sm uppercase tracking-widest align-middle">Platinum</span>
+</div>
+</div>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="text-inverse-primary border-b-2 border-primary pb-1 font-title-md text-title-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-inverse-primary transition-colors font-title-md text-title-md" href="#">Analytics</a>
+<a class="text-on-surface-variant hover:text-inverse-primary transition-colors font-title-md text-title-md" href="#">Global</a>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline shadow-sm">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a confident business executive in a modern office setting. The lighting is crisp and cool, highlighting a sharp suit. The background is slightly blurred, showing a high-end corporate environment. The overall tone is elite, trustworthy, and aligns with a premium platinum seller persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtBlZB8qI72IiWyVTET7CqPfbWrH706RMFNKXCvQJ7nflVAOygKad5Hkg26inwNC2Saj1A6AdBzy_gbOE5vE7xUoMUYIKLY1U2My88acdpONIDBf1H0nHF4yYb3u_zwrf08GVfcA14XUr039rpIRfkbe7rr5CGJjH_wYFFhHx6XN7ZMcrQVDEBIYYsGShTapK0oHDeL9j7YzgMpqTrNSG_n2UeQ9OQIR0ugBJa6zBF7Pl0vmHoWZvM7Jghx_d2m8G0t0muxCkX1-4">
+</div>
+</div>
+</div>
+</header>
+<!-- SideNav (Desktop) -->
+<aside class="hidden md:flex fixed inset-y-0 left-0 z-[40] w-64 bg-inverse-surface border-r border-outline pt-24 flex-col">
+<div class="p-4 flex-1">
+<div class="mb-8 px-4">
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-2">Main Menu</p>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-fixed/10 text-secondary-fixed font-bold rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-body-lg text-body-lg">Seller Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest hover:text-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-lg text-body-lg">Payment Methods</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest hover:text-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">star</span>
+<span class="font-body-lg text-body-lg">Membership Plan</span>
+</a>
+</nav>
+</div>
+<div class="px-4">
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-2">Platinum Perks</p>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest hover:text-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-body-lg text-body-lg">Performance Badges</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest hover:text-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-body-lg text-body-lg">Dedicated Manager</span>
+</a>
+</nav>
+</div>
+</div>
+<div class="p-4 border-t border-outline">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest hover:text-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Account Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pt-24 pb-24 md:pl-64 px-container-margin-mobile md:px-container-margin-desktop max-w-[1440px] mx-auto min-h-screen">
+<!-- Welcome Section -->
+<section class="mb-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div>
+<h1 class="font-display-lg text-headline-lg md:text-display-lg text-surface mb-2">Welcome back, Alex M.</h1>
+<p class="font-body-lg text-body-lg text-outline">Here is what's happening with your Platinum store today.</p>
+</div>
+<div class="flex items-center gap-3 glass-panel px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary-fixed-dim">workspace_premium</span>
+<span class="font-title-md text-title-md platinum-gradient-text">Platinum Status Active</span>
+</div>
+</div>
+</section>
+<!-- Key Metrics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-gap">
+<!-- Total Earnings -->
+<div class="glass-panel p-6 rounded-xl md:col-span-2 relative overflow-hidden flex flex-col justify-between">
+<div class="relative z-10 flex justify-between items-start mb-6">
+<div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Total Earnings (30 Days)</p>
+<h2 class="font-display-lg text-headline-lg md:text-display-lg text-surface">$1,245,890.00</h2>
+</div>
+<div class="bg-secondary-fixed/20 text-secondary-fixed px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-label-caps text-label-caps">+14.2%</span>
+</div>
+</div>
+<div class="h-32 w-full chart-mockup rounded-b-lg">
+<div class="chart-line"></div>
+</div>
+</div>
+<!-- Average Order Value -->
+<div class="glass-panel p-6 rounded-xl flex flex-col justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Average Order Value</p>
+<h3 class="font-headline-lg text-headline-lg md:text-headline-lg text-surface">$4,520</h3>
+<p class="font-body-sm text-body-sm text-secondary-fixed mt-2">+8% vs last month</p>
+</div>
+<div class="mt-6 flex items-end justify-between">
+<div class="w-8 h-12 bg-surface-container-highest rounded-t-sm"></div>
+<div class="w-8 h-16 bg-surface-container-highest rounded-t-sm"></div>
+<div class="w-8 h-14 bg-surface-container-highest rounded-t-sm"></div>
+<div class="w-8 h-20 bg-secondary-container rounded-t-sm relative">
+<div class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-secondary-fixed font-bold">Now</div>
+</div>
+</div>
+</div>
+<!-- Retention Rate -->
+<div class="glass-panel p-6 rounded-xl flex items-center justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Retention Rate</p>
+<h3 class="font-headline-lg text-headline-lg text-surface">92.4%</h3>
+</div>
+<div class="w-16 h-16 rounded-full border-4 border-surface-container-highest border-t-primary-container border-r-primary-container transform rotate-45"></div>
+</div>
+<!-- Global Reach -->
+<div class="glass-panel p-6 rounded-xl md:col-span-2 flex items-center justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Active Markets</p>
+<h3 class="font-headline-lg text-headline-lg text-surface">14 Countries</h3>
+<p class="font-body-sm text-body-sm text-outline mt-1">Top growth: South Africa &amp; Nigeria</p>
+</div>
+<div class="flex -space-x-4">
+<img alt="Market indicator" class="w-12 h-12 rounded-full border-2 border-inverse-surface" data-alt="A stylized, high-contrast abstract representation of a map pin over a dark background. It features subtle glowing blue and silver accents, fitting a modern corporate analytics dashboard aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHgjsUYvVH_p6-55CRPUATtV1da15_EyjiEaiSimxzHKopCvS6vE1gkGS72hfeMc3sgpXyXBPKVaJAye92DrauiF2dizLGtfqYZoETfVBe8vGSW-5YrS5kmasEwfxSO1AMf76eIw5_lVA_B2KD8rV8uxBGTf5l_xBZua-J7yMX4mjV3x6uOxWQUC2sZ8W9dlsnXoLXloGWj7aJSTQe1OQw7aRhjVM_x6xO4ByGQVFhTkCvA7sH6Nh_bnCnHih0bSRqj-hhSs-IHA8">
+<img alt="Market indicator" class="w-12 h-12 rounded-full border-2 border-inverse-surface" data-alt="A stylized, high-contrast abstract representation of a network node over a dark background. It features subtle glowing blue and silver accents, fitting a modern corporate analytics dashboard aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1CZXbx0vu_L_NzcJe-WtJIp5jaaflV_0XV-8D2tcd89E8WpG4DWs2fdWQ7D024ZEBFdZYz5cdj0K6AzyJehHLhhUQ65zMzdOrjc1y6D6PPeczHDs6kIe3NBkLT7RG5bE4YEHdzrkMxy0O0e64sK_mIeK_rrQ0c8c9zd-dTTZdgCQghBY5K7njW3f06x0wQFMNMf261c3N6KqN-2GgLxdIsxKRUUgwmYxJ_JWCX8zBkyQSg5cNYPq1y5gLulWWjJNLTpL60doPY44">
+<div class="w-12 h-12 rounded-full border-2 border-inverse-surface bg-surface-container-highest flex items-center justify-center text-surface text-sm font-bold">+12</div>
+</div>
+</div>
+</section>
+<!-- Detailed Analytics & Perks -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Recent Transactions List -->
+<div class="glass-panel rounded-xl col-span-1 lg:col-span-2 p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-title-md text-title-md text-surface">High-Value Transactions</h3>
+<a class="font-body-sm text-body-sm text-secondary-fixed hover:underline" href="#">View All</a>
+</div>
+<div class="space-y-4">
+<!-- Tx Item -->
+<div class="flex justify-between items-center p-4 rounded-lg bg-inverse-surface/50 border border-outline/20">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg font-bold text-surface">TechCorp Enterprise</p>
+<p class="font-body-sm text-body-sm text-outline">B2B Bulk Hardware</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-lg text-body-lg font-bold text-primary-fixed-dim">$145,000</p>
+<p class="font-body-sm text-body-sm text-secondary-fixed">Completed</p>
+</div>
+</div>
+<!-- Tx Item -->
+<div class="flex justify-between items-center p-4 rounded-lg bg-inverse-surface/50 border border-outline/20">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg font-bold text-surface">Lagos Logistics Group</p>
+<p class="font-body-sm text-body-sm text-outline">Fleet Services</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-lg text-body-lg font-bold text-primary-fixed-dim">$82,400</p>
+<p class="font-body-sm text-body-sm text-outline">Processing</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Platinum Perks Widget -->
+<div class="bg-gradient-to-br from-secondary to-[#001b3e] rounded-xl p-6 relative overflow-hidden text-on-primary shadow-xl">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-9xl">diamond</span>
+</div>
+<div class="relative z-10">
+<p class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-wider mb-2">Exclusive Access</p>
+<h3 class="font-headline-lg text-headline-lg mb-4">Dedicated Support</h3>
+<p class="font-body-sm text-body-sm mb-6 opacity-90">Your Platinum Manager, Sarah, is available to assist with high-volume orders and strategic growth planning.</p>
+<button class="w-full py-3 bg-primary-container text-on-primary-container font-title-md text-title-md rounded-lg flex items-center justify-center gap-2 hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined">call</span>
+                        Contact Sarah Now
+                    </button>
+<button class="w-full mt-3 py-3 bg-transparent border border-secondary-fixed text-secondary-fixed font-title-md text-title-md rounded-lg flex items-center justify-center gap-2 hover:bg-secondary-fixed/10 transition-colors">
+<span class="material-symbols-outlined">calendar_month</span>
+                        Schedule Review
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-gutter bg-inverse-surface rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.5)] z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-inverse-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-inverse-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+<span class="font-label-caps text-label-caps mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-full px-4 py-1 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-caps text-label-caps mt-1">Premium</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-inverse-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+<span class="font-label-caps text-label-caps mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-inverse-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

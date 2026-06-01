@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FAQs &amp; Billing Policy</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#4e4632",
+                    "background": "#fcf9f8",
+                    "primary-fixed": "#ffe08b",
+                    "on-tertiary-fixed": "#001f24",
+                    "surface-tint": "#745b00",
+                    "surface-bright": "#fcf9f8",
+                    "primary-container": "#ffcc00",
+                    "on-secondary-fixed-variant": "#00458d",
+                    "surface-variant": "#e5e2e1",
+                    "secondary-fixed": "#d6e3ff",
+                    "on-surface": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#f1c100",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1c1b1b",
+                    "on-secondary-container": "#003c7c",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#d2c5ab",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface": "#fcf9f8",
+                    "on-primary-fixed": "#241a00",
+                    "tertiary-container": "#00e7fe",
+                    "secondary": "#1f5dae",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#00daf0",
+                    "surface-container-high": "#ebe7e7",
+                    "on-tertiary-fixed-variant": "#004f57",
+                    "tertiary-fixed": "#95f1ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#76a9ff",
+                    "inverse-primary": "#f1c100",
+                    "on-secondary-fixed": "#001b3e",
+                    "tertiary": "#006874",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f0edec",
+                    "inverse-surface": "#313030",
+                    "on-primary-container": "#6f5700",
+                    "outline": "#80765f",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dcd9d9",
+                    "primary": "#745b00",
+                    "on-tertiary-container": "#00646e",
+                    "secondary-fixed-dim": "#aac7ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin-mobile": "16px",
+                    "gutter": "16px",
+                    "container-margin-desktop": "40px",
+                    "section-gap": "48px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "title-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Smooth Accordion Transitions */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: sweep .3s ease-in-out;
+        }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- Overlay for Drawer -->
+<div class="fixed inset-0 bg-on-surface/40 z-[55] hidden transition-opacity opacity-0" id="drawer-overlay"></div>
+<!-- SHARED COMPONENT: NavigationDrawer -->
+<nav class="fixed inset-y-0 left-0 z-[60] flex flex-col p-4 bg-surface dark:bg-inverse-surface text-secondary dark:text-secondary-fixed font-body-lg text-body-lg h-full w-80 rounded-r-xl shadow-xl transform -translate-x-full transition-transform duration-300 ease-in-out" id="nav-drawer">
+<!-- Header: Profile -->
+<div class="flex items-center gap-4 mb-8 pb-6 border-b border-surface-container-low dark:border-surface-container-lowest">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant flex-shrink-0">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a young entrepreneur in a modern office setting. The lighting is bright and natural, casting soft shadows that highlight a confident expression. The overall mood is approachable and trustworthy, fitting for a verified merchant profile within a secure digital marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm1bJrmwLcQ8FdiD0Xr-kqcI2BvEc7NFYFZTUtoyRo_gprF9Ap618zPQ2ewj2g8SvZ-xOioLSImHFek6E2cP4yyp5ADnwjiR7JFrdlcBV_lMjrit6Jjrp3KtKdxQ4eQ2wXxJn5bCnetkiyvAXkPgwSsV-9pJsC1FiXR_6cxNMvFMTXFD8ZF5zRGO7Q5-aG4Cvbp40sSPOMGecgv4YaOKr2EUyQQZSvnBd-S8x07sBI-GjlCC1Z0zCycAQsIjAhEtCvAo259xv5eh8"/>
+</div>
+<div class="flex flex-col text-left">
+<span class="font-title-md text-title-md text-on-surface">Alex M.</span>
+<span class="font-body-sm text-body-sm text-primary">Gold Merchant</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1 bg-surface-container-high px-2 py-0.5 rounded-full inline-block w-max">Verified Seller</span>
+</div>
+</div>
+<!-- Nav Items -->
+<ul class="flex flex-col gap-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface dark:text-on-surface-variant hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Account Settings
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface dark:text-on-surface-variant hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+                    Membership Plan
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface dark:text-on-surface-variant hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                    Payment Methods
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface dark:text-on-surface-variant hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Seller Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface dark:text-on-surface-variant hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+                    Performance Badges
+                </a>
+</li>
+<!-- ACTIVE ITEM -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-on-secondary font-bold hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    Help &amp; Support
+                </a>
+</li>
+</ul>
+</nav>
+<!-- SHARED COMPONENT: TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4">
+<div class="flex items-center gap-4">
+<button aria-label="Open menu" class="p-2 rounded-full text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-95" id="menu-btn">
+<span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
+</button>
+<span class="font-display-lg text-title-md font-bold text-primary dark:text-inverse-primary">MTN Marketplace</span>
+</div>
+<div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant flex-shrink-0 cursor-pointer hover:ring-2 ring-primary transition-all">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up headshot of a user smiling slightly. Soft, balanced studio lighting creates a professional and clean aesthetic typical of modern tech platform avatars." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8wbVFYiHF8Nd5ViQ3TWKqQvf6LNgbm4_FI6MbxLWIx8LND_Pum67-f7DWsHAwT-JcpF5bH-RCi-9_12I416Quc_dBkBwEr-Ff7SpWuc7GTGvJWdBcL5Cl1ZiW-MY1sPUAEENErPDHUeA8B2NsQXNzoKMjKjRE80p4GJFR8TidwdmGr7Z-4ZIjuvghfoI_FV3Cs5zBjNIqE52Zgv6-6oAK6rP-lmvq-a1cXVC42EFah6qJpVx_RdF5Zt4T4kFviQnv0JOlzTXuOo0"/>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<!-- Navigation BottomNavBar is suppressed due to task-focused intent of reading policies -->
+<main class="flex-grow pt-[88px] pb-16 px-container-margin-mobile md:px-container-margin-desktop max-w-[1280px] mx-auto w-full flex flex-col gap-section-gap">
+<!-- Page Header -->
+<section class="mt-8 mb-4">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-2">Help &amp; Billing Policy</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Find answers to common questions and understand our subscription tiers, transaction fees, and refund processes.</p>
+</section>
+<!-- FAQs Section (Accordions) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.02)] border border-surface-container-highest overflow-hidden">
+<div class="p-6 border-b border-surface-container-highest bg-surface">
+<h2 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="live_help">live_help</span>
+                    Frequently Asked Questions
+                </h2>
+</div>
+<div class="divide-y divide-surface-container-highest">
+<!-- Accordion Item 1 -->
+<details class="group p-6 cursor-pointer bg-surface-container-lowest hover:bg-surface transition-colors">
+<summary class="flex justify-between items-center font-title-md text-[18px] text-on-surface font-semibold outline-none">
+                        How do I upgrade to a Platinum Membership?
+                        <span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform duration-300">expand_more</span>
+</summary>
+<div class="mt-4 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        You can upgrade your membership tier at any time by navigating to your Profile, selecting 'Membership Plan', and choosing the Platinum option. The prorated difference will be charged to your default payment method immediately.
+                    </div>
+</details>
+<!-- Accordion Item 2 -->
+<details class="group p-6 cursor-pointer bg-surface-container-lowest hover:bg-surface transition-colors">
+<summary class="flex justify-between items-center font-title-md text-[18px] text-on-surface font-semibold outline-none">
+                        Are there limits on how many products I can list?
+                        <span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform duration-300">expand_more</span>
+</summary>
+<div class="mt-4 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Gold Merchants can list up to 500 active products simultaneously. Platinum Merchants enjoy unlimited active product listings, along with priority placement in search results.
+                    </div>
+</details>
+<!-- Accordion Item 3 -->
+<details class="group p-6 cursor-pointer bg-surface-container-lowest hover:bg-surface transition-colors">
+<summary class="flex justify-between items-center font-title-md text-[18px] text-on-surface font-semibold outline-none">
+                        When are transaction fees deducted?
+                        <span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform duration-300">expand_more</span>
+</summary>
+<div class="mt-4 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Transaction fees are automatically deducted at the point of sale. The net amount is then transferred to your merchant wallet. You can view a detailed breakdown of fees for every order in your Seller Dashboard.
+                    </div>
+</details>
+</div>
+</section>
+<!-- Billing Policy - Subscription Tiers (Bento/Card Layout) -->
+<section>
+<h2 class="font-title-md text-title-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="workspace_premium">workspace_premium</span>
+                Subscription Tiers
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Gold Tier Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-highest p-6 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-variant rounded-bl-full opacity-50"></div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Gold Merchant</h3>
+<div class="font-display-lg text-[32px] font-bold text-on-background mb-4">$29<span class="text-body-lg font-normal text-on-surface-variant">/mo</span></div>
+<ul class="space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span> Up to 500 listings</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span> Standard Analytics</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span> 2.5% Transaction Fee</li>
+</ul>
+</div>
+<!-- Platinum Tier Card (Premium styling) -->
+<div class="bg-[#f0f4f8] border border-secondary/20 rounded-xl p-6 shadow-md relative overflow-hidden">
+<!-- Glassmorphic AI Accent indicating smart features -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary/10 blur-2xl rounded-full"></div>
+<div class="flex justify-between items-start mb-2 relative z-10">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary">Platinum Merchant</h3>
+<span class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-3 py-1 rounded-full">MOST POPULAR</span>
+</div>
+<div class="font-display-lg text-[32px] font-bold text-on-background mb-4 relative z-10">$89<span class="text-body-lg font-normal text-on-surface-variant">/mo</span></div>
+<ul class="space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-8 relative z-10">
+<li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary text-[20px]" data-icon="check_circle">check_circle</span> Unlimited listings</li>
+<li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary text-[20px]" data-icon="check_circle">check_circle</span> Advanced AI Analytics &amp; Forecasting</li>
+<li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary text-[20px]" data-icon="check_circle">check_circle</span> 1.5% Reduced Transaction Fee</li>
+<li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary text-[20px]" data-icon="check_circle">check_circle</span> Priority Support line</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Transaction Fees & Refunds (Clean Text Content) -->
+<section class="bg-surface rounded-xl p-6 md:p-8 shadow-sm border border-surface-container-low mb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="receipt_long">receipt_long</span>
+                        Transaction Fees
+                    </h3>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-4">
+<p>Our platform charges a processing fee on the total transaction amount, including shipping and taxes.</p>
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>Gold Tier:</strong> 2.5% per successful transaction.</li>
+<li><strong>Platinum Tier:</strong> 1.5% per successful transaction.</li>
+<li>Payment gateway fees (e.g., credit card processing) are independent and typically range from 1.2% to 2.9% + $0.30 depending on the provider and region.</li>
+</ul>
+</div>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="currency_exchange">currency_exchange</span>
+                        Refund Process
+                    </h3>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-4">
+<p>We strive to make the refund process as seamless as possible for both merchants and buyers.</p>
+<ul class="list-disc pl-5 space-y-2">
+<li>Merchants can initiate a full or partial refund directly from the 'Orders' dashboard within 30 days of the transaction.</li>
+<li>Transaction fees collected by the platform are <strong>not refunded</strong> when a merchant issues a refund to a customer.</li>
+<li>Refunds typically take 3-5 business days to appear on the customer's original payment method.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- JavaScript for Interactions -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const drawer = document.getElementById('nav-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            
+            let isDrawerOpen = false;
+
+            const toggleDrawer = () => {
+                isDrawerOpen = !isDrawerOpen;
+                if (isDrawerOpen) {
+                    drawer.classList.remove('-translate-x-full');
+                    overlay.classList.remove('hidden');
+                    // slight delay to allow display:block to apply before animating opacity
+                    setTimeout(() => {
+                        overlay.classList.remove('opacity-0');
+                    }, 10);
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling on background
+                } else {
+                    drawer.classList.add('-translate-x-full');
+                    overlay.classList.add('opacity-0');
+                    setTimeout(() => {
+                        overlay.classList.add('hidden');
+                    }, 300); // match transition duration
+                    document.body.style.overflow = '';
+                }
+            };
+
+            menuBtn.addEventListener('click', toggleDrawer);
+            overlay.addEventListener('click', toggleDrawer);
+            
+            // Optional: Close accordions when another opens (Accordion behavior)
+            const detailsElements = document.querySelectorAll('details');
+            detailsElements.forEach((targetDetail) => {
+                targetDetail.addEventListener('click', () => {
+                    detailsElements.forEach((detail) => {
+                        if (detail !== targetDetail) {
+                            detail.removeAttribute('open');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body></html>

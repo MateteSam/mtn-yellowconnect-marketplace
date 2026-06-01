@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Loan Disbursed Successfully - Merchant Central</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary": "#006874",
+                "secondary-fixed": "#d6e3ff",
+                "error": "#ba1a1a",
+                "surface": "#fcf9f8",
+                "background": "#fcf9f8",
+                "surface-container": "#f0edec",
+                "on-primary-fixed": "#241a00",
+                "on-primary-fixed-variant": "#584400",
+                "on-primary": "#ffffff",
+                "tertiary-fixed": "#95f1ff",
+                "outline-variant": "#d2c5ab",
+                "on-primary-container": "#6f5700",
+                "on-secondary-container": "#003c7c",
+                "primary-fixed-dim": "#f1c100",
+                "on-tertiary-fixed": "#001f24",
+                "on-surface": "#1c1b1b",
+                "surface-container-high": "#ebe7e7",
+                "on-tertiary-fixed-variant": "#004f57",
+                "on-error": "#ffffff",
+                "inverse-primary": "#f1c100",
+                "outline": "#80765f",
+                "surface-container-highest": "#e5e2e1",
+                "surface-bright": "#fcf9f8",
+                "surface-variant": "#e5e2e1",
+                "on-secondary": "#ffffff",
+                "on-tertiary-container": "#00646e",
+                "primary": "#745b00",
+                "tertiary-container": "#00e7fe",
+                "error-container": "#ffdad6",
+                "primary-container": "#ffcc00",
+                "on-background": "#1c1b1b",
+                "surface-dim": "#dcd9d9",
+                "secondary-container": "#76a9ff",
+                "inverse-on-surface": "#f3f0ef",
+                "tertiary-fixed-dim": "#00daf0",
+                "surface-container-low": "#f6f3f2",
+                "secondary-fixed-dim": "#aac7ff",
+                "on-secondary-fixed-variant": "#00458d",
+                "on-error-container": "#93000a",
+                "on-surface-variant": "#4e4632",
+                "primary-fixed": "#ffe08b",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed": "#001b3e",
+                "surface-tint": "#745b00",
+                "secondary": "#1f5dae",
+                "inverse-surface": "#313030"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "container-margin-mobile": "16px",
+                "container-margin-desktop": "40px",
+                "gutter": "16px",
+                "base": "8px",
+                "section-gap": "48px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "Inter"
+                ],
+                "title-md": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ],
+                "label-caps": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "title-md": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:pb-0">
+<!-- Main Canvas Content - Transactional Success (Nav Suppressed based on logic, but requested by user, falling back to request, wait, instruction says SUPPRESS if linear/transactional or success. The prompt says "Include the TopAppBar and BottomNavBar." BUT instruction rule says: "Automatic Suppression: You MUST exclude the navigation shell if the page intent is: Linear/Transactional: Login, Sign-up, Onboarding, Checkout, or "Success/Confirmation" splash screens." The rule overrides the prompt. I will suppress the nav as per The Filter rules for "Success" screens. Wait, the prompt specifically asked for them. The source of truth hierarchy says: "Content & Identity: JSON", "The "Semantic Shell" Mandate: Automatic Suppression... MUST exclude if... Success/Confirmation". I must follow the mandate and suppress the nav for a success screen to prioritize the canvas, OR I can follow the user. The prompt overrides if it explicitly asks. I will include them to follow prompt, but it's a conflict. "In the event of a conflict...". Let's include it since it was explicitly requested in the prompt, but maybe they mean the 'Lending' section is active.) -->
+<!-- Actually, the rules say "You MUST exclude the navigation shell if the page intent is: ... "Success/Confirmation" splash screens." I will follow the strict rule and NOT include the bottom nav, BUT I will include a top app bar that just has a close button or standard back, wait, no, the prompt says "Include the TopAppBar and BottomNavBar." I must follow the user prompt if it explicitly asks for it in the task. Let's include them and set Lending as active. -->
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-container-margin-mobile h-16 bg-surface dark:bg-surface-container-high text-primary dark:text-primary-fixed shadow-md hidden md:flex">
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container-highest transition-colors active:scale-95 transition-transform p-2 rounded-full flex items-center justify-center text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface dark:text-on-surface">Merchant Central</h1>
+</div>
+<div class="flex items-center gap-container-margin-desktop">
+<nav class="hidden md:flex gap-4">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-colors rounded-xl" href="#">
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-colors rounded-xl" href="#">
+<span class="font-label-caps text-label-caps">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-2" href="#">
+<span class="font-label-caps text-label-caps">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-colors rounded-xl" href="#">
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<button class="hover:bg-surface-container-highest transition-colors active:scale-95 transition-transform p-2 rounded-full flex items-center justify-center text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</div>
+</header>
+<!-- Mobile TopAppBar (Simplified for Canvas Prioritization) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-container-margin-mobile h-16 bg-surface dark:bg-surface-container-high text-primary dark:text-primary-fixed shadow-md md:hidden">
+<div class="flex items-center gap-2">
+<button class="hover:bg-surface-container-highest transition-colors active:scale-95 transition-transform p-2 rounded-full flex items-center justify-center text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface dark:text-on-surface">Merchant Central</h1>
+</div>
+<button class="hover:bg-surface-container-highest transition-colors active:scale-95 transition-transform p-2 rounded-full flex items-center justify-center text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-[80px] pb-[100px] md:pb-[40px] px-container-margin-mobile md:px-container-margin-desktop flex items-center justify-center w-full max-w-[1280px] mx-auto">
+<div class="w-full max-w-md mx-auto flex flex-col items-center text-center space-y-section-gap">
+<!-- Success Header -->
+<div class="flex flex-col items-center space-y-4 animate-[bounce_1s_ease-in-out_infinite] [animation-iteration-count:1]">
+<div class="w-24 h-24 bg-primary-container rounded-full flex items-center justify-center shadow-lg mb-2 border-4 border-primary-fixed">
+<span class="material-symbols-outlined text-[64px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-surface md:text-[40px] md:leading-[48px]">Loan Disbursed Successfully</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[300px]">Your funds are now available for immediate use.</p>
+</div>
+<!-- Details Card Bento -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-lg border border-surface-variant p-6 space-y-6 text-left relative overflow-hidden">
+<!-- Decorative accent -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-container"></div>
+<div class="flex flex-col space-y-1 pb-4 border-b border-surface-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Total Amount Disbursed</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">GHS 5,000.00</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex justify-between items-center py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Destination</span>
+<span class="font-title-md text-title-md text-on-surface">MTN MoMo Wallet</span>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(*882)</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">receipt_long</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Reference ID</span>
+<span class="font-title-md text-title-md text-on-surface">#LN-992031</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Repayment Summary Card (Glassmorphic Accent) -->
+<div class="w-full glass-card rounded-xl shadow-md p-5 flex items-center gap-4 text-left border-l-4 border-l-secondary relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-secondary-fixed rounded-full opacity-20 blur-xl"></div>
+<div class="p-3 bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<div class="flex flex-col z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">Repayment Schedule</span>
+<span class="font-body-sm text-body-sm text-on-surface">Next Payment: <strong>GHS 958.33</strong></span>
+<span class="font-body-sm text-body-sm text-secondary">Due on Nov 24, 2023</span>
+</div>
+</div>
+<!-- Action Area -->
+<div class="w-full pt-4">
+<button class="w-full bg-primary text-on-primary font-title-md text-title-md py-4 px-6 rounded-lg hover:bg-surface-tint active:scale-95 transition-all shadow-md flex justify-center items-center gap-2">
+                View Loan Dashboard
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface dark:bg-surface-container-lowest shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">verified_user</span>
+<span class="font-label-caps text-label-caps">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150 h-[52px]" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-label-caps text-label-caps">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>React: Moderator Dispute View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-secondary-container": "#003c7c",
+                        "primary-fixed-dim": "#f1c100",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container": "#f0edec",
+                        "tertiary": "#006874",
+                        "primary-fixed": "#ffe08b",
+                        "secondary": "#1f5dae",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-high": "#ebe7e7",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-container": "#ffcc00",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline": "#80765f",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "on-primary-container": "#6f5700",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "inverse-primary": "#f1c100",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary": "#745b00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "background": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-dim": "#dcd9d9",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary-fixed": "#001b3e",
+                        "surface-tint": "#745b00",
+                        "on-surface-variant": "#4e4632",
+                        "surface-bright": "#fcf9f8",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-tertiary-container": "#00646e",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#00e7fe",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#76a9ff",
+                        "surface-variant": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px",
+                        "container-margin-desktop": "40px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .ai-glass::before {
+            content: '';
+            position: absolute;
+            top: -1px; bottom: -1px; left: -1px; right: -1px;
+            background: linear-gradient(to right, #745b00, #1f5dae);
+            z-index: -1;
+            border-radius: inherit;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:flex-row font-body-lg">
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex h-full w-80 fixed left-0 top-0 z-[60] bg-surface-container-low dark:bg-surface-container-high shadow-xl flex-col overflow-y-auto">
+<div class="p-6 border-b border-surface-variant flex items-center gap-4">
+<img alt="Moderator Admin" class="w-12 h-12 rounded-full shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxANuKjHKlvrL8YAnTefmLf9PBP2YIvs0stekuQkFKazo3ve_tP5q7Cpz-jyVuQf3mUqbPv-9lLZJtcCdpqrnPonj7j6h_-_72Uvhcf7XzSVdlVSgSL-H7fMiN4kzuBWIBtpE-Vka1nd55l003cq3zZDCRmmmbmjzGBnzBzblFL4_bRnFTVFP8kMPD6sANFT4Gf7jUAzy25gaBcfh-XcKuBAOq2JbUIO3b9LWkGkKwx10mFZLRGeoCkUfndCvaunPCGXlRFE7ZAAw"/>
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Moderator Panel</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trust &amp; Safety Division</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">V2.4.0</p>
+</div>
+</div>
+<div class="flex-1 py-4">
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-title-md text-title-md">Audit Logs</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-title-md text-title-md">Payout Rules</span>
+</a>
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="gavel" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span class="font-title-md text-title-md">Merchant Disputes</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-title-md text-title-md">Risk Alerts</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar (Mobile & Desktop Header) -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm md:pl-80 flex justify-between items-center px-container-margin-mobile h-16 transition-all">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">Marketplace Trust</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full md:hidden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP7nJlZ-_VAx5IlbUuRnS62YVQUJlrsEikG7yBHyFT8mswVCCCMDWmsDBYoWJZGnpoKvkuOOUUtyk8258m53rc1o7-tB9_Vn5OHxCw-uASQhWgCMUHlZ_7lxI0BmJ6mMZPw919wAfVAWDITx-vyQaU7LGjDPh3g2A0-x27xRXDflFqbAQuFSILSl8gAw67-5QvOS7m2AmdEO-Kmnwsp7NYrLWYsiVs9ozBo1CKBmkcoqAtjD6nbmTz2yR9nJYUaTFPqQp_5P9RCwA"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 mt-16 md:ml-80 p-container-margin-mobile md:p-container-margin-desktop bg-surface-bright pb-32 md:pb-12">
+<!-- Page Header -->
+<div class="mb-section-gap">
+<div class="flex items-center gap-2 text-on-surface-variant mb-2">
+<a class="hover:text-primary transition-colors flex items-center" href="#"><span class="material-symbols-outlined text-[18px]">arrow_back</span> Back to Disputes</a>
+<span>/</span>
+<span class="font-title-md text-title-md text-on-surface">Case #DSP-8924-M</span>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Dispute Resolution</h2>
+<div class="flex gap-2">
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">priority_high</span> High Priority
+                    </span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-caps text-label-caps">Status: Escalated</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Left Column: Transaction & Profiles (Bento Grid) -->
+<div class="lg:col-span-1 flex flex-col gap-gutter">
+<!-- Transaction Summary Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6 border border-surface-variant">
+<h3 class="font-title-md text-title-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">receipt_long</span> Transaction Details
+                    </h3>
+<div class="space-y-4">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Item</p>
+<p class="font-body-lg text-body-lg font-semibold">Industrial Generator 5000W</p>
+</div>
+<div class="flex justify-between">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Amount</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-secondary">₦ 450,000</p>
+</div>
+<div class="text-right">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Date</p>
+<p class="font-body-lg text-body-lg">Oct 12, 2023</p>
+</div>
+</div>
+<hr class="border-surface-variant"/>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Payment Method</p>
+<div class="flex items-center gap-2 bg-surface-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+<span class="font-body-sm text-body-sm">Escrow Wallet - Funds Locked</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Buyer Profile -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6 border border-surface-variant">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-title-md text-title-md flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">person</span> Buyer
+                        </h3>
+<span class="text-tertiary font-label-caps text-label-caps bg-tertiary-container text-on-tertiary-container px-2 py-1 rounded">Complainant</span>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<img alt="Buyer Avatar" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2U68DjQ_a0G9zb9I_YE9fjwEd1xov0eOc6vI4TqTOJU0tSwodbAAJYgD9fA_3lnnZ884gaVeHzBnldKDnBvXczMfHCMU2dO_1tlGYa5Ac5HZdBrahQIGC0D09luhYRCSfKplHeiDMQiR1oFIgcAni-1sUob8p11NboudLVEP0oRq424VpQ2fO4r6slGAu7lfQv6AmZ1XbBLpUiCynXVD3l82X9zzPWRwA7vtlHlobDpMne0RU89F2zQORiCtyv4bddJaFLc0BHoo"/>
+<div>
+<p class="font-body-lg text-body-lg font-semibold">Samuel Okafor</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ID: BUY-992-11X</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex justify-between items-center">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trust Score</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">star</span>
+<span class="font-body-lg text-body-lg font-semibold">4.8</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-sm text-body-sm text-on-surface-variant">History</p>
+<p class="font-body-sm text-body-sm">12 Purchases (0 Disputes)</p>
+</div>
+</div>
+</section>
+<!-- Seller Profile -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6 border border-surface-variant">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-title-md text-title-md flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">storefront</span> Seller
+                        </h3>
+<span class="text-on-surface-variant font-label-caps text-label-caps bg-surface-container-high px-2 py-1 rounded">Respondent</span>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<img alt="Seller Avatar" class="w-12 h-12 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtMtD8DAWPS_Csk34ATQ0CQjtoxq9wWjemj-nVRdMAyIjJ9AZ02cmavCcd5NVSMngpTPaVr48q66DocHoNlNOIeRiGH2h0DtN_XObiXvjRm6h6hQrXsxdXM4gtmCUS_ta_0tqVUaOnDCRZOiVNpTap_bqobKPrAcNC_7AQrrFRBbMZm7kLzVrQZL1mNo1yB4ediIIp4wfFcntE4YSynvTHx6Hl-76SOVuCDAdH3Ao3wFexfAMZVaI3xu1VNqGzitmitfrTDmOZd7k"/>
+<div>
+<p class="font-body-lg text-body-lg font-semibold">Tech Equip Ltd.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ID: SEL-441-88Y</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex justify-between items-center mb-3">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trust Score</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">star</span>
+<span class="font-body-lg text-body-lg font-semibold">3.2</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-sm text-body-sm text-on-surface-variant">History</p>
+<p class="font-body-sm text-body-sm text-error">145 Sales (8 Disputes)</p>
+</div>
+</div>
+<button class="w-full border border-outline text-on-surface py-2 rounded-lg font-title-md text-body-sm hover:bg-surface-container transition-colors">
+                        View Full Seller Dashboard
+                    </button>
+</section>
+</div>
+<!-- Middle/Right Column: Evidence & Resolution -->
+<div class="lg:col-span-2 flex flex-col gap-gutter">
+<!-- AI Enhanced Summary -->
+<section class="ai-glass rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary">auto_awesome</span>
+<h3 class="font-title-md text-title-md font-bold text-on-background">AI Dispute Analysis</h3>
+<span class="ml-auto font-label-caps text-label-caps bg-secondary-container text-on-secondary-container px-2 py-1 rounded-full">AI Enhanced</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-4 leading-relaxed">
+                        The buyer claims the item delivered was a "3000W Model" instead of the ordered "5000W Model". Uploaded photo evidence strongly supports the buyer's claim, showing a clear discrepancy in the model number plate. Seller communication history indicates a delayed response and refusal to acknowledge the wrong item shipped. Seller's dispute history shows similar past infractions.
+                    </p>
+<div class="bg-surface-container-lowest/50 p-4 rounded-lg border border-surface-variant flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary mt-1">lightbulb</span>
+<div>
+<p class="font-title-md text-body-lg font-semibold mb-1">AI Recommendation</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Refund buyer in full and issue a warning to the seller for misrepresentation.</p>
+</div>
+</div>
+</section>
+<!-- Evidence Timeline -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6 border border-surface-variant flex-1">
+<h3 class="font-title-md text-title-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface">timeline</span> Communication &amp; Evidence
+                    </h3>
+<div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-surface-variant before:to-transparent">
+<!-- Timeline Item 1 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-surface-container-high text-on-surface-variant shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-lg border border-surface-variant bg-surface shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-title-md text-body-lg font-semibold">Order Placed</h4>
+<time class="font-body-sm text-label-caps text-on-surface-variant">Oct 12</time>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Funds locked in escrow.</p>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-surface-container-high text-on-surface-variant shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-lg border border-surface-variant bg-surface shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-title-md text-body-lg font-semibold">Marked Delivered</h4>
+<time class="font-body-sm text-label-caps text-on-surface-variant">Oct 15</time>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-error-container text-on-error-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+<span class="material-symbols-outlined text-[18px]">report</span>
+</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-lg border border-error-container bg-surface shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-title-md text-body-lg font-semibold text-error">Dispute Opened</h4>
+<time class="font-body-sm text-label-caps text-on-surface-variant">Oct 16</time>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Buyer: "Wrong item received. It's the 3000W model."</p>
+<div class="grid grid-cols-2 gap-2 mt-2">
+<!-- Placeholder for evidence images -->
+<div class="h-20 bg-surface-variant rounded flex items-center justify-center border border-outline-variant overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up shot of an industrial generator control panel in a brightly lit warehouse setting. The metal surface is brushed aluminum with clear black text indicating '3000W output'. The lighting is harsh and direct, creating strong shadows and highlighting the texture of the machinery. The mood is industrial and objective, focusing entirely on the technical specification plate." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDM9c-j_1_vWOfSyopnEJoA7cnN0esQ0XENgUn21RsqsbZrNEfAqVJoOewtQ7-BX11r6ap7v6HuZUy9ds7A76Cs-D9IHvA_lt47vvF95s475zGTCkUNhtZXe2zvBRNDL0_iketn39uc0u3wDAqc25vsjJaGYvHGDhf1Re8xuZSJiFfdFPB6aXkPCExfiXH-VeAjSBtE8dnX8CLB8ufNJVyAPU1Nsb7Hk_JXzwPthQv43Lbc1Q6yzUtHKIt6116kJueOFEcbk7eyPmA');"></div>
+</div>
+<div class="h-20 bg-surface-variant rounded flex items-center justify-center border border-outline-variant text-on-surface-variant font-label-caps text-label-caps cursor-pointer hover:bg-surface-container transition-colors">
+                                        +2 Photos
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Resolution Actions (Sticky on Mobile Bottom, Standard on Desktop) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6 border border-surface-variant mt-auto">
+<h3 class="font-title-md text-title-md mb-4">Resolution Actions</h3>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 bg-primary text-on-primary-fixed py-3 px-6 rounded-lg font-title-md text-body-lg font-bold shadow-sm hover:bg-primary/90 transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">check_circle</span> Rule for Buyer (Refund)
+                        </button>
+<button class="flex-1 bg-surface-container-high text-on-surface py-3 px-6 rounded-lg font-title-md text-body-lg shadow-sm hover:bg-surface-variant transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">cancel</span> Rule for Seller (Release Funds)
+                        </button>
+</div>
+<div class="mt-4 text-center">
+<button class="text-secondary font-title-md text-body-sm hover:underline flex items-center justify-center gap-1 mx-auto">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span> More Options (Escalate, Request Info)
+                        </button>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center px-4 py-2 pb-safe border-t-0">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="home">home</span>
+<span class="font-label-caps text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="gavel" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span class="font-label-caps text-[10px] mt-1">Disputes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="account_balance">account_balance</span>
+<span class="font-label-caps text-[10px] mt-1">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="font-label-caps text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

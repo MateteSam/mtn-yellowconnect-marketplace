@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Select Tax Year - Merchant Central</title><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-lowest": "#ffffff", "primary-container": "#ffcc00", "surface-container-high": "#ebe7e7", "surface-container-low": "#f6f3f2", "secondary-container": "#76a9ff", "inverse-on-surface": "#f3f0ef", "tertiary-fixed": "#95f1ff", "on-secondary-container": "#003c7c", "on-error": "#ffffff", "tertiary-container": "#00e7fe", "on-surface": "#1c1b1b", "surface-container": "#f0edec", "tertiary-fixed-dim": "#00daf0", "surface-tint": "#745b00", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#584400", "on-primary": "#ffffff", "on-surface-variant": "#4e4632", "surface-dim": "#dcd9d9", "surface-bright": "#fcf9f8", "primary-fixed": "#ffe08b", "on-tertiary": "#ffffff", "on-error-container": "#93000a", "inverse-primary": "#f1c100", "background": "#fcf9f8", "secondary": "#1f5dae", "outline-variant": "#d2c5ab", "on-tertiary-container": "#00646e", "error": "#ba1a1a", "primary": "#745b00", "surface-variant": "#e5e2e1", "secondary-fixed-dim": "#aac7ff", "error-container": "#ffdad6", "on-primary-container": "#6f5700", "inverse-surface": "#313030", "on-secondary-fixed": "#001b3e", "on-tertiary-fixed-variant": "#004f57", "surface": "#fcf9f8", "secondary-fixed": "#d6e3ff", "on-tertiary-fixed": "#001f24", "surface-container-highest": "#e5e2e1", "primary-fixed-dim": "#f1c100", "outline": "#80765f", "on-secondary-fixed-variant": "#00458d", "on-primary-fixed": "#241a00", "on-background": "#1c1b1b", "tertiary": "#006874" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "section-gap": "48px", "gutter": "16px", "container-margin-mobile": "16px", "container-margin-desktop": "40px", "base": "8px" }, "fontFamily": { "title-md": [ "Inter" ], "headline-lg-mobile": [ "Inter" ], "headline-lg": [ "Inter" ], "body-lg": [ "Inter" ], "body-sm": [ "Inter" ], "label-caps": [ "Inter" ], "display-lg": [ "Inter" ] }, "fontSize": { "title-md": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "headline-lg-mobile": [ "24px", { "lineHeight": "32px", "fontWeight": "700" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "body-sm": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-caps": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" } ], "display-lg": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" } ] } }, }, }</script><style>body { font-family: 'Inter', sans-serif; }.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }.icon-fill { font-variation-settings: 'FILL' 1; }body { min-height: max(884px, 100dvh); }</style></head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 shadow-sm bg-surface">
+<div class="flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop h-16 w-full max-w-7xl mx-auto">
+<button aria-label="Go back" class="text-on-surface hover:bg-surface-container-low transition-colors rounded-full p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-title-md text-title-md font-bold text-primary">Select Tax Year</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-2xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8 pb-32">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Choose a fiscal year to view or export your annual tax summary and earnings documentation.</p>
+<!-- Tax Year List -->
+<div class="flex flex-col gap-4">
+<!-- Selected Year (2023) -->
+<label class="relative block cursor-pointer group">
+<input checked="" class="peer sr-only" name="tax_year" type="radio" value="2023"/>
+<div class="rounded-xl border-2 border-primary bg-primary-container/10 p-4 transition-all hover:bg-surface-container-low peer-checked:bg-primary-container/20">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary icon-fill text-2xl">calendar_month</span>
+<h2 class="font-title-md text-title-md text-on-surface">2023</h2>
+</div>
+<span class="material-symbols-outlined text-primary icon-fill">check_circle</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4 bg-surface rounded-lg p-3 shadow-sm border border-outline-variant/30">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Earnings</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold mt-1">₦12,450,000</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Status</p>
+<div class="flex items-center gap-1 mt-1 text-tertiary">
+<span class="material-symbols-outlined text-sm">download_done</span>
+<p class="font-body-sm text-body-sm font-medium">Ready for Export</p>
+</div>
+</div>
+</div>
+</div>
+</label>
+<!-- Unselected Year (2022) -->
+<label class="relative block cursor-pointer group">
+<input class="peer sr-only" name="tax_year" type="radio" value="2022"/>
+<div class="rounded-xl border border-outline-variant bg-surface p-4 transition-all hover:bg-surface-container-low peer-checked:border-2 peer-checked:border-primary peer-checked:bg-primary-container/10">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-2xl">calendar_month</span>
+<h2 class="font-title-md text-title-md text-on-surface">2022</h2>
+</div>
+<span class="material-symbols-outlined text-outline-variant peer-checked:text-primary peer-checked:icon-fill hidden group-hover:block opacity-50">radio_button_unchecked</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4 bg-surface-container-lowest rounded-lg p-3 border border-outline-variant/30">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Earnings</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold mt-1">₦9,820,500</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Status</p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+<p class="font-body-sm text-body-sm font-medium">Archived</p>
+</div>
+</div>
+</div>
+</div>
+</label>
+<!-- Unselected Year (2021) -->
+<label class="relative block cursor-pointer group">
+<input class="peer sr-only" name="tax_year" type="radio" value="2021"/>
+<div class="rounded-xl border border-outline-variant bg-surface p-4 transition-all hover:bg-surface-container-low peer-checked:border-2 peer-checked:border-primary peer-checked:bg-primary-container/10">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-2xl">calendar_month</span>
+<h2 class="font-title-md text-title-md text-on-surface">2021</h2>
+</div>
+<span class="material-symbols-outlined text-outline-variant hidden group-hover:block opacity-50">radio_button_unchecked</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4 bg-surface-container-lowest rounded-lg p-3 border border-outline-variant/30">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Earnings</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold mt-1">₦7,100,000</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Status</p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+<p class="font-body-sm text-body-sm font-medium">Archived</p>
+</div>
+</div>
+</div>
+</div>
+</label>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant p-4 pb-safe z-40 shadow-lg">
+<div class="max-w-2xl mx-auto w-full">
+<button class="w-full bg-primary-container text-on-primary-container font-title-md text-title-md font-bold py-3 px-6 rounded-lg active:scale-95 transition-transform hover:opacity-90 flex items-center justify-center gap-2">
+<span>Confirm Selection</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Navigation suppressed as this is a task-focused sub-page with a clear 'Confirm' intent -->
+</body></html>

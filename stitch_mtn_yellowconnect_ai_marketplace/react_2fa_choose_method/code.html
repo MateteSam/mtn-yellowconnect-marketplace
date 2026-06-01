@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2FA Choose Method</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#80765f",
+                      "secondary-fixed": "#d6e3ff",
+                      "on-background": "#1c1b1b",
+                      "background": "#fcf9f8",
+                      "surface-container-highest": "#e5e2e1",
+                      "secondary": "#1f5dae",
+                      "inverse-primary": "#f1c100",
+                      "tertiary-fixed": "#95f1ff",
+                      "surface": "#fcf9f8",
+                      "tertiary": "#006874",
+                      "primary-container": "#ffcc00",
+                      "inverse-on-surface": "#f3f0ef",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#f1c100",
+                      "on-secondary-fixed": "#001b3e",
+                      "tertiary-container": "#00e7fe",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#00458d",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#6f5700",
+                      "surface-variant": "#e5e2e1",
+                      "surface-dim": "#dcd9d9",
+                      "surface-container": "#f0edec",
+                      "on-surface-variant": "#4e4632",
+                      "tertiary-fixed-dim": "#00daf0",
+                      "primary-fixed": "#ffe08b",
+                      "on-tertiary-container": "#00646e",
+                      "on-secondary-container": "#003c7c",
+                      "on-tertiary-fixed-variant": "#004f57",
+                      "primary": "#745b00",
+                      "on-primary-fixed": "#241a00",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f6f3f2",
+                      "on-tertiary-fixed": "#001f24",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed-variant": "#584400",
+                      "secondary-fixed-dim": "#aac7ff",
+                      "on-surface": "#1c1b1b",
+                      "inverse-surface": "#313030",
+                      "secondary-container": "#76a9ff",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#745b00",
+                      "outline-variant": "#d2c5ab",
+                      "surface-bright": "#fcf9f8",
+                      "surface-container-high": "#ebe7e7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "48px",
+                      "gutter": "16px",
+                      "base": "8px",
+                      "container-margin-desktop": "40px",
+                      "container-margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center p-container-margin-mobile md:p-container-margin-desktop antialiased">
+<!-- Main Container -->
+<main class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant/30 overflow-hidden relative">
+<!-- Subtle AI Glass accent for visual interest -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/20 blur-3xl rounded-full -mr-16 -mt-16 pointer-events-none"></div>
+<!-- Header Section -->
+<header class="pt-8 pb-6 px-6 text-center border-b border-surface-container-highest">
+<div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+<span class="material-symbols-outlined text-on-primary-container text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Secure Your Account</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Choose an additional layer of security to protect your MerchantHub data.</p>
+</header>
+<!-- Form Content -->
+<form class="p-6 flex flex-col gap-gutter">
+<!-- Option 1: Authenticator App (Selected State) -->
+<label class="relative flex items-start p-4 rounded-lg cursor-pointer bg-surface border-2 border-primary transition-all duration-200 group">
+<input checked="" class="sr-only" name="2fa_method" type="radio" value="app"/>
+<div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="font-title-md text-title-md text-on-surface">Authenticator App</span>
+<!-- Radio custom indicator -->
+<div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center bg-primary">
+<div class="w-2 h-2 rounded-full bg-on-primary"></div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Use an app like Google Authenticator or Authy to generate codes.</p>
+<span class="inline-block mt-2 px-2 py-0.5 bg-primary-container text-on-primary-container font-label-caps text-label-caps rounded-full">Recommended</span>
+</div>
+</label>
+<!-- Option 2: SMS -->
+<label class="relative flex items-start p-4 rounded-lg cursor-pointer bg-surface border border-outline-variant hover:border-outline hover:shadow-sm transition-all duration-200 group">
+<input class="sr-only" name="2fa_method" type="radio" value="sms"/>
+<div class="flex-shrink-0 w-10 h-10 bg-surface-variant rounded-full flex items-center justify-center mr-4 mt-1 group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">sms</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="font-title-md text-title-md text-on-surface">SMS Message</span>
+<!-- Radio custom indicator -->
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant group-hover:border-outline transition-colors"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Receive a text message with a unique code to your registered mobile number.</p>
+</div>
+</label>
+<!-- Actions -->
+<div class="mt-8 flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary font-title-md text-title-md py-3 rounded-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all" type="submit">
+                    Continue Setup
+                </button>
+<button class="w-full bg-transparent text-secondary font-title-md text-title-md py-3 rounded-lg hover:bg-secondary-fixed/50 active:bg-secondary-fixed transition-colors" type="button">
+                    Cancel
+                </button>
+</div>
+</form>
+</main>
+<script>
+        // Simple JS to handle the visual state of custom radio buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const labels = document.querySelectorAll('label');
+            const inputs = document.querySelectorAll('input[type="radio"]');
+
+            inputs.forEach(input => {
+                input.addEventListener('change', (e) => {
+                    // Reset all
+                    labels.forEach(l => {
+                        l.classList.remove('border-2', 'border-primary');
+                        l.classList.add('border', 'border-outline-variant');
+                        
+                        // Reset indicators
+                        const indicator = l.querySelector('.w-5.h-5');
+                        indicator.classList.remove('bg-primary', 'border-primary');
+                        indicator.classList.add('border-outline-variant');
+                        indicator.innerHTML = '';
+                    });
+
+                    // Set active
+                    const activeLabel = e.target.closest('label');
+                    activeLabel.classList.remove('border', 'border-outline-variant');
+                    activeLabel.classList.add('border-2', 'border-primary');
+
+                    const activeIndicator = activeLabel.querySelector('.w-5.h-5');
+                    activeIndicator.classList.remove('border-outline-variant');
+                    activeIndicator.classList.add('bg-primary', 'border-primary');
+                    activeIndicator.innerHTML = '<div class="w-2 h-2 rounded-full bg-on-primary"></div>';
+                });
+            });
+        });
+    </script>
+</body></html>

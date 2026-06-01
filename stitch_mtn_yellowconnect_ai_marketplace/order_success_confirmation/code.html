@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Placed</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1c1b1b",
+                    "on-tertiary-container": "#00646e",
+                    "on-secondary-fixed": "#001b3e",
+                    "secondary": "#1f5dae",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-tertiary-fixed": "#001f24",
+                    "inverse-surface": "#313030",
+                    "surface-bright": "#fcf9f8",
+                    "on-secondary-fixed-variant": "#00458d",
+                    "on-primary-fixed": "#241a00",
+                    "primary": "#745b00",
+                    "outline-variant": "#d2c5ab",
+                    "secondary-container": "#76a9ff",
+                    "outline": "#80765f",
+                    "surface-dim": "#dcd9d9",
+                    "tertiary-fixed": "#95f1ff",
+                    "tertiary-container": "#00e7fe",
+                    "surface-container-low": "#f6f3f2",
+                    "surface": "#fcf9f8",
+                    "on-surface": "#1c1b1b",
+                    "error-container": "#ffdad6",
+                    "background": "#fcf9f8",
+                    "secondary-fixed": "#d6e3ff",
+                    "surface-variant": "#e5e2e1",
+                    "tertiary": "#006874",
+                    "surface-container": "#f0edec",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#745b00",
+                    "primary-fixed": "#ffe08b",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#f1c100",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#4e4632",
+                    "primary-container": "#ffcc00",
+                    "on-tertiary-fixed-variant": "#004f57",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface-container-high": "#ebe7e7",
+                    "tertiary-fixed-dim": "#00daf0",
+                    "inverse-primary": "#f1c100",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-primary-container": "#6f5700",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#003c7c",
+                    "secondary-fixed-dim": "#aac7ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin-mobile": "16px",
+                    "base": "8px",
+                    "section-gap": "48px",
+                    "gutter": "16px",
+                    "container-margin-desktop": "40px"
+            },
+            "fontFamily": {
+                    "title-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "label-caps": [
+                            "Inter"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "title-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex items-center justify-center py-section-gap antialiased">
+<!-- Main Content Container -->
+<main class="w-full max-w-[640px] mx-auto px-container-margin-mobile md:px-container-margin-desktop flex flex-col items-center">
+<!-- Success Animation / Icon Area -->
+<div class="mb-8 relative flex justify-center items-center h-24 w-24 rounded-full bg-secondary-fixed/50">
+<div class="absolute inset-0 rounded-full bg-secondary-fixed animate-ping opacity-20"></div>
+<span class="material-symbols-outlined text-[56px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Headline & Subtext -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-display-lg md:text-display-lg text-center text-on-background mb-4 tracking-tight">
+            Order Placed!
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant text-center mb-10 max-w-md">
+            Thank you for your purchase. We've received your order and are getting it ready to ship.
+        </p>
+<!-- Order Details Card (Bento Grid Style) -->
+<div class="w-full bg-surface-container-lowest rounded-[16px] shadow-[0px_4px_24px_rgba(0,0,0,0.04)] border border-outline-variant/30 overflow-hidden mb-10 flex flex-col">
+<!-- Top Section: High-level details -->
+<div class="grid grid-cols-2 gap-4 p-6 bg-surface-container-low/50 border-b border-outline-variant/30">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Order Number</span>
+<span class="font-title-md text-title-md text-on-background">#MTN-8472-X9</span>
+</div>
+<div class="flex flex-col gap-1 text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Est. Delivery</span>
+<span class="font-title-md text-title-md text-secondary">Oct 24 - 26</span>
+</div>
+</div>
+<!-- Bottom Section: Item Summary -->
+<div class="p-6 flex flex-col gap-4">
+<h3 class="font-title-md text-title-md text-on-background mb-2">Order Summary</h3>
+<!-- Item 1 -->
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-variant overflow-hidden shrink-0 border border-outline-variant/20">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A sleek, modern pair of premium wireless over-ear headphones resting on a clean, bright minimalist surface. The lighting is studio-quality, creating soft shadows and highlighting the matte black finish and metallic accents of the headphones, fitting a high-end tech marketplace aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLHor2zBcue_HUmZHj-rUkzyagO-jYfKe7dsAQd0JgbRqG3Rzy8y5cgbv1Tfpc8Tt8LatAXemox4sRbqK4dsozjXxxAOlQ6HfvzNDObmwK4Uyjm6jBa23NvhMZLX9VhP6L-DgWPEVUstCFCqkFfJPDgsTt_5sJj5KdtF1sNgbjbt52Lo0slz3viTvrWvoeCj6310UPob8SyP4THqFRodFRI1t51kbijoibtIHnoK6IKclI-19uWnYXDOGnYSgmbUTRAUUl1iTBx-o"/>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-title-md text-title-md text-on-background line-clamp-1">Pro Audio Wireless Headphones</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Qty: 1</span>
+</div>
+<span class="font-title-md text-title-md text-on-background">$249.99</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 mt-2">
+<div class="w-16 h-16 rounded-lg bg-surface-variant overflow-hidden shrink-0 border border-outline-variant/20">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A premium braided charging cable coiled neatly on a pristine white background. The image is brightly lit, emphasizing the durability of the woven texture and the sleek metallic connectors at the ends, conveying a sense of reliable, modern tech accessories." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA526V03kZsBK9aaDuKJmfHVICUGXeu1TnkrAl2OT_BeR7r1XbhZz6Ys-4ntM725vxMPw6fksN8YR-y8lrT_uI2YIl_YCJyoBkWZUnURJIXk2O28QSn8uU1q-wcHUzmefNHrJ-K6GNFIo9sToZfPOEtroGRsjpfEV-7DU9xrJ4NI7L7hOq8Ly6n8ccLRx9nDbOqsABgbBW0xGKFGu1_1ElO07WF3XTwZWEOD2jm4gBzVs1LaQecnTdKQ0rJjU2lD6t_8e90z6ixX_Y"/>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-title-md text-title-md text-on-background line-clamp-1">Fast-Charge USB-C Cable (2m)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Qty: 2</span>
+</div>
+<span class="font-title-md text-title-md text-on-background">$39.98</span>
+</div>
+</div>
+<!-- Total Footer -->
+<div class="p-6 pt-0 flex justify-between items-center mt-2">
+<span class="font-title-md text-title-md text-on-background">Total</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-background">$289.97</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full flex flex-col sm:flex-row gap-4">
+<button class="flex-1 bg-secondary hover:bg-secondary-fixed-variant transition-colors duration-200 text-on-secondary font-label-caps text-label-caps px-8 py-4 rounded-full flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+                Track Order
+            </button>
+<button class="flex-1 bg-primary hover:bg-primary-fixed transition-colors duration-200 text-on-primary-container font-label-caps text-label-caps px-8 py-4 rounded-full flex items-center justify-center gap-2 shadow-sm">
+                Back to Home
+            </button>
+</div>
+</main>
+</body></html>

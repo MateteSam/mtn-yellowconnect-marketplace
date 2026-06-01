@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Loan Repayment Receipt</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#f1c100",
+                        "outline": "#80765f",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#00646e",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-high": "#ebe7e7",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#95f1ff",
+                        "outline-variant": "#d2c5ab",
+                        "on-primary-container": "#6f5700",
+                        "on-secondary-container": "#003c7c",
+                        "secondary-fixed": "#d6e3ff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#006874",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f0edec",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "on-secondary-fixed": "#001b3e",
+                        "secondary": "#1f5dae",
+                        "inverse-surface": "#313030",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#4e4632",
+                        "primary-fixed": "#ffe08b",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-container": "#76a9ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "tertiary-container": "#00e7fe",
+                        "error-container": "#ffdad6",
+                        "primary": "#745b00",
+                        "primary-container": "#ffcc00",
+                        "on-background": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base Google Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col font-body-lg">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 shadow-sm bg-surface dark:bg-surface-dim">
+<div class="flex items-center justify-between px-container-margin-mobile h-16 w-full max-w-7xl mx-auto">
+<button aria-label="Menu" class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<div class="flex-1 flex justify-center">
+<h1 class="font-title-md text-title-md font-bold text-primary dark:text-primary-fixed">Merchant Central</h1>
+</div>
+<button aria-label="Merchant Profile Picture" class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-95 transition-transform overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">person</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas (Navigation Shell Suppressed due to Transactional Success Intent) -->
+<main class="flex-1 pt-24 pb-12 px-container-margin-mobile md:px-container-margin-desktop flex flex-col items-center w-full max-w-7xl mx-auto">
+<!-- Receipt Card -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant overflow-hidden flex flex-col animate-fade-in-up">
+<!-- Card Header: Success State -->
+<div class="pt-10 pb-6 px-6 flex flex-col items-center bg-surface-bright border-b border-surface-variant relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-tertiary opacity-5 rounded-full blur-2xl"></div>
+<div class="absolute top-10 -left-10 w-24 h-24 bg-primary opacity-5 rounded-full blur-xl"></div>
+<div class="w-20 h-20 rounded-full bg-tertiary-container flex items-center justify-center mb-6 shadow-sm z-10 relative">
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-size: 40px; font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface-variant mb-1 z-10">Loan Repayment</h2>
+<div class="font-display-lg text-display-lg text-on-surface text-center mb-2 z-10 break-words w-full">GHS 958.33</div>
+<div class="mt-2 bg-surface-container py-1 px-3 rounded-full flex items-center gap-1 z-10">
+<span class="material-symbols-outlined text-secondary" style="font-size: 14px; font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Transaction Successful</span>
+</div>
+</div>
+<!-- Detailed Breakdown -->
+<div class="p-6 flex flex-col gap-5">
+<!-- Row 1 -->
+<div class="flex justify-between items-center border-b border-surface-container-highest pb-3">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Transaction Date</span>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold text-right">Oct 24, 2023, 14:32</span>
+</div>
+<!-- Row 2 -->
+<div class="flex justify-between items-center border-b border-surface-container-highest pb-3">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Reference ID</span>
+<div class="flex items-center gap-2">
+<span class="font-body-lg text-body-lg text-on-surface font-mono">TXN-8492-MK</span>
+<button aria-label="Copy Reference ID" class="text-secondary hover:text-secondary-fixed-variant transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex justify-between items-center border-b border-surface-container-highest pb-3">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Payment Method</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed-dim" style="font-size: 18px; font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">MoMo Wallet</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="flex justify-between items-center border-b border-surface-container-highest pb-3">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Principal Paid</span>
+<span class="font-body-lg text-body-lg text-on-surface text-right">GHS 850.00</span>
+</div>
+<!-- Row 5 -->
+<div class="flex justify-between items-center border-b border-surface-container-highest pb-3">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Interest Paid</span>
+<span class="font-body-lg text-body-lg text-on-surface text-right">GHS 108.33</span>
+</div>
+<!-- Row 6 -->
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded-lg mt-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-semibold">Remaining Balance</span>
+<span class="font-title-md text-title-md text-on-surface text-right">GHS 4,250.00</span>
+</div>
+</div>
+<!-- Actions Container -->
+<div class="p-6 pt-0 flex flex-col gap-3 mt-4">
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-on-primary-container font-title-md text-title-md py-4 rounded-full active:scale-95 transition-transform hover:bg-primary hover:text-on-primary">
+<span class="material-symbols-outlined" style="font-size: 20px;">download</span>
+                    Download Receipt (PDF)
+                </button>
+<button class="w-full flex items-center justify-center gap-2 bg-secondary text-on-secondary font-title-md text-title-md py-4 rounded-full active:scale-95 transition-transform hover:bg-secondary-fixed-variant">
+<span class="material-symbols-outlined" style="font-size: 20px;">share</span>
+                    Share Transaction Details
+                </button>
+</div>
+</div>
+<!-- Support Link -->
+<div class="mt-8">
+<button class="flex items-center gap-2 text-secondary font-body-sm text-body-sm hover:underline">
+<span class="material-symbols-outlined" style="font-size: 16px;">help</span>
+                Report an issue with this transaction
+            </button>
+</div>
+</main>
+<style>
+        /* Custom lightweight animation for the card entry */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+    </style>
+</body></html>

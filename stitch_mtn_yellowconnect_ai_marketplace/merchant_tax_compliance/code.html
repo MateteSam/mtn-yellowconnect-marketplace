@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tax &amp; Compliance Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#00e7fe",
+                        "primary-container": "#ffcc00",
+                        "secondary": "#1f5dae",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d6e3ff",
+                        "tertiary": "#006874",
+                        "primary": "#745b00",
+                        "on-tertiary-container": "#00646e",
+                        "on-surface": "#1c1b1b",
+                        "secondary-container": "#76a9ff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#ebe7e7",
+                        "outline-variant": "#d2c5ab",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "background": "#fcf9f8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#241a00",
+                        "surface-variant": "#e5e2e1",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "surface-container": "#f0edec",
+                        "outline": "#80765f",
+                        "on-primary-container": "#6f5700",
+                        "on-secondary-container": "#003c7c",
+                        "on-surface-variant": "#4e4632",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-dim": "#dcd9d9",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed-dim": "#f1c100",
+                        "inverse-primary": "#f1c100",
+                        "surface-container-low": "#f6f3f2",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface-bright": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffe08b",
+                        "on-background": "#1c1b1b",
+                        "tertiary-fixed": "#95f1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .ai-glass::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #745b00, #1f5dae);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0 font-body-sm text-body-sm flex flex-col md:flex-row">
+<!-- Mobile Drawer (Hidden by default) -->
+<div class="fixed inset-0 z-[60] bg-on-background/50 hidden transition-opacity duration-300 ease-in-out opacity-0" id="navigationDrawer">
+<aside class="h-full w-80 rounded-r-xl bg-surface shadow-xl fixed inset-y-0 left-0 flex flex-col p-4 transform -translate-x-full transition-transform duration-300 ease-in-out">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<img alt="Merchant Profile" class="w-12 h-12 rounded-full object-cover border-2 border-primary" data-alt="A close-up corporate headshot of a business professional looking directly at the camera. The lighting is soft and flattering, set against a neutral, light-mode background to ensure clarity. The style is modern corporate, exuding trust and reliability, in line with a high-end business application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqvlnyvk_jgZgujAhfoPx47rD7iHf1vSDvZdb7k9yvK6Mu5fqR-Cz0_5xgmSF46RwCs38Ap5T52IaRewXAvP2F_2J2t8s3Dxr6-J_q3SWSH0IhJBCql-MiLMxZCbl05WI2TqgH05HGrO5i-ZbLjOSxStn85V5H609Kv-KMrU_AaMFbk-WTMbmxOCPeHXJvw5mftToIh1eAneKSE6yKQZgG3LKxqd-G5VIxgP-gcIpx0y0ppD570vB_SLMLR1YZWy7wgNIj_i_gDMw"/>
+<div>
+<h2 class="font-title-md text-title-md text-primary">Business Account</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Verified Merchant</p>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors duration-200" id="closeDrawerBtn">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 p-3 text-on-surface hover:bg-surface-container-high rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="font-body-lg text-body-lg">Tax Documents</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface hover:bg-surface-container-high rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">history</span>
+<span class="font-body-lg text-body-lg">Loan History</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface hover:bg-surface-container-high rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shield</span>
+<span class="font-body-lg text-body-lg">Security Settings</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface hover:bg-surface-container-high rounded-lg transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+<span class="font-body-lg text-body-lg">Support</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-surface-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant">Tax ID: Active</p>
+</div>
+</aside>
+</div>
+<!-- Desktop Sidebar (Visible on md and up) -->
+<aside class="hidden md:flex flex-col w-64 h-screen sticky top-0 bg-surface shadow-md p-4 z-40 border-r border-surface-variant">
+<div class="flex items-center gap-3 mb-8 px-2 mt-4">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">Merchant Central</span>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">storefront</span>
+<span class="font-body-lg text-body-lg">Market</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span class="font-body-lg text-body-lg">Compliance</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">payments</span>
+<span class="font-body-lg text-body-lg">Lending</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-body-lg text-body-lg">Profile</span>
+</a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col w-full min-h-screen">
+<!-- Top App Bar (Mobile) -->
+<header class="md:hidden sticky top-0 w-full bg-surface shadow-md flex justify-between items-center px-container-margin-mobile h-16 z-50 transition-colors duration-200">
+<button class="p-2 text-primary hover:bg-surface-variant rounded-full transition-colors duration-200" id="openDrawerBtn">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">Merchant Central</span>
+<button class="p-2 text-primary hover:bg-surface-variant rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-container-margin-mobile md:px-container-margin-desktop py-8 max-w-[1280px] mx-auto w-full space-y-section-gap">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Tax &amp; Compliance Center</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage your tax documents, business registration, and compliance status.</p>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full w-fit">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-title-md text-title-md text-secondary">Verified Merchant</span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Current Tax Year Summary (Large Card) -->
+<div class="md:col-span-2 bg-surface shadow-[0px_4px_12px_rgba(0,0,0,0.05)] rounded-xl p-6 border border-surface-variant relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container opacity-20 rounded-bl-full -mr-8 -mt-8 pointer-events-none"></div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface mb-1">2023 Tax Year Summary</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Estimated based on transaction volume.</p>
+</div>
+<button class="bg-primary text-on-primary font-body-sm font-bold px-4 py-2 rounded-lg hover:bg-surface-tint transition-colors">
+                            File Now
+                        </button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-surface-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Gross Volume</p>
+<p class="font-title-md text-title-md text-on-surface">$124,500</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-surface-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Net Income</p>
+<p class="font-title-md text-title-md text-on-surface">$98,200</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-surface-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Est. Tax</p>
+<p class="font-title-md text-title-md text-error">$14,500</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-surface-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Status</p>
+<p class="font-title-md text-title-md text-primary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">pending</span>
+                                Pending
+                            </p>
+</div>
+</div>
+<!-- AI Enhanced Recommendation -->
+<div class="ai-glass p-4 rounded-lg flex items-start gap-4">
+<div class="bg-gradient-to-br from-secondary to-tertiary-container w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary mb-1">AI Insight</p>
+<p class="font-body-sm text-body-sm text-on-surface">Based on your recent inventory purchases, you may be eligible for additional deductions. Consider reviewing your Q3 expenses.</p>
+<button class="mt-2 text-secondary font-title-md text-sm hover:underline">Review Expenses</button>
+</div>
+</div>
+</div>
+<!-- Business Registration Details (Tall Card) -->
+<div class="bg-surface shadow-[0px_4px_12px_rgba(0,0,0,0.05)] rounded-xl p-6 border border-surface-variant flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-title-md text-title-md text-on-surface">Business Profile</h2>
+<button class="text-secondary hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">edit</span>
+</button>
+</div>
+<div class="space-y-4 flex-1">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Legal Name</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Tech Haven Electronics LLC</p>
+</div>
+<div class="h-[1px] bg-surface-variant w-full"></div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Tax ID / EIN</p>
+<div class="flex items-center justify-between bg-surface-container p-2 rounded-lg">
+<p class="font-body-lg text-body-lg text-on-surface tracking-widest">**-***4892</p>
+<button class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">visibility</span>
+</button>
+</div>
+</div>
+<div class="h-[1px] bg-surface-variant w-full"></div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Address</p>
+<p class="font-body-sm text-body-sm text-on-surface">124 Innovation Drive<br/>Suite 400<br/>Lagos, Nigeria</p>
+</div>
+</div>
+<div class="mt-6 bg-error-container/50 p-3 rounded-lg flex items-start gap-3 border border-error-container">
+<span class="material-symbols-outlined text-on-error-container mt-0.5" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<p class="font-title-md text-sm text-on-error-container">Action Required</p>
+<p class="font-body-sm text-xs text-on-error-container opacity-80 mt-1">Please update your beneficial ownership information by Dec 31st.</p>
+</div>
+</div>
+</div>
+<!-- Tax Documents List (Full Width Bottom) -->
+<div class="md:col-span-3 bg-surface shadow-[0px_4px_12px_rgba(0,0,0,0.05)] rounded-xl p-6 border border-surface-variant">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-title-md text-title-md text-on-surface">Tax Documents</h2>
+<div class="flex gap-2">
+<select class="bg-surface-container-lowest border border-outline-variant text-on-surface text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5">
+<option>2023</option>
+<option>2022</option>
+<option>2021</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-variant">
+<th class="font-label-caps text-label-caps text-on-surface-variant py-3 px-4">Document Name</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-3 px-4">Type</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-3 px-4">Date Issued</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-3 px-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-surface-variant hover:bg-surface-container-lowest transition-colors">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="bg-error-container text-on-error-container p-2 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">Form 1099-K Summary</span>
+</div>
+</td>
+<td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant">Income Statement</td>
+<td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant">Jan 15, 2024</td>
+<td class="py-4 px-4 text-right">
+<button class="text-secondary hover:text-secondary-container transition-colors flex items-center gap-1 ml-auto">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">download</span>
+<span class="font-body-sm text-sm font-semibold">Download</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-surface-variant hover:bg-surface-container-lowest transition-colors">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="bg-secondary-container text-on-secondary-container p-2 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insert_drive_file</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">Q4 VAT Report</span>
+</div>
+</td>
+<td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant">Tax Filing</td>
+<td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant">Jan 10, 2024</td>
+<td class="py-4 px-4 text-right">
+<button class="text-secondary hover:text-secondary-container transition-colors flex items-center gap-1 ml-auto">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">download</span>
+<span class="font-body-sm text-sm font-semibold">Download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="bg-primary-container text-on-primary-container p-2 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">Annual Sales Summary</span>
+</div>
+</td>
+<td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant">Report</td>
+<td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant">Jan 05, 2024</td>
+<td class="py-4 px-4 text-right">
+<button class="text-secondary hover:text-secondary-container transition-colors flex items-center gap-1 ml-auto">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">download</span>
+<span class="font-body-sm text-sm font-semibold">Download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Bottom Nav Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 pb-2 bg-surface shadow-[0px_-4px_12px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high scale-95 transition-transform w-full py-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">storefront</span>
+<span class="font-label-caps text-[10px] mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 scale-95 transition-transform w-full" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span class="font-label-caps text-[10px] mt-1">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high scale-95 transition-transform w-full py-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">payments</span>
+<span class="font-label-caps text-[10px] mt-1">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high scale-95 transition-transform w-full py-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-caps text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Drawer interaction logic
+        const openDrawerBtn = document.getElementById('openDrawerBtn');
+        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+        const navigationDrawer = document.getElementById('navigationDrawer');
+        const drawerAside = navigationDrawer.querySelector('aside');
+
+        function openDrawer() {
+            navigationDrawer.classList.remove('hidden');
+            // Small delay to ensure display:block applies before opacity transition
+            setTimeout(() => {
+                navigationDrawer.classList.remove('opacity-0');
+                drawerAside.classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeDrawer() {
+            navigationDrawer.classList.add('opacity-0');
+            drawerAside.classList.add('-translate-x-full');
+            setTimeout(() => {
+                navigationDrawer.classList.add('hidden');
+            }, 300); // match transition duration
+        }
+
+        openDrawerBtn?.addEventListener('click', openDrawer);
+        closeDrawerBtn?.addEventListener('click', closeDrawer);
+        
+        // Close on background click
+        navigationDrawer?.addEventListener('click', (e) => {
+            if (e.target === navigationDrawer) {
+                closeDrawer();
+            }
+        });
+    </script>
+</body></html>

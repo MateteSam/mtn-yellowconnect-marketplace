@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Marketplace - AI Negotiation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f6f3f2",
+                      "outline": "#80765f",
+                      "tertiary-fixed": "#95f1ff",
+                      "secondary": "#1f5dae",
+                      "inverse-surface": "#313030",
+                      "on-secondary-fixed": "#001b3e",
+                      "on-primary-fixed": "#241a00",
+                      "on-secondary-container": "#003c7c",
+                      "on-tertiary-fixed": "#001f24",
+                      "primary": "#745b00",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-tint": "#745b00",
+                      "surface-bright": "#fcf9f8",
+                      "primary-container": "#ffcc00",
+                      "surface-variant": "#e5e2e1",
+                      "error-container": "#ffdad6",
+                      "background": "#fcf9f8",
+                      "on-primary-container": "#6f5700",
+                      "secondary-fixed": "#d6e3ff",
+                      "on-tertiary-container": "#00646e",
+                      "on-background": "#1c1b1b",
+                      "surface-container": "#f0edec",
+                      "surface-container-high": "#ebe7e7",
+                      "tertiary-container": "#00e7fe",
+                      "tertiary-fixed-dim": "#00daf0",
+                      "outline-variant": "#d2c5ab",
+                      "on-surface": "#1c1b1b",
+                      "on-error": "#ffffff",
+                      "surface-container-highest": "#e5e2e1",
+                      "secondary-container": "#76a9ff",
+                      "on-surface-variant": "#4e4632",
+                      "inverse-primary": "#f1c100",
+                      "on-secondary-fixed-variant": "#00458d",
+                      "on-primary-fixed-variant": "#584400",
+                      "surface-dim": "#dcd9d9",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#004f57",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#aac7ff",
+                      "primary-fixed": "#ffe08b",
+                      "surface": "#fcf9f8",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#006874",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed-dim": "#f1c100"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "48px",
+                      "container-margin-desktop": "40px",
+                      "container-margin-mobile": "16px",
+                      "gutter": "16px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "title-md": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 231, 254, 0.3); /* tertiary-container tint */
+        }
+        .ai-gradient-text {
+            background: linear-gradient(135deg, #1f5dae, #006874);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom scrollbar for chat */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #dcd9d9; /* surface-dim */
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-lg h-screen flex flex-col overflow-hidden antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Component: AppLayout -->
+<div class="flex flex-col h-full w-full" data-component="AppLayout">
+<!-- Component: TopAppBar -->
+<header class="docked full-width top-0 z-50 shadow-sm bg-surface sticky w-full flex justify-between items-center px-container-margin-mobile py-base transition-colors hover:bg-surface-container-low duration-100" data-component="TopAppBar">
+<button aria-label="Language" class="text-primary p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<h1 class="text-title-md font-title-md font-bold text-primary">MTN Marketplace</h1>
+<button aria-label="Search" class="text-primary p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<!-- Main Chat Area -->
+<main class="flex-1 flex flex-col overflow-hidden relative">
+<!-- Component: AiNegotiatorHeader -->
+<div class="px-container-margin-mobile py-4 z-10" data-component="AiNegotiatorHeader">
+<div class="glass-panel rounded-xl shadow-sm p-4 flex gap-3 items-start border-l-4 border-l-tertiary-container">
+<div class="bg-tertiary-container/20 p-2 rounded-full text-tertiary flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h2 class="text-label-caps font-label-caps ai-gradient-text mb-1 uppercase tracking-wider">AI Negotiator Insights</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-tight">
+                                Based on recent sales for <strong class="text-on-surface font-semibold">Samsung Galaxy S22</strong> in your area, the fair market price is between <strong class="text-tertiary font-semibold">R 6,500 - R 7,200</strong>.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Component: ChatHistory -->
+<div class="flex-1 overflow-y-auto px-container-margin-mobile pb-6 flex flex-col gap-5" data-component="ChatHistory">
+<!-- Component: DateSeparator -->
+<div class="flex justify-center my-2" data-component="DateSeparator">
+<span class="bg-surface-container-high text-on-surface-variant text-label-caps font-label-caps px-3 py-1 rounded-full uppercase">Today</span>
+</div>
+<!-- Component: SellerMessage -->
+<div class="flex gap-2 max-w-[85%] self-start" data-component="SellerMessage">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-label-caps font-label-caps">T</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label-caps font-label-caps text-on-surface-variant ml-1">Thabo (Seller)</span>
+<div class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-2xl rounded-tl-none px-4 py-3 shadow-sm">
+<p class="text-body-lg font-body-lg">Hi there! Are you still interested in the Galaxy S22? The condition is excellent, battery health at 92%.</p>
+</div>
+<span class="text-[10px] text-outline ml-1">10:42 AM</span>
+</div>
+</div>
+<!-- Component: BuyerMessage -->
+<div class="flex flex-col gap-1 max-w-[85%] self-end items-end" data-component="BuyerMessage">
+<div class="bg-primary-container text-on-primary-container rounded-2xl rounded-tr-none px-4 py-3 shadow-sm">
+<p class="text-body-lg font-body-lg">Hi Thabo. Yes, I am. Given the market rate the AI suggested, would you consider R 6,800?</p>
+</div>
+<span class="text-[10px] text-outline mr-1">10:45 AM</span>
+</div>
+<!-- Component: SellerCounterOffer -->
+<div class="flex gap-2 max-w-[90%] md:max-w-[70%] self-start mt-2" data-component="SellerCounterOffer">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-label-caps font-label-caps">T</span>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<span class="text-label-caps font-label-caps text-on-surface-variant ml-1">Thabo made an offer</span>
+<div class="bg-surface-container-lowest border-2 border-primary/20 rounded-2xl rounded-tl-none overflow-hidden shadow-sm flex flex-col">
+<div class="p-4 bg-surface-container-low/50 border-b border-surface-variant flex justify-between items-center">
+<div>
+<p class="text-label-caps font-label-caps text-on-surface-variant uppercase mb-1">Counter-offer</p>
+<p class="text-title-md font-title-md text-on-surface">R 7,000</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="handshake" data-weight="fill" style="font-variation-settings: 'FILL' 1;">handshake</span>
+</div>
+<div class="p-4 text-body-sm font-body-sm text-on-surface-variant">
+                                    "I can drop it to R 7,000, but that's my lowest considering I'm including the original fast charger and a sturdy case."
+                                </div>
+</div>
+<span class="text-[10px] text-outline ml-1">10:50 AM</span>
+</div>
+</div>
+<!-- Component: SystemStatus -->
+<div class="flex justify-center my-4" data-component="SystemStatus">
+<div class="flex items-center gap-2 bg-secondary-fixed/50 text-on-secondary-fixed text-label-caps font-label-caps px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-[16px]" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
+                            Payments are securely held in escrow until delivery is confirmed.
+                        </div>
+</div>
+</div>
+<!-- Component: ChatActionsArea -->
+<div class="flex-none bg-surface border-t border-outline-variant pb-safe" data-component="ChatActionsArea">
+<!-- Component: QuickReplies -->
+<div class="px-container-margin-mobile py-3 flex gap-2 overflow-x-auto whitespace-nowrap hide-scrollbar border-b border-surface-variant" data-component="QuickReplies">
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-full text-title-md font-title-md text-[14px] font-bold shadow-sm hover:scale-95 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+                            Accept R 7,000
+                        </button>
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-title-md font-title-md text-[14px] hover:bg-surface-dim transition-colors border border-outline/20">
+                            Decline Offer
+                        </button>
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-title-md font-title-md text-[14px] hover:bg-surface-dim transition-colors border border-outline/20">
+                            Is it negotiable?
+                        </button>
+</div>
+<!-- Component: ChatInput -->
+<div class="px-container-margin-mobile py-3 flex items-end gap-2" data-component="ChatInput">
+<button aria-label="Add attachment" class="p-2 text-secondary hover:bg-secondary-container/20 rounded-full transition-colors mb-1">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<div class="flex-1 bg-surface-container-low border border-surface-variant rounded-xl flex items-center px-3 py-2 focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary transition-all">
+<input class="w-full bg-transparent border-none focus:ring-0 text-body-lg font-body-lg text-on-surface placeholder:text-on-surface-variant/60 py-1" placeholder="Type a message..." type="text"/>
+</div>
+<button aria-label="Send message" class="p-3 bg-secondary text-on-secondary rounded-xl hover:bg-on-secondary-fixed transition-colors shadow-sm mb-1 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="send" data-weight="fill" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<script>
+        // Simple script to ensure the chat stays scrolled to the bottom on load
+        document.addEventListener("DOMContentLoaded", () => {
+            const chatHistory = document.querySelector('.overflow-y-auto');
+            if (chatHistory) {
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            }
+        });
+    </script>
+</body></html>

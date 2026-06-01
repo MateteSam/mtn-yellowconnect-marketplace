@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Overview - UltraVision Pro 5G</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#6f5700",
+                      "secondary": "#1f5dae",
+                      "on-secondary-fixed-variant": "#00458d",
+                      "on-secondary-container": "#003c7c",
+                      "outline-variant": "#d2c5ab",
+                      "on-tertiary-container": "#00646e",
+                      "inverse-surface": "#313030",
+                      "surface-container-low": "#f6f3f2",
+                      "on-surface": "#1c1b1b",
+                      "outline": "#80765f",
+                      "tertiary-fixed-dim": "#00daf0",
+                      "primary-container": "#ffcc00",
+                      "primary": "#745b00",
+                      "surface-variant": "#e5e2e1",
+                      "secondary-fixed-dim": "#aac7ff",
+                      "on-background": "#1c1b1b",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#f1c100",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e5e2e1",
+                      "secondary-container": "#76a9ff",
+                      "primary-fixed": "#ffe08b",
+                      "primary-fixed-dim": "#f1c100",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-bright": "#fcf9f8",
+                      "tertiary": "#006874",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed": "#95f1ff",
+                      "on-tertiary-fixed": "#001f24",
+                      "surface-container": "#f0edec",
+                      "tertiary-container": "#00e7fe",
+                      "surface-tint": "#745b00",
+                      "on-secondary-fixed": "#001b3e",
+                      "on-primary-fixed-variant": "#584400",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#004f57",
+                      "surface-dim": "#dcd9d9",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#d6e3ff",
+                      "on-primary-fixed": "#241a00",
+                      "surface": "#fcf9f8",
+                      "on-surface-variant": "#4e4632",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "background": "#fcf9f8",
+                      "surface-container-high": "#ebe7e7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-margin-mobile": "16px",
+                      "section-gap": "48px",
+                      "gutter": "16px",
+                      "container-margin-desktop": "40px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Custom styles for video player range inputs */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ffcc00; /* primary-container */
+            cursor: pointer;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ffcc00; /* primary-container */
+            cursor: pointer;
+            border: none;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #000000;
+            overflow: hidden;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.8) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black text-white m-0 p-0 font-body-sm h-screen overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Suppressed Shared Components: TopAppBar and BottomNavBar are hidden as this is a full-screen, focused video viewing experience (a transactional/task-focused departure from main nav). -->
+<main class="video-container flex flex-col justify-between">
+<!-- Video Placeholder Image -->
+<img alt="Video Placeholder" class="absolute inset-0 w-full h-full object-cover opacity-80" data-alt="A cinematic, high-resolution product shot of a sleek, modern smartphone against a completely dark background. The phone's screen displays a vibrant, abstract generative art pattern in deep blues and bright yellows, reflecting the brand's High-Trust Innovation style. Subtle edge lighting highlights the metallic frame and curved glass. The scene feels premium, technological, and immersive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA3HoyWQ4ISrB-kU4K4sOkR8LeRTSB4ddES51t43K1Ky3qg0urHNH0aIqoPIcaHNgdxdMH_r-RP036L3pUXXrh41sTN9Od43iV_lm_geUwdzdQLP2Dm7WCiGBurN7hGpAo1EluyeiPW2ZUBLMRlH8qthBZJBX4p-5K9y1czyuuazdT47pgT65t6qzcsZgBHWe4FW3r_tSf252i6c7Bc3d8xDec-KcvhgLso1I6NzliyKy512WNgj9DYQUpo04wpZ_kQqRZiTZhpRs"/>
+<!-- Top Controls Overlay -->
+<div class="absolute top-0 left-0 w-full p-container-margin-mobile md:p-container-margin-desktop overlay-gradient flex justify-between items-start z-10">
+<button aria-label="Close video" class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center hover:bg-black/60 transition-colors border border-white/10">
+<span class="material-symbols-outlined text-white text-[24px]">close</span>
+</button>
+<div class="flex gap-4">
+<button aria-label="Share" class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center hover:bg-black/60 transition-colors border border-white/10">
+<span class="material-symbols-outlined text-white text-[20px]">share</span>
+</button>
+<button aria-label="More options" class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center hover:bg-black/60 transition-colors border border-white/10">
+<span class="material-symbols-outlined text-white text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Center Play Button (Large) -->
+<div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+<button aria-label="Play video" class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-lg flex items-center justify-center pointer-events-auto hover:bg-white/30 transition-all border border-white/20 scale-100 hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-white text-[48px] ml-2" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Bottom Controls & Info Overlay -->
+<div class="absolute bottom-0 left-0 w-full p-container-margin-mobile md:p-container-margin-desktop overlay-gradient z-10 pb-8 md:pb-12">
+<!-- Product Info & CTA -->
+<div class="flex justify-between items-end mb-6">
+<div class="max-w-[70%]">
+<div class="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full mb-2 border border-white/20">
+<span class="font-label-caps text-label-caps text-primary-fixed uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span> AI Enhanced
+                        </span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-white mb-1 drop-shadow-lg">UltraVision Pro 5G</h1>
+<p class="font-body-sm text-body-sm text-white/80 md:font-body-lg md:text-body-lg line-clamp-2 md:line-clamp-none max-w-2xl drop-shadow-md">Experience reality-bending clarity with our next-generation display and adaptive AI camera system.</p>
+</div>
+<button class="bg-primary-container text-primary font-title-md text-title-md px-6 py-3 rounded-lg hover:bg-inverse-primary transition-colors flex items-center gap-2 shadow-lg whitespace-nowrap">
+                    Buy Now <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</button>
+</div>
+<!-- Video Timeline & Controls -->
+<div class="bg-black/40 backdrop-blur-xl rounded-xl p-4 border border-white/10">
+<!-- Timeline -->
+<div class="flex items-center gap-3 mb-3">
+<span class="font-label-caps text-label-caps text-white/70 w-10 text-right">0:00</span>
+<div class="relative flex-grow h-2 bg-white/20 rounded-full cursor-pointer">
+<div class="absolute top-0 left-0 h-full w-[0%] bg-primary-container rounded-full"></div>
+<!-- Current position indicator (hidden initially for 0:00 state, but structural) -->
+<div class="absolute top-1/2 -translate-y-1/2 left-[0%] w-3 h-3 bg-white rounded-full shadow-md hidden"></div>
+<input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" max="100" min="0" type="range" value="0"/>
+</div>
+<span class="font-label-caps text-label-caps text-white/70 w-10">2:45</span>
+</div>
+<!-- Secondary Controls -->
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-4">
+<button aria-label="Play/Pause" class="text-white hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[28px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="flex items-center gap-2 group hidden md:flex">
+<button aria-label="Volume" class="text-white/80 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+<input class="w-20 h-1 bg-white/20 rounded-full appearance-none outline-none" max="100" min="0" type="range" value="80"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Subtitles" class="text-white/80 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">subtitles</span>
+</button>
+<button aria-label="Settings" class="text-white/80 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+<button aria-label="Fullscreen" class="text-white hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Minimal script to demonstrate interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const playButtons = document.querySelectorAll('button[aria-label="Play video"], button[aria-label="Play/Pause"]');
+            let isPlaying = false;
+
+            playButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    isPlaying = !isPlaying;
+                    // Logic to toggle play/pause icons would go here
+                    console.log('Video play state toggled:', isPlaying);
+                });
+            });
+            
+            const closeBtn = document.querySelector('button[aria-label="Close video"]');
+            if(closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    console.log('Returning to product profile');
+                    // e.g., window.history.back();
+                });
+            }
+        });
+    </script>
+</body></html>

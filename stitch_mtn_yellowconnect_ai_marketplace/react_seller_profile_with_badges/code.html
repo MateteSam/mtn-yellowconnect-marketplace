@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Marketplace - Seller Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#006874",
+                        "surface-dim": "#dcd9d9",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0edec",
+                        "on-secondary-fixed": "#001b3e",
+                        "primary": "#745b00",
+                        "on-surface": "#1c1b1b",
+                        "outline-variant": "#d2c5ab",
+                        "on-background": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary-container": "#6f5700",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "inverse-surface": "#313030",
+                        "inverse-primary": "#f1c100",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-container": "#76a9ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "outline": "#80765f",
+                        "primary-fixed": "#ffe08b",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#745b00",
+                        "secondary": "#1f5dae",
+                        "on-tertiary-fixed": "#001f24",
+                        "tertiary-fixed": "#95f1ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-container": "#003c7c",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-container": "#ffcc00",
+                        "tertiary-container": "#00e7fe",
+                        "on-primary-fixed": "#241a00",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-surface-variant": "#4e4632",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased"><div class="bg-surface text-on-surface antialiased min-h-screen flex flex-col" id="app-root">
+<!-- Header Component -->
+<header class="bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-outline-variant flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4 h-16">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">MTN Marketplace</h1>
+</div>
+<button class="hover:bg-surface-container-high transition-colors rounded-full active:scale-95 overflow-hidden w-8 h-8 border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGqvYa3IZE3kawxgmRcVQwrP1ZcrPZPzIIJ6-rUoCCGu4B4uY-hzxViLtB1_rlmuQa2Pjb-VcrHbt5-CFQfcJ-3sf5p3U_lVUgkEDBpwAPJQlIOmrn91kn6tflHSWHU-WN9iwqYcws-lwD1YCgr0xlxgyM2Fvr5DwbJQr6P2Z1b1cRtqiLlcBv9xekHo3z_rgkSjJGNKLL4mLOVel1ztv8OQdMPqvbtJPIhZuvvCwzU9jjqB-XSn1l0AI9s-gSF11Apa-zX_76Qbk"/>
+</button>
+</header>
+<main class="flex-grow w-full max-w-screen-md mx-auto pt-16 pb-24">
+<!-- Store Hero -->
+<section class="relative bg-surface-container-low mb-16">
+<div class="h-40 w-full bg-cover bg-center rounded-b-xl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZ157Ru1Ax7vVhNHmSF_3rJ24Wa5aWKwj8bctlKxuZ-7ID-Rg6A1JziI6e9ts5XSGPtnyu5Q6EZ9v-HBgdFJqid4Tiu2PTV4vIyHNsaKomYUY5oI9gLwNIfID7IW0HTGseNdGLCzL4g2Ur9y_nfnADbRiARGBitiQe8Hw_-TBtWtzqcSADxxe52JytQzPndOJrYlmFk-fKjtZcyeeL0TRQsaz_B476KEDy_NUMY462WJ5jWQhsuz_WDemrNK8qxsVFh5G0gL_T9iI');"></div>
+<div class="absolute -bottom-12 left-container-margin-mobile flex items-end space-x-4">
+<div class="w-24 h-24 rounded-full border-4 border-surface bg-surface shadow-md overflow-hidden relative z-10">
+<img alt="TechHaven Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwxpOHk6Lempgv49_rYLcYh7Bq5yJ5gS8znqjxv7Zdo3F3w4snhFmdnLaIAvMN-SDkLB5zdHTLK9D8rtFcSv6yau--V9kEUPFdS0uvsT5zuOdIi44K9103eWAzM7OSNtiW3uy2scTURoZPTgpQJug24XIG-VXuMyLKHrEIv5T9ZYrICi4oJCVi2QHUbC1sZIf4ODwIc5qyWQtIUmq7SRQp_YYyKPGJvbojLjJu7rYIPmh7FSrKQcOzfQos-Tin9nGhYrrX1EOPku8"/>
+</div>
+<div class="pb-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">TechHaven Store</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center mt-1">
+<span class="material-symbols-outlined text-primary text-[16px] mr-1" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface mr-1">4.9</span> (1.2k reviews) • Lagos, NG
+          </p>
+</div>
+</div>
+</section>
+<!-- Badges Section -->
+<section class="px-container-margin-mobile">
+<div class="flex justify-between items-baseline mb-4">
+<h3 class="font-title-md text-title-md text-on-surface">Badges &amp; Achievements</h3>
+<button class="font-label-caps text-label-caps text-secondary font-bold">VIEW ALL</button>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<!-- Reusable Badge Cards -->
+<div class="badge-card bg-surface-container rounded-xl p-4 flex flex-col items-center text-center border border-outline-variant/30 hover:-translate-y-1 transition-transform cursor-pointer shadow-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-on-primary-container text-3xl">kid_star</span>
+</div>
+<span class="font-body-sm font-semibold text-on-surface">Top Rated</span>
+<span class="font-label-caps text-on-surface-variant mt-1">99% Positive</span>
+</div>
+<div class="badge-card bg-surface-container rounded-xl p-4 flex flex-col items-center text-center border border-outline-variant/30 hover:-translate-y-1 transition-transform cursor-pointer shadow-sm">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl">local_shipping</span>
+</div>
+<span class="font-body-sm font-semibold text-on-surface">Fast Shipper</span>
+<span class="font-label-caps text-on-surface-variant mt-1">&lt; 24h Dispatch</span>
+</div>
+<div class="badge-card bg-gradient-to-br from-primary-container/20 to-surface-container rounded-xl p-4 flex flex-col items-center text-center border border-primary/20 hover:-translate-y-1 transition-transform cursor-pointer relative overflow-hidden shadow-sm">
+<div class="relative z-10 w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-on-primary text-3xl">workspace_premium</span>
+</div>
+<span class="relative z-10 font-body-sm font-bold text-on-surface">MTN Gold</span>
+<span class="relative z-10 font-label-caps text-primary mt-1">Verified Partner</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Component -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant/20 h-16 flex justify-around items-center px-gutter md:hidden shadow-lg">
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-bold">Search</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="text-[10px] font-bold">Premium</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-on-surface-variant">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="text-[10px] font-bold">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</div></body></html>

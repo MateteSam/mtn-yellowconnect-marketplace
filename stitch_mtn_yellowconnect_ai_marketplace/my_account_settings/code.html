@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Account - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#f1c100",
+                      "surface-variant": "#e5e2e1",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#d6e3ff",
+                      "on-background": "#1c1b1b",
+                      "surface-container-highest": "#e5e2e1",
+                      "on-primary-fixed-variant": "#584400",
+                      "tertiary": "#006874",
+                      "surface-container-low": "#f6f3f2",
+                      "inverse-primary": "#f1c100",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-container-high": "#ebe7e7",
+                      "surface-bright": "#fcf9f8",
+                      "error-container": "#ffdad6",
+                      "surface": "#fcf9f8",
+                      "primary-container": "#ffcc00",
+                      "outline": "#80765f",
+                      "on-secondary-fixed-variant": "#00458d",
+                      "tertiary-container": "#00e7fe",
+                      "on-tertiary-fixed": "#001f24",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#aac7ff",
+                      "error": "#ba1a1a",
+                      "primary": "#745b00",
+                      "on-primary-fixed": "#241a00",
+                      "tertiary-fixed": "#95f1ff",
+                      "secondary-container": "#76a9ff",
+                      "outline-variant": "#d2c5ab",
+                      "on-tertiary-container": "#00646e",
+                      "secondary": "#1f5dae",
+                      "on-tertiary-fixed-variant": "#004f57",
+                      "on-primary-container": "#6f5700",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#ffe08b",
+                      "on-secondary-fixed": "#001b3e",
+                      "on-secondary-container": "#003c7c",
+                      "on-surface": "#1c1b1b",
+                      "background": "#fcf9f8",
+                      "surface-tint": "#745b00",
+                      "tertiary-fixed-dim": "#00daf0",
+                      "surface-dim": "#dcd9d9",
+                      "on-surface-variant": "#4e4632",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#313030",
+                      "surface-container": "#f0edec"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "48px",
+                      "gutter": "16px",
+                      "base": "8px",
+                      "container-margin-mobile": "16px",
+                      "container-margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(241, 193, 0, 0.3); /* primary-fixed-dim accent */
+        }
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to right, #f1c100, #1f5dae);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+        body {
+            background-color: #fcf9f8; /* background */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col font-body-lg">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile py-base bg-surface z-50 shadow-sm md:hidden">
+<button aria-label="Menu" class="text-on-surface-variant p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-title-md font-title-md font-bold text-primary">MTN Marketplace</h1>
+<button aria-label="Search" class="text-on-surface-variant p-2">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<!-- Desktop Nav (Hidden on mobile) -->
+<header class="hidden md:flex sticky top-0 w-full justify-between items-center px-container-margin-desktop py-4 bg-surface z-50 shadow-sm">
+<div class="flex items-center gap-6">
+<h1 class="text-headline-lg font-headline-lg text-primary">MTN Marketplace</h1>
+<nav class="flex gap-6">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Search</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Sell</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Messages</a>
+<a class="text-primary border-b-2 border-primary font-bold" href="#">Profile</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a confident tech entrepreneur. The lighting is soft and studio-quality, highlighting a friendly yet business-oriented demeanor. The background is a clean, abstract tech office environment with subtle blue and yellow undertones, aligning with a modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3tmqKzIODoPb3OhTaZveVEFE0IEv5vlOE3KlU73iZ3hM8iaWMN2tJQZ5juJhgKXb5qEc2VBZzblY6uCoF8M6E0uZztGcyxzTIXbrrjCXj8ZUUugHXkLerFlzKPKAMAr1IASXqk9qG8nTvxq_unsZchvAtJvVeR4a6jVQh4lms-VKQ8IWzcAxmFt--qfepw1e1x6L19S-rW2fJKTKzHJhD0cbRyZ0TXaYAoHvBTDZBhYjpQYtgYB5NpEl_P3SNs9snoaZj29UiIqU"/>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-screen-xl mx-auto w-full px-container-margin-mobile md:px-container-margin-desktop py-6 pb-24 md:pb-12">
+<!-- Profile Header Bento -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap">
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] flex items-center gap-6">
+<div class="relative w-24 h-24 rounded-full overflow-hidden border-4 border-surface-container flex-shrink-0">
+<img alt="TechHub Electronics" class="w-full h-full object-cover" data-alt="A professional headshot of a confident tech entrepreneur. The lighting is soft and studio-quality, highlighting a friendly yet business-oriented demeanor. The background is a clean, abstract tech office environment with subtle blue and yellow undertones, aligning with a modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh15s3lT5y2m99ajOMt8zN-sRSffgY-sRTUaWTvXNHioenMYCXWxIbxhi9av_ayR3pdTt3ALsBGqFoNzdXUqR4yxM3fMOLmatxxrlqGuHrPvS8r9R-R0USAfX2msS4Kv-xJgfZLu-VyLeRq9FZse05aKclrG0qCu7zW5iF2myhpd8VIRaKGvD2qlk8rkf663RC_-gMZJx265XT3w2BDtXMndX5Q65JWffIyRE7tYDnkMJzZYgDpnxNtEPusqTCkgsLYfUwfDahXz4"/>
+<div class="absolute bottom-0 right-0 bg-primary-container text-on-primary-container p-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified">verified</span>
+</div>
+</div>
+<div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-background">TechHub Electronics</h2>
+<div class="flex items-center gap-2 mt-2">
+<span class="bg-secondary-container text-on-secondary-container text-label-caps font-label-caps px-2 py-1 rounded-full uppercase tracking-wider">Pro Seller</span>
+<span class="text-on-surface-variant text-body-sm font-body-sm">Member since 2021</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 ai-glass rounded-xl p-6 flex flex-col justify-center items-start">
+<div class="flex items-center gap-2 text-secondary mb-2">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-label-caps font-label-caps uppercase">AI Performance Insight</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Your listings are performing in the top 5% of electronics sellers this week. Consider promoting your new laptops to maximize reach.</p>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-section-gap">
+<!-- Left Column: Settings Nav / Summary -->
+<div class="md:col-span-4 space-y-6">
+<!-- Settings Navigation List -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-4 bg-surface-container-low border-b border-surface-variant">
+<h3 class="text-title-md font-title-md text-on-background">Account Settings</h3>
+</div>
+<ul class="divide-y divide-surface-variant">
+<li>
+<a class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors group" href="#">
+<div class="flex items-center gap-3 text-on-surface group-hover:text-primary">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-body-lg font-body-lg font-medium">Profile Settings</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors group" href="#">
+<div class="flex items-center gap-3 text-on-surface group-hover:text-primary">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="text-body-lg font-body-lg font-medium">Security &amp; Login</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors group" href="#">
+<div class="flex items-center gap-3 text-on-surface group-hover:text-primary">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="text-body-lg font-body-lg font-medium">Marketplace Preferences</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors group" href="#">
+<div class="flex items-center gap-3 text-on-surface group-hover:text-primary">
+<span class="material-symbols-outlined" data-icon="settings_applications">settings_applications</span>
+<span class="text-body-lg font-body-lg font-medium">App Settings</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors group" href="#">
+<div class="flex items-center gap-3 text-on-surface group-hover:text-primary">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-body-lg font-body-lg font-medium">Support &amp; Legal</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<!-- Right Column: Active Setting Panel (Simulated Profile Settings) -->
+<div class="md:col-span-8 space-y-6">
+<!-- Section 1: Profile Settings -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6">
+<h3 class="text-title-md font-title-md text-on-background mb-4">Profile Settings</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 border border-outline-variant rounded-lg hover:border-primary transition-colors cursor-pointer flex justify-between items-center group">
+<div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface">Edit Profile</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Update your public information.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="edit">edit</span>
+</div>
+<div class="p-4 border border-outline-variant rounded-lg hover:border-primary transition-colors cursor-pointer flex justify-between items-center group">
+<div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface">Verification Center</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">ID and Phone verification.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="verified_user">verified_user</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Security & Login -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6">
+<h3 class="text-title-md font-title-md text-on-background mb-4">Security &amp; Login</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="password">password</span>
+<span class="text-body-lg font-body-lg text-on-surface">Change Password</span>
+</div>
+<button class="text-secondary font-medium hover:underline text-body-sm font-body-sm">Update</button>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="phonelink_lock">phonelink_lock</span>
+<div>
+<span class="text-body-lg font-body-lg text-on-surface block">Two-Factor Authentication</span>
+<span class="text-body-sm font-body-sm text-tertiary">Currently Active</span>
+</div>
+</div>
+<button class="text-secondary font-medium hover:underline text-body-sm font-body-sm">Manage</button>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="devices">devices</span>
+<span class="text-body-lg font-body-lg text-on-surface">Device Management</span>
+</div>
+<button class="text-secondary font-medium hover:underline text-body-sm font-body-sm">Review</button>
+</div>
+</div>
+</div>
+<!-- Logout Button -->
+<div class="pt-6">
+<button class="w-full bg-surface-container border border-error text-error font-title-md py-3 rounded-lg hover:bg-error-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                        Logout
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full flex justify-around items-center px-4 py-2 z-50 border-t border-outline-variant bg-surface md:hidden rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-caps font-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-caps font-label-caps mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-label-caps font-label-caps mt-1">Sell</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-label-caps font-label-caps mt-1">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 hover:bg-surface-container-high transition-all scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-label-caps font-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

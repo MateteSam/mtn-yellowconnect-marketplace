@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Performance Badges - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#006874",
+                        "surface-dim": "#dcd9d9",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0edec",
+                        "on-secondary-fixed": "#001b3e",
+                        "primary": "#745b00",
+                        "on-surface": "#1c1b1b",
+                        "outline-variant": "#d2c5ab",
+                        "on-background": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary-container": "#6f5700",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "inverse-surface": "#313030",
+                        "inverse-primary": "#f1c100",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-container": "#76a9ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "outline": "#80765f",
+                        "primary-fixed": "#ffe08b",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#745b00",
+                        "secondary": "#1f5dae",
+                        "on-tertiary-fixed": "#001f24",
+                        "tertiary-fixed": "#95f1ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-container": "#003c7c",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-container": "#ffcc00",
+                        "tertiary-container": "#00e7fe",
+                        "on-primary-fixed": "#241a00",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-surface-variant": "#4e4632",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter", "sans-serif"],
+                        "title-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-sm min-h-screen flex flex-col md:flex-row antialiased">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex h-full w-80 rounded-r-xl bg-surface-container-low shadow-xl fixed inset-y-0 left-0 z-[60] flex-col p-4">
+<!-- Header: Profile -->
+<div class="flex items-center gap-4 p-4 border-b border-outline-variant/30 mb-4">
+<div class="w-12 h-12 rounded-full bg-primary-container overflow-hidden flex-shrink-0">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional portrait of a confident male entrepreneur in a modern office setting. The lighting is soft and natural, emphasizing a high-trust, modern corporate aesthetic. The background is slightly blurred with subtle hints of glass and steel architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjq3Lvm4IlP02PXP495Y2G6WSysujDgoV1D3niI2-lyzK4Zy687puXMSGk1e_MflGZHnGwXFK0s6_MSvugJjvkH2OXNYJmOlaVfQG4mGoLY7rJMRwmS31NYjDPnTFV1H0Ho7mUTH3-Q6RY_6PTa1qWUJvby42PMKnl3tt7su9_TyM5LUYywHfAXd60EiZQqGBIv5B_3UF-pvyWMOvqs4cY9MNjZPLMviLg7gQeUC6_7p09kV73HALf3RSJxfgiVWXdaiU3hHlK0vg"/>
+</div>
+<div class="flex flex-col text-left">
+<span class="font-headline-lg text-title-md text-primary">Alex M.</span>
+<span class="font-body-lg text-body-sm text-on-surface-variant">Gold Merchant</span>
+<span class="font-label-caps text-label-caps text-secondary mt-1">Verified Seller</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-lg text-body-lg">Account Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="font-body-lg text-body-lg">Membership Plan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-lg text-body-lg">Payment Methods</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-lg text-body-lg">Seller Dashboard</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:translate-x-1 transition-transform active:opacity-80" href="#">
+<span class="material-symbols-outlined icon-filled" data-icon="military_tech">military_tech</span>
+<span class="font-body-lg text-body-lg">Performance Badges</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface hover:bg-surface-container-high hover:translate-x-1 transition-transform active:opacity-80 rounded-lg mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-body-lg text-body-lg">Help &amp; Support</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-80 flex flex-col relative w-full pb-24 md:pb-0">
+<!-- TopAppBar (Mobile & Desktop Content Header) -->
+<header class="bg-surface/80 backdrop-blur-md fixed top-0 w-full md:w-[calc(100%-20rem)] z-50 border-b border-outline-variant shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4 transition-colors">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary active:scale-95 transition-transform hover:bg-surface-container-high p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-display-lg text-title-md font-bold text-primary">MTN Marketplace</h1>
+</div>
+<div class="hidden md:flex font-headline-lg-mobile text-headline-lg-mobile text-primary">
+                Performance Badges
+            </div>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant md:hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional portrait of a confident male entrepreneur in a modern office setting. The lighting is soft and natural, emphasizing a high-trust, modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsnTZwtapk5xvjRnDkyjVrNi5Q4RgYnH37S-6dxcaAo-OTp2enwCns-Q-7wy9Yz72fG1bpGsV7cdqgIAq5E2Ss5Yl3anLYAXkuMcBpgKxVzBYaKVFeXLpdPh8E4HKEUTbS4-hyeUnBluDX-df_uXbiyIEQze5vzQxeDQ-OVKAyZAY702HNQCaSpaPG2GBfvexIFJgVLlIqHgYFPm5gVXfZ6GHGCkwk-DoqM8lgRyLAFJlnvJx9QkZ-dAjgljcstydRnKN4144_bHs"/>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="px-container-margin-mobile md:px-container-margin-desktop pt-24 pb-8 flex flex-col gap-section-gap w-full max-w-[1280px] mx-auto">
+<!-- Hero Summary (Glassmorphic Accent) -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container p-6 md:p-8 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary icon-filled text-3xl">workspace_premium</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Gold Merchant Status</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                            You are in the top 5% of sellers this month. Maintain your stellar service and activity milestones to unlock Platinum tier and reduced transaction fees.
+                        </p>
+</div>
+<div class="flex flex-col items-end gap-1 min-w-[150px]">
+<span class="font-title-md text-title-md text-on-surface">Overall Score</span>
+<div class="text-4xl font-display-lg font-bold text-secondary">92<span class="text-title-md text-on-surface-variant">/100</span></div>
+</div>
+</div>
+</section>
+<!-- Badge Categories -->
+<div class="flex flex-col gap-12">
+<!-- Category: Trust & Reliability -->
+<section class="flex flex-col gap-4">
+<h3 class="font-title-md text-title-md text-on-surface border-b border-outline-variant/20 pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+                        Trust &amp; Reliability
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Badge Card: Top Rated (Earned) -->
+<div class="bg-surface rounded-xl p-5 border border-primary/30 shadow-[0_4px_12px_rgba(0,0,0,0.05)] relative overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
+<div class="absolute top-0 right-0 w-16 h-16 bg-primary-container rounded-bl-full -mr-8 -mt-8 opacity-50"></div>
+<div class="flex items-start justify-between mb-4 relative z-10">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined icon-filled text-2xl" data-icon="star">star</span>
+</div>
+<span class="bg-primary/10 text-primary font-label-caps text-label-caps px-2 py-1 rounded">EARNED</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2">Top Rated</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">
+                                Achieved a 4.8+ average rating over the last 90 days with a minimum of 50 completed transactions.
+                            </p>
+<div class="mt-auto">
+<div class="w-full bg-surface-variant rounded-full h-1.5 mb-1">
+<div class="bg-primary h-1.5 rounded-full w-full"></div>
+</div>
+<div class="flex justify-between font-label-caps text-[10px] text-on-surface-variant">
+<span>Maintained</span>
+<span>Top 10%</span>
+</div>
+</div>
+</div>
+<!-- Badge Card: Verified (Earned) -->
+<div class="bg-surface rounded-xl p-5 border border-secondary/30 shadow-[0_4px_12px_rgba(0,0,0,0.05)] relative overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
+<div class="absolute top-0 right-0 w-16 h-16 bg-secondary-container rounded-bl-full -mr-8 -mt-8 opacity-50"></div>
+<div class="flex items-start justify-between mb-4 relative z-10">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined icon-filled text-2xl" data-icon="gpp_good">gpp_good</span>
+</div>
+<span class="bg-secondary/10 text-secondary font-label-caps text-label-caps px-2 py-1 rounded">EARNED</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2">Verified Identity</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">
+                                Completed advanced business KYC and localized address verification checks.
+                            </p>
+<div class="mt-auto">
+<div class="w-full bg-surface-variant rounded-full h-1.5 mb-1">
+<div class="bg-secondary h-1.5 rounded-full w-full"></div>
+</div>
+<div class="flex justify-between font-label-caps text-[10px] text-on-surface-variant">
+<span>Active</span>
+<span>Verified</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Service Excellence -->
+<section class="flex flex-col gap-4">
+<h3 class="font-title-md text-title-md text-on-surface border-b border-outline-variant/20 pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">local_shipping</span>
+                        Service Excellence
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Badge Card: Fast Shipper (In Progress) -->
+<div class="bg-surface rounded-xl p-5 border border-outline-variant shadow-sm relative overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow grayscale-[20%]">
+<div class="flex items-start justify-between mb-4 relative z-10">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-2xl" data-icon="bolt">bolt</span>
+</div>
+<span class="bg-surface-variant text-on-surface-variant font-label-caps text-label-caps px-2 py-1 rounded">IN PROGRESS</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2">Fast Shipper</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">
+                                Ship 95% of orders within 24 hours of payment confirmation.
+                            </p>
+<div class="mt-auto">
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface mb-1">
+<span>Current: 88%</span>
+<span>Goal: 95%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-tertiary h-2 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+</div>
+<!-- Badge Card: Super Respondent (Earned) -->
+<div class="bg-surface rounded-xl p-5 border border-tertiary/30 shadow-[0_4px_12px_rgba(0,0,0,0.05)] relative overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
+<div class="absolute top-0 right-0 w-16 h-16 bg-tertiary-container rounded-bl-full -mr-8 -mt-8 opacity-50"></div>
+<div class="flex items-start justify-between mb-4 relative z-10">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined icon-filled text-2xl" data-icon="forum">forum</span>
+</div>
+<span class="bg-tertiary/10 text-tertiary font-label-caps text-label-caps px-2 py-1 rounded">EARNED</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2">Super Respondent</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">
+                                Average response time to customer inquiries is under 1 hour during business operations.
+                            </p>
+<div class="mt-auto">
+<div class="w-full bg-surface-variant rounded-full h-1.5 mb-1">
+<div class="bg-tertiary h-1.5 rounded-full w-full"></div>
+</div>
+<div class="flex justify-between font-label-caps text-[10px] text-on-surface-variant">
+<span>Current Avg: 42m</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Activity Milestones -->
+<section class="flex flex-col gap-4">
+<h3 class="font-title-md text-title-md text-on-surface border-b border-outline-variant/20 pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+                        Activity Milestones
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Badge Card: Power Seller (In Progress) -->
+<div class="bg-surface rounded-xl p-5 border border-outline-variant shadow-sm relative overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow grayscale-[20%]">
+<div class="flex items-start justify-between mb-4 relative z-10">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-2xl" data-icon="moving">moving</span>
+</div>
+<span class="bg-surface-variant text-on-surface-variant font-label-caps text-label-caps px-2 py-1 rounded">IN PROGRESS</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-2">Volume Pioneer</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">
+                                Complete 500 total successful transactions on the marketplace.
+                            </p>
+<div class="mt-auto">
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface mb-1">
+<span>342 Sales</span>
+<span>500 Goal</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 68%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-gutter bg-surface z-50 rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-caps text-label-caps mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-label-caps text-label-caps mt-1">Premium</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-caps text-label-caps mt-1">Orders</span>
+</a>
+<!-- Active Nav Item (Mapping to Profile/Account context) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined icon-filled" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Details - Related &amp; AI Recommendations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#6f5700",
+                        "secondary": "#1f5dae",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-secondary-container": "#003c7c",
+                        "outline-variant": "#d2c5ab",
+                        "on-tertiary-container": "#00646e",
+                        "inverse-surface": "#313030",
+                        "surface-container-low": "#f6f3f2",
+                        "on-surface": "#1c1b1b",
+                        "outline": "#80765f",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "primary-container": "#ffcc00",
+                        "primary": "#745b00",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#f1c100",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-container": "#76a9ff",
+                        "primary-fixed": "#ffe08b",
+                        "primary-fixed-dim": "#f1c100",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-bright": "#fcf9f8",
+                        "tertiary": "#006874",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-container": "#f0edec",
+                        "tertiary-container": "#00e7fe",
+                        "surface-tint": "#745b00",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-dim": "#dcd9d9",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#241a00",
+                        "surface": "#fcf9f8",
+                        "on-surface-variant": "#4e4632",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "background": "#fcf9f8",
+                        "surface-container-high": "#ebe7e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-mobile": "16px",
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-desktop": "40px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(116,91,0,0.5) 0%, rgba(31,93,174,0.5) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-[100px] md:pb-0">
+<!-- Top App Bar (Shared Component) - Suppressed because this is a product details sub-page implying a 'back' flow -->
+<main class="max-w-[1280px] mx-auto px-container-margin-mobile md:px-container-margin-desktop py-base mt-8">
+<!-- Context: Assuming we are below the main product details (UltraVision Pro 5G) -->
+<!-- AI Bundle Section (High-end Glassmorphism) -->
+<section class="mb-section-gap">
+<div class="glass-panel rounded-xl p-6 shadow-sm flex flex-col md:flex-row gap-6 items-center">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps uppercase text-secondary">AI Enhanced Bundle</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-2">Bundle &amp; Save</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Our AI suggests these perfect companions for your UltraVision Pro 5G to maximize your experience.</p>
+<div class="flex items-center gap-4 bg-surface-container rounded-lg p-4">
+<div class="text-center">
+<span class="font-title-md text-title-md text-on-surface block">$1,299</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$1,450</span>
+</div>
+<div class="h-10 w-px bg-outline-variant"></div>
+<div>
+<span class="font-label-caps text-label-caps text-secondary block">Save $151</span>
+</div>
+<button class="ml-auto bg-gradient-to-r from-secondary to-[#8B5CF6] text-on-primary font-body-lg text-body-lg font-bold py-2 px-6 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                            Add Bundle
+                        </button>
+</div>
+</div>
+<div class="flex-1 w-full grid grid-cols-2 md:grid-cols-3 gap-4">
+<!-- Main Product (Small ref) -->
+<div class="bg-surface rounded-lg p-3 border border-outline-variant text-center relative overflow-hidden">
+<div class="absolute top-2 left-2 bg-primary-container text-on-primary-container font-label-caps text-[10px] px-1.5 py-0.5 rounded">Main</div>
+<div class="h-24 w-full bg-surface-container-low rounded mb-2 overflow-hidden flex items-center justify-center">
+<img alt="Smartphone" class="h-full object-contain" data-alt="A sleek, modern flagship smartphone displayed against a clean, white background. Studio lighting highlights the polished metal edges and glass back. Modern corporate tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCpKfGCSKfWAaeoi2iq7rBbSYA0f7uXnXQaSpxfcflzZ_Vq93AqHEp8e3J-qJXPKf7iVYqK6cmlbOewV6y1_ZTNXqEl3IK8z_LY5ZL8X3f_1PxBzNsS6g_CBl0chtZCdZ4-dTIiihs6i_SkDE9_0xgNp6tvtukz_cnylt9pRH7z3ex2-goVbiPeAewY_AftIyTcHkbioBt6ZxbS9RYMxprYJom8pLwjhVMmwrdEcgaNZ2VrpGfssbj8qY55jVpkTgk2giyncbCurE"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">UltraVision Pro 5G</p>
+</div>
+<!-- Accessory 1 -->
+<div class="bg-surface rounded-lg p-3 border border-outline-variant text-center">
+<div class="h-24 w-full bg-surface-container-low rounded mb-2 overflow-hidden flex items-center justify-center">
+<img alt="Wireless Earbuds" class="h-full object-contain" data-alt="A pair of premium white wireless earbuds in their charging case, set against a light grey surface. Soft, high-key lighting creates a clean, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA345nQbV_t3oj3gDh3Dv85mgSgiIgMIeUly6hzUl1jslcXAo7N4fIIs21u3B4N5w4cai1DWqiuVuTyUjLcrvhyypNQU84b7d1hyLC4dbQ5uSdYvVzIy46_BtnZVl7IWk6j56efB5LzprJ25bVKHYNRz_as_9sahGAm3kD2Ia8VEfPXjzmMm6vhO7gBnI31X3_eyFnSDs-pz7xms6Ei6MYRLqKMUjGc0FzDJHpCCmY-z0J2vBrS_IsKw2J8ROnoDl-HJB6L25apDHM"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">SonicBuds Pro</p>
+<span class="material-symbols-outlined text-outline-variant absolute -right-2 top-1/2 -translate-y-1/2 z-10 hidden md:block">add</span>
+</div>
+<!-- Accessory 2 -->
+<div class="bg-surface rounded-lg p-3 border border-outline-variant text-center col-span-2 md:col-span-1">
+<div class="h-24 w-full bg-surface-container-low rounded mb-2 overflow-hidden flex items-center justify-center">
+<img alt="Fast Charger" class="h-full object-contain" data-alt="A compact, high-speed wall charger adapter with dual USB-C ports, resting on a white minimal background. Product photography style, clean and crisp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVl4BSIc_rCmeOAiXjA0wJKJLBXRcukRf6zj3nBIBGWPOzcxiU5Q_lfg5K67ApfYRPDrnkDaC46pt8_xEvAtK9t4n3fE4_P9FKolDcHiHv5sZvYdekaUawJysf-bMBszC0ytsew3YQkxnJvAtha-hcBv-VORLPmt3fSJi_TNqJgaOfH8CEDwKbD8DaksUVzo8gkNoV3Kp12D-QAvMikdOozkQwvs5hBcLCzrQcVa-ngpoXzv2yW6gMAlVEygwYSqOpNDRFKOY4EwE"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">65W GaN Charger</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Products Section -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Related Products</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">People who viewed this also looked at</p>
+</div>
+<a class="font-body-sm text-body-sm text-secondary hover:underline flex items-center" href="#">
+                    See all <span class="material-symbols-outlined text-[16px] ml-1">arrow_forward</span>
+</a>
+</div>
+<!-- Horizontal Scroll Container -->
+<div class="flex gap-gutter overflow-x-auto no-scrollbar pb-4 snap-x">
+<!-- Product Card 1 -->
+<div class="min-w-[240px] w-[240px] bg-surface rounded-xl border border-surface-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)] snap-start flex-shrink-0 group hover:shadow-md transition-shadow">
+<div class="h-[160px] w-full bg-surface-container-low rounded-t-xl overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-surface/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1 z-10 shadow-sm border border-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+<span class="font-label-caps text-[10px] uppercase text-secondary">Nearby</span>
+</div>
+<img alt="Smartphone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A smartphone showing a colorful abstract screen saver, lying flat on a light-colored wooden table. Natural daylight illuminates the scene. Modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB7Sid-pYaismy4CTfKfNmOpOOCN_DX93vKr7w53QLk-S7792TYTUnUftNoeUiDpNtP2IKI62EM3iHQgh7sSbuvMkR67npsHFr7jkpQjqWEPuBEB9nS3ySd_9O4Uo_U1qE-HeEjQUgyVF-MMpckTqsb9naRiIl1-ADyFvsDoyJJtPzj5z4aqczN32l1S0zjFsXRTNRRLUhN6skmkXKqrRTgiT_xDy-I7d6vJW7a7Mhcs0NgSBQTUVAyPvOLqVJWZVQFWQ1mdlWgZA"/>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-surface truncate pr-2">Nova 9 SE</h3>
+<span class="font-title-md text-title-md text-secondary whitespace-nowrap">$450</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4.8 (120)</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">flag</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">ZA</span>
+</div>
+<button class="bg-primary text-primary-fixed-variant font-label-caps text-label-caps py-1.5 px-3 rounded hover:opacity-90 transition-opacity">View</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="min-w-[240px] w-[240px] bg-surface rounded-xl border border-surface-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)] snap-start flex-shrink-0 group hover:shadow-md transition-shadow">
+<div class="h-[160px] w-full bg-surface-container-low rounded-t-xl overflow-hidden relative">
+<img alt="Camera Lens" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A professional camera lens standing upright on a seamless white surface. Studio lighting creates soft gradients and highlights on the glass elements. High-trust, clean look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABZIko7S0p83g8K52iomVYK3zDoh8R8II0BBeLvV343MKyjrceisGcxrYLGKg3dUrqZJnZeq4beg0jnVJJJKGN1JutGWStcTUVj1FFSD0k_PYtS1p0yKWCaXd49kblVLqO0g6hQE0hgZCJfdb3wTZf2pPtypGPMkaIrZ0OUWGv91xeCAMwLYn5tZ0eeC6EkqbpMhwqXkGqfZ07Qom50_5OQnYJRmOwCnuxmPGyVWpUYgBn5FLQsyKtBBfqBMUcekNcR_uUZecRzHk"/>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-surface truncate pr-2">Pro Lens Kit</h3>
+<span class="font-title-md text-title-md text-secondary whitespace-nowrap">$120</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4.5 (85)</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">flag</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">NG</span>
+</div>
+<button class="bg-primary text-primary-fixed-variant font-label-caps text-label-caps py-1.5 px-3 rounded hover:opacity-90 transition-opacity">View</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="min-w-[240px] w-[240px] bg-surface rounded-xl border border-surface-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)] snap-start flex-shrink-0 group hover:shadow-md transition-shadow">
+<div class="h-[160px] w-full bg-surface-container-low rounded-t-xl overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-surface/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1 z-10 shadow-sm border border-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-secondary">local_shipping</span>
+<span class="font-label-caps text-[10px] uppercase text-secondary">Fast Ship</span>
+</div>
+<img alt="Power Bank" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A sleek, flat portable power bank in dark grey, resting on a clean white desk next to a modern smartphone. Bright, clear lighting emphasizes texture and modern tech design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK3htZdv3YUWPHh4MOLyZGuSZW__w3_5TAhwu7NUce2zSVQB6PzK_xIqy9T6cCDiV89OT9zmPLEoAwVpMFmrYQ5ALrLUbg5fDhkNpGA1tyZxMer_EzV2HzvwLbCS93KmqcNXGZMLDggpxfkcIkDKlmJ4mYHWMAQQS-ChqO6kW0FkEBAUHW4VG_8g99wMqsC1oqeQtbNtcErah6JWTHfahy5AMls-4bnhgUwyiMjcCvkCKC3iO7ZENetZRMRW_mhjBUPCFv4jkNB9s"/>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-surface truncate pr-2">Ultra Charge 20k</h3>
+<span class="font-title-md text-title-md text-secondary whitespace-nowrap">$65</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4.9 (340)</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">flag</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">KE</span>
+</div>
+<button class="bg-primary text-primary-fixed-variant font-label-caps text-label-caps py-1.5 px-3 rounded hover:opacity-90 transition-opacity">View</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="min-w-[240px] w-[240px] bg-surface rounded-xl border border-surface-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)] snap-start flex-shrink-0 group hover:shadow-md transition-shadow">
+<div class="h-[160px] w-full bg-surface-container-low rounded-t-xl overflow-hidden relative">
+<img alt="Phone Case" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A rugged, protective smartphone case in matte black, displayed diagonally against a pure white background. Crisp studio lighting highlights its durable texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArEg7fexKGTmaVcpRb0rfWLEqwWjgxggtrUEF8_GtO06WjPWCjDEw5ESCSIVg-okURdI3xJZ65HHpIfnejQY6kp3as2kO5Nl5ppVBSzJvC8iDdWJ71jsNufXOxZYTEHaMVfjlnOf1L2G3PwWoJ0Av4zMMxc844hc7JTgFKy9aRClsiX5vA6e31mAq5yL0O58YAOS9BgD65QDfawg8NfF7tC4FSwISKPxKtl2WAz_kddpi_7xDptSxzQRygkzCInEv7iy0s4SD-fU0"/>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-surface truncate pr-2">Armor Case X</h3>
+<span class="font-title-md text-title-md text-secondary whitespace-nowrap">$25</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4.6 (210)</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">flag</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">GH</span>
+</div>
+<button class="bg-primary text-primary-fixed-variant font-label-caps text-label-caps py-1.5 px-3 rounded hover:opacity-90 transition-opacity">View</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Bar (Shared Component) - Suppressed because this is a product details page implying a focused journey, not top-level nav -->
+</body></html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payout Methods - MTN Marketplace</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "primary": "#745b00",
+                        "on-background": "#1c1b1b",
+                        "secondary": "#1f5dae",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-surface-variant": "#4e4632",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-secondary-container": "#003c7c",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#745b00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "outline": "#80765f",
+                        "primary-fixed": "#ffe08b",
+                        "inverse-primary": "#f1c100",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-low": "#f6f3f2",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#6f5700",
+                        "tertiary": "#006874",
+                        "tertiary-container": "#00e7fe",
+                        "outline-variant": "#d2c5ab",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "secondary-container": "#76a9ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary-fixed": "#95f1ff",
+                        "primary-container": "#ffcc00",
+                        "inverse-surface": "#313030",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-high": "#ebe7e7",
+                        "surface-container": "#f0edec",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#00646e"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px"
+                    },
+                    fontFamily: {
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low min-h-screen text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline shadow-sm transition-colors">
+<div class="flex justify-between items-center w-full px-container-margin-mobile md:px-container-margin-desktop py-4">
+<div class="flex items-center gap-4">
+<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-primary">MTN Marketplace</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-20 px-container-margin-mobile md:px-container-margin-desktop max-w-4xl mx-auto flex flex-col gap-8">
+<!-- Page Header -->
+<section class="flex flex-col gap-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Payout Methods</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage how you receive your earnings. For your security, changes may require 2FA verification.</p>
+</section>
+<!-- Payout Methods List -->
+<section class="flex flex-col gap-4">
+<!-- Method 1: MTN MoMo (Primary) -->
+<article class="bg-surface rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant flex flex-col sm:flex-row gap-6 items-start sm:items-center relative overflow-hidden group hover:border-primary transition-colors">
+<!-- Decorative subtle background accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex flex-shrink-0 items-center justify-center">
+<span class="material-symbols-outlined icon-fill text-[32px]">smartphone</span>
+</div>
+<div class="flex-grow flex flex-col gap-1">
+<div class="flex items-center gap-3">
+<h3 class="font-title-md text-title-md text-on-surface">MTN Mobile Money</h3>
+<span class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-3 py-1 rounded-full inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Primary
+                        </span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant font-mono">**** **** 8923</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80 mt-1">Added Oct 12, 2023</p>
+</div>
+<div class="flex items-center gap-2 mt-4 sm:mt-0 w-full sm:w-auto justify-end">
+<button aria-label="Edit method" class="p-2 text-on-surface-variant hover:bg-surface-container-high hover:text-primary rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button aria-label="Delete method" class="p-2 text-on-surface-variant hover:bg-error-container hover:text-error rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</article>
+<!-- Method 2: Linked Bank Account -->
+<article class="bg-surface rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant flex flex-col sm:flex-row gap-6 items-start sm:items-center group hover:border-secondary transition-colors">
+<div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex flex-shrink-0 items-center justify-center">
+<span class="material-symbols-outlined icon-fill text-[32px]">account_balance</span>
+</div>
+<div class="flex-grow flex flex-col gap-1">
+<div class="flex items-center gap-3">
+<h3 class="font-title-md text-title-md text-on-surface">Standard Bank</h3>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant font-mono">**** **** **** 4451</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80 mt-1">Alex M. Ndlovu</p>
+</div>
+<div class="flex items-center gap-2 mt-4 sm:mt-0 w-full sm:w-auto justify-end">
+<button class="px-4 py-2 text-secondary font-label-caps text-label-caps hover:bg-secondary-container/20 rounded-lg transition-colors active:scale-95">
+                        MAKE PRIMARY
+                    </button>
+<button aria-label="Edit method" class="p-2 text-on-surface-variant hover:bg-surface-container-high hover:text-secondary rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Add New Method Action -->
+<section class="mt-4">
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary text-on-primary font-title-md text-title-md px-8 py-4 rounded-xl hover:opacity-90 active:scale-[0.98] transition-all shadow-md">
+<span class="material-symbols-outlined">add_circle</span>
+                Add New Payout Method
+            </button>
+</section>
+<!-- Security Guarantee Banner (Glassmorphic Accent) -->
+<section class="mt-8 relative overflow-hidden rounded-xl border border-tertiary-container/30 bg-surface/40 backdrop-blur-md p-6 flex items-start gap-4 shadow-sm">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary-fixed-dim/10 to-transparent pointer-events-none"></div>
+<span class="material-symbols-outlined text-tertiary icon-fill text-[28px] relative z-10">shield_locked</span>
+<div class="relative z-10">
+<h4 class="font-title-md text-[16px] leading-[24px] font-semibold text-on-surface mb-1">Bank-Level Security</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your financial data is encrypted and securely stored. We never share your full account numbers with buyers.</p>
+</div>
+</section>
+</main>
+</body></html>

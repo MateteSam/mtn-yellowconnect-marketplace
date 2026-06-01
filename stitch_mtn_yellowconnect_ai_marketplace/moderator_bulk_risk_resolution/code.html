@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Moderator Bulk Clearance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#00e7fe",
+                        "on-surface-variant": "#4e4632",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#f1c100",
+                        "tertiary": "#006874",
+                        "primary": "#745b00",
+                        "on-primary-container": "#6f5700",
+                        "outline-variant": "#d2c5ab",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#ffcc00",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "secondary": "#1f5dae",
+                        "outline": "#80765f",
+                        "primary-fixed": "#ffe08b",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-variant": "#e5e2e1",
+                        "on-background": "#1c1b1b",
+                        "surface-container-high": "#ebe7e7",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container": "#f0edec",
+                        "tertiary-fixed": "#95f1ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-secondary-container": "#003c7c",
+                        "on-tertiary-container": "#00646e",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1c1b1b",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-container": "#76a9ff",
+                        "surface-tint": "#745b00",
+                        "on-secondary-fixed": "#001b3e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "base": "8px",
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #dcd9d9;
+            border-radius: 9999px;
+        }
+        /* Glassmorphism utility for AI elements */
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .ai-glass::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(to right, #1f5dae, #00daf0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-lg">
+<!-- TopAppBar (Mapped from JSON) -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm flex justify-between items-center px-container-margin-mobile h-16 w-full text-primary font-title-md text-title-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 20px;">person</span>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Marketplace Trust</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary text-on-surface-variant">notifications</span>
+</button>
+</header>
+<!-- Main Workspace (Task-Focused: Navigation Shells Suppressed) -->
+<main class="flex-1 mt-16 pt-6 px-container-margin-mobile md:px-container-margin-desktop pb-32 max-w-[1280px] mx-auto w-full flex flex-col gap-section-gap">
+<!-- Task Header & Back Navigation -->
+<div class="flex flex-col gap-4 md:flex-row md:items-end justify-between">
+<div>
+<a class="inline-flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors mb-4" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+                    Back to Risk Dashboard
+                </a>
+<h1 class="font-headline-lg text-headline-lg text-on-background">Bulk Clearance</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">Reviewing items flagged with Low-Risk indicators.</p>
+</div>
+<!-- Context Switcher / Country (Style Guidance) -->
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 20px;">public</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">REGION:</span>
+<span class="font-title-md text-title-md text-primary font-bold border-b-2 border-primary-container">PAN-AFRICA</span>
+<span class="material-symbols-outlined text-on-surface-variant ml-2" style="font-size: 20px;">expand_more</span>
+</div>
+</div>
+<!-- High-Level Risk Summary & Filters -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Bento Stats -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/50 flex flex-col justify-between h-full">
+<span class="font-label-caps text-label-caps text-on-surface-variant">TOTAL PENDING QUEUE</span>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-background">1,402</span>
+<span class="font-body-sm text-body-sm text-error flex items-center"><span class="material-symbols-outlined" style="font-size: 14px;">arrow_upward</span> 12%</span>
+</div>
+</div>
+<div class="bg-primary-container/20 rounded-xl p-4 border border-primary-container/50 flex flex-col justify-between h-full relative overflow-hidden">
+<div class="absolute right-0 top-0 w-24 h-24 bg-primary-container/30 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<span class="font-label-caps text-label-caps text-on-primary-container">ISOLATED LOW RISK</span>
+<div class="mt-2 flex items-baseline gap-2 relative z-10">
+<span class="font-display-lg text-display-lg text-primary">348</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ready for bulk</span>
+</div>
+</div>
+<!-- Filters Area -->
+<div class="md:col-span-2 bg-surface rounded-xl p-4 border border-outline-variant/50 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ACTIVE FILTERS</span>
+<button class="font-body-sm text-body-sm text-secondary hover:underline">Clear All</button>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="bg-surface-variant text-on-surface flex items-center gap-1 px-3 py-1.5 rounded-full font-body-sm text-body-sm">
+<span>Risk Level: Low</span>
+<span class="material-symbols-outlined cursor-pointer" style="font-size: 16px;">close</span>
+</div>
+<div class="bg-surface-variant text-on-surface flex items-center gap-1 px-3 py-1.5 rounded-full font-body-sm text-body-sm">
+<span>Age: &gt; 24 Hours</span>
+<span class="material-symbols-outlined cursor-pointer" style="font-size: 16px;">close</span>
+</div>
+<button class="border border-dashed border-outline-variant text-on-surface-variant flex items-center gap-1 px-3 py-1.5 rounded-full font-body-sm text-body-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">add</span> Add Filter
+                    </button>
+</div>
+</div>
+</section>
+<!-- Main Selectable List -->
+<section class="flex flex-col gap-2">
+<!-- List Header (Desktop) -->
+<div class="hidden md:grid grid-cols-[40px_2fr_1fr_2fr_1fr_40px] gap-4 px-4 py-2 border-b border-surface-variant text-on-surface-variant font-label-caps text-label-caps">
+<div class="flex items-center justify-center">
+<input class="rounded text-secondary focus:ring-secondary focus:ring-offset-background border-outline-variant bg-surface h-4 w-4 cursor-pointer" id="selectAll" type="checkbox"/>
+</div>
+<div>MERCHANT / ENTITY</div>
+<div>TRANSACTION VALUE</div>
+<div>RISK TRIGGERS</div>
+<div>FLAGGED AT</div>
+<div></div>
+</div>
+<!-- List Items -->
+<div class="flex flex-col gap-2 custom-scrollbar">
+<!-- Item 1 -->
+<div class="group grid grid-cols-[auto_1fr] md:grid-cols-[40px_2fr_1fr_2fr_1fr_40px] gap-3 md:gap-4 p-3 md:p-4 bg-surface rounded-lg border border-surface-variant hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-outline-variant transition-all items-center">
+<div class="flex items-center justify-center pt-1 md:pt-0">
+<input class="rounded text-secondary focus:ring-secondary focus:ring-offset-background border-outline-variant bg-surface h-5 w-5 md:h-4 md:w-4 cursor-pointer row-checkbox" type="checkbox"/>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-title-md text-title-md flex-shrink-0">
+                            AZ
+                        </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-background">Azizi Tech Hub</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ID: MER-492-XX</span>
+</div>
+</div>
+<div class="col-start-2 md:col-start-auto flex flex-col md:block">
+<span class="font-body-sm text-body-sm text-on-surface-variant md:hidden">Value:</span>
+<span class="font-title-md text-title-md text-secondary">ZAR 4,500.00</span>
+</div>
+<div class="col-start-2 md:col-start-auto flex flex-wrap gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded border border-outline-variant/50 bg-surface-container-low font-label-caps text-label-caps text-on-surface">
+                            First-time Payout
+                        </span>
+<span class="ai-glass inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-caps text-label-caps text-tertiary">
+<span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            Minor Location Shift
+                        </span>
+</div>
+<div class="col-start-2 md:col-start-auto flex flex-col md:block">
+<span class="font-body-sm text-body-sm text-on-surface-variant">2h ago</span>
+</div>
+<div class="hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 20px;">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group grid grid-cols-[auto_1fr] md:grid-cols-[40px_2fr_1fr_2fr_1fr_40px] gap-3 md:gap-4 p-3 md:p-4 bg-surface rounded-lg border border-surface-variant hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-outline-variant transition-all items-center">
+<div class="flex items-center justify-center pt-1 md:pt-0">
+<input class="rounded text-secondary focus:ring-secondary focus:ring-offset-background border-outline-variant bg-surface h-5 w-5 md:h-4 md:w-4 cursor-pointer row-checkbox" type="checkbox"/>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-title-md text-title-md flex-shrink-0">
+                            GN
+                        </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-background">Global Nomads Ltd</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ID: MER-811-YY</span>
+</div>
+</div>
+<div class="col-start-2 md:col-start-auto flex flex-col md:block">
+<span class="font-body-sm text-body-sm text-on-surface-variant md:hidden">Value:</span>
+<span class="font-title-md text-title-md text-secondary">NGN 125,000.00</span>
+</div>
+<div class="col-start-2 md:col-start-auto flex flex-wrap gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded border border-outline-variant/50 bg-surface-container-low font-label-caps text-label-caps text-on-surface">
+                            Volume Spike (1.2x)
+                        </span>
+</div>
+<div class="col-start-2 md:col-start-auto flex flex-col md:block">
+<span class="font-body-sm text-body-sm text-on-surface-variant">4h ago</span>
+</div>
+<div class="hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 20px;">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group grid grid-cols-[auto_1fr] md:grid-cols-[40px_2fr_1fr_2fr_1fr_40px] gap-3 md:gap-4 p-3 md:p-4 bg-primary-container/10 rounded-lg border border-primary-container/30 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-primary-container/60 transition-all items-center">
+<div class="flex items-center justify-center pt-1 md:pt-0">
+<input checked="" class="rounded text-secondary focus:ring-secondary focus:ring-offset-background border-outline-variant bg-surface h-5 w-5 md:h-4 md:w-4 cursor-pointer row-checkbox" type="checkbox"/>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-title-md text-title-md flex-shrink-0">
+                            SM
+                        </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-background">Sokoni Merchants</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ID: MER-002-ZA</span>
+</div>
+</div>
+<div class="col-start-2 md:col-start-auto flex flex-col md:block">
+<span class="font-body-sm text-body-sm text-on-surface-variant md:hidden">Value:</span>
+<span class="font-title-md text-title-md text-secondary">KES 12,400.00</span>
+</div>
+<div class="col-start-2 md:col-start-auto flex flex-wrap gap-2">
+<span class="ai-glass inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-caps text-label-caps text-tertiary">
+<span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            Trusted Device Variance
+                        </span>
+</div>
+<div class="col-start-2 md:col-start-auto flex flex-col md:block">
+<span class="font-body-sm text-body-sm text-on-surface-variant">5h ago</span>
+</div>
+<div class="hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 20px;">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Action Bar (Bottom) -->
+<div class="fixed bottom-6 left-0 right-0 z-40 px-container-margin-mobile flex justify-center pointer-events-none">
+<div class="pointer-events-auto bg-surface/90 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-surface-variant rounded-xl p-4 flex flex-col md:flex-row items-center gap-4 w-full max-w-[600px] transition-transform duration-300 translate-y-0">
+<div class="flex items-center gap-3 w-full md:w-auto flex-1">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-title-md text-title-md">
+                    1
+                </div>
+<span class="font-body-lg text-body-lg text-on-surface font-bold">Item Selected</span>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-6 py-2.5 rounded-lg bg-secondary text-on-secondary font-title-md text-title-md hover:bg-on-secondary-fixed transition-colors active:scale-95 whitespace-nowrap">
+                    Hold Selected
+                </button>
+<button class="flex-1 md:flex-none px-6 py-2.5 rounded-lg bg-primary text-on-primary-container font-title-md text-title-md hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-95 whitespace-nowrap" style="background-color: #ffcc00; color: #1c1b1b;">
+                    Clear Selected (1)
+                </button>
+</div>
+</div>
+</div>
+<script>
+        // Simple script to toggle checkbox selection visual state
+        document.getElementById('selectAll').addEventListener('change', function(e) {
+            const checkboxes = document.querySelectorAll('.row-checkbox');
+            checkboxes.forEach(cb => {
+                cb.checked = e.target.checked;
+                updateRowStyle(cb);
+            });
+        });
+
+        document.querySelectorAll('.row-checkbox').forEach(cb => {
+            cb.addEventListener('change', function() {
+                updateRowStyle(this);
+            });
+        });
+
+        function updateRowStyle(checkbox) {
+            const row = checkbox.closest('.group');
+            if (checkbox.checked) {
+                row.classList.add('bg-primary-container/10', 'border-primary-container/30');
+                row.classList.remove('bg-surface', 'border-surface-variant');
+            } else {
+                row.classList.remove('bg-primary-container/10', 'border-primary-container/30');
+                row.classList.add('bg-surface', 'border-surface-variant');
+            }
+        }
+    </script>
+</body></html>

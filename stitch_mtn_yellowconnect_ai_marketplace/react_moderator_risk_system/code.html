@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Moderator: Risk Flagging System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed-dim": "#f1c100",
+                        "primary": "#745b00",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary-container": "#6f5700",
+                        "tertiary": "#006874",
+                        "background": "#fcf9f8",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-container": "#003c7c",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-primary": "#f1c100",
+                        "surface-container": "#f0edec",
+                        "on-tertiary-container": "#00646e",
+                        "surface-tint": "#745b00",
+                        "inverse-surface": "#313030",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#4e4632",
+                        "on-error": "#ffffff",
+                        "outline": "#80765f",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "secondary-container": "#76a9ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "tertiary-container": "#00e7fe",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffe08b",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary": "#1f5dae",
+                        "outline-variant": "#d2c5ab",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#ffcc00",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-high": "#ebe7e7",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .ai-glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid;
+            border-image-source: linear-gradient(to right, #1f5dae, #76a9ff);
+            border-image-slice: 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-lg text-body-lg flex">
+<!-- Desktop Sidebar -->
+<aside class="hidden md:flex flex-col h-full w-80 fixed left-0 top-0 z-[60] bg-surface-container-low shadow-xl">
+<div class="p-6 border-b border-outline-variant flex items-center gap-4">
+<img alt="Moderator Avatar" class="w-12 h-12 rounded-full object-cover" data-alt="A close-up portrait of a professional looking directly at the camera, wearing modern business casual attire. The lighting is soft and natural, emphasizing a trustworthy and competent demeanor. Set against a clean, neutral background typical of a corporate headshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkDfnLDLGt9GAKEFvdxM_LZuG5CSyJjF-PCkxPYz690hZff0ZtwUa9Di0DwcialUHJu6KqBYzanGNRF9CyikwOV5oEm8R7jlP5g9gi5WdWNChxNTo6MOuA-iOpIVuW9PNWRXuXz9c81BN4PO7v4LPHQWfMVAa6MVkU96Wn7GvqVK6LKjMVhUpbGv4E-ALsDjan5xeLv21HW60cQN64S5PWFID-GQJaeklhYdLZmzZGaCjdWDE6VTt2mYouHYCkcM8QDWY04DZo2Q8"/>
+<div>
+<h2 class="font-title-md text-title-md text-primary">Moderator Panel</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trust &amp; Safety Division</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto py-4">
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>Audit Logs</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Payout Rules</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span>Merchant Disputes</span>
+</a>
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container font-bold m-2 p-3 active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span>Risk Alerts</span>
+</a>
+</nav>
+<div class="p-4 border-t border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant">V2.4.0</span>
+</div>
+</aside>
+<!-- Mobile Top App Bar -->
+<header class="md:hidden fixed top-0 w-full z-50 bg-surface shadow-sm flex justify-between items-center px-container-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover" data-alt="A close-up portrait of a professional looking directly at the camera, wearing modern business casual attire. The lighting is soft and natural, emphasizing a trustworthy and competent demeanor. Set against a clean, neutral background typical of a corporate headshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1MSBMGUEm8O1Al74No_Ro0FhtkbAQqGq6LBzdhy8VhBQw73lCXZ17FIkjaRYXrMg7h0Jzd6IO2uqqmRg1NALgox9HNG_9nax8QkNmAlubj9wN5R9YZB6OC1j5eUfmdCSSYIQBOV4ojX2ZCJgK8YgHfC8CcmuGQMv1vZE2vq1E8hIlWYxmN5OLW9LyE2MNY_Y7ZN-8DeYVagaC8KpoNKLzN8qCgFVjMhB924asxdkRnSnnW-G9NBGQ10a_-aU5vrtVYNT9jhaircQ"/>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Marketplace Trust</span>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-16 md:mt-0 md:ml-80 p-container-margin-mobile md:p-container-margin-desktop bg-surface-bright min-h-screen">
+<div class="max-w-6xl mx-auto space-y-section-gap">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-background">Risk Flagging System</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Monitor and manage high-risk merchant activities.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full font-title-md text-title-md hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Export
+                    </button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-title-md text-title-md hover:bg-primary-fixed-dim transition-colors shadow-sm">
+                        Generate Report
+                    </button>
+</div>
+</div>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- High Risk Card -->
+<div class="bg-error-container p-6 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="bg-error/10 p-2 rounded-full">
+<span class="material-symbols-outlined text-error" data-icon="error">error</span>
+</div>
+<span class="bg-error text-on-error font-label-caps text-label-caps px-2 py-1 rounded-full">+12%</span>
+</div>
+<div class="mt-4">
+<p class="font-body-sm text-body-sm text-on-error-container">High Risk Accounts</p>
+<p class="font-display-lg text-display-lg text-on-error-container">142</p>
+</div>
+</div>
+<!-- AI Flagged Card -->
+<div class="ai-glass-panel p-6 rounded-xl flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary-container/30 rounded-full blur-xl"></div>
+<div class="flex justify-between items-start relative z-10">
+<div class="bg-secondary-container p-2 rounded-full">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary px-2 py-1 border border-secondary rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span> AI Detected
+                        </span>
+</div>
+<div class="mt-4 relative z-10">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Anomalies Flagged</p>
+<p class="font-display-lg text-display-lg text-on-background">89</p>
+</div>
+</div>
+<!-- Total Held Card -->
+<div class="bg-surface p-6 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="bg-surface-container-high p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface" data-icon="account_balance">account_balance</span>
+</div>
+</div>
+<div class="mt-4">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Total Held Payouts</p>
+<p class="font-display-lg text-display-lg text-on-background">$1.2M</p>
+</div>
+</div>
+</div>
+<!-- Filter & Search Bar -->
+<div class="bg-surface p-2 rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] flex flex-col md:flex-row gap-2 sticky top-16 md:top-4 z-40 border border-outline-variant">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-secondary focus:bg-surface transition-all font-body-lg text-body-lg placeholder:text-on-surface-variant/50" placeholder="Search merchant ID, name, or risk reason..." type="text"/>
+</div>
+<div class="flex gap-2">
+<select class="bg-surface-container-low border-none rounded-xl px-4 py-3 font-body-lg text-body-lg focus:ring-2 focus:ring-secondary text-on-surface cursor-pointer">
+<option>All Risk Levels</option>
+<option>Critical</option>
+<option>High</option>
+<option>Medium</option>
+</select>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-title-md text-title-md hover:bg-primary-fixed-dim transition-colors whitespace-nowrap">
+                        Search
+                    </button>
+</div>
+</div>
+<!-- Merchant Risk List -->
+<div class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-outline-variant">
+<th class="p-4 w-12"><input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/></th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant">Merchant</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant">Risk Score</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant">Reason</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant">Held Amount</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant">Action</th>
+</tr>
+</thead>
+<tbody class="font-body-lg text-body-lg divide-y divide-outline-variant/50">
+<tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+<td class="p-4"><input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-variant flex items-center justify-center text-on-surface-variant font-title-md text-title-md">
+                                        GT
+                                    </div>
+<div>
+<div class="font-title-md text-title-md text-on-background group-hover:text-secondary transition-colors">Global Tech Supplies</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">ID: #M-98234</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 bg-error-container text-on-error-container px-2 py-1 rounded font-title-md text-title-md text-sm">
+                                        98/100
+                                    </span>
+</td>
+<td class="p-4">Velocity Spike (24h)</td>
+<td class="p-4 font-title-md text-title-md">$45,200</td>
+<td class="p-4">
+<button class="text-secondary hover:text-on-secondary-container transition-colors p-2 rounded-full hover:bg-secondary-container/50">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+<td class="p-4"><input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-variant flex items-center justify-center text-on-surface-variant font-title-md text-title-md">
+                                        AE
+                                    </div>
+<div>
+<div class="font-title-md text-title-md text-on-background group-hover:text-secondary transition-colors">Afro Electronics</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">ID: #M-11092</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2 py-1 rounded font-title-md text-title-md text-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="auto_awesome">auto_awesome</span> 85/100
+                                    </span>
+</td>
+<td class="p-4">AI: Unusual IP Geolocation</td>
+<td class="p-4 font-title-md text-title-md">$12,050</td>
+<td class="p-4">
+<button class="text-secondary hover:text-on-secondary-container transition-colors p-2 rounded-full hover:bg-secondary-container/50">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+<td class="p-4"><input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-variant flex items-center justify-center text-on-surface-variant font-title-md text-title-md">
+                                        LM
+                                    </div>
+<div>
+<div class="font-title-md text-title-md text-on-background group-hover:text-secondary transition-colors">Lagos Merchants</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">ID: #M-44512</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 bg-surface-container-highest text-on-surface px-2 py-1 rounded font-title-md text-title-md text-sm">
+                                        72/100
+                                    </span>
+</td>
+<td class="p-4">High Dispute Ratio</td>
+<td class="p-4 font-title-md text-title-md">$8,900</td>
+<td class="p-4">
+<button class="text-secondary hover:text-on-secondary-container transition-colors p-2 rounded-full hover:bg-secondary-container/50">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (Hidden on Desktop, Visible on Mobile when relevant) -->
+<!-- Suppressed here as Moderator Dashboard is complex and better served without the standard consumer bottom nav -->
+</body></html>

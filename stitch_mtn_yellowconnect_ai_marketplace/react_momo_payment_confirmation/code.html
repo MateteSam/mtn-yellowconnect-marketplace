@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MoMo Payment Confirmation</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom pulse for the waiting indicator */
+        @keyframes ripple {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        .animate-ripple {
+            animation: ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf9f8",
+                        "on-surface-variant": "#4e4632",
+                        "outline-variant": "#d2c5ab",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffe08b",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#f1c100",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-background": "#1c1b1b",
+                        "primary-fixed-dim": "#f1c100",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "primary-container": "#ffcc00",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container-high": "#ebe7e7",
+                        "surface-container": "#f0edec",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-primary-fixed": "#241a00",
+                        "primary": "#745b00",
+                        "on-primary-container": "#6f5700",
+                        "on-tertiary-container": "#00646e",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#745b00",
+                        "outline": "#80765f",
+                        "tertiary-container": "#00e7fe",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "secondary-container": "#76a9ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-dim": "#dcd9d9",
+                        "inverse-surface": "#313030",
+                        "secondary": "#1f5dae",
+                        "surface-bright": "#fcf9f8",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf9f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#003c7c",
+                        "tertiary": "#006874",
+                        "inverse-on-surface": "#f3f0ef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface min-h-screen flex flex-col items-center justify-center p-container-margin-mobile md:p-container-margin-desktop font-sans antialiased text-on-surface">
+<!-- Transactional Screen: Navigation elements are suppressed to focus on the payment flow -->
+<!-- Main Payment Card -->
+<main class="w-full max-w-sm bg-surface-container-lowest rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-outline-variant/30 flex flex-col relative z-10">
+<!-- Top Brand Bar -->
+<div class="h-2 bg-primary-container w-full"></div>
+<!-- Header / Merchant Info -->
+<header class="pt-8 pb-4 px-6 flex flex-col items-center text-center border-b border-surface-variant/50">
+<div class="w-16 h-16 bg-surface-container-low rounded-full flex items-center justify-center mb-4 shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="font-size: 32px;">storefront</span>
+</div>
+<h1 class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider mb-1">Paying Merchant</h1>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background">Asha's Wholesale</h2>
+</header>
+<!-- Transaction Summary -->
+<section class="py-8 flex flex-col items-center bg-surface-container-lowest">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Total Amount</p>
+<div class="flex items-baseline space-x-1">
+<span class="font-title-md text-title-md text-on-background">GHS</span>
+<span class="font-display-lg text-display-lg text-on-background tracking-tighter">1,250.00</span>
+</div>
+</section>
+<!-- Status Area (Approve on Phone) -->
+<section class="bg-surface-container py-10 px-6 flex flex-col items-center relative overflow-hidden">
+<!-- Background pulse effect for emphasis -->
+<div class="absolute inset-0 bg-primary-container/5 pointer-events-none"></div>
+<!-- Phone Icon with Ripple -->
+<div class="relative w-20 h-20 flex items-center justify-center mb-6">
+<!-- Ripple Layers -->
+<div class="absolute inset-0 bg-primary-container/30 rounded-full animate-ripple"></div>
+<div class="absolute inset-0 bg-primary-container/20 rounded-full animate-ripple" style="animation-delay: 0.5s;"></div>
+<!-- Phone Device -->
+<div class="relative z-10 w-14 h-14 bg-primary-container rounded-full flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-on-primary-container" data-weight="fill" style="font-size: 28px;">smartphone</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-background text-center mb-2">Approve on your phone</h3>
+<div class="flex items-center space-x-2 text-primary font-body-lg text-body-lg">
+<span class="material-symbols-outlined animate-spin" style="font-size: 18px;">progress_activity</span>
+<span class="animate-pulse">Awaiting PIN entry...</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center mt-4 max-w-xs">
+                Check your device for a prompt. Enter your Mobile Money PIN to complete this transaction safely.
+            </p>
+</section>
+<!-- Actions -->
+<footer class="p-6 bg-surface-container-lowest border-t border-surface-variant/50">
+<button class="w-full py-3 px-4 rounded-lg bg-surface hover:bg-surface-container border border-outline-variant text-on-surface font-title-md text-title-md transition-colors flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined" style="font-size: 20px;">close</span>
+<span>Cancel Transaction</span>
+</button>
+</footer>
+</main>
+<!-- Secure Footer Message -->
+<div class="mt-8 flex items-center space-x-2 text-on-surface-variant opacity-80">
+<span class="material-symbols-outlined" style="font-size: 16px;">lock</span>
+<span class="font-label-caps text-label-caps">Secured by MTN Mobile Money</span>
+</div>
+</body></html>

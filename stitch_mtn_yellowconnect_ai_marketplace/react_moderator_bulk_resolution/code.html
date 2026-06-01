@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Moderator: Bulk Risk Resolution</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f3f0ef",
+                    "primary-fixed-dim": "#f1c100",
+                    "primary": "#745b00",
+                    "surface": "#fcf9f8",
+                    "secondary-fixed": "#d6e3ff",
+                    "on-primary-container": "#6f5700",
+                    "tertiary": "#006874",
+                    "background": "#fcf9f8",
+                    "on-tertiary-fixed": "#001f24",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1c1b1b",
+                    "on-secondary-container": "#003c7c",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-primary": "#f1c100",
+                    "surface-container": "#f0edec",
+                    "on-tertiary-container": "#00646e",
+                    "surface-tint": "#745b00",
+                    "inverse-surface": "#313030",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#4e4632",
+                    "on-error": "#ffffff",
+                    "outline": "#80765f",
+                    "secondary-fixed-dim": "#aac7ff",
+                    "secondary-container": "#76a9ff",
+                    "on-primary-fixed-variant": "#584400",
+                    "tertiary-container": "#00e7fe",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#ffe08b",
+                    "on-secondary-fixed-variant": "#00458d",
+                    "tertiary-fixed-dim": "#00daf0",
+                    "tertiary-fixed": "#95f1ff",
+                    "secondary": "#1f5dae",
+                    "outline-variant": "#d2c5ab",
+                    "on-background": "#1c1b1b",
+                    "surface-variant": "#e5e2e1",
+                    "on-secondary-fixed": "#001b3e",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-low": "#f6f3f2",
+                    "primary-container": "#ffcc00",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#004f57",
+                    "surface-container-high": "#ebe7e7",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fcf9f8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin-desktop": "40px",
+                    "base": "8px",
+                    "section-gap": "48px",
+                    "gutter": "16px",
+                    "container-margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "title-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 231, 254, 0.3);
+        }
+        .ai-gradient-text {
+            background: linear-gradient(90deg, theme('colors.secondary'), theme('colors.tertiary-container'));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased overflow-hidden flex h-screen w-full">
+<aside class="hidden md:flex flex-col h-full w-80 fixed left-0 top-0 z-[60] bg-surface-container-low dark:bg-surface-container-high shadow-xl overflow-y-auto">
+<div class="p-6 border-b border-surface-variant/50 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-headline-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-primary dark:text-primary-fixed">Moderator Panel</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trust &amp; Safety Division</p>
+<p class="font-label-caps text-label-caps text-outline mt-1">V2.4.0</p>
+</div>
+</div>
+<nav class="flex-1 py-4 flex flex-col font-body-lg text-body-lg">
+<a class="flex items-center gap-4 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span>Audit Logs</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Payout Rules</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors active:translate-x-1 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span>Merchant Disputes</span>
+</a>
+<a class="flex items-center gap-4 bg-secondary-container text-on-secondary-container font-bold rounded-lg m-2 p-3 active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span>Risk Alerts</span>
+</a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col min-w-0 md:ml-80">
+<header class="fixed top-0 w-full md:w-[calc(100%-20rem)] z-50 bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center px-container-margin-mobile h-16 transition-all duration-300">
+<div class="flex items-center gap-3">
+<img alt="Moderator Profile" class="w-8 h-8 rounded-full object-cover hidden md:block" data-alt="A professional headshot of a confident corporate moderator in a modern office setting. Bright, natural light illuminates their face, reflecting a clean, high-trust professional aesthetic. The background is slightly blurred featuring glass office partitions and soft blue and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALUaoVWwnnDcRB5ihJ1LZfRNhg-8wvw-GAflfQAcAsC1SAuhzP7YS4_a5BnaS0dQF8pcrge1svlvopDDYCs7RD_9Lm9JCj5A5iaQlTCXdTDQKlrmrG3CuBduATeO3V3WKWBVemHWVLWcFq_M_RnC2uHDoK7JCyYlA0sYIyNmsEupuHuDN0lxV1FpCsNH3axn_xowVoa2TSc2YG60__4T1UJkjrrBYszEH20PG098Mqjef8j3V5TLzwcPAYuMuKYpwUNP7JYcMC7IY"/>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-inverse-primary">Marketplace Trust</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pt-24 pb-32 md:pb-12 px-container-margin-mobile md:px-container-margin-desktop bg-surface-bright">
+<div class="max-w-7xl mx-auto space-y-section-gap">
+<section>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Bulk Risk Resolution</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Review and resolve AI-flagged merchant accounts in the pending queue.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant/30 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary text-3xl">pending_actions</span>
+<span class="font-label-caps text-label-caps px-2 py-1 bg-surface-container-high rounded text-on-surface-variant">LIVE QUEUE</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">142</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Total Pending Review</p>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary-container/20 rounded-full blur-2xl group-hover:bg-tertiary-container/40 transition-all"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<span class="material-symbols-outlined text-tertiary text-3xl">auto_awesome</span>
+<span class="font-label-caps text-label-caps px-2 py-1 bg-tertiary-container/30 text-on-tertiary-container rounded border border-tertiary/20">AI PREDICTION</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-lg text-headline-lg ai-gradient-text">89%</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Fraud Probability (High Risk Cohort)</p>
+</div>
+</div>
+<div class="bg-error-container/30 rounded-xl p-6 border border-error/20 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-error text-3xl">warning</span>
+<span class="font-label-caps text-label-caps px-2 py-1 bg-error-container text-on-error-container rounded">URGENT</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">24</h3>
+<p class="font-body-sm text-body-sm text-on-error-container">Critical Velocity Spikes</p>
+</div>
+</div>
+</div>
+</section>
+<section class="sticky top-16 z-40 bg-surface/95 backdrop-blur-md py-4 border-b border-surface-variant/40 -mx-container-margin-mobile px-container-margin-mobile md:-mx-container-margin-desktop md:px-container-margin-desktop shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary-container" id="selectAll" type="checkbox"/>
+<label class="font-title-md text-title-md text-on-surface cursor-pointer select-none" for="selectAll">
+<span id="selectionCount">3</span> Merchants Selected
+                        </label>
+</div>
+<div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-secondary text-on-secondary font-title-md text-title-md px-6 py-3 rounded-lg shadow-sm hover:bg-secondary/90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                            Clear Flags
+                        </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-primary-container text-on-primary-container font-title-md text-title-md px-6 py-3 rounded-lg shadow-sm hover:bg-primary-container/90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">front_hand</span>
+                            Hold Entities
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center bg-surface-container border border-outline-variant text-on-surface rounded-lg hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</section>
+<section>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Merchant Card 1 -->
+<div class="bg-surface rounded-xl border border-error/30 shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col hover:shadow-md transition-shadow relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<div class="p-5 flex gap-4 border-b border-surface-variant/30 bg-error-container/10">
+<input checked="" class="w-5 h-5 mt-1 rounded border-outline text-secondary focus:ring-secondary-container" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Nexus Trading Co.</h4>
+<span class="font-label-caps text-label-caps text-error bg-error-container px-2 py-0.5 rounded-full">SCORE: 94</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ID: MER-88392-ZA</p>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col gap-4">
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 font-label-caps text-label-caps bg-surface-container-high text-on-surface-variant px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">speed</span> Velocity Spike
+                                    </span>
+<span class="inline-flex items-center gap-1 font-label-caps text-label-caps bg-surface-container-high text-on-surface-variant px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">location_off</span> Suspicious IP
+                                    </span>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant/30 flex justify-between items-center">
+<div>
+<p class="font-label-caps text-label-caps text-outline">AT RISK VOL</p>
+<p class="font-title-md text-title-md text-secondary">R 450,000</p>
+</div>
+<button class="text-tertiary hover:bg-tertiary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Merchant Card 2 -->
+<div class="bg-surface rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col hover:shadow-md transition-shadow relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
+<div class="p-5 flex gap-4 border-b border-surface-variant/30">
+<input checked="" class="w-5 h-5 mt-1 rounded border-outline text-secondary focus:ring-secondary-container" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Luminary Goods</h4>
+<span class="font-label-caps text-label-caps text-on-primary-container bg-primary-container px-2 py-0.5 rounded-full">SCORE: 72</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ID: MER-11024-NG</p>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col gap-4">
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 font-label-caps text-label-caps bg-surface-container-high text-on-surface-variant px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">account_balance_wallet</span> Large Transfer
+                                    </span>
+<span class="inline-flex items-center gap-1 font-label-caps text-label-caps bg-tertiary-container/30 text-on-tertiary-container border border-tertiary/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span> AI Pattern Match
+                                    </span>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant/30 flex justify-between items-center">
+<div>
+<p class="font-label-caps text-label-caps text-outline">AT RISK VOL</p>
+<p class="font-title-md text-title-md text-secondary">₦ 1,200,000</p>
+</div>
+<button class="text-tertiary hover:bg-tertiary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Merchant Card 3 -->
+<div class="bg-surface rounded-xl border border-error/30 shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col hover:shadow-md transition-shadow relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<div class="p-5 flex gap-4 border-b border-surface-variant/30 bg-error-container/10">
+<input checked="" class="w-5 h-5 mt-1 rounded border-outline text-secondary focus:ring-secondary-container" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Aura Electronics</h4>
+<span class="font-label-caps text-label-caps text-error bg-error-container px-2 py-0.5 rounded-full">SCORE: 88</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ID: MER-55219-KE</p>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col gap-4">
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 font-label-caps text-label-caps bg-surface-container-high text-on-surface-variant px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">receipt_long</span> Multiple Chargebacks
+                                    </span>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant/30 flex justify-between items-center">
+<div>
+<p class="font-label-caps text-label-caps text-outline">AT RISK VOL</p>
+<p class="font-title-md text-title-md text-secondary">KSh 85,000</p>
+</div>
+<button class="text-tertiary hover:bg-tertiary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Merchant Card 4 (Unselected) -->
+<div class="bg-surface rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col hover:shadow-md transition-shadow relative opacity-75 hover:opacity-100">
+<div class="absolute top-0 left-0 w-1 h-full bg-outline-variant"></div>
+<div class="p-5 flex gap-4 border-b border-surface-variant/30">
+<input class="w-5 h-5 mt-1 rounded border-outline text-secondary focus:ring-secondary-container" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Zenith Apparels</h4>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded-full">SCORE: 45</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ID: MER-99012-GH</p>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col gap-4">
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 font-label-caps text-label-caps bg-surface-container-high text-on-surface-variant px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">policy</span> Policy Violation
+                                    </span>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant/30 flex justify-between items-center">
+<div>
+<p class="font-label-caps text-label-caps text-outline">AT RISK VOL</p>
+<p class="font-title-md text-title-md text-secondary">GH₵ 4,500</p>
+</div>
+<button class="text-tertiary hover:bg-tertiary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Bottom Navigation for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-surface-container-lowest shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl z-50 transition-all">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-3 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-caps text-label-caps mt-1 font-bold">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-caps text-label-caps mt-1">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple script to handle 'Select All' interaction visually
+        document.getElementById('selectAll').addEventListener('change', function(e) {
+            const isChecked = e.target.checked;
+            const checkboxes = document.querySelectorAll('main input[type="checkbox"]:not(#selectAll)');
+            checkboxes.forEach(cb => cb.checked = isChecked);
+            document.getElementById('selectionCount').textContent = isChecked ? checkboxes.length : '0';
+        });
+
+        const individualCheckboxes = document.querySelectorAll('main input[type="checkbox"]:not(#selectAll)');
+        individualCheckboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                const checkedCount = document.querySelectorAll('main input[type="checkbox"]:not(#selectAll):checked').length;
+                document.getElementById('selectionCount').textContent = checkedCount;
+                document.getElementById('selectAll').checked = checkedCount === individualCheckboxes.length;
+            });
+        });
+    </script>
+</body></html>

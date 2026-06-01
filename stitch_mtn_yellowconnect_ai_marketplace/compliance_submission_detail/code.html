@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compliance Document Details</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Design System Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#aac7ff",
+                    "on-secondary-container": "#003c7c",
+                    "inverse-primary": "#f1c100",
+                    "tertiary-fixed-dim": "#00daf0",
+                    "on-primary-container": "#6f5700",
+                    "on-primary-fixed-variant": "#584400",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#4e4632",
+                    "primary-fixed-dim": "#f1c100",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#ffe08b",
+                    "surface-container-high": "#ebe7e7",
+                    "on-tertiary-fixed-variant": "#004f57",
+                    "inverse-on-surface": "#f3f0ef",
+                    "primary-container": "#ffcc00",
+                    "tertiary": "#006874",
+                    "surface-variant": "#e5e2e1",
+                    "secondary-fixed": "#d6e3ff",
+                    "surface-tint": "#745b00",
+                    "on-error": "#ffffff",
+                    "surface-container": "#f0edec",
+                    "background": "#fcf9f8",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#1c1b1b",
+                    "secondary-container": "#76a9ff",
+                    "outline": "#80765f",
+                    "tertiary-fixed": "#95f1ff",
+                    "tertiary-container": "#00e7fe",
+                    "surface-container-low": "#f6f3f2",
+                    "surface": "#fcf9f8",
+                    "surface-dim": "#dcd9d9",
+                    "inverse-surface": "#313030",
+                    "on-tertiary-fixed": "#001f24",
+                    "primary": "#745b00",
+                    "outline-variant": "#d2c5ab",
+                    "on-primary-fixed": "#241a00",
+                    "surface-bright": "#fcf9f8",
+                    "on-secondary-fixed-variant": "#00458d",
+                    "secondary": "#1f5dae",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#00646e",
+                    "on-secondary-fixed": "#001b3e",
+                    "on-background": "#1c1b1b",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-margin-desktop": "40px",
+                    "section-gap": "48px",
+                    "container-margin-mobile": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "title-md": ["Inter", "sans-serif"],
+                    "display-lg": ["Inter", "sans-serif"],
+                    "headline-lg-mobile": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"],
+                    "label-caps": ["Inter", "sans-serif"],
+                    "headline-lg": ["Inter", "sans-serif"],
+                    "body-sm": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                    "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                    "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                    "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                    "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Fallback for Inter font if not loaded */
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen antialiased flex flex-col md:hidden">
+<!-- TopAppBar (from Shared Components JSON) -->
+<header class="flex items-center justify-between px-gutter w-full h-16 bg-surface dark:bg-surface-dim shadow-sm dark:bg-surface-container-high w-full top-0 sticky z-50">
+<button aria-label="Menu" class="p-2 -ml-2 rounded-full hover:bg-surface-container-high transition-colors active:opacity-80 transition-opacity flex items-center justify-center text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-title-md text-title-md font-bold text-on-surface dark:text-on-surface-variant text-center flex-1">
+            MTN Marketplace
+        </h1>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden shadow-sm flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-container-margin-mobile overflow-y-auto pb-8">
+<!-- Contextual Back Action -->
+<button class="flex items-center text-secondary mb-6 font-body-sm active:opacity-70 transition-opacity w-fit" onclick="history.back()">
+<span class="material-symbols-outlined text-[18px] mr-1" data-icon="arrow_back">arrow_back</span>
+            Back to Compliance
+        </button>
+<!-- Header Section -->
+<section class="mb-8">
+<div class="flex items-start justify-between gap-4 mb-2">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">VAT Certificate</h1>
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label-caps text-label-caps mt-1 shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Verified
+                </div>
+</div>
+<div class="flex flex-col gap-1 font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-on-surface">Reference ID:</span>
+<span class="font-mono bg-surface-container px-1.5 py-0.5 rounded">REF-99201-VC</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-semibold text-on-surface">Submitted:</span>
+<span>Oct 12, 2023</span>
+</div>
+</div>
+</section>
+<!-- AI Verification Insight (Glassmorphic) -->
+<section class="mb-section-gap relative rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)] bg-white/80 backdrop-blur-[12px] border border-secondary-fixed-dim/40 p-5">
+<!-- Subtle background gradient hint -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-tertiary-fixed-dim/20 rounded-full blur-2xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-3 text-secondary">
+<span class="material-symbols-outlined text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="font-title-md text-title-md bg-clip-text text-transparent bg-gradient-to-r from-secondary to-tertiary">AI Verification Insight</h3>
+</div>
+<p class="font-body-sm text-on-surface-variant leading-relaxed">
+                    Document verified against the national tax registry. All digital signatures and barcodes are structurally valid. The certificate is active and expires on <strong class="text-on-surface">Dec 31, 2024</strong>. 
+                </p>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center gap-2 font-label-caps text-label-caps text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="notifications_active">notifications_active</span>
+                    Renewal reminder scheduled for Dec 1, 2024
+                </div>
+</div>
+</section>
+<!-- Document Preview -->
+<section class="mb-section-gap">
+<h2 class="font-title-md text-title-md text-on-surface mb-4">Document Preview</h2>
+<div class="relative w-full h-72 rounded-xl overflow-hidden shadow-sm border border-outline-variant bg-surface-container-lowest group">
+<img alt="Document Preview Placeholder" class="w-full h-full object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-105" data-alt="A high-quality, close-up digital render of an official corporate tax document resting on a clean, light-grey modern desk surface. The document features sharp, highly legible black ink text, official crests, and subtle geometric watermarks, illuminated by bright, soft studio lighting. The aesthetic conveys trust, precision, and modern business compliance, adhering to a light-mode corporate design language with a shallow depth of field focusing on the header." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Lvu7ZvJlXn0h4UsbZtwPIHOjWE-quSdk4alsDsRMOnqLe_zELCV6THJcu_r83pebekwAQKl2T34rKcfWT9CopRoBjyVBvC3erBrbpaxwUz3Z0E8MhNePtjKybKfXMaMJtr0SRNBt0pTVtPJ-_ADitoAtMaXE42XamGGkWrXthdxN4uOuVoXjb_3LtvMd3Xofd0n4fd0bRVYRGkUHOpGbw21-wJXa-ENIpk0f93xW4HysiyF6b3BcTk2BEgnF9naq77wb4sblNgU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 to-transparent flex items-end justify-center p-4">
+<button class="bg-primary text-on-primary-fixed-variant font-title-md text-[16px] font-bold px-6 py-3 rounded-lg shadow-md flex items-center justify-center w-full active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined mr-2" data-icon="download">download</span>
+                        Download Document
+                    </button>
+</div>
+<div class="absolute top-3 right-3 bg-surface/90 backdrop-blur-sm px-2 py-1 rounded font-label-caps text-label-caps text-on-surface shadow-sm border border-outline-variant">
+                    PDF • 2.4 MB
+                </div>
+</div>
+</section>
+<!-- Timeline -->
+<section>
+<h2 class="font-title-md text-title-md text-on-surface mb-6">Approval Timeline</h2>
+<div class="relative border-l-2 border-surface-variant ml-3 space-y-8">
+<!-- Stage 1: Submitted -->
+<div class="relative">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary border-[3px] border-surface"></div>
+<div class="ml-6 flex flex-col">
+<h3 class="font-title-md text-[16px] text-on-surface leading-tight">Document Submitted</h3>
+<p class="font-body-sm text-on-surface-variant mt-1">Oct 12, 2023 • 09:45 AM</p>
+<p class="font-body-sm text-on-surface-variant mt-1 text-[13px]">Uploaded by User ID 882910</p>
+</div>
+</div>
+<!-- Stage 2: Under Review -->
+<div class="relative">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary border-[3px] border-surface"></div>
+<div class="ml-6 flex flex-col">
+<h3 class="font-title-md text-[16px] text-on-surface leading-tight">AI &amp; Manual Review</h3>
+<p class="font-body-sm text-on-surface-variant mt-1">Oct 12, 2023 • 10:15 AM</p>
+<p class="font-body-sm text-on-surface-variant mt-1 text-[13px]">Automated registry check completed. Pending final agent sign-off.</p>
+</div>
+</div>
+<!-- Stage 3: Approved (Active) -->
+<div class="relative">
+<!-- Active Pulsing Dot -->
+<div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-tertiary border-[4px] border-surface shadow-sm z-10 flex items-center justify-center">
+<div class="w-full h-full rounded-full bg-tertiary animate-ping opacity-20 absolute"></div>
+</div>
+<div class="ml-6 flex flex-col bg-surface-container-low p-3 rounded-lg border border-outline-variant/30 -mt-2">
+<div class="flex items-center gap-2 text-tertiary mb-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h3 class="font-title-md text-[16px] leading-tight">Verified &amp; Active</h3>
+</div>
+<p class="font-body-sm text-on-surface-variant">Oct 13, 2023 • 14:30 PM</p>
+<p class="font-body-sm text-on-surface mt-2 text-[13px] bg-white p-2 rounded border border-surface-variant">Approved by MTN Compliance Team. Document is valid for current operational year.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Suppressed intentionally for Task-Focused detail view per architectural rules -->
+</body></html>

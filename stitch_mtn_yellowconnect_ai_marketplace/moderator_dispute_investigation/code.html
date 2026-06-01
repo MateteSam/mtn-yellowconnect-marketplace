@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dispute Investigation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-primary": "#f1c100",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-container": "#6f5700",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-fixed": "#001f24",
+                        "tertiary": "#006874",
+                        "surface-container-high": "#ebe7e7",
+                        "primary": "#745b00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#001b3e",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "secondary-container": "#76a9ff",
+                        "surface-tint": "#745b00",
+                        "on-tertiary-container": "#00646e",
+                        "tertiary-container": "#00e7fe",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary": "#1f5dae",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#d6e3ff",
+                        "inverse-surface": "#313030",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-surface-variant": "#4e4632",
+                        "primary-container": "#ffcc00",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary-container": "#003c7c",
+                        "primary-fixed": "#ffe08b",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed": "#241a00",
+                        "on-error-container": "#93000a",
+                        "outline": "#80765f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(116, 91, 0, 0.1);
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            bottom: -24px;
+            left: 20px;
+            width: 2px;
+            background-color: #d2c5ab; /* outline-variant */
+            z-index: 0;
+        }
+        .timeline-item:last-child .timeline-line::before {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen pb-[80px] md:pb-0">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile py-base bg-surface z-50 shadow-sm border-b-0">
+<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">Dispute #992-B</h1>
+<button aria-label="More options" class="text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<main class="max-w-[1280px] mx-auto px-container-margin-mobile md:px-container-margin-desktop py-gutter grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Col: Dispute Context & Actions -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Summary Card -->
+<section class="bg-surface-bright rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant p-4">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="text-title-md font-title-md text-on-surface">Item Not as Described</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Opened: Oct 24, 2023</p>
+</div>
+<span class="bg-error-container text-on-error-container text-label-caps font-label-caps px-2 py-1 rounded-full uppercase">High Priority</span>
+</div>
+<div class="flex gap-4 items-center p-3 bg-surface-container-low rounded-lg mb-4">
+<img alt="Red sneakers" class="w-16 h-16 rounded-lg object-cover" data-alt="A close-up studio shot of a bright red athletic sneaker against a clean, soft white background. The lighting is high-key and even, highlighting the texture of the shoe's mesh and rubber materials. The aesthetic is modern corporate e-commerce, clean and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5tMfLwL7in6IfpU9KvGs4uBpuB4_HXCGaU64fD_fezcBgSgJOq8nzpPO4FPoBfeyoIIBdKnFYWmG0XW50oKXeCoxWAyIDkLo6VrP1nZiJBxer7OhQrOd44sTqVPl78GIF_4H1mjOvHFo57T97lp4yQTiQbKjek2gT_j66XxKe86FNR-I1ygaMTC1YDdUnuYANkz2UXhRjmqWZm4wpYD3xLE-SK_mTXWf0Lp8doYBq3qZyQxPTVxn0tvB8B4i4j0WmdAWGJsudS6M"/>
+<div>
+<p class="text-body-lg font-body-lg font-semibold text-on-surface">Nike Air Max 270</p>
+<p class="text-primary font-bold">R 1,450.00</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Buyer</span>
+<span class="text-body-sm font-body-sm font-semibold">T. Khumalo (Trust: 98%)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Seller</span>
+<span class="text-body-sm font-body-sm font-semibold">SneakerFreak (Trust: 92%)</span>
+</div>
+</div>
+</section>
+<!-- Moderator Actions -->
+<section class="glass-panel rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-4 flex flex-col gap-3">
+<h3 class="text-label-caps font-label-caps text-on-surface-variant mb-2 uppercase">Resolution Actions</h3>
+<button class="w-full bg-primary text-on-primary-fixed-variant text-body-lg font-body-lg font-bold py-3 rounded-lg hover:bg-primary-fixed transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" data-icon="undo">undo</span>
+                    Issue Full Refund
+                </button>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-secondary text-on-secondary text-body-sm font-body-sm py-2 rounded-lg hover:bg-secondary-container hover:text-on-secondary-container transition-colors font-semibold">
+                        Partial Payout
+                    </button>
+<button class="bg-surface-container-highest text-on-surface text-body-sm font-body-sm py-2 rounded-lg hover:bg-surface-dim transition-colors font-semibold border border-outline-variant">
+                        Request Return
+                    </button>
+</div>
+</section>
+</div>
+<!-- Right Col: Timeline -->
+<div class="md:col-span-8 bg-surface-bright rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant p-4 md:p-6">
+<h2 class="text-title-md font-title-md text-on-surface mb-6 border-b border-surface-container-high pb-2">Evidence Timeline</h2>
+<div class="space-y-0 relative">
+<!-- Timeline Item: Sale -->
+<div class="timeline-item relative pl-12 pb-6">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-0 w-10 h-10 bg-surface-container-highest rounded-full flex items-center justify-center border-2 border-surface-bright z-10">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface">Item Purchased</h4>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Oct 20, 14:30</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-2">Original listing images captured at time of sale.</p>
+<div class="flex gap-2">
+<img alt="Listing image 1" class="w-16 h-16 rounded border border-outline-variant object-cover" data-alt="A clean, professional e-commerce product shot of a red sneaker. The image is brightly lit against a stark white background, typical of high-quality online marketplace listings. The colors are vibrant and accurate, conveying trust and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXfslwXEl6PUR4xGxOcemPyqQxLEVbRdAqoddgFsfakAVOrLPg2ToJL60K7CcaVbv0pm-J61HIuNpWDTeFj1Xx9Uq8O4LWPcOUVISF-urH1NjJgmobVamxN0Cpa-JwCpKTKeFsxbYxBNdAc4Uxi2VRnjUXVgTxKl6Vk5ydeasj2t1TARtPNYevwgRfwOxkN7y7hud5aBZTlk6St1aYSLFdSZIIq-0AP3Yc2APQ5g6BhhjlTjSKwzY9xCXp4iln_7N2BcVwb6Uvn28"/>
+<img alt="Listing image 2" class="w-16 h-16 rounded border border-outline-variant object-cover" data-alt="A clean, professional e-commerce product shot showing the sole of a red sneaker. The image is brightly lit against a stark white background, typical of high-quality online marketplace listings. The tread pattern is clearly visible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADvIAn8A16ZbgdnlTte_mMfx8QlfMd3EjHVFdkXNI1xkFzdqgyO08AZCRKDxfzzhsSU4qDtBbwJCn9NMJEmDqgGQnoF06jpwVx6QaFcQUmfcj95CU1hFLDnXLSNZr24bw0GT99uONuSoPP29TZCb5Jz8TZHN2kAEovkMu6AdfMmjmR9wIvCIEOPXgHWWm40LKza8N9OQeSbEr5rRig6twqkY6i3pfAMVzOiVGL32L3_-bDjxY87COkbKjkJBx1vQWx8DjHZLrnP54"/>
+</div>
+</div>
+</div>
+<!-- Timeline Item: Delivery -->
+<div class="timeline-item relative pl-12 pb-6">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-0 w-10 h-10 bg-surface-container-highest rounded-full flex items-center justify-center border-2 border-surface-bright z-10">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface">Delivered</h4>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Oct 23, 09:15</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Tracking #ZA992837465 confirmed delivery.</p>
+</div>
+</div>
+<!-- Timeline Item: Dispute Opened -->
+<div class="timeline-item relative pl-12 pb-6">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-0 w-10 h-10 bg-error-container rounded-full flex items-center justify-center border-2 border-surface-bright z-10">
+<span class="material-symbols-outlined text-on-error-container" data-icon="report">report</span>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<h4 class="text-body-lg font-body-lg font-semibold text-error">Dispute Opened</h4>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Oct 24, 11:05</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface mb-3">"The shoes arrived with scuff marks on the side that were not in the pictures."</p>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-error-container">
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">Buyer Evidence:</p>
+<img alt="Buyer evidence photo" class="w-32 h-24 rounded border border-outline-variant object-cover" data-alt="A slightly blurry, user-generated photo taken with a smartphone showing a close-up of a scuff mark on a red sneaker. The lighting is uneven, typical of indoor home lighting, contrasting with the professional listing photos. It serves as visual evidence in a dispute case." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjd1ezyzJc_c-AsttlDr87Je5ljL0V_BXB8RHpo9BlDDTn1V9SvXx8OeJagGB5IkrA6x6_OLOER67gTq306tb5EqU78mZQHiba7g1020yNjqe5ad1XCTTUj2ghhsqCmvlZ0GPw9baE7nxkmfCK0_QhxQ4iLjbmMCI15znofbyG-i1h99GU251y5i4DeA5lKleQbNRAb_YsDXksfV1iyanuMyogBNryLDuccv0sdKsLg6dHB0xR9tlLLSFKqD-3n19Wr23m7uFxgE4"/>
+</div>
+</div>
+</div>
+<!-- Timeline Item: Chat -->
+<div class="timeline-item relative pl-12">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-0 w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center border-2 border-surface-bright z-10">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="chat">chat</span>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface">Buyer/Seller Chat</h4>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Oct 24, 11:30</span>
+</div>
+<div class="mt-3 space-y-3 bg-surface-container-low p-3 rounded-lg">
+<div class="bg-surface-bright p-2 rounded-lg rounded-tl-none border border-outline-variant max-w-[85%]">
+<p class="text-label-caps font-label-caps font-bold text-secondary mb-1">T. Khumalo (Buyer)</p>
+<p class="text-body-sm font-body-sm">Hey, these arrived damaged. Look at the scuff mark.</p>
+</div>
+<div class="bg-primary-fixed p-2 rounded-lg rounded-tr-none border border-outline-variant max-w-[85%] ml-auto">
+<p class="text-label-caps font-label-caps font-bold text-on-primary-fixed-variant mb-1 text-right">SneakerFreak (Seller)</p>
+<p class="text-body-sm font-body-sm text-on-primary-fixed">They were perfect when I sent them. Courier must have damaged the box.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Hidden on desktop, shown on mobile for navigation continuity if needed, though usually hidden in transactional flows. Adding here per prompt instructions to show style usage, though logically it might be suppressed in a focused task.) -->
+<nav class="md:hidden fixed bottom-0 w-full flex justify-around items-center px-4 py-2 z-50 bg-surface dark:bg-inverse-surface border-t-0 shadow-[0_-4px_12px_rgba(0,0,0,0.1)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-xl">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-caps font-label-caps mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-xl">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-caps font-label-caps mt-1">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-xl">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-label-caps font-label-caps mt-1">Sell</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+<span class="text-label-caps font-label-caps mt-1">Mod</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-xl">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-caps font-label-caps mt-1">Profile</span>
+</button>
+</nav>
+</body></html>

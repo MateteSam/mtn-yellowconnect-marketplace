@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OTP Verification - MTN Marketplace</title>
+<!-- Google Fonts & Material Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with custom configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fcf9f8",
+              "error-container": "#ffdad6",
+              "primary-container": "#ffcc00",
+              "on-secondary-fixed": "#001b3e",
+              "primary-fixed": "#ffe08b",
+              "tertiary-fixed": "#95f1ff",
+              "surface-bright": "#fcf9f8",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1c1b1b",
+              "tertiary-fixed-dim": "#00daf0",
+              "on-secondary-fixed-variant": "#00458d",
+              "on-tertiary-fixed-variant": "#004f57",
+              "inverse-primary": "#f1c100",
+              "inverse-surface": "#313030",
+              "tertiary-container": "#00e7fe",
+              "on-primary-fixed-variant": "#584400",
+              "surface-tint": "#745b00",
+              "secondary-container": "#76a9ff",
+              "surface-variant": "#e5e2e1",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-highest": "#e5e2e1",
+              "on-secondary-container": "#003c7c",
+              "on-background": "#1c1b1b",
+              "on-surface-variant": "#4e4632",
+              "secondary": "#1f5dae",
+              "error": "#ba1a1a",
+              "outline": "#80765f",
+              "on-primary": "#ffffff",
+              "surface": "#fcf9f8",
+              "on-tertiary": "#ffffff",
+              "inverse-on-surface": "#f3f0ef",
+              "tertiary": "#006874",
+              "secondary-fixed": "#d6e3ff",
+              "on-primary-fixed": "#241a00",
+              "primary": "#745b00",
+              "outline-variant": "#d2c5ab",
+              "primary-fixed-dim": "#f1c100",
+              "on-primary-container": "#6f5700",
+              "on-error-container": "#93000a",
+              "on-tertiary-container": "#00646e",
+              "surface-container-high": "#ebe7e7",
+              "surface-dim": "#dcd9d9",
+              "surface-container": "#f0edec",
+              "on-tertiary-fixed": "#001f24",
+              "secondary-fixed-dim": "#aac7ff",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f6f3f2"
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            spacing: {
+              "section-gap": "48px",
+              "gutter": "16px",
+              "container-margin-desktop": "40px",
+              "base": "8px",
+              "container-margin-mobile": "16px"
+            },
+            fontFamily: {
+              "body-sm": ["Inter"],
+              "title-md": ["Inter"],
+              "display-lg": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "body-lg": ["Inter"],
+              "label-caps": ["Inter"],
+              "headline-lg": ["Inter"]
+            },
+            fontSize: {
+              "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+              "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+              "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+              "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+              "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+              "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+              "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide arrows on number input */
+        input[type="number"]::-webkit-inner-spin-button, 
+        input[type="number"]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top App Bar (Simplified for Transactional Flow) -->
+<header class="w-full flex items-center px-container-margin-mobile py-base sticky top-0 z-50 bg-background">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors active:scale-95 text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 500;">arrow_back</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col px-container-margin-mobile pt-8 pb-8 max-w-[480px] mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-section-gap flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+</div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface mb-2">Verify Your Number</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-[280px]">
+                We've sent a 6-digit code to <br/>
+<span class="font-bold text-on-surface">+234 803 *** ****</span>
+</p>
+</div>
+<!-- OTP Input Section -->
+<div class="w-full mb-8">
+<div class="flex justify-between gap-2 max-w-[320px] mx-auto" id="otp-container">
+<input autofocus="" class="w-12 h-14 rounded-lg bg-surface-container border border-outline-variant text-center text-title-md font-title-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:bg-surface outline-none transition-all shadow-sm" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="number"/>
+<input class="w-12 h-14 rounded-lg bg-surface-container border border-outline-variant text-center text-title-md font-title-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:bg-surface outline-none transition-all shadow-sm" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="number"/>
+<input class="w-12 h-14 rounded-lg bg-surface-container border border-outline-variant text-center text-title-md font-title-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:bg-surface outline-none transition-all shadow-sm" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="number"/>
+<input class="w-12 h-14 rounded-lg bg-surface-container border border-outline-variant text-center text-title-md font-title-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:bg-surface outline-none transition-all shadow-sm" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="number"/>
+<input class="w-12 h-14 rounded-lg bg-surface-container border border-outline-variant text-center text-title-md font-title-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:bg-surface outline-none transition-all shadow-sm" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="number"/>
+<input class="w-12 h-14 rounded-lg bg-surface-container border border-outline-variant text-center text-title-md font-title-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:bg-surface outline-none transition-all shadow-sm" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="number"/>
+</div>
+<div class="mt-8 text-center">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                    Didn't receive the code? 
+                    <button class="text-secondary font-bold ml-1 hover:underline disabled:opacity-50 disabled:no-underline" disabled="" id="resend-btn">
+                        Resend in <span id="timer">00:59</span>
+</button>
+</p>
+</div>
+</div>
+<!-- Spacer to push button to bottom on mobile -->
+<div class="flex-1"></div>
+<!-- Action Button -->
+<div class="mt-auto pt-4">
+<button class="w-full bg-primary-container text-on-primary-container rounded-full py-4 text-title-md font-title-md shadow-sm hover:bg-primary-fixed active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                Verify &amp; Continue
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+<script>
+        // OTP Input Logic
+        const container = document.getElementById('otp-container');
+        const inputs = container.querySelectorAll('input');
+
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length > 1) {
+                    e.target.value = e.target.value.slice(0, 1); // Keep only first char
+                }
+                if (e.target.value !== '') {
+                    if (index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && e.target.value === '') {
+                    if (index > 0) {
+                        inputs[index - 1].focus();
+                        inputs[index - 1].value = '';
+                    }
+                }
+            });
+
+            // Handle Paste
+            input.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const pastedData = e.clipboardData.getData('text').slice(0, inputs.length).replace(/\D/g, '');
+                if (pastedData) {
+                    [...pastedData].forEach((char, i) => {
+                        if (inputs[index + i]) {
+                            inputs[index + i].value = char;
+                            if (index + i < inputs.length - 1) {
+                                inputs[index + i + 1].focus();
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+        // Timer Logic
+        let timeLeft = 59;
+        const timerElement = document.getElementById('timer');
+        const resendBtn = document.getElementById('resend-btn');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            const seconds = timeLeft < 10 ? `0${timeLeft}` : timeLeft;
+            timerElement.textContent = `00:${seconds}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerElement.textContent = '';
+                resendBtn.innerHTML = 'Resend Code';
+                resendBtn.disabled = false;
+            }
+        }, 1000);
+    </script>
+</body></html>

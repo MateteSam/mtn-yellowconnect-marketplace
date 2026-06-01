@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Merchant Central - Product Editor</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#dcd9d9",
+                      "on-primary-fixed": "#241a00",
+                      "on-tertiary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-background": "#1c1b1b",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f6f3f2",
+                      "primary": "#745b00",
+                      "on-surface": "#1c1b1b",
+                      "on-error": "#ffffff",
+                      "primary-container": "#ffcc00",
+                      "on-primary-fixed-variant": "#584400",
+                      "surface-bright": "#fcf9f8",
+                      "surface-container": "#f0edec",
+                      "surface": "#fcf9f8",
+                      "secondary": "#1f5dae",
+                      "primary-fixed": "#ffe08b",
+                      "secondary-container": "#76a9ff",
+                      "primary-fixed-dim": "#f1c100",
+                      "secondary-fixed": "#d6e3ff",
+                      "on-secondary-fixed": "#001b3e",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#745b00",
+                      "inverse-primary": "#f1c100",
+                      "surface-variant": "#e5e2e1",
+                      "tertiary-fixed": "#95f1ff",
+                      "on-tertiary-fixed-variant": "#004f57",
+                      "on-tertiary-fixed": "#001f24",
+                      "on-tertiary-container": "#00646e",
+                      "on-surface-variant": "#4e4632",
+                      "tertiary-container": "#00e7fe",
+                      "outline-variant": "#d2c5ab",
+                      "tertiary": "#006874",
+                      "surface-container-highest": "#e5e2e1",
+                      "secondary-fixed-dim": "#aac7ff",
+                      "inverse-surface": "#313030",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f3f0ef",
+                      "on-secondary-container": "#003c7c",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#6f5700",
+                      "surface-container-high": "#ebe7e7",
+                      "outline": "#80765f",
+                      "on-secondary-fixed-variant": "#00458d",
+                      "tertiary-fixed-dim": "#00daf0",
+                      "background": "#fcf9f8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-margin-desktop": "40px",
+                      "section-gap": "48px",
+                      "container-margin-mobile": "16px",
+                      "base": "8px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter", "sans-serif"],
+                      "body-sm": ["Inter", "sans-serif"],
+                      "title-md": ["Inter", "sans-serif"],
+                      "label-caps": ["Inter", "sans-serif"],
+                      "headline-lg-mobile": ["Inter", "sans-serif"],
+                      "display-lg": ["Inter", "sans-serif"],
+                      "headline-lg": ["Inter", "sans-serif"]
+              },
+              "fontSize": {
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #dcd9d9;
+            border-radius: 10px;
+        }
+        
+        /* Material symbols setup */
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-filled {
+          font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Glassmorphism AI Effects */
+        .ai-glass {
+            background: rgba(252, 249, 248, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 231, 254, 0.2);
+            box-shadow: 0 4px 24px rgba(0, 104, 116, 0.05);
+        }
+        .ai-gradient-text {
+            background: linear-gradient(90deg, #1f5dae, #006874);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low text-on-background font-body-lg h-screen overflow-hidden flex flex-col md:flex-row antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- NAVIGATION DRAWER (DESKTOP) -->
+<aside class="hidden md:flex flex-col h-full w-72 rounded-r-xl bg-surface shadow-xl z-40 relative">
+<div class="flex flex-col h-full py-6">
+<!-- Header -->
+<div class="px-6 mb-8 flex flex-col items-start">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-2xl">storefront</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface truncate w-40">Store Manager</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate w-40">Verified Merchant</p>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-2 px-2 overflow-y-auto">
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out mx-2" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-title-md text-title-md">Dashboard</span>
+</a>
+<!-- ACTIVE STATE: Catalog (Closest to Product Editor intent) -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-full bg-secondary-container text-on-secondary-container font-bold mx-2 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-filled">list_alt</span>
+<span class="font-title-md text-title-md">Catalog</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out mx-2" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-title-md text-title-md">Insights</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out mx-2" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-title-md text-title-md">Review Feed</span>
+</a>
+</nav>
+<div class="mt-auto px-4 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out mx-2" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-title-md text-title-md">Help</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- MAIN CONTENT AREA -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- TOP APP BAR -->
+<header class="flex justify-between items-center px-container-margin-mobile h-16 w-full bg-surface shadow-md z-30 shrink-0 md:px-container-margin-desktop md:sticky md:top-0">
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed md:font-headline-lg md:text-headline-lg md:tracking-tight">Merchant Central</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-low active:opacity-80 transition-colors">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold overflow-hidden cursor-pointer">
+<span class="material-symbols-outlined text-xl">person</span>
+</div>
+</div>
+</header>
+<!-- SCROLLABLE CANVAS -->
+<div class="flex-1 overflow-y-auto pb-24 md:pb-8 pt-6 px-container-margin-mobile md:px-container-margin-desktop">
+<div class="max-w-[1280px] mx-auto w-full">
+<!-- PAGE HEADER & ACTIONS -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-section-gap">
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-1">
+<a class="font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Catalog</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="font-body-sm text-body-sm text-on-surface">Add Product</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface font-bold">Create New Product</h2>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-4 py-2 rounded-lg font-title-md text-title-md text-on-surface border border-outline hover:bg-surface-variant transition-colors text-center">
+                            Discard
+                        </button>
+<button class="flex-1 md:flex-none px-6 py-2 rounded-lg bg-primary text-on-primary-fixed font-title-md text-title-md font-bold hover:brightness-95 shadow-sm transition-all text-center">
+                            Save Product
+                        </button>
+</div>
+</div>
+<!-- BENTO GRID LAYOUT -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN (Main Forms) -->
+<div class="lg:col-span-8 flex flex-col gap-gutter">
+<!-- Basic Info Form Card -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6 md:p-8">
+<h3 class="font-title-md text-title-md text-on-surface mb-6">Basic Information</h3>
+<div class="space-y-5">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Product Title</label>
+<input class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg px-4 py-3 placeholder:text-outline outline-none transition-shadow" placeholder="e.g. Wireless Noise-Cancelling Headphones" type="text"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Standard Description</label>
+<textarea class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg px-4 py-3 placeholder:text-outline outline-none transition-shadow resize-y" placeholder="Describe your product..." rows="4"></textarea>
+</div>
+</div>
+</section>
+<!-- AI Description Assistant (Glassmorphic) -->
+<section class="ai-glass rounded-xl p-6 md:p-8 relative overflow-hidden">
+<!-- Decorative AI glow -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-tertiary-container/20 rounded-full blur-3xl"></div>
+<div class="flex items-center gap-2 mb-4 relative z-10">
+<span class="material-symbols-filled text-tertiary">auto_awesome</span>
+<h3 class="font-title-md text-title-md ai-gradient-text font-bold">AI Content Assistant</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-5 relative z-10 max-w-lg">
+                                Let our AI write an engaging, SEO-optimized description based on a few key features.
+                            </p>
+<div class="flex flex-col sm:flex-row gap-3 relative z-10">
+<input class="flex-1 bg-surface rounded-lg border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary text-on-surface font-body-lg text-body-lg px-4 py-2 outline-none" placeholder="Keywords (e.g. bluetooth, 24h battery, black)" type="text"/>
+<button class="px-5 py-2 rounded-lg bg-on-background text-surface font-title-md text-title-md flex items-center justify-center gap-2 hover:bg-inverse-surface transition-colors shadow-md group">
+<span>Generate</span>
+<span class="material-symbols-outlined text-sm group-hover:rotate-12 transition-transform">bolt</span>
+</button>
+</div>
+</section>
+<!-- Media Upload Card -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6 md:p-8">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-title-md text-title-md text-on-surface">Media</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-2 py-1 rounded-md">0 / 5 Images</span>
+</div>
+<div class="border-2 border-dashed border-outline-variant bg-surface-container-low rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-variant transition-colors group">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-2xl">add_photo_alternate</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface mb-1">Drag and drop images here</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">or click to browse from your computer</p>
+<button class="text-secondary font-title-md text-title-md underline">Select Files</button>
+</div>
+<!-- Preview Area (Empty State conceptually, but let's show one fake placeholder) -->
+<div class="mt-4 grid grid-cols-4 sm:grid-cols-5 gap-3">
+<!-- Dummy image generated to fulfill data-alt requirement -->
+<div class="aspect-square rounded-lg bg-surface-container border border-outline-variant overflow-hidden relative group">
+<img alt="Product thumbnail" class="w-full h-full object-cover" data-alt="A sleek, modern pair of matte black wireless over-ear headphones resting on a pristine, minimalist white surface. The lighting is soft and diffused, creating a high-key, modern corporate aesthetic consistent with a premium technology product listing. The composition is clean, emphasizing the smooth curves and premium materials of the headphones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeANfJLADGXi7QQ2IdoOk1q0KHTPKIl0W-BQnQltLFUd4GTS99eoAedkMA86ZBSrXsLCuUx5xOqOY3_l-8yYNWfZlfQB5od72LemUdrl9PGX6BN4mmh-bJn9SvzoBEPxl2qErCVPe2FOf9i51bJORj8YMBaAYo5rvtBcRyI9KzvQ_FeuCy4h-hGHUmxtobHSWiFWBKzZfsRouB-aMp3LgsWOigWhcpWLayoXLpwbPR8HkwxEcet3MiouoFrNtk2jhtN-9M6lK6IwQ"/>
+<button class="absolute top-1 right-1 w-6 h-6 bg-error text-on-error rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Pricing & Inventory Form Card -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6 md:p-8">
+<h3 class="font-title-md text-title-md text-on-surface mb-6">Pricing &amp; Inventory</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Price</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-lg text-body-lg">$</span>
+<input class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg pl-8 pr-4 py-3 placeholder:text-outline outline-none" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Compare at price</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-lg text-body-lg">$</span>
+<input class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg pl-8 pr-4 py-3 placeholder:text-outline outline-none" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/50 pt-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">SKU (Stock Keeping Unit)</label>
+<input class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg px-4 py-3 outline-none" type="text"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Barcode (ISBN, UPC, GTIN, etc.)</label>
+<input class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg px-4 py-3 outline-none" type="text"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Available Quantity</label>
+<input class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg px-4 py-3 outline-none" type="number" value="1"/>
+</div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN (Metadata & Insights) -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<!-- Status Card -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6">
+<h3 class="font-title-md text-title-md text-on-surface mb-4">Status</h3>
+<div class="relative">
+<select class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg px-4 py-3 outline-none appearance-none cursor-pointer">
+<option value="draft">Draft</option>
+<option value="active">Active (Visible)</option>
+<option value="archived">Archived</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</section>
+<!-- Organization Card -->
+<section class="bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-6">
+<h3 class="font-title-md text-title-md text-on-surface mb-4">Organization</h3>
+<div class="space-y-5">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Product Category</label>
+<div class="relative">
+<select class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg px-4 py-3 outline-none appearance-none cursor-pointer">
+<option>Select Category...</option>
+<option>Electronics</option>
+<option>Fashion</option>
+<option>Home &amp; Living</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-2">Tags</label>
+<input class="w-full bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-on-surface font-body-lg text-body-lg px-4 py-3 outline-none mb-3" placeholder="Type and press enter" type="text"/>
+<div class="flex flex-wrap gap-2">
+<!-- Sample Tags -->
+<div class="flex items-center gap-1 bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-body-sm text-body-sm">
+<span>audio</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-body-sm text-body-sm">
+<span>wireless</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Market Insight Banner -->
+<section class="bg-secondary-fixed text-on-secondary-fixed rounded-xl p-5 border border-secondary/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-3 opacity-20">
+<span class="material-symbols-filled text-5xl">trending_up</span>
+</div>
+<div class="flex items-center gap-2 mb-2 relative z-10">
+<span class="material-symbols-filled text-secondary text-lg">lightbulb</span>
+<span class="font-label-caps text-label-caps font-bold">MARKET INSIGHT</span>
+</div>
+<p class="font-body-sm text-body-sm relative z-10">
+                                Demand is unusually high for <strong>Wireless Audio</strong> in your region this week. Consider highlighting battery life in your title to improve click-through rates.
+                            </p>
+</section>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BOTTOM NAV BAR (MOBILE) -->
+<!-- Rule: Only show on mobile, suppress if transactional. This is an editor, usually a sub-page, BUT the prompt asks to port layout matching JSON. Given strict JSON execution rules, if I render it, I must follow active state. I will render it hidden on md to satisfy mobile requirement. -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-2 bg-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
+<!-- ACTIVE STATE: Inventory -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl py-1 px-4 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-filled">inventory_2</span>
+<span class="font-label-caps text-label-caps mt-1">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 duration-150 py-1 px-2" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-caps text-label-caps mt-1">AI Editor</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 duration-150 py-1 px-2" href="#">
+<span class="material-symbols-outlined">rate_review</span>
+<span class="font-label-caps text-label-caps mt-1">Reviews</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 duration-150 py-1 px-2" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

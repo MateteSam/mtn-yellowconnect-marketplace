@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Refund Status</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-primary-container": "#6f5700",
+                        "surface-variant": "#e5e2e1",
+                        "secondary": "#1f5dae",
+                        "on-primary-fixed-variant": "#584400",
+                        "primary-container": "#ffcc00",
+                        "surface-container-highest": "#e5e2e1",
+                        "outline-variant": "#d2c5ab",
+                        "primary-fixed": "#ffe08b",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary-container": "#00646e",
+                        "surface-tint": "#745b00",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#76a9ff",
+                        "error": "#ba1a1a",
+                        "surface": "#fcf9f8",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "inverse-on-surface": "#f3f0ef",
+                        "tertiary-container": "#00e7fe",
+                        "on-surface": "#1c1b1b",
+                        "outline": "#80765f",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-surface-variant": "#4e4632",
+                        "inverse-surface": "#313030",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "primary": "#745b00",
+                        "tertiary": "#006874",
+                        "surface-dim": "#dcd9d9",
+                        "on-error": "#ffffff",
+                        "background": "#fcf9f8",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-secondary-container": "#003c7c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#f1c100",
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased">
+<!-- Header (Transactional, hidden nav shell intent) -->
+<header class="sticky top-0 z-40 w-full bg-surface shadow-sm h-16 flex items-center justify-between px-container-margin-mobile">
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-title-md text-title-md text-on-surface flex-1 text-center pr-10">Refund Status</h1>
+</header>
+<main class="px-container-margin-mobile py-6 flex flex-col gap-6 max-w-md mx-auto">
+<!-- Summary Card -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Refund Amount</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary">$1,099.00</p>
+</div>
+<div class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Initiated
+                </div>
+</div>
+<hr class="border-outline-variant opacity-50"/>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex-shrink-0 overflow-hidden">
+<img alt="UltraVision Pro 5G" class="w-full h-full object-cover" data-alt="A sleek, high-end smartphone with a metallic finish and multiple camera lenses, resting on a clean white surface. Soft studio lighting highlights its premium build. The aesthetic is modern, tech-focused, and minimalist, fitting a high-trust corporate environment. Colors are predominantly silver and dark gray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNzbmp28M-IQgfqCZWIz2GsLGESZ49j2_GmK5IpF5iq7oj0EoGt66d85LuVCOQGcakxAZtjzQeMaxE4zG9ocFVIdlJIInEtmb7sWMoFoF-tbf3VNWJAMdbWAjMAvRytWw_oHLcHtDjh2Etajg5hnOuaFC-EJW8XPizWgvSq4PfKxlfUALIwSp6HS3kKT0YpcRDqrDmlfGseA2Sxt2Iu4kF_nRwIYMKAfEkfkG0d1NLz2LDfAEVSpWFeYrpzop9nMGv8VwtfoZ-6rU"/>
+</div>
+<div class="flex-1">
+<p class="font-title-md text-[16px] leading-tight text-on-surface">UltraVision Pro 5G</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Return ID: #RTN-84920-X</p>
+</div>
+</div>
+</section>
+<!-- AI Insight Note (Glassmorphic) -->
+<section class="relative overflow-hidden rounded-xl p-4 bg-white/80 backdrop-blur-[12px] border border-secondary-fixed/50 shadow-sm flex gap-3 items-start">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-tertiary/5 z-0 pointer-events-none"></div>
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-secondary to-tertiary flex items-center justify-center flex-shrink-0 z-10">
+<span class="material-symbols-outlined text-white text-[18px]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="z-10">
+<p class="font-label-caps text-label-caps text-secondary mb-1">AI INSIGHT</p>
+<p class="font-body-sm text-body-sm text-on-surface">Refunds to MoMo wallets are typically processed instantly once the 'Refund Initiated' stage is reached. Expect funds momentarily.</p>
+</div>
+</section>
+<!-- Timeline -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant">
+<h2 class="font-title-md text-title-md mb-6">Tracking</h2>
+<div class="relative">
+<!-- Vertical Line -->
+<div class="absolute left-[15px] top-[24px] bottom-[24px] w-[2px] bg-surface-variant"></div>
+<!-- Active Line -->
+<div class="absolute left-[15px] top-[24px] h-[50%] w-[2px] bg-primary"></div>
+<div class="flex flex-col gap-8">
+<!-- Stage 1: Completed -->
+<div class="relative flex gap-4 z-10">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[16px]" data-icon="inventory" style="font-variation-settings: 'FILL' 1;">inventory</span>
+</div>
+<div class="flex-1 pt-1">
+<p class="font-title-md text-[16px] leading-tight text-on-surface">Return Received</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Oct 24, 2023 • 10:42 AM</p>
+</div>
+</div>
+<!-- Stage 2: Completed -->
+<div class="relative flex gap-4 z-10">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[16px]" data-icon="fact_check" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+</div>
+<div class="flex-1 pt-1">
+<p class="font-title-md text-[16px] leading-tight text-on-surface">Quality Check</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Oct 25, 2023 • 02:15 PM</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 bg-surface-container-low p-2 rounded mt-2">Item verified in original condition.</p>
+</div>
+</div>
+<!-- Stage 3: Current -->
+<div class="relative flex gap-4 z-10">
+<div class="w-8 h-8 rounded-full bg-primary-container border-2 border-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<div class="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+</div>
+<div class="flex-1 pt-1">
+<p class="font-title-md text-[16px] leading-tight text-primary">Refund Initiated</p>
+<p class="font-body-sm text-body-sm text-primary mt-1">Oct 26, 2023 • 09:00 AM</p>
+</div>
+</div>
+<!-- Stage 4: Pending -->
+<div class="relative flex gap-4 z-10 opacity-50">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="flex-1 pt-1">
+<p class="font-title-md text-[16px] leading-tight text-on-surface">Refund Completed</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Pending</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Action Button -->
+<button class="w-full bg-surface-container-high text-on-surface font-title-md text-title-md py-3 px-4 rounded-full mt-4 hover:bg-surface-variant active:scale-[0.98] transition-all">
+            Contact Support
+        </button>
+</main>
+</body></html>

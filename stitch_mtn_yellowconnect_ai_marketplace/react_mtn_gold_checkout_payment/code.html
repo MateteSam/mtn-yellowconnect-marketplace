@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><script src="https://unpkg.com/react@18/umd/react.development.js"></script><script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script><script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Gold Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#006874",
+                        "surface-dim": "#dcd9d9",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0edec",
+                        "on-secondary-fixed": "#001b3e",
+                        "primary": "#745b00",
+                        "on-surface": "#1c1b1b",
+                        "outline-variant": "#d2c5ab",
+                        "on-background": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary-container": "#6f5700",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "inverse-surface": "#313030",
+                        "inverse-primary": "#f1c100",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-container": "#76a9ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "outline": "#80765f",
+                        "primary-fixed": "#ffe08b",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#745b00",
+                        "secondary": "#1f5dae",
+                        "on-tertiary-fixed": "#001f24",
+                        "tertiary-fixed": "#95f1ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-container": "#003c7c",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-container": "#ffcc00",
+                        "tertiary-container": "#00e7fe",
+                        "on-primary-fixed": "#241a00",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-surface-variant": "#4e4632",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 204, 0, 0.3);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffcc00 0%, #f1c100 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm pb-24 md:pb-0"><div id="root"></div><script type="text/babel">
+const { useState } = React;
+
+const MTNCheckout = () => {
+  const [paymentMethod, setPaymentMethod] = useState('momo');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const subtotal = 199.00;
+  const taxRate = 0.15;
+  const taxes = subtotal * taxRate;
+  const total = subtotal + taxes;
+
+  return (
+    <div className="bg-background text-on-background min-h-screen flex flex-col font-body-sm pb-24 md:pb-0">
+      <header className="bg-surface/80 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 border-b border-outline-variant">
+        <div className="flex justify-between items-center w-full px-container-margin-mobile md:px-container-margin-desktop py-4">
+          <button className="text-on-surface hover:bg-surface-container-high p-2 rounded-full transition-colors active:scale-95 flex items-center">
+            <span className="material-symbols-outlined">arrow_back</span>
+          </button>
+          <h1 className="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-on-surface text-center flex-1">Secure Checkout</h1>
+          <div className="w-10"></div>
+        </div>
+      </header>
+
+      <main className="flex-1 mt-20 px-container-margin-mobile md:px-container-margin-desktop max-w-4xl mx-auto w-full flex flex-col gap-section-gap">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mt-8">
+          <div className="md:col-span-7 flex flex-col gap-6">
+            <section className="bg-surface rounded-xl p-6 shadow-lg border border-outline-variant relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary-container rounded-bl-full opacity-20 -mr-8 -mt-8 pointer-events-none"></div>
+              <div className="flex justify-between items-start mb-4 relative z-10">
+                <div>
+                  <span className="font-label-caps text-label-caps text-primary uppercase tracking-wider mb-1 block">Selected Plan</span>
+                  <h2 className="font-title-md text-title-md text-on-surface">MTN Gold Membership</h2>
+                </div>
+                <div className="text-right">
+                  <span className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">R {subtotal.toFixed(0)}</span>
+                  <span className="text-on-surface-variant font-body-sm block">/month</span>
+                </div>
+              </div>
+              <div className="border-t border-surface-variant pt-4 mt-2">
+                <h3 className="font-label-caps text-label-caps text-on-surface-variant mb-3 uppercase">Gold Benefits Included:</h3>
+                <ul className="space-y-2">
+                  {['Zero transaction fees on marketplace', 'Priority AI product recommendations', 'Exclusive partner discounts'].map((benefit, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                      <span className="font-body-sm text-on-surface">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            <section className="bg-surface rounded-xl p-6 shadow-sm border border-outline-variant">
+              <h3 className="font-title-md text-title-md text-on-surface mb-6">Payment Method</h3>
+              <div className="space-y-4">
+                {[ 
+                  { id: 'momo', label: 'MTN MoMo', desc: 'Pay instantly with Mobile Money', icon: 'account_balance_wallet' },
+                  { id: 'card', label: 'Credit / Debit Card', desc: 'Visa, Mastercard', icon: 'credit_card' },
+                  { id: 'airtime', label: 'MTN Airtime', desc: 'Deduct from airtime balance', icon: 'phone_iphone' }
+                ].map((method) => (
+                  <label 
+                    key={method.id} 
+                    onClick={() => setPaymentMethod(method.id)}
+                    className={`relative flex items-center justify-between p-4 rounded-lg cursor-pointer transition-all hover:bg-primary-container/20 group ${paymentMethod === method.id ? 'border-2 border-primary bg-primary-container/10' : 'border border-surface-variant bg-surface'}`}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${paymentMethod === method.id ? 'bg-primary-container text-on-primary-container' : 'bg-surface-variant text-on-surface-variant'}`}>
+                        <span className="material-symbols-outlined">{method.icon}</span>
+                      </div>
+                      <div>
+                        <span className="font-body-lg text-body-lg text-on-surface font-semibold block">{method.label}</span>
+                        <span className="font-body-sm text-on-surface-variant">{method.desc}</span>
+                      </div>
+                    </div>
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${paymentMethod === method.id ? 'border-primary' : 'border-surface-variant'}`}>
+                      {paymentMethod === method.id && <div className="w-3 h-3 rounded-full bg-primary"></div>}
+                    </div>
+                  </label>
+                ))}
+              </div>
+
+              {paymentMethod === 'momo' && (
+                <div className="mt-6 pt-6 border-t border-surface-variant">
+                  <label className="font-body-sm text-on-surface-variant mb-2 block">Enter MoMo Number</label>
+                  <div className="flex items-center bg-surface-container-low rounded-lg p-1 border border-surface-variant focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary transition-all">
+                    <span className="pl-3 text-on-surface-variant">+27</span>
+                    <input 
+                      className="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-lg p-3" 
+                      placeholder="00 000 0000" 
+                      type="tel"
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
+            </section>
+          </div>
+
+          <div className="md:col-span-5">
+            <div className="sticky top-28 bg-surface rounded-xl p-6 shadow-sm border border-outline-variant flex flex-col gap-6">
+              <h3 className="font-title-md text-title-md text-on-surface">Order Summary</h3>
+              <div className="space-y-3 font-body-sm">
+                <div className="flex justify-between text-on-surface">
+                  <span>Subtotal</span>
+                  <span>R {subtotal.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-on-surface-variant">
+                  <span>Taxes (15%)</span>
+                  <span>R {taxes.toFixed(2)}</span>
+                </div>
+                <div className="border-t border-surface-variant my-2 pt-2"></div>
+                <div className="flex justify-between items-center">
+                  <span className="font-title-md text-title-md text-on-surface">Total</span>
+                  <span className="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">R {total.toFixed(2)}</span>
+                </div>
+              </div>
+              <p className="font-body-sm text-on-surface-variant text-center text-xs">
+                By clicking "Pay Now", you agree to our Terms of Service and authorize this recurring monthly payment.
+              </p>
+              <button className="w-full gold-gradient text-on-primary-fixed font-title-md py-4 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
+                <span className="material-symbols-outlined">lock</span>
+                Pay Now
+              </button>
+              <div className="flex items-center justify-center gap-2 text-on-surface-variant mt-2">
+                <span className="material-symbols-outlined text-sm">verified_user</span>
+                <span className="text-xs font-body-sm">Secure 256-bit Encryption</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MTNCheckout />);
+</script></body></html>

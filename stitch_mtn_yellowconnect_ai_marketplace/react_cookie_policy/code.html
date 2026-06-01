@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cookie Policy - Merchant Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#aac7ff",
+                      "on-surface": "#1c1b1b",
+                      "inverse-surface": "#313030",
+                      "on-tertiary-fixed": "#001f24",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed-variant": "#584400",
+                      "secondary-container": "#76a9ff",
+                      "surface-tint": "#745b00",
+                      "outline-variant": "#d2c5ab",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#ebe7e7",
+                      "surface-bright": "#fcf9f8",
+                      "tertiary-fixed-dim": "#00daf0",
+                      "primary-fixed": "#ffe08b",
+                      "on-tertiary-container": "#00646e",
+                      "on-tertiary-fixed-variant": "#004f57",
+                      "primary": "#745b00",
+                      "on-secondary-container": "#003c7c",
+                      "on-primary-fixed": "#241a00",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f6f3f2",
+                      "tertiary-container": "#00e7fe",
+                      "on-error-container": "#93000a",
+                      "on-primary-container": "#6f5700",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#00458d",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#e5e2e1",
+                      "surface-dim": "#dcd9d9",
+                      "surface-container": "#f0edec",
+                      "on-surface-variant": "#4e4632",
+                      "secondary-fixed": "#d6e3ff",
+                      "on-background": "#1c1b1b",
+                      "background": "#fcf9f8",
+                      "outline": "#80765f",
+                      "surface-container-highest": "#e5e2e1",
+                      "secondary": "#1f5dae",
+                      "inverse-primary": "#f1c100",
+                      "tertiary": "#006874",
+                      "primary-container": "#ffcc00",
+                      "tertiary-fixed": "#95f1ff",
+                      "surface": "#fcf9f8",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#f1c100",
+                      "on-secondary-fixed": "#001b3e",
+                      "inverse-on-surface": "#f3f0ef",
+                      "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "48px",
+                      "gutter": "16px",
+                      "container-margin-mobile": "16px",
+                      "container-margin-desktop": "40px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Glassmorphism utility */
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid theme('colors.outline-variant');
+        }
+        
+        /* Toggle Switch Customization */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: theme('colors.primary');
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: theme('colors.primary-container');
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-lg text-body-lg">
+<!-- TopAppBar Header (from JSON) -->
+<header class="w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim shadow-sm dark:bg-surface-container">
+<div class="flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop h-16 w-full">
+<button aria-label="Back" class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full active:opacity-80 transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed md:font-headline-lg md:text-headline-lg tracking-tight">Merchant Marketplace</h1>
+<button aria-label="Account" class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full active:opacity-80 transition-all">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-4xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-section-gap">
+<!-- Page Title & Intro -->
+<div class="mb-10 text-center md:text-left">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-4">Cookie Policy</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                We use cookies and similar technologies to help personalize content, tailor and measure ads, and provide a better experience. By clicking accept, you agree to this, as outlined in our Cookie Policy.
+            </p>
+</div>
+<!-- Privacy Control Card (Hero Section) -->
+<div class="bg-surface-container-low rounded-xl p-6 md:p-8 mb-section-gap shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="bg-primary-container text-on-primary-container p-3 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Control Your Privacy</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Review and update your preferences for how we collect and use your data. Changes take effect immediately across your merchant profile.
+                    </p>
+</div>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary font-bold py-3 px-6 rounded-lg hover:bg-surface-tint transition-colors active:scale-95 whitespace-nowrap">
+                Manage Cookie Preferences
+            </button>
+</div>
+<!-- Cookie Categories Bento Grid -->
+<h3 class="font-title-md text-title-md text-on-surface mb-6 border-b border-surface-variant pb-2">Cookie Categories</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-section-gap">
+<!-- Essential Cookies (Always Active) -->
+<div class="bg-surface rounded-xl p-6 shadow-sm border border-outline-variant flex flex-col h-full md:col-span-2">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">security</span>
+<h4 class="font-title-md text-title-md text-on-surface">Essential Cookies</h4>
+</div>
+<span class="font-label-caps text-label-caps bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full uppercase">Always Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-grow">
+                    These cookies are necessary for the marketplace to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in, or filling in forms. You can set your browser to block or alert you about these cookies, but some parts of the site will not then work.
+                </p>
+</div>
+<!-- Analytics Cookies (Optional) -->
+<div class="bg-surface rounded-xl p-6 shadow-sm border border-outline-variant flex flex-col h-full relative overflow-hidden group">
+<div class="absolute inset-0 bg-secondary-fixed opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<h4 class="font-title-md text-title-md text-on-surface">Analytics Cookies</h4>
+</div>
+<!-- Toggle -->
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 border-outline appearance-none cursor-pointer z-10 top-0 left-0 transition-transform duration-200 checked:translate-x-5 checked:border-primary" id="toggle_analytics" name="toggle_analytics" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200" for="toggle_analytics"></label>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-grow relative z-10">
+                    These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the marketplace. All information these cookies collect is aggregated and therefore anonymous.
+                </p>
+</div>
+<!-- Marketing Cookies (Optional) -->
+<div class="bg-surface rounded-xl p-6 shadow-sm border border-outline-variant flex flex-col h-full relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary-container opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<h4 class="font-title-md text-title-md text-on-surface">Marketing Cookies</h4>
+</div>
+<!-- Toggle -->
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 border-outline appearance-none cursor-pointer z-10 top-0 left-0 transition-transform duration-200 checked:translate-x-5 checked:border-primary" id="toggle_marketing" name="toggle_marketing" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200" for="toggle_marketing"></label>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-grow relative z-10">
+                    These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites. They do not store directly personal information, but are based on uniquely identifying your browser and internet device.
+                </p>
+</div>
+<!-- AI Enhanced Intelligence Notice (Glassmorphism) -->
+<div class="ai-glass rounded-xl p-6 md:col-span-2 flex flex-col md:flex-row items-center gap-4 border-l-4 border-l-secondary">
+<div class="bg-gradient-to-br from-secondary to-tertiary text-white p-2 rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface uppercase mb-1">AI-Enhanced Personalization</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        When Analytics and Marketing cookies are enabled, our AI systems can offer highly localized marketplace insights and tailored loan recommendations based on your browsing behavior.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Detailed Policy Link -->
+<div class="text-center mt-12 pb-24 md:pb-8">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                For complete details on specific cookies and duration, please read our 
+                <a class="text-secondary font-semibold hover:underline" href="#">Full Privacy Policy</a>.
+            </p>
+</div>
+</main>
+<!-- Script for simple interactions -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggles = document.querySelectorAll('.toggle-checkbox');
+            
+            toggles.forEach(toggle => {
+                toggle.addEventListener('change', (e) => {
+                    const category = e.target.id.replace('toggle_', '');
+                    const status = e.target.checked ? 'enabled' : 'disabled';
+                    console.log(`${category} cookies ${status}`);
+                    // In a real app, save preference to localStorage or API here
+                });
+            });
+        });
+    </script>
+</body></html>

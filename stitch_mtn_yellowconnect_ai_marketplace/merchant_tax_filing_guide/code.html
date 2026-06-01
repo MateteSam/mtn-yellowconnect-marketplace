@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tax Filing Guide - MerchantHub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for horizontal sections if any */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#00e7fe",
+                        "on-surface-variant": "#4e4632",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#f1c100",
+                        "tertiary": "#006874",
+                        "primary": "#745b00",
+                        "on-primary-container": "#6f5700",
+                        "outline-variant": "#d2c5ab",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#ffcc00",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "secondary": "#1f5dae",
+                        "outline": "#80765f",
+                        "primary-fixed": "#ffe08b",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-variant": "#e5e2e1",
+                        "on-background": "#1c1b1b",
+                        "surface-container-high": "#ebe7e7",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container": "#f0edec",
+                        "tertiary-fixed": "#95f1ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-secondary-container": "#003c7c",
+                        "on-tertiary-container": "#00646e",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1c1b1b",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-container": "#76a9ff",
+                        "surface-tint": "#745b00",
+                        "on-secondary-fixed": "#001b3e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "base": "8px",
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full shadow-sm bg-surface flex items-center justify-between px-container-margin-mobile h-16 w-full z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-title-md text-title-md">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">
+            MerchantHub
+        </div>
+<button aria-label="Notifications" class="w-10 h-10 flex items-center justify-center rounded-full text-primary hover:bg-surface-container-high transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="pt-20 pb-28 px-container-margin-mobile md:px-container-margin-desktop max-w-screen-xl mx-auto flex flex-col gap-section-gap">
+<!-- Hero Section -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container-low p-6 md:p-10 border border-outline-variant shadow-sm flex flex-col md:flex-row items-center gap-6">
+<div class="flex-1 z-10">
+<span class="inline-block px-3 py-1 mb-4 rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps">Compliance Guide</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-3">Tax Filing Made Easy</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                    Navigating your tax obligations shouldn't be stressful. Follow this simple guide to effectively use your newly downloaded tax certificates for seamless filing.
+                </p>
+</div>
+<div class="w-full md:w-1/3 aspect-video md:aspect-square rounded-lg bg-surface-container-highest overflow-hidden relative shadow-inner">
+<div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-multiply" data-alt="A modern office desk setup focusing on financial documents. Soft, bright daylight illuminates neatly stacked papers, a sleek digital tablet displaying analytical charts, and a yellow highlighter. The overall aesthetic is professional, clean, and organized, representing a seamless and stress-free business management environment in a light-mode color palette." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRrJYMZhfBTWuwQ-tXCGkXIzrtpKmUdxEYAdszkF_B69dx-xlXPoE2gbvO9cWH5rdEtAGpyU3oZmFnuiPWcank6WRQZmbJiIUrlhYyfAcA4ChhgZNKJqd3UM2b73a6TAIWrkHhhKiB4vN6rq26xcf-oUPRJnobQIMmfGzCNhphY5wVWLqPETPf9Q61JmKdNp6Ul6jy8MjOe_GyXDYELwij-a7Dk4crNLvSouUAmxmqaXvSfUyhON_Be1mY06MjmVyA1jCxUfjJwEU');">
+</div>
+</div>
+</section>
+<!-- Steps to File Section -->
+<section>
+<h2 class="font-title-md text-title-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary fill-icon">checklist</span>
+                Your Step-by-Step Process
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-surface-variant flex flex-col items-start gap-4 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-title-md text-title-md shrink-0">
+                        1
+                    </div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Locate &amp; Download</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                            Ensure you have the latest PDF version of your certificate saved securely on your device.
+                        </p>
+<button class="text-secondary font-title-md text-body-sm flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[18px]">download</span> Download History
+                        </button>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-surface-variant flex flex-col items-start gap-4 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-title-md text-title-md shrink-0">
+                        2
+                    </div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Review Data Accuracy</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Cross-reference the total transaction volumes and deducted fees on the certificate against your internal ledgers to ensure perfect alignment.
+                        </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-surface-variant flex flex-col items-start gap-4 hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+<!-- Subtle decorative accent -->
+<div class="absolute top-0 right-0 w-16 h-16 bg-tertiary-container rounded-bl-full opacity-20 -z-0"></div>
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-title-md text-title-md shrink-0 z-10">
+                        3
+                    </div>
+<div class="z-10">
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Upload to Tax Portal</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                            Log in to your local revenue authority portal and attach the downloaded certificate as supporting evidence for your declarations.
+                        </p>
+<a class="inline-flex items-center justify-center px-4 py-2 bg-primary text-on-primary rounded-lg font-title-md text-body-sm transition-colors hover:bg-surface-tint w-full" href="#">
+                            Open Portal Link <span class="material-symbols-outlined ml-2 text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Common Questions Accordion -->
+<section class="max-w-2xl">
+<h2 class="font-title-md text-title-md text-on-surface mb-4">Common Questions</h2>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant divide-y divide-outline-variant">
+<details class="group p-4 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between font-title-md text-body-lg text-on-surface">
+                        What format is the certificate?
+                        <span class="transition duration-300 group-open:-rotate-180 material-symbols-outlined text-outline">expand_more</span>
+</summary>
+<div class="mt-4 font-body-sm text-body-sm text-on-surface-variant">
+                        The certificates are provided as secure, digitally signed PDF documents that are officially recognized by standard tax authorities.
+                    </div>
+</details>
+<details class="group p-4 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between font-title-md text-body-lg text-on-surface">
+                        Can I request an amendment?
+                        <span class="transition duration-300 group-open:-rotate-180 material-symbols-outlined text-outline">expand_more</span>
+</summary>
+<div class="mt-4 font-body-sm text-body-sm text-on-surface-variant">
+                        If you notice a discrepancy between your records and the generated certificate, please contact support within 30 days of issuance for a review.
+                    </div>
+</details>
+</div>
+</section>
+<!-- Support CTA -->
+<section class="bg-secondary-container text-on-secondary-container rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 mt-4 shadow-sm">
+<div>
+<h3 class="font-title-md text-title-md mb-1">Need specialized assistance?</h3>
+<p class="font-body-sm text-body-sm opacity-90">Our dedicated merchant tax support team is ready to help clarify any data points.</p>
+</div>
+<button class="whitespace-nowrap px-6 py-3 bg-surface-container-lowest text-secondary font-title-md text-body-lg rounded-lg shadow-sm hover:bg-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">support_agent</span>
+                Contact Tax Support
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pb-4 pt-2 px-2 bg-surface-container-lowest border-t border-outline-variant shadow-lg md:hidden rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1 hover:text-primary transition-all active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1 fill-icon" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-label-caps">Compliance</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" data-icon="account_balance">account_balance</span>
+<span class="font-label-caps text-label-caps">Lending</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</button>
+</nav>
+</body></html>

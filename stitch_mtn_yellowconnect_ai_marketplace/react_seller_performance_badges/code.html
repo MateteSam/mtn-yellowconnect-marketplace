@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Performance Badges - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#006874",
+                        "surface-dim": "#dcd9d9",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0edec",
+                        "on-secondary-fixed": "#001b3e",
+                        "primary": "#745b00",
+                        "on-surface": "#1c1b1b",
+                        "outline-variant": "#d2c5ab",
+                        "on-background": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary-container": "#6f5700",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "inverse-surface": "#313030",
+                        "inverse-primary": "#f1c100",
+                        "on-tertiary-container": "#00646e",
+                        "secondary-container": "#76a9ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "outline": "#80765f",
+                        "primary-fixed": "#ffe08b",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#745b00",
+                        "secondary": "#1f5dae",
+                        "on-tertiary-fixed": "#001f24",
+                        "tertiary-fixed": "#95f1ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-container": "#003c7c",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-container": "#ffcc00",
+                        "tertiary-container": "#00e7fe",
+                        "on-primary-fixed": "#241a00",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-surface-variant": "#4e4632",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter", "sans-serif"],
+                        "title-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-sm min-h-screen flex flex-col md:flex-row antialiased">
+<div class="bg-surface text-on-surface font-body-sm min-h-screen flex flex-col md:flex-row antialiased" id="root">
+<!-- Desktop Navigation Drawer -->
+<aside class="hidden md:flex h-full w-80 bg-surface-container-low border-r border-outline-variant/30 fixed inset-y-0 left-0 z-50 flex-col p-4">
+<div class="flex items-center gap-4 p-4 border-b border-outline-variant/30 mb-4">
+<div class="w-12 h-12 rounded-full bg-primary-container overflow-hidden flex-shrink-0">
+<img alt="Alex M." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjq3Lvm4IlP02PXP495Y2G6WSysujDgoV1D3niI2-lyzK4Zy687puXMSGk1e_MflGZHnGwXFK0s6_MSvugJjvkH2OXNYJmOlaVfQG4mGoLY7rJMRwmS31NYjDPnTFV1H0Ho7mUTH3-Q6RY_6PTa1qWUJvby42PMKnl3tt7su9_TyM5LUYywHfAXd60EiZQqGBIv5B_3UF-pvyWMOvqs4cY9MNjZPLMviLg7gQeUC6_7p09kV73HALf3RSJxfgiVWXdaiU3hHlK0vg"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-primary">Alex M.</span>
+<span class="text-body-sm text-on-surface-variant">Gold Merchant</span>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-body-lg">Seller Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container font-bold" href="#">
+<span class="material-symbols-outlined icon-filled">military_tech</span>
+<span class="text-body-lg">Performance Badges</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg mt-auto hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-body-lg">Support</span>
+</a>
+</nav>
+</aside>
+<!-- Main Component Area -->
+<main class="flex-1 md:ml-80 flex flex-col pb-24 md:pb-0">
+<!-- Header Component -->
+<header class="sticky top-0 bg-surface/80 backdrop-blur-md z-40 border-b border-outline-variant px-container-margin-mobile md:px-container-margin-desktop py-4 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary p-2"><span class="material-symbols-outlined">menu</span></button>
+<h1 class="text-title-md font-bold text-primary">MTN Marketplace</h1>
+</div>
+<div class="hidden md:block text-headline-lg-mobile text-primary">Performance Badges</div>
+<div class="md:hidden w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsnTZwtapk5xvjRnDkyjVrNi5Q4RgYnH37S-6dxcaAo-OTp2enwCns-Q-7wy9Yz72fG1bpGsV7cdqgIAq5E2Ss5Yl3anLYAXkuMcBpgKxVzBYaKVFeXLpdPh8E4HKEUTbS4-hyeUnBluDX-df_uXbiyIEQze5vzQxeDQ-OVKAyZAY702HNQCaSpaPG2GBfvexIFJgVLlIqHgYFPm5gVXfZ6GHGCkwk-DoqM8lgRyLAFJlnvJx9QkZ-dAjgljcstydRnKN4144_bHs"/>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-gutter md:p-container-margin-desktop flex flex-col gap-section-gap max-w-7xl mx-auto w-full">
+<!-- Hero Status Component -->
+<section class="rounded-xl bg-surface-container p-6 border border-outline-variant/30 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined icon-filled text-3xl">workspace_premium</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg">Gold Merchant Status</h2>
+</div>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">You are in the top 5% of sellers this month. Maintain your stellar service and activity milestones to unlock Platinum tier.</p>
+</div>
+<div class="text-right">
+<span class="text-title-md text-on-surface">Overall Score</span>
+<div class="text-4xl font-bold text-secondary">92<span class="text-title-md text-on-surface-variant">/100</span></div>
+</div>
+</section>
+<!-- Badges Grid Component -->
+<div class="space-y-12">
+<!-- Trust & Reliability Section -->
+<div class="space-y-4">
+<h3 class="text-title-md text-on-surface flex items-center gap-2 border-b border-outline-variant pb-2">
+<span class="material-symbols-outlined text-secondary">verified_user</span>Trust &amp; Reliability
+          </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Badge Card (Reusable Pattern) -->
+<div class="bg-surface-container-low p-5 rounded-xl border border-primary/20 shadow-sm flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined icon-filled">star</span>
+</div>
+<span class="text-label-caps bg-primary/10 text-primary px-2 py-1 rounded">EARNED</span>
+</div>
+<h4 class="text-title-md mb-1">Top Rated</h4>
+<p class="text-body-sm text-on-surface-variant flex-grow mb-4">4.8+ average rating over the last 90 days with 50+ completed transactions.</p>
+<div class="w-full bg-surface-variant h-1.5 rounded-full">
+<div class="bg-primary h-full rounded-full w-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-secondary/20 shadow-sm flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined icon-filled">gpp_good</span>
+</div>
+<span class="text-label-caps bg-secondary/10 text-secondary px-2 py-1 rounded">EARNED</span>
+</div>
+<h4 class="text-title-md mb-1">Verified Identity</h4>
+<p class="text-body-sm text-on-surface-variant flex-grow mb-4">Completed advanced business KYC and localized address verification.</p>
+<div class="w-full bg-surface-variant h-1.5 rounded-full">
+<div class="bg-secondary h-full rounded-full w-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Service Excellence Section -->
+<div class="space-y-4">
+<h3 class="text-title-md text-on-surface flex items-center gap-2 border-b border-outline-variant pb-2">
+<span class="material-symbols-outlined text-secondary">local_shipping</span>Service Excellence
+          </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant shadow-sm flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<span class="text-label-caps bg-surface-variant text-on-surface-variant px-2 py-1 rounded">IN PROGRESS</span>
+</div>
+<h4 class="text-title-md mb-1">Fast Shipper</h4>
+<p class="text-body-sm text-on-surface-variant flex-grow mb-4">Ship 95% of orders within 24 hours of payment. Currently at 88%.</p>
+<div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[88%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-tertiary/20 shadow-sm flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined icon-filled">forum</span>
+</div>
+<span class="text-label-caps bg-tertiary/10 text-tertiary px-2 py-1 rounded">EARNED</span>
+</div>
+<h4 class="text-title-md mb-1">Super Respondent</h4>
+<p class="text-body-sm text-on-surface-variant flex-grow mb-4">Response time under 1 hour. Current average is 42 minutes.</p>
+<div class="w-full bg-surface-variant h-1.5 rounded-full">
+<div class="bg-tertiary h-full rounded-full w-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low border-t border-outline-variant flex justify-around p-2 z-50">
+<a class="flex flex-col items-center p-2 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] uppercase font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center p-2 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] uppercase font-bold">Search</span>
+</a>
+<a class="flex flex-col items-center p-2 bg-primary-container text-on-primary-container rounded-xl px-4" href="#">
+<span class="material-symbols-outlined icon-filled">person</span>
+<span class="text-[10px] uppercase font-bold">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Product - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#001f24",
+                        "primary": "#745b00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "background": "#fcf9f8",
+                        "inverse-primary": "#f1c100",
+                        "on-primary-container": "#6f5700",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "primary-container": "#ffcc00",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline": "#80765f",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "surface-container-high": "#ebe7e7",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container": "#f0edec",
+                        "tertiary": "#006874",
+                        "primary-fixed": "#ffe08b",
+                        "secondary": "#1f5dae",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-secondary-container": "#003c7c",
+                        "primary-fixed-dim": "#f1c100",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-container": "#76a9ff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#00646e",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#00e7fe",
+                        "surface-bright": "#fcf9f8",
+                        "tertiary-fixed": "#95f1ff",
+                        "on-secondary-fixed": "#001b3e",
+                        "surface-tint": "#745b00",
+                        "on-surface-variant": "#4e4632",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-dim": "#dcd9d9",
+                        "outline-variant": "#d2c5ab",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-mobile": "16px",
+                        "section-gap": "48px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 104, 116, 0.2);
+        }
+        .ai-gradient-text {
+            background: linear-gradient(90deg, #1f5dae, #006874);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .ai-gradient-bg {
+            background: linear-gradient(135deg, #1f5dae, #006874);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24 md:pb-0 pt-16 md:pt-0 flex md:flex-row flex-col">
+<!-- TopAppBar (Mobile) / Header (Desktop) -->
+<header class="bg-surface shadow-md fixed top-0 w-full z-50 flex items-center justify-between px-container-margin-mobile h-16 w-full md:hidden">
+<div class="flex items-center gap-4">
+<button aria-label="menu" class="text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">MTN Marketplace</h1>
+</div>
+<div class="flex items-center">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Side Navigation (Desktop) -->
+<nav class="hidden md:flex flex-col h-screen w-80 bg-surface-container-low border-r border-outline-variant shadow-xl fixed left-0 top-0 overflow-y-auto z-40">
+<div class="p-6 flex flex-col items-start border-b border-outline-variant">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-primary overflow-hidden">
+<span class="material-symbols-outlined text-title-md">storefront</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md font-bold text-primary">MTN Merchant</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Verified Seller</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary-container px-2 py-1 rounded-full">Premium Account</span>
+</div>
+<div class="flex-1 py-4 flex flex-col gap-1">
+<a class="flex items-center gap-4 text-on-surface-variant mx-2 my-1 px-4 py-3 rounded-full hover:bg-surface-container-high transition-all active:opacity-80" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 bg-secondary-container text-on-secondary-container rounded-full mx-2 my-1 px-4 py-3 hover:bg-surface-container-high transition-all active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+<span class="font-body-lg text-body-lg font-semibold">Inventory</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant mx-2 my-1 px-4 py-3 rounded-full hover:bg-surface-container-high transition-all active:opacity-80" href="#">
+<span class="material-symbols-outlined">category</span>
+<span class="font-body-lg text-body-lg">Categories</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant mx-2 my-1 px-4 py-3 rounded-full hover:bg-surface-container-high transition-all active:opacity-80" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-body-lg text-body-lg">Feedback Hub</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant mx-2 my-1 px-4 py-3 rounded-full hover:bg-surface-container-high transition-all active:opacity-80" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-lg text-body-lg">Account</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-80 p-container-margin-mobile md:p-container-margin-desktop max-w-[1280px] mx-auto w-full flex flex-col gap-section-gap">
+<!-- Header Actions -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-2">
+<span class="material-symbols-outlined text-body-sm">arrow_back</span>
+<a class="font-body-sm text-body-sm hover:underline" href="#">Back to Inventory</a>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Edit Product</h1>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none font-body-lg text-body-lg font-semibold text-primary bg-surface-container border border-outline-variant px-6 py-3 rounded-lg hover:bg-surface-container-high transition-colors text-center">Save Draft</button>
+<button class="flex-1 md:flex-none font-body-lg text-body-lg font-semibold text-on-primary bg-primary px-6 py-3 rounded-lg hover:bg-on-primary-container transition-colors text-center">Publish</button>
+</div>
+</div>
+<!-- Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Primary Details -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Basic Info Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 border border-surface-variant">
+<h2 class="font-title-md text-title-md text-on-background mb-6 border-b border-surface-variant pb-2">Basic Information</h2>
+<div class="flex flex-col gap-4">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Product Title</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" placeholder="Enter product title" type="text" value="Premium Wireless Headphones"/>
+</div>
+<!-- AI Description Generator -->
+<div class="glass-panel rounded-xl p-5 relative overflow-hidden mt-2">
+<div class="absolute top-0 right-0 p-3 opacity-20">
+<span class="material-symbols-outlined text-display-lg text-secondary">auto_awesome</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-label-caps text-label-caps ai-gradient-text flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">magic_button</span> AI Description Assistant
+                                    </h3>
+<button class="ai-gradient-bg text-white font-label-caps text-label-caps px-3 py-1.5 rounded-full flex items-center gap-1 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Generate
+                                    </button>
+</div>
+<div class="mb-3">
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Keywords</label>
+<input class="w-full bg-white border border-outline-variant rounded-lg px-3 py-2 font-body-sm text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" type="text" value="wireless, noise-canceling, 24h battery, ergonomic"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Description</label>
+<textarea class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors resize-y" rows="4">Experience pure audio bliss with our premium wireless headphones. Designed for comfort with an ergonomic fit, they feature active noise-canceling technology to block out distractions. Enjoy uninterrupted music with an impressive 24-hour battery life. Perfect for travel, work, or everyday listening.</textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Media Upload Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 border border-surface-variant">
+<h2 class="font-title-md text-title-md text-on-background mb-6 border-b border-surface-variant pb-2">Product Media</h2>
+<div class="border-2 border-dashed border-outline-variant bg-surface-container-low rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container-high transition-colors mb-4">
+<div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-headline-lg">cloud_upload</span>
+</div>
+<p class="font-title-md text-title-md text-on-background">Click to upload or drag and drop</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">PNG, JPG or MP4 (max. 10MB)</p>
+</div>
+<!-- Image Gallery Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Image 1 -->
+<div class="relative group aspect-square rounded-lg overflow-hidden border border-outline-variant">
+<div class="w-full h-full bg-cover bg-center" data-alt="A sleek, modern pair of black wireless headphones resting on a minimalist white surface. The lighting is soft and high-key, creating a bright, professional product photography aesthetic. Subtle shadows enhance the depth and premium feel of the product. The overall style aligns with a clean, high-trust digital marketplace." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJk9eLCEulxVGiwR40mVsu2YD-XRdbMboqqY882y7CQ2bFgz0AkpcS8VLfamrpnIONhjih6pX1_LrlzzSv1bntvlndtlNYWrh_mE0aAxY0eb8gWLoGmrGI_b9_EKNZ0tzz-qy8PRq0khigA4pFJdQcbTc4OYycYDHihnt9-g73tdHVvrlGNnVJYtE6QCVeyz3jD6FmOZXemb_OZYqzKgmWHZb30GfUhhcagamlaR8-tQhfnA9VFs9OfFH3QUlDY9CdzjE3KY4ollA')"></div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="bg-white text-on-background p-1.5 rounded-full hover:bg-surface-variant"><span class="material-symbols-outlined text-body-sm">edit</span></button>
+<button class="bg-error text-on-error p-1.5 rounded-full hover:opacity-90"><span class="material-symbols-outlined text-body-sm">delete</span></button>
+</div>
+<span class="absolute top-2 left-2 bg-primary text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded text-[10px]">Main</span>
+</div>
+<!-- Image 2 -->
+<div class="relative group aspect-square rounded-lg overflow-hidden border border-outline-variant">
+<div class="w-full h-full bg-cover bg-center" data-alt="A close-up shot of the ear pad of premium wireless headphones, showing the high-quality textured material. The lighting highlights the fine stitching and soft cushioning. The background is a soft, blurred neutral tone, emphasizing the product's detail and craftsmanship. The aesthetic is modern, clean, and professional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBh4YZz0knZevVhDSqlfdksiTGd5gnpujYmMhPlky2tDJiIiM8lli5MJ19DgBeW6Fy3uuKJQZ3T62nhaHPPQKyvz1DP2ON02c6do2tfWWHiqNhjXc3-URiPZrPqv1RXhew4c3Y8Jv6b3cmmjMdfhBiJF123Ls9qBn_wWbWoXesRfN8GOBqIICztxMNtF3aAvH5GjwlsntGuKUTNtErxMfq5Pp2Vn1ifNwXcx1OADxviyWHzDq9ArdpPFPa6_V3Cm01wV7c_wVENjuc')"></div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="bg-white text-on-background p-1.5 rounded-full hover:bg-surface-variant"><span class="material-symbols-outlined text-body-sm">edit</span></button>
+<button class="bg-error text-on-error p-1.5 rounded-full hover:opacity-90"><span class="material-symbols-outlined text-body-sm">delete</span></button>
+</div>
+</div>
+<!-- Empty Slots -->
+<div class="aspect-square rounded-lg border border-dashed border-outline-variant flex items-center justify-center text-outline-variant bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Secondary Details & Insights -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Pricing & Inventory Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 border border-surface-variant">
+<h2 class="font-title-md text-title-md text-on-background mb-6 border-b border-surface-variant pb-2">Pricing &amp; Inventory</h2>
+<div class="flex flex-col gap-4">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Price</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg pl-8 pr-4 py-3 font-body-lg text-body-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" type="number" value="199.99"/>
+</div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Discount Price</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg pl-8 pr-4 py-3 font-body-lg text-body-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" type="number" value="149.99"/>
+</div>
+</div>
+</div>
+<!-- AI Pricing Insights -->
+<div class="glass-panel rounded-lg p-4 flex items-start gap-3 border-l-4 border-l-tertiary">
+<span class="material-symbols-outlined text-tertiary mt-0.5" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<div>
+<p class="font-label-caps text-label-caps text-tertiary mb-1">AI Market Insight</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Similar items are trending at $135 - $155. Your current discount price places you in the highly competitive bracket.</p>
+</div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">SKU</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" type="text" value="HDPH-WL-001"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Stock Quantity</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" type="number" value="45"/>
+</div>
+</div>
+</div>
+<!-- Organization Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 border border-surface-variant">
+<h2 class="font-title-md text-title-md text-on-background mb-6 border-b border-surface-variant pb-2">Organization</h2>
+<div class="flex flex-col gap-4">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Category</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors">
+<option>Electronics</option>
+<option selected="">Audio &amp; Headphones</option>
+<option>Accessories</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Status</label>
+<div class="flex items-center gap-3 bg-surface-container-low p-2 rounded-lg border border-outline-variant">
+<button class="flex-1 py-1.5 rounded bg-surface text-on-surface shadow-sm font-body-sm text-body-sm font-semibold">Active</button>
+<button class="flex-1 py-1.5 rounded text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high transition-colors">Draft</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-surface shadow-[0px_-4px_12px_rgba(0,0,0,0.05)] fixed bottom-0 w-full z-50 flex justify-around items-center h-20 w-full px-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/50 transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-caps text-label-caps mt-1">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 hover:bg-surface-variant/50 transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">reviews</span>
+<span class="font-label-caps text-label-caps mt-1">Reviews</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/50 transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-caps text-label-caps mt-1">Insights</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-variant/50 transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

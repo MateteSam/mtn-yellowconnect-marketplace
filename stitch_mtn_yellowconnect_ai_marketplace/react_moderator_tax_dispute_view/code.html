@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tax Dispute Detail View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed-dim": "#f1c100",
+                        "primary": "#745b00",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary-container": "#6f5700",
+                        "tertiary": "#006874",
+                        "background": "#fcf9f8",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-container": "#003c7c",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-primary": "#f1c100",
+                        "surface-container": "#f0edec",
+                        "on-tertiary-container": "#00646e",
+                        "surface-tint": "#745b00",
+                        "inverse-surface": "#313030",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#4e4632",
+                        "on-error": "#ffffff",
+                        "outline": "#80765f",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "secondary-container": "#76a9ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "tertiary-container": "#00e7fe",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffe08b",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary": "#1f5dae",
+                        "outline-variant": "#d2c5ab",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#ffcc00",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-high": "#ebe7e7",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid;
+            border-image-source: linear-gradient(135deg, #f1c100 0%, #1f5dae 100%);
+            border-image-slice: 1;
+        }
+        /* Scrollbar styling for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dcd9d9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #80765f;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased min-h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Navigation Drawer (Desktop/Tablet) -->
+<aside class="hidden md:flex flex-col h-full w-80 fixed left-0 top-0 z-[60] bg-surface-container-low dark:bg-surface-container-high shadow-xl overflow-y-auto">
+<div class="p-container-margin-desktop border-b border-surface-variant flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-title-md text-title-md shrink-0">
+                MP
+            </div>
+<div>
+<h2 class="font-title-md text-title-md text-primary">Moderator Panel</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trust &amp; Safety Division</p>
+</div>
+</div>
+<nav class="flex-1 py-4">
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-active:scale-95 duration-150">history_edu</span>
+<span class="font-body-lg text-body-lg">Audit Logs</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-active:scale-95 duration-150">payments</span>
+<span class="font-body-lg text-body-lg">Payout Rules</span>
+</a>
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg m-2 p-3 group" href="#">
+<span class="material-symbols-outlined group-active:scale-95 duration-150" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span class="font-body-lg text-body-lg">Merchant Disputes</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant m-2 p-3 hover:bg-surface-variant/50 transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-active:scale-95 duration-150">warning</span>
+<span class="font-body-lg text-body-lg">Risk Alerts</span>
+</a>
+</nav>
+<div class="p-4 border-t border-surface-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-70">V2.4.0</p>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col h-screen md:ml-80 relative overflow-hidden">
+<!-- TopAppBar (Mobile/Desktop Hybrid) -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 w-full shrink-0 z-50">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface p-2 hover:bg-surface-container-low rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary font-bold">Dispute #TX-8924A</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="hidden sm:flex items-center gap-2 cursor-pointer hover:bg-surface-container-low p-1 pr-3 rounded-full transition-colors">
+<img alt="Admin Profile" class="w-8 h-8 rounded-full border border-surface-variant" data-alt="A close up portrait photo of a professional man in his late thirties with short brown hair and a slight smile. He is wearing a dark blue button down shirt against a plain light gray background. The lighting is soft and even, highlighting a friendly and trustworthy demeanor suitable for a corporate profile picture. High resolution, clear focus, professional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfjhXIo-enbtyhAgHHeX9-isxN_BQmjdqfiRNrX-O0TvHP50aVC1kJtwMeAmEVhQVpgYQ9ykVwflz2XaJMQTwz34j5bED7Q1_TnSVHN00hy0SrEZ5o38lMSXrjHnY_KgSUwalCrHpPGP4PsiTwMbtd2A4Kt2cW7_620maXHfx6Y3MUfIpt8kA-Kf-yO5OKmoDgdpFCtgV8qN8pIaKaMP7w-au9GF1f8xxEgxEvodlTv-giPkj6eDIysrBWpgY4QWS23DtT7N3_qqU"/>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_drop_down</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto p-container-margin-mobile md:p-container-margin-desktop bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto space-y-section-gap pb-24 md:pb-8">
+<!-- Header Actions & Status -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="px-2.5 py-1 bg-error-container text-on-error-container font-label-caps text-label-caps rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+                                High Priority
+                            </span>
+<span class="px-2.5 py-1 bg-surface-variant text-on-surface-variant font-label-caps text-label-caps rounded-full">
+                                Pending Review
+                            </span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">VAT Deduction Dispute</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Submitted: Oct 24, 2023 • SLA Deadline: <span class="text-error font-semibold">2h 15m</span></p>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-4 py-2 bg-surface text-secondary border border-secondary font-title-md text-body-lg rounded-lg hover:bg-secondary/5 transition-colors active:scale-95 duration-150 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">forum</span>
+                            Contact Merchant
+                        </button>
+<button class="flex-1 md:flex-none px-4 py-2 bg-secondary text-on-secondary font-title-md text-body-lg rounded-lg hover:bg-secondary/90 transition-colors shadow-sm active:scale-95 duration-150 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">gavel</span>
+                            Resolve Case
+                        </button>
+</div>
+</div>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Case Details (Span 8) -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- AI Insights Glass Card -->
+<div class="ai-glass rounded-xl p-6 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-fixed-dim/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-tertiary flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+                                        AI Case Analysis
+                                        <span class="font-label-caps text-label-caps bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded-sm">Beta</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-3">Confidence Score: <span class="text-tertiary font-bold">87%</span></p>
+<div class="bg-surface/50 rounded-lg p-4 border border-surface-variant/50 text-body-sm">
+<p class="text-on-surface mb-2">The merchant is disputing a <strong>15% VAT deduction</strong> applied to Order #992-A. The AI cross-referenced their tax residency certificate (attached) and found an active exemption status for digital goods in their region (Region B) effective until Dec 2024.</p>
+<p class="text-on-surface-variant italic">Recommendation: Approve dispute and refund deducted amount. The deduction appears to have been applied erroneously by the legacy billing system.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Merchant & Contested Amount Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Merchant Info Card -->
+<div class="bg-surface border border-surface-variant rounded-xl p-5 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between border-b border-surface-variant pb-3 mb-3">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">storefront</span>
+                                        Merchant Profile
+                                    </h3>
+<a class="text-secondary hover:underline font-body-sm text-body-sm" href="#">View Full</a>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 bg-surface-container-low rounded-lg border border-surface-variant flex items-center justify-center font-bold text-primary text-xl">
+                                        TZ
+                                    </div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface leading-tight">TechZone Electronics</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ID: MCH-4492-XZ</p>
+</div>
+</div>
+<ul class="space-y-2 font-body-sm text-body-sm">
+<li class="flex justify-between">
+<span class="text-on-surface-variant">Tax Residency</span>
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="w-4 h-3 bg-surface-variant inline-block"></span> Region B
+                                        </span>
+</li>
+<li class="flex justify-between">
+<span class="text-on-surface-variant">Tier</span>
+<span class="text-primary font-semibold">Premium Partner</span>
+</li>
+<li class="flex justify-between">
+<span class="text-on-surface-variant">Dispute Rate</span>
+<span class="text-tertiary font-semibold">0.4% (Low)</span>
+</li>
+</ul>
+</div>
+<!-- Contested Deduction Card -->
+<div class="bg-surface border border-surface-variant rounded-xl p-5 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between border-b border-surface-variant pb-3 mb-3">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-error">receipt_long</span>
+                                        Contested Amount
+                                    </h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-highest px-2 py-1 rounded">Order #992-A</span>
+</div>
+<div class="mb-4">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Deducted Value</p>
+<p class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold text-error">
+                                        $450.00 <span class="text-body-lg font-normal text-on-surface-variant align-middle">USD</span>
+</p>
+</div>
+<ul class="space-y-2 font-body-sm text-body-sm">
+<li class="flex justify-between">
+<span class="text-on-surface-variant">Deduction Type</span>
+<span class="text-on-surface font-semibold">Digital Goods VAT (15%)</span>
+</li>
+<li class="flex justify-between">
+<span class="text-on-surface-variant">Original Transaction</span>
+<span class="text-on-surface">$3,000.00 USD</span>
+</li>
+<li class="flex justify-between">
+<span class="text-on-surface-variant">Date Applied</span>
+<span class="text-on-surface">Oct 20, 2023</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Merchant Statement -->
+<div class="bg-surface border border-surface-variant rounded-xl p-5 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-on-surface-variant">format_quote</span>
+                                Merchant Statement
+                            </h3>
+<div class="bg-surface-container-low p-4 rounded-lg font-body-sm text-body-sm text-on-surface border-l-4 border-primary">
+                                "We were charged a 15% VAT on this transaction despite having a valid exemption certificate on file for digital goods sales in this region. This seems to be a system error as our previous transactions this month did not incur this deduction. Please review the attached tax document and refund the $450."
+                            </div>
+</div>
+</div>
+<!-- Right Column: Evidence & Actions (Span 4) -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Evidence Attachments -->
+<div class="bg-surface border border-surface-variant rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.02)] overflow-hidden">
+<div class="p-4 border-b border-surface-variant bg-surface-container-lowest">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">attach_file</span>
+                                    Evidence Provided
+                                </h3>
+</div>
+<div class="p-2">
+<!-- Attachment Item -->
+<div class="flex items-center gap-3 p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="w-10 h-10 bg-error-container text-on-error-container rounded flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-title-md text-body-sm text-on-surface truncate group-hover:text-secondary transition-colors">Tax_Exemption_2023.pdf</p>
+<p class="font-body-sm text-label-caps text-on-surface-variant">1.2 MB • Oct 24</p>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<!-- Attachment Item -->
+<div class="flex items-center gap-3 p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="w-10 h-10 bg-secondary-container text-on-secondary-container rounded flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">image</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-title-md text-body-sm text-on-surface truncate group-hover:text-secondary transition-colors">Order_Invoice_992A.png</p>
+<p class="font-body-sm text-label-caps text-on-surface-variant">850 KB • Oct 24</p>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- System Logs -->
+<div class="bg-surface border border-surface-variant rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.02)] p-5">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-on-surface-variant">list_alt</span>
+                                Related Logs
+                            </h3>
+<div class="space-y-4 relative before:absolute before:inset-y-0 before:left-2.5 before:w-px before:bg-surface-variant">
+<!-- Log Item -->
+<div class="relative flex gap-4">
+<div class="w-5 h-5 rounded-full bg-surface-container-highest border-2 border-surface flex items-center justify-center shrink-0 mt-0.5 z-10">
+<span class="w-2 h-2 rounded-full bg-on-surface-variant"></span>
+</div>
+<div>
+<p class="font-title-md text-body-sm text-on-surface">Dispute Opened</p>
+<p class="font-body-sm text-label-caps text-on-surface-variant">Oct 24, 09:15 AM</p>
+</div>
+</div>
+<!-- Log Item -->
+<div class="relative flex gap-4">
+<div class="w-5 h-5 rounded-full bg-error-container border-2 border-surface flex items-center justify-center shrink-0 mt-0.5 z-10">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+</div>
+<div>
+<p class="font-title-md text-body-sm text-on-surface">VAT Deduction Applied</p>
+<p class="font-body-sm text-label-caps text-on-surface-variant">Oct 20, 14:30 PM • System</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

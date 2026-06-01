@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compliance Center - Rejected</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#006874",
+                        "secondary-fixed": "#d6e3ff",
+                        "error": "#ba1a1a",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "surface-container": "#f0edec",
+                        "on-primary-fixed": "#241a00",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#95f1ff",
+                        "outline-variant": "#d2c5ab",
+                        "on-primary-container": "#6f5700",
+                        "on-secondary-container": "#003c7c",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-surface": "#1c1b1b",
+                        "surface-container-high": "#ebe7e7",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#f1c100",
+                        "outline": "#80765f",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-bright": "#fcf9f8",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#00646e",
+                        "primary": "#745b00",
+                        "tertiary-container": "#00e7fe",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#ffcc00",
+                        "on-background": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-container": "#76a9ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#4e4632",
+                        "primary-fixed": "#ffe08b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001b3e",
+                        "surface-tint": "#745b00",
+                        "secondary": "#1f5dae",
+                        "inverse-surface": "#313030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "section-gap": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased">
+<!-- TopAppBar -->
+<header class="hidden md:flex fixed top-0 left-0 w-full z-50 items-center justify-between px-container-margin-desktop h-16 bg-surface dark:bg-surface-container-high shadow-md">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-highest transition-colors rounded-full active:scale-95 transition-transform text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-on-surface">Merchant Central</h1>
+</div>
+<nav class="flex gap-6">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest transition-colors p-2 rounded-lg" href="#">
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed border-b-2 border-primary pb-1" href="#">
+<span class="font-label-caps text-label-caps">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest transition-colors p-2 rounded-lg" href="#">
+<span class="font-label-caps text-label-caps">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest transition-colors p-2 rounded-lg" href="#">
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-highest transition-colors rounded-full active:scale-95 transition-transform text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Mobile TopAppBar Equivalent (Content only) -->
+<div class="md:hidden sticky top-0 left-0 w-full z-40 bg-surface px-container-margin-mobile py-4 flex items-center justify-between border-b border-surface-variant">
+<div class="flex items-center gap-3">
+<button class="text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-title-md text-title-md text-on-surface">Compliance Center</h1>
+</div>
+<button class="text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<!-- Main Content Canvas -->
+<main class="pt-4 md:pt-24 pb-28 px-container-margin-mobile md:px-container-margin-desktop max-w-[1280px] mx-auto min-h-screen flex flex-col gap-section-gap">
+<section class="flex flex-col gap-gutter">
+<div class="md:hidden">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Compliance Center</h2>
+</div>
+<div class="hidden md:block">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Compliance Center</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Manage your business verification and regulatory documents.</p>
+</div>
+<!-- Error/Rejected Card -->
+<div class="bg-error-container border border-error/20 rounded-xl p-6 flex flex-col gap-4 shadow-sm relative overflow-hidden">
+<!-- Decorative subtle pattern -->
+<div class="absolute -right-10 -top-10 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[120px] text-error fill-icon">warning</span>
+</div>
+<div class="flex items-start gap-4 relative z-10">
+<div class="bg-error text-on-error p-2 rounded-full flex-shrink-0 mt-1">
+<span class="material-symbols-outlined fill-icon" data-icon="error">error</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-title-md text-title-md text-on-error-container">Verification Rejected</h3>
+<p class="font-body-sm text-body-sm text-on-error-container/80">
+<strong>Reason:</strong> Document mismatch: The name on the VAT certificate does not match the business name on your profile.
+                        </p>
+</div>
+</div>
+<div class="mt-4 border-t border-error/10 pt-4 flex justify-end z-10">
+<button class="bg-primary text-on-primary-fixed font-title-md text-title-md py-3 px-6 rounded-lg active:scale-95 transition-transform shadow-md hover:bg-primary/90">
+                        Re-submit Documents
+                    </button>
+</div>
+</div>
+</section>
+<!-- Previous Submission Details (Bento-style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Context Card: TIN Details -->
+<div class="bg-surface-container-low rounded-xl p-6 shadow-sm border border-surface-variant flex flex-col gap-4 relative">
+<div class="flex justify-between items-center">
+<h4 class="font-title-md text-title-md text-on-surface">Tax ID (TIN) Submission</h4>
+<span class="bg-surface-variant text-on-surface-variant font-label-caps text-label-caps px-2 py-1 rounded">REJECTED</span>
+</div>
+<div class="flex flex-col gap-3 mt-2">
+<div class="flex justify-between border-b border-surface-variant pb-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Document Type</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">VAT Certificate</span>
+</div>
+<div class="flex justify-between border-b border-surface-variant pb-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">TIN Number</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold opacity-60 line-through">123-456-7890</span>
+</div>
+<div class="flex justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Date Submitted</span>
+<span class="font-body-sm text-body-sm text-on-surface">Oct 24, 2023</span>
+</div>
+</div>
+</div>
+<!-- Context Card: Business Profile Snippet -->
+<div class="bg-surface-container-low rounded-xl p-6 shadow-sm border border-surface-variant flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h4 class="font-title-md text-title-md text-on-surface">Current Profile Details</h4>
+<button class="text-secondary font-label-caps text-label-caps hover:underline">EDIT PROFILE</button>
+</div>
+<div class="flex flex-col gap-3 mt-2">
+<div class="flex justify-between border-b border-surface-variant pb-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Registered Business Name</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold text-error">Acme Corp Ltd.</span>
+</div>
+<div class="flex justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Contact Email</span>
+<span class="font-body-sm text-body-sm text-on-surface">admin@acmecorp.com</span>
+</div>
+</div>
+<div class="mt-auto pt-2">
+<p class="font-body-sm text-body-sm text-on-surface-variant italic text-xs">Ensure this name exactly matches your official documents to prevent rejection.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface dark:bg-surface-container-lowest rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined fill-icon" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-label-caps mt-1">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-caps text-label-caps mt-1">Lending</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
