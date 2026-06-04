@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 
-export default function Health-wellnessServiceDetail() {
+export default function HealthWellnessServiceDetail() {
   const params = useParams();
   const router = useRouter();
   const id = params.id;

@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 
-export default function Beauty-careServiceDetail() {
+export default function BeautyCareServiceDetail() {
   const params = useParams();
   const router = useRouter();
   const id = params.id;

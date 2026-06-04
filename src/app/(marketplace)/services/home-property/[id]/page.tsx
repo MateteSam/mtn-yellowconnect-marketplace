@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 
-export default function Home-propertyServiceDetail() {
+export default function HomePropertyServiceDetail() {
   const params = useParams();
   const router = useRouter();
   const id = params.id;

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export default function SellHome-propertyService() {
+export default function SellHomePropertyService() {
   return (
     <div className="bg-background text-on-surface min-h-screen flex flex-col">
       <header className="bg-surface flex items-center justify-between px-container-margin-mobile h-16 sticky top-0 z-50 border-b border-outline-variant/10">
