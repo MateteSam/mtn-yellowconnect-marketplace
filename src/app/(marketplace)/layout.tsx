@@ -184,9 +184,8 @@ export default function AppLayout({ children }: { children: ReactNode }) {
             )}
 
             {!isServiceSubPage ? (
-              <Link href="/home" className="flex items-center gap-2 ml-1">
-                <img src="/icon.png" alt="Yel'Low Mart Logo" className="w-8 h-8 object-contain rounded-xl" />
-                <span className="text-title-md font-bold text-primary leading-tight">Yel&apos;Low Mart</span>
+              <Link href="/home" className="flex items-center ml-1">
+                <img src="/icon.png" alt="Yel'Low Mart Logo" className="h-10 w-auto object-contain" />
               </Link>
             ) : (
               <h1 className="font-title-sm text-title-sm font-bold text-on-surface ml-2">
