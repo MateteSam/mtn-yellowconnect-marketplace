@@ -4,8 +4,10 @@ export const runtime = 'edge';
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
-export default function MerchantRefundDetailPage({ params }: { params: { id: string } }) {
+export default function MerchantRefundDetailPage() {
+  const params = useParams<{ id: string }>();
   const [reviewStage, setReviewStage] = useState(1);
 
   return (

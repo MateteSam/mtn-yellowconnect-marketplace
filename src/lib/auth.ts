@@ -18,12 +18,20 @@ import type { User, Staff } from "./types";
 
 export { auth };
 
+const getClientAuth = (): Auth => {
+  if (!auth) {
+    throw new Error('Firebase auth is not configured for this prototype environment.');
+  }
+
+  return auth;
+};
+
 // Sign Up with Email and Password
 export const signUpWithEmail = async (userData: {
   email: any; password: any; fname: any; lname: any; phone?: any; organization: any; role?: Staff['role']
 }): Promise<UserCredential> => {
   const { email, password, fname, lname } = userData;
-  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  const userCredential = await createUserWithEmailAndPassword(getClientAuth(), email, password);
   const fullName = `${fname} ${lname}`;
 
   if (userCredential.user) {
@@ -37,23 +45,23 @@ export const signUpWithEmail = async (userData: {
 
 // Sign In with Email and Password
 export const signInWithEmail = (email: string, password: string): Promise<UserCredential> => {
-  return signInWithEmailAndPassword(auth, email, password);
+  return signInWithEmailAndPassword(getClientAuth(), email, password);
 };
 
 // Sign In with Google
 export const signInWithGoogle = async (): Promise<UserCredential> => {
   const provider = new GoogleAuthProvider();
-  return signInWithPopup(auth, provider);
+  return signInWithPopup(getClientAuth(), provider);
 };
 
 // Password Reset
 export const sendPasswordReset = (email: string): Promise<void> => {
-  return sendPasswordResetEmail(auth, email);
+  return sendPasswordResetEmail(getClientAuth(), email);
 };
 
 // Sign Out
 export const signOut = (): Promise<void> => {
-  return firebaseSignOut(auth);
+  return firebaseSignOut(getClientAuth());
 };
 
 // Update Email

@@ -3,8 +3,11 @@
 export const runtime = 'edge';
 
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
-export default function TransactionReceiptPage({ params }: { params: { id: string } }) {
+export default function TransactionReceiptPage() {
+  const params = useParams<{ id: string }>();
+
   return (
     <div className="bg-background text-on-surface min-h-screen pb-24">
       <header className="bg-surface flex items-center px-container-margin-mobile h-16 sticky top-0 z-50 border-b border-outline-variant/10">

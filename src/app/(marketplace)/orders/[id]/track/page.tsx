@@ -2,10 +2,12 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useParams } from 'next/navigation';
 
 export const runtime = 'edge';
 
-export default function OrderTrackingPage({ params }: { params: { id: string } }) {
+export default function OrderTrackingPage() {
+  const params = useParams<{ id: string }>();
   const orderId = params.id || 'MTN-8472-9X';
   const [cancelConfirm, setCancelConfirm] = useState(false);
 

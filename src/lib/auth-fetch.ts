@@ -6,6 +6,13 @@ import { auth } from './auth';
  * the Firebase Authorization header.
  */
 export async function authFetch(url: string, options: RequestInit = {}): Promise<Response> {
+    if (!auth) {
+        return new Response(JSON.stringify({ error: 'Firebase auth is not configured' }), {
+            status: 503,
+            headers: { 'Content-Type': 'application/json' }
+        });
+    }
+
     const user = auth.currentUser;
 
     if (!user) {

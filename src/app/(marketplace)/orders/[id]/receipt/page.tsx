@@ -4,7 +4,7 @@ export const runtime = 'edge';
 
 import Link from 'next/link';
 
-export default function TransactionReceiptDetailPage({ params }: { params: { id: string } }) {
+export default function TransactionReceiptDetailPage() {
   return (
     <div className="flex flex-col min-h-screen bg-surface">
       <header className="px-6 py-6 border-b border-outline-variant flex items-center gap-4 bg-surface sticky top-0 z-10">

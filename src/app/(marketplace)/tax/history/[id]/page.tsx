@@ -4,7 +4,7 @@ export const runtime = 'edge';
 
 import Link from 'next/link';
 
-export default function ComplianceSubmissionDetailPage({ params }: { params: { id: string } }) {
+export default function ComplianceSubmissionDetailPage() {
   return (
     <div className="bg-background text-on-surface min-h-screen pb-24">
       <header className="bg-surface flex items-center px-container-margin-mobile h-16 sticky top-0 z-50 border-b border-outline-variant/10">

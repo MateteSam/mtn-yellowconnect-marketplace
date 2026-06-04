@@ -4,7 +4,7 @@ export const runtime = 'edge';
 
 import Link from 'next/link';
 
-export default function MoMoRefundDetailsPage({ params }: { params: { id: string } }) {
+export default function MoMoRefundDetailsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-surface">
       {/* Header */}

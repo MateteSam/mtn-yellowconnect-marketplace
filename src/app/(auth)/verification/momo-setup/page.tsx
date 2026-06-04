@@ -134,7 +134,7 @@ export default function MoMoSetupPage() {
         <div className="mt-6 pb-6">
           <button
             className="w-full bg-primary py-2 rounded-[24px] text-on-primary text-lg flex items-center justify-center gap-3 shadow-[0_10px_40px_rgba(255,204,0,0.4)] hover:shadow-[0_15px_50px_rgba(255,204,0,0.5)] transition-all active:scale-[0.985] group"
-            onClick={() => window.location.href = '#'}
+            onClick={() => window.location.href = '/verification/success'}
           >
             <span>Send Verification Code</span>
             <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>

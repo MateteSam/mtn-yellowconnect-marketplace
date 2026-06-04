@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const runtime = 'edge';
 
-export default function OrderSuccessPage({ params }: { params: { id: string } }) {
+export default function OrderSuccessPage() {
   const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {

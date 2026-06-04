@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 export const runtime = 'edge';
 
@@ -9,7 +10,9 @@ const REVIEWS = [
   { id: '2', user: 'SME_Innovator', rating: 4, date: 'May 28, 2026', title: 'Solid but pricey', comment: 'Great product, definitely the best in class in Nigeria, but the price tag makes it hard to scale for small projects.', tags: ['High Quality'] },
 ];
 
-export default function ProductReviewsFeedbackPage({ params }: { params: { id: string } }) {
+export default function ProductReviewsFeedbackPage() {
+  const params = useParams<{ id: string }>();
+
   return (
     <div className="bg-background text-on-surface min-h-screen pb-24">
       <header className="bg-surface flex items-center px-container-margin-mobile h-16 sticky top-0 z-50 border-b border-outline-variant/10">

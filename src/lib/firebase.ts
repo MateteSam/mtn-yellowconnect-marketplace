@@ -1,9 +1,9 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getStorage } from "firebase/storage";
-import { getMessaging } from "firebase/messaging";
+import { getAuth, type Auth } from "firebase/auth";
+import { getStorage, type FirebaseStorage } from "firebase/storage";
+import { getMessaging, type Messaging } from "firebase/messaging";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,10 +16,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase only in the browser to avoid server-side errors
-let app;
-let auth;
-let storage;
-let messaging = null;
+let app: ReturnType<typeof initializeApp> | null;
+let auth: Auth | null;
+let storage: FirebaseStorage | null;
+let messaging: Messaging | null = null;
 
 if (typeof window !== 'undefined' && firebaseConfig.apiKey) {
   app = !getApps().length ? initializeApp(firebaseConfig) : getApp();

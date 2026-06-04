@@ -1,9 +1,9 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import type { User } from 'firebase/auth';
+import type { Auth, User } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
-import { signInWithGoogle as firebaseSignInWithGoogle, signOut as firebaseSignOut } from 'firebase/auth';
+import { signOut as firebaseSignOut } from 'firebase/auth';
 
 interface AuthContextType {
   user: User | null;
@@ -39,12 +39,12 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
             setLoading(false);
             return;
           }
-          unsub = clientAuth.onAuthStateChanged((firebaseUser) => {
+          unsub = clientAuth.onAuthStateChanged((firebaseUser: User | null) => {
             setUser(firebaseUser);
             setLoading(false);
           });
         } else {
-          unsub = auth.onAuthStateChanged((firebaseUser) => {
+          unsub = auth.onAuthStateChanged((firebaseUser: User | null) => {
             setUser(firebaseUser);
             setLoading(false);
           });
@@ -62,18 +62,28 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signInWithGoogle = async () => {
+    if (!auth) {
+      return { user: null, providerId: 'prototype' };
+    }
+
     const { GoogleAuthProvider, signInWithPopup } = await import('firebase/auth');
     const provider = new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
+    return signInWithPopup(auth as Auth, provider);
   };
 
   const signInWithEmail = async (email: string, password: string) => {
+    if (!auth) {
+      return { user: null, providerId: 'prototype', email };
+    }
+
     const { signInWithEmailAndPassword } = await import('firebase/auth');
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth as Auth, email, password);
   };
 
   const signOut = async () => {
-    await firebaseSignOut(auth);
+    if (auth) {
+      await firebaseSignOut(auth);
+    }
   };
 
   return (

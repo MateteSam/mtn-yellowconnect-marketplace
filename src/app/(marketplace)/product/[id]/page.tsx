@@ -25,7 +25,7 @@ const PRODUCT = {
   }
 };
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
+export default function ProductDetailPage() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
