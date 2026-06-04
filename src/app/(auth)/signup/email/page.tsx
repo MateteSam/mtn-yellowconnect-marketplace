@@ -64,7 +64,7 @@ export default function SignupPage() {
       className="min-h-screen flex flex-col items-center justify-start px-6 pt-12 pb-12"
       style={{ background: 'linear-gradient(180deg, #FFF9E6 0%, #FFFFFF 100%)' }}
     >
-      <h1 className="text-title-md font-title-md text-primary tracking-tight mb-4">MTN Marketplace</h1>
+      <h1 className="text-title-md font-title-md text-primary tracking-tight mb-4">Yel&apos;Low Mart</h1>
       {/* Store icon */}
       <div
         className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-md"

@@ -66,7 +66,7 @@ export default function EmailLoginPage() {
       {/* Heading */}
       <h1 className="text-2xl font-extrabold text-gray-900 mb-2 text-center">Welcome Back</h1>
       <p className="text-sm text-gray-500 text-center mb-8 leading-snug">
-        Enter your email and password to access<br />MTN Marketplace securely.
+        Enter your email and password to access<br />Yel&apos;Low Mart securely.
       </p>
 
       {/* Login Form */}

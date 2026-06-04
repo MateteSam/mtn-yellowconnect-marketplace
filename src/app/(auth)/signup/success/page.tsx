@@ -19,7 +19,7 @@ export default function SignupSuccessPage() {
       </div>
 
       <h2 className="text-headline-lg-mobile font-headline-lg-mobile text-on-surface text-center mb-3">
-        Welcome to MTN Marketplace!
+        Welcome to Yel&apos;Low Mart!
       </h2>
       <p className="text-body-lg font-body-lg text-on-surface-variant text-center max-w-xs mb-10">
         Your account is set up. We&apos;ve personalized your feed with AI-curated listings from your area.

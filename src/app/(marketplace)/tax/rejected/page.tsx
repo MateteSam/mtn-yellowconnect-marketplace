@@ -26,7 +26,7 @@ export default function TaxIDRejectedPage() {
           <div className="space-y-4">
             {[
               { title: 'Typo in Number', desc: 'Please double-check the 12-digit TIN on your official document.', icon: 'stylus' },
-              { title: 'Name Mismatch', desc: 'The name on your MTN Marketplace account must exactly match your tax records.', icon: 'badge' },
+              { title: 'Name Mismatch', desc: 'The name on your Yel\'Low Mart account must exactly match your tax records.', icon: 'badge' },
               { title: 'Expired Certificate', desc: 'Ensure your tax clearance is up-to-date for the 2024 fiscal year.', icon: 'event_busy' },
             ].map(issue => (
               <div key={issue.title} className="bg-surface p-5 rounded-2xl border border-outline-variant/20 flex gap-4">

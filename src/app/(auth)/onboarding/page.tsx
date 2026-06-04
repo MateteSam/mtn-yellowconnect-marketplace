@@ -32,20 +32,10 @@ export default function OnboardingPage() {
       className="min-h-screen flex flex-col items-center justify-start px-2 pt-12 pb-12"
       style={{ background: 'linear-gradient(180deg, #FFF9E6 0%, #FFFFFF 100%)' }}
     >
-      <h1 className="text-title-md font-title-md text-primary tracking-tight">MTN Marketplace</h1>
-      <p className="text-label-caps font-label-caps text-on-surface-variant mb-4">Pan-African Marketplace</p>
-      {/* Store icon */}
-      <div
-        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-md"
-        style={{ background: 'linear-gradient(135deg,#FFD700,#FFBE00)' }}
-      >
-        <span
-          className="material-symbols-outlined text-[32px] text-gray-800"
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          public
-        </span>
-      </div>
+      <h1 className="text-title-md font-title-md text-primary tracking-tight">Yel&apos;Low Mart</h1>
+      <p className="text-label-caps font-label-caps text-on-surface-variant mb-4">Your African Marketplace</p>
+      {/* Logo */}
+      <img src="/icon.png" alt="Yel'Low Mart Logo" className="h-16 w-auto object-contain mb-4" />
 
       {/* Header */}
       {/* <header className="px-container-margin-mobile pt-12 pb-4 flex items-center gap-3">
@@ -53,8 +43,8 @@ export default function OnboardingPage() {
           <span className="material-symbols-outlined text-on-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>public</span>
         </div>
         <div>
-          <h1 className="text-title-md font-title-md text-on-surface font-bold">MTN Marketplace</h1>
-          <p className="text-label-caps font-label-caps text-on-surface-variant">Pan-African Marketplace</p>
+          <h1 className="text-title-md font-title-md text-on-surface font-bold">Yel&apos;Low Mart</h1>
+          <p className="text-label-caps font-label-caps text-on-surface-variant">Your African Marketplace</p>
         </div>
       </header> */}
 

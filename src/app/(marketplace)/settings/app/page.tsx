@@ -170,7 +170,7 @@ export default function AppSettingsPage() {
           Log Out
         </button>
         <div className="text-center pb-8">
-          <p className="font-label-caps text-label-caps text-outline">MTN Marketplace v2.4.0</p>
+          <p className="font-label-caps text-label-caps text-outline">Yel&apos;Low Mart v2.4.0</p>
         </div>
       </main>
     </div>

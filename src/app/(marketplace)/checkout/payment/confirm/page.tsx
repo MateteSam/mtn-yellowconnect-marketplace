@@ -42,7 +42,7 @@ export default function MoMoConfirmPage() {
           <div className="space-y-4">
             <div className="flex justify-between items-start">
               <span className="text-[12px] text-on-surface-variant font-medium">Destination</span>
-              <span className="text-[12px] font-bold text-right max-w-[150px]">MTN Marketplace Order</span>
+              <span className="text-[12px] font-bold text-right max-w-[150px]">Yel&apos;Low Mart Order</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-[12px] text-on-surface-variant font-medium">Pay From</span>

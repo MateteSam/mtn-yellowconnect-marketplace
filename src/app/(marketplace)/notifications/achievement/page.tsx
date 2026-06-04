@@ -50,7 +50,7 @@ export default function AchievementNotificationPage() {
           <div className="space-y-2">
             {[
               '🏷️ "Century" badge displayed on your profile',
-              '📣 Featured in MTN Marketplace Newsletter',
+              '📣 Featured in Yel\'Low Mart Newsletter',
               '🎁 ₦5,000 bonus boost credit added',
             ].map(p => (
               <p key={p} className="text-sm text-on-surface-variant">{p}</p>
