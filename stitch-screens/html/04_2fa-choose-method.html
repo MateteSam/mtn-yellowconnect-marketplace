@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Your Account - 2FA Setup</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#006874",
+                    "primary": "#745b00",
+                    "surface-container": "#f0edec",
+                    "surface-bright": "#fcf9f8",
+                    "on-secondary-fixed": "#001b3e",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#f1c100",
+                    "on-secondary-container": "#003c7c",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004f57",
+                    "surface-dim": "#dcd9d9",
+                    "on-error": "#ffffff",
+                    "background": "#fcf9f8",
+                    "on-primary-fixed": "#241a00",
+                    "outline": "#80765f",
+                    "on-surface": "#1c1b1b",
+                    "tertiary-container": "#00e7fe",
+                    "surface-container-low": "#f6f3f2",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-secondary-fixed-variant": "#00458d",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#001f24",
+                    "on-surface-variant": "#4e4632",
+                    "inverse-surface": "#313030",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#76a9ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#745b00",
+                    "secondary-fixed": "#d6e3ff",
+                    "primary-fixed-dim": "#f1c100",
+                    "on-tertiary-container": "#00646e",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1c1b1b",
+                    "surface": "#fcf9f8",
+                    "surface-variant": "#e5e2e1",
+                    "secondary": "#1f5dae",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-primary-container": "#6f5700",
+                    "tertiary-fixed-dim": "#00daf0",
+                    "surface-container-high": "#ebe7e7",
+                    "secondary-fixed-dim": "#aac7ff",
+                    "tertiary-fixed": "#95f1ff",
+                    "primary-fixed": "#ffe08b",
+                    "outline-variant": "#d2c5ab",
+                    "surface-container-highest": "#e5e2e1",
+                    "primary-container": "#ffcc00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-margin-desktop": "40px",
+                    "section-gap": "48px",
+                    "container-margin-mobile": "16px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter", "sans-serif"],
+                    "label-caps": ["Inter", "sans-serif"],
+                    "body-sm": ["Inter", "sans-serif"],
+                    "title-md": ["Inter", "sans-serif"],
+                    "headline-lg": ["Inter", "sans-serif"],
+                    "headline-lg-mobile": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Hide default radio buttons */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* Custom Radio styling applied via parent class toggle in JS */
+        .option-card.selected {
+            border-color: #745b00; /* primary */
+            background-color: #f6f3f2; /* surface-container-low */
+        }
+        
+        .option-card.selected .radio-circle {
+            border-color: #745b00; /* primary */
+            background-color: #745b00;
+        }
+        
+        .option-card.selected .radio-circle::after {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            margin: auto;
+            margin-top: 6px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col items-center justify-start">
+<!-- 
+      Note: Global Navigation (TopAppBar/BottomNavBar) is intentionally suppressed here 
+      as per the Semantic Shell Mandate for Linear/Transactional flows (2FA Setup).
+    -->
+<main class="w-full max-w-[500px] flex-1 flex flex-col px-container-margin-mobile py-8 md:py-12">
+<!-- Minimal Header for Transactional Flow -->
+<header class="flex items-center mb-8">
+<button aria-label="Go back" class="p-2 -ml-2 rounded-full hover:bg-surface-variant transition-colors flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="flex-1"></div> <!-- Spacer -->
+</header>
+<!-- Hero Illustration -->
+<div class="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden shadow-sm relative" style="background: linear-gradient(135deg, #fcf9f8 0%, #ebe7e7 100%);">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] text-tertiary" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+</div>
+</div>
+<!-- Typography: Header & Description -->
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-center mb-4 md:text-headline-lg md:font-headline-lg text-on-surface">
+            Secure Your Account
+        </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant text-center mb-10">
+            Two-factor authentication (2FA) adds an extra layer of security. Even if someone gets your password, they won't be able to access your account.
+        </p>
+<!-- Options Container -->
+<div class="flex flex-col gap-4 mb-12">
+<!-- Option 1: Authenticator App -->
+<label class="option-card selected relative p-4 md:p-5 rounded-xl border-2 border-outline-variant bg-surface cursor-pointer transition-all duration-200 flex items-start gap-4 hover:bg-surface-container-low group">
+<input checked="" name="2fa_method" type="radio" value="app"/>
+<!-- Custom Radio Indicator -->
+<div class="radio-circle w-6 h-6 flex-shrink-0 rounded-full border-2 border-outline-variant transition-colors mt-1"></div>
+<div class="flex-1 flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 0;">phonelink_lock</span>
+<span class="text-title-md font-title-md text-on-surface">Authenticator App</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                        Get codes from an app like Google Authenticator or Authy. Highly secure and works offline.
+                    </p>
+</div>
+<!-- Recommended Badge -->
+<div class="absolute -top-3 right-4 bg-tertiary-container text-on-tertiary-container text-label-caps font-label-caps px-3 py-1 rounded-full shadow-sm uppercase">
+                    Recommended
+                </div>
+</label>
+<!-- Option 2: SMS -->
+<label class="option-card relative p-4 md:p-5 rounded-xl border-2 border-outline-variant bg-surface cursor-pointer transition-all duration-200 flex items-start gap-4 hover:bg-surface-container-low group">
+<input name="2fa_method" type="radio" value="sms"/>
+<!-- Custom Radio Indicator -->
+<div class="radio-circle w-6 h-6 flex-shrink-0 rounded-full border-2 border-outline-variant transition-colors mt-1"></div>
+<div class="flex-1 flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0;">sms</span>
+<span class="text-title-md font-title-md text-on-surface">SMS / Text Message</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                        Receive a unique 6-digit verification code via text message to your registered mobile number.
+                    </p>
+</div>
+</label>
+</div>
+<!-- Action Area -->
+<div class="mt-auto pt-4">
+<!-- Primary Button using MTN Yellow (primary-container) and Deep Slate text -->
+<button class="w-full py-4 px-6 rounded-full bg-primary-container text-on-primary-fixed text-title-md font-title-md font-bold transition-transform duration-100 active:scale-95 shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+                Continue
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</main>
+<script>
+        // Simple logic to toggle the visual selected state of the custom radio cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.option-card');
+            const radios = document.querySelectorAll('input[type="radio"][name="2fa_method"]');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Reset all
+                    cards.forEach(c => {
+                        c.classList.remove('selected');
+                        c.classList.remove('border-primary');
+                        c.classList.add('border-outline-variant');
+                    });
+                    
+                    // Set active
+                    card.classList.add('selected');
+                    card.classList.remove('border-outline-variant');
+                    
+                    // Ensure the hidden radio is checked
+                    const input = card.querySelector('input');
+                    if(input) input.checked = true;
+                });
+            });
+        });
+    </script>
+</body></html>

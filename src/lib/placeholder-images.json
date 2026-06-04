@@ -1,0 +1,34 @@
+{
+  "placeholderImages": [
+    {
+      "id": "login-background",
+      "description": "Abstract medical background",
+      "imageUrl": "https://picsum.photos/seed/loginbg/1200/800",
+      "imageHint": "medical abstract"
+    },
+    {
+      "id": "user-avatar-1",
+      "description": "User avatar for Dr. Evelyn Reed",
+      "imageUrl": "https://picsum.photos/seed/avatar1/100/100",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "patient-avatar-1",
+      "description": "Patient avatar for Liam Johnson",
+      "imageUrl": "https://picsum.photos/seed/p_avatar1/100/100",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "patient-avatar-2",
+      "description": "Patient avatar for Olivia Smith",
+      "imageUrl": "https://picsum.photos/seed/p_avatar2/100/100",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "patient-avatar-3",
+      "description": "Patient avatar for Noah Williams",
+      "imageUrl": "https://picsum.photos/seed/p_avatar3/100/100",
+      "imageHint": "man portrait"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Two-Factor Authentication Enabled</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#006874",
+                        "primary": "#745b00",
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#f1c100",
+                        "on-secondary-container": "#003c7c",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-dim": "#dcd9d9",
+                        "on-error": "#ffffff",
+                        "background": "#fcf9f8",
+                        "on-primary-fixed": "#241a00",
+                        "outline": "#80765f",
+                        "on-surface": "#1c1b1b",
+                        "tertiary-container": "#00e7fe",
+                        "surface-container-low": "#f6f3f2",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-surface-variant": "#4e4632",
+                        "inverse-surface": "#313030",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#76a9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary-container": "#00646e",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "surface": "#fcf9f8",
+                        "surface-variant": "#e5e2e1",
+                        "secondary": "#1f5dae",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary-container": "#6f5700",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "tertiary-fixed": "#95f1ff",
+                        "primary-fixed": "#ffe08b",
+                        "outline-variant": "#d2c5ab",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-container": "#ffcc00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "container-margin-desktop": "40px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low min-h-screen flex items-center justify-center p-container-margin-mobile md:p-container-margin-desktop antialiased">
+<!-- Transactional Screen: Navigation Shell Suppressed -->
+<main class="w-full max-w-lg">
+<!-- Main Content Card -->
+<div class="bg-surface rounded-xl shadow-lg border border-surface-variant overflow-hidden">
+<!-- Hero Section -->
+<div class="pt-section-gap pb-base px-gutter flex flex-col items-center text-center">
+<!-- Success Icon: MTN Blue for Trust -->
+<div class="w-24 h-24 rounded-full bg-secondary-fixed flex items-center justify-center mb-gutter">
+<span class="material-symbols-outlined font-display-lg text-display-lg text-secondary" style="font-variation-settings: 'FILL' 1;">
+                        shield_lock
+                    </span>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-base">
+                    Two-Factor Authentication Enabled
+                </h1>
+<!-- Explanation -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-sm">
+                    Your account is now more secure. Please save these recovery codes in a safe place. You will need them to log in if you lose access to your device.
+                </p>
+</div>
+<!-- Recovery Codes Section (Bento-style presentation) -->
+<div class="px-gutter pb-section-gap">
+<div class="bg-surface-container rounded-xl p-gutter border border-outline-variant relative">
+<div class="flex justify-between items-center mb-gutter">
+<h2 class="font-title-md text-title-md text-on-surface">Recovery Codes</h2>
+<button class="flex items-center gap-2 text-secondary hover:bg-secondary-fixed px-3 py-1.5 rounded-lg transition-colors group" id="copyBtn">
+<span class="material-symbols-outlined text-[18px] group-hover:scale-110 transition-transform">content_copy</span>
+<span class="font-label-caps text-label-caps" id="copyText">COPY ALL</span>
+</button>
+</div>
+<!-- Code Grid -->
+<div class="grid grid-cols-2 gap-base" id="codeGrid">
+<div class="bg-surface p-3 rounded-lg text-center border border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface tracking-[0.2em] font-bold">X9B2-4K7T</span>
+</div>
+<div class="bg-surface p-3 rounded-lg text-center border border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface tracking-[0.2em] font-bold">M5V1-P8Q3</span>
+</div>
+<div class="bg-surface p-3 rounded-lg text-center border border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface tracking-[0.2em] font-bold">W2N6-C9F4</span>
+</div>
+<div class="bg-surface p-3 rounded-lg text-center border border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface tracking-[0.2em] font-bold">J7R3-L0D5</span>
+</div>
+<div class="bg-surface p-3 rounded-lg text-center border border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface tracking-[0.2em] font-bold">A4Y8-E6G1</span>
+</div>
+<div class="bg-surface p-3 rounded-lg text-center border border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface tracking-[0.2em] font-bold">H3Z9-T2K8</span>
+</div>
+</div>
+<!-- Visual Security Warning Indicator -->
+<div class="mt-gutter flex items-start gap-2 bg-error-container/30 p-3 rounded-lg border border-error-container">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">warning</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Keep these safe. Do not share them. MTN support will never ask for your recovery codes.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="p-gutter border-t border-surface-variant bg-surface-bright">
+<button class="w-full bg-primary-container text-on-primary-container font-title-md text-title-md py-4 rounded-lg hover:bg-primary-fixed transition-colors flex justify-center items-center gap-2">
+                    Back to Security Settings
+                </button>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const copyTextSpan = document.getElementById('copyText');
+            const iconSpan = this.querySelector('.material-symbols-outlined');
+            
+            // Visual feedback
+            const originalText = copyTextSpan.innerText;
+            copyTextSpan.innerText = 'COPIED!';
+            iconSpan.innerText = 'check';
+            this.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+            this.classList.remove('text-secondary', 'hover:bg-secondary-fixed');
+            
+            // Add a subtle flash to the code grid to indicate what was copied
+            const codeGrid = document.getElementById('codeGrid');
+            codeGrid.classList.add('opacity-50', 'scale-[0.98]', 'transition-all', 'duration-200');
+            
+            setTimeout(() => {
+                codeGrid.classList.remove('opacity-50', 'scale-[0.98]');
+                
+                setTimeout(() => {
+                    copyTextSpan.innerText = originalText;
+                    iconSpan.innerText = 'content_copy';
+                    this.classList.remove('bg-tertiary-container', 'text-on-tertiary-container');
+                    this.classList.add('text-secondary', 'hover:bg-secondary-fixed');
+                }, 1500);
+            }, 200);
+        });
+    </script>
+</body></html>

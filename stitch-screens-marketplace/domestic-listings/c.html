@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Domestic Services</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#4e4632",
+                        "on-secondary-container": "#003c7c",
+                        "secondary": "#1f5dae",
+                        "surface-container-high": "#ebe7e7",
+                        "primary-fixed": "#ffe08b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-secondary-fixed": "#001b3e",
+                        "secondary-container": "#76a9ff",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary": "#ffffff",
+                        "primary": "#745b00",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "tertiary": "#006874",
+                        "surface-tint": "#745b00",
+                        "inverse-surface": "#313030",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#f1c100",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-container": "#ffcc00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-fixed": "#241a00",
+                        "outline": "#80765f",
+                        "on-tertiary-container": "#00646e",
+                        "background": "#fcf9f8",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#00e7fe",
+                        "primary-fixed-dim": "#f1c100",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "on-primary-container": "#6f5700",
+                        "on-tertiary-fixed": "#001f24"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 shadow-sm bg-surface">
+<div class="flex items-center justify-between px-container-margin-mobile py-base w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Marketplace</h1>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-all duration-200 active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin-mobile pt-6 pb-12 flex flex-col gap-section-gap overflow-x-hidden">
+<!-- Hero & Search Section -->
+<section class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Trusted help for your home.</h2>
+<p class="font-body-lg text-on-surface-variant">Vetted professionals for cleaning, childcare, and more.</p>
+</div>
+<div class="relative w-full shadow-[0px_4px_12px_rgba(0,0,0,0.05)] rounded-[16px]">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-24 py-4 rounded-[16px] bg-surface-container-lowest border border-outline-variant focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all font-body-lg text-on-surface placeholder:text-on-surface-variant" placeholder="What service do you need?" type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary-container text-on-primary-container font-label-caps text-label-caps px-4 py-2 rounded-lg hover:bg-primary hover:text-on-primary transition-colors">
+                    SEARCH
+                </button>
+</div>
+</section>
+<!-- Trust Banner (Glassmorphic) -->
+<section>
+<div class="glass-panel border border-secondary-container/30 rounded-xl p-4 flex items-start sm:items-center gap-4 relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center border border-secondary-container text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex flex-col z-10">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+                        Trusted Home Pro
+                        <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+</h3>
+<p class="font-body-sm text-on-surface-variant mt-1">All service providers undergo rigorous background checks and identity verification for your peace of mind and safety.</p>
+</div>
+</div>
+</section>
+<!-- Categories (Horizontal Scroll) -->
+<section class="flex flex-col gap-4">
+<h3 class="font-title-md text-title-md text-on-surface">Categories</h3>
+<div class="flex overflow-x-auto gap-4 pb-4 hide-scrollbar snap-x snap-mandatory">
+<!-- Category Item -->
+<button class="snap-start flex flex-col items-center gap-2 min-w-[80px] group">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors border border-transparent group-hover:border-primary-container">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-3xl">cleaning_services</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface text-center">House<br/>Cleaning</span>
+</button>
+<button class="snap-start flex flex-col items-center gap-2 min-w-[80px] group">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors border border-transparent group-hover:border-primary-container">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-3xl">local_laundry_service</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface text-center">Laundry</span>
+</button>
+<button class="snap-start flex flex-col items-center gap-2 min-w-[80px] group">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors border border-transparent group-hover:border-primary-container">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-3xl">yard</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface text-center">Gardening</span>
+</button>
+<button class="snap-start flex flex-col items-center gap-2 min-w-[80px] group">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors border border-transparent group-hover:border-primary-container">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-3xl">pest_control</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface text-center">Pest<br/>Control</span>
+</button>
+<button class="snap-start flex flex-col items-center gap-2 min-w-[80px] group">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors border border-transparent group-hover:border-primary-container">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-3xl">child_care</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface text-center">Childcare</span>
+</button>
+<button class="snap-start flex flex-col items-center gap-2 min-w-[80px] group">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center group-hover:bg-primary-container/20 transition-colors border border-transparent group-hover:border-primary-container">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-3xl">restaurant</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface text-center">Cooking</span>
+</button>
+</div>
+</section>
+<!-- Listings Bento Grid -->
+<section class="flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Recommended Pros</h3>
+<button class="font-label-caps text-label-caps text-secondary flex items-center gap-1 hover:underline">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Featured/Large Card (Spans full width on mobile, 2 cols on md) -->
+<article class="col-span-1 md:col-span-2 bg-surface-container-lowest rounded-[16px] shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container-high overflow-hidden flex flex-col sm:flex-row">
+<div class="h-48 sm:h-auto sm:w-2/5 bg-surface-container relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A professional, smiling female house cleaner in a neat, branded yellow and blue uniform, standing in a bright, modern, spotless living room holding cleaning supplies. The lighting is soft and natural, emphasizing cleanliness, trust, and a high-end service aesthetic indicative of a verified professional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANbOGfnZeanbXMGzZ1MwuYDyxQgIQ0BNN_IH60mGgD2xkpbDlGLqVKzHenLsOX-fZSP7QbqkNOncE-wo3m1R3yQ4BtQYoY7WXg3VBpVuRC8_nVZQ6-Sh1u_UF_aWOL4Y-ZcZ5ie6nilr5Od4uVRFHqfcV_sCVqdUHTVY0ZAQR0vyc33G9dTfZJxBFXPqNr3g4W10nGm8krN-z66ZbCVOMeOqdIrU-480nPP2RImg7-Wunaq4vrld82z9_7GMVNLTEcXXaMzGbSC7ow');"></div>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1 border border-surface-container">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.9 (120+)</span>
+</div>
+</div>
+<div class="p-4 sm:p-6 flex flex-col justify-between sm:w-3/5 flex-grow">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface">Deep House Cleaning</h4>
+<p class="font-body-sm text-on-surface-variant">by Sarah M.</p>
+</div>
+<span class="font-title-md text-title-md text-secondary">R150<span class="text-sm font-normal text-on-surface-variant">/hr</span></span>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="inline-flex items-center gap-1 bg-secondary-container/20 text-on-secondary-container px-2 py-1 rounded text-xs font-medium border border-secondary-container/30">
+<span class="material-symbols-outlined text-[14px]">verified_user</span> Trusted Pro
+                                </span>
+<span class="inline-flex items-center gap-1 bg-surface-container px-2 py-1 rounded text-xs font-medium text-on-surface-variant border border-outline-variant/30">
+                                    Background Checked
+                                </span>
+</div>
+<p class="font-body-sm text-on-surface-variant line-clamp-2 mt-2">Comprehensive deep cleaning for homes, including windows, carpets, and hard-to-reach areas. Highly rated for punctuality.</p>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 bg-primary text-on-primary-fixed-variant font-label-caps text-label-caps py-3 rounded-lg hover:bg-primary-fixed transition-colors flex justify-center items-center gap-2">
+                                BOOK NOW
+                            </button>
+</div>
+</div>
+</article>
+<!-- Standard Card 1 (Recurring MoMo focus) -->
+<article class="bg-surface-container-lowest rounded-[16px] shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container-high overflow-hidden flex flex-col">
+<div class="h-40 bg-surface-container relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A neatly organized stack of freshly laundered and folded white towels and linens resting on a clean wooden table in a well-lit, modern laundry room. Sunlight streams through a window, highlighting the crisp, clean textures. The scene evokes a sense of freshness, order, and reliable domestic service." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYpJAdst4Yk5EKTwE6goC7HxoQU8kwkNfdmvwGML_I6O6G1BxgQwPNSY5SO5TNnCc-MhDbf_tnkWUe0ULmnh1K4n1yLSzUluS8rWn249vl7Z6_TuXxhiBhMfDlXNSrScbOmjqf0MIZMykZo4dOSJgv8e_JUAaI6-M0xz37OpIkwWJY8LLg5qrWgaDdDAnNyhHz3trN1WLwo2edYU8WeD4iF4ikwX2oq2FKlngwR1Hrrvc1bGHrQi4pdbWxwmHzg9dnGJaX8EfnbPSg');"></div>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1 border border-surface-container">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.7 (85)</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface leading-tight">Weekly Laundry &amp; Ironing</h4>
+</div>
+<p class="font-body-sm text-on-surface-variant">by CleanSweep Co.</p>
+<div class="flex items-center gap-1 text-secondary mt-1">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="text-xs font-medium">Trusted Business</span>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-container-high flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<span class="font-title-md text-title-md text-secondary">R400<span class="text-sm font-normal text-on-surface-variant">/session</span></span>
+</div>
+<!-- MoMo Recurring Badge/Button -->
+<div class="bg-[#005c92]/10 border border-[#005c92]/20 rounded-lg p-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-[#ffcc00] text-[#005c92] flex items-center justify-center font-bold text-[10px] tracking-tighter">MoMo</div>
+<span class="text-xs font-medium text-on-surface">Subscribe &amp; Save 10%</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">autorenew</span>
+</div>
+<button class="w-full bg-surface-container-high text-on-surface font-label-caps text-label-caps py-2 rounded-lg hover:bg-surface-dim transition-colors">
+                                VIEW DETAILS
+                            </button>
+</div>
+</div>
+</article>
+<!-- Standard Card 2 -->
+<article class="bg-surface-container-lowest rounded-[16px] shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-surface-container-high overflow-hidden flex flex-col">
+<div class="h-40 bg-surface-container relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A close-up shot of a professional gardener's hands wearing clean, durable work gloves, carefully pruning a vibrant green plant in a well-maintained outdoor garden. The focus is sharp on the plant and hands, with a smoothly blurred background conveying expertise, care, and a safe, approachable gardening service." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvGx9QlR8AgQFjYbtLJ9LD-MMd9-zaa1zauMdtLjcvS6xqzv0nCLnHEZsPo9NeE-CRICDDznByZYjIvQBSxytpV-2zuAVn6_W1cVry3xP000hhn1l6ekE26YtOC4snNIGoXOqDoTxlfETv_-vV0trcv_8pLWdxa4wrWB458bSZ2rGxw_gPkE4DzNRJoHYO_UDKpwlsbz1nUuLJq45X-C4P6S2zGxNQdLiFb6u4yFIgK-QFfdrPXAbp15J4k1Ft5wMmSvOquxRcLrfW');"></div>
+</div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface leading-tight">Expert Gardening Maintenance</h4>
+</div>
+<p class="font-body-sm text-on-surface-variant">by David K.</p>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[16px]">shield_person</span>
+<span class="text-xs font-medium">Background Checked</span>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-container-high flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<span class="font-title-md text-title-md text-secondary">R120<span class="text-sm font-normal text-on-surface-variant">/hr</span></span>
+</div>
+<button class="w-full bg-primary text-on-primary-fixed-variant font-label-caps text-label-caps py-2 rounded-lg hover:bg-primary-fixed transition-colors">
+                                BOOK HOURLY
+                            </button>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Hidden on md and above) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-surface shadow-[0px_-2px_10px_rgba(0,0,0,0.05)] z-50">
+<!-- Inactive: Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-[10px] mt-1">Home</span>
+</a>
+<!-- Active: Search -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-label-caps text-[10px] mt-1">Search</span>
+</a>
+<!-- Inactive: Bookings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label-caps text-[10px] mt-1">Bookings</span>
+</a>
+<!-- Inactive: Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

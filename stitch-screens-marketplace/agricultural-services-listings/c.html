@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agricultural Services - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-background": "#1c1b1b",
+                        "tertiary": "#006874",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#00e7fe",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#745b00",
+                        "surface-dim": "#dcd9d9",
+                        "primary-fixed": "#ffe08b",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-secondary-container": "#003c7c",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2e1",
+                        "background": "#fcf9f8",
+                        "tertiary-fixed": "#95f1ff",
+                        "secondary-container": "#76a9ff",
+                        "primary-container": "#ffcc00",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-on-surface": "#f3f0ef",
+                        "outline-variant": "#d2c5ab",
+                        "inverse-surface": "#313030",
+                        "on-tertiary-container": "#00646e",
+                        "outline": "#80765f",
+                        "surface-container": "#f0edec",
+                        "surface-container-high": "#ebe7e7",
+                        "inverse-primary": "#f1c100",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-surface": "#1c1b1b",
+                        "surface": "#fcf9f8",
+                        "on-primary": "#ffffff",
+                        "primary": "#745b00",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-surface-variant": "#4e4632",
+                        "secondary": "#1f5dae",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-primary-container": "#6f5700",
+                        "on-primary-fixed": "#241a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 204, 0, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased font-body-sm pb-24 md:pb-0">
+<!-- TopAppBar (Web) / Mobile Header -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface flex items-center justify-between px-gutter w-full h-16 bg-surface-bright dark:bg-surface-dim shadow-sm">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-200 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full p-2 flex items-center justify-center text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-title-md text-title-md font-bold text-on-surface dark:text-on-surface">Agricultural Services</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="active:scale-95 transition-transform duration-200 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full p-2 flex items-center justify-center text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-20 px-container-margin-mobile md:px-container-margin-desktop max-w-7xl mx-auto space-y-section-gap">
+<!-- Search & Filters -->
+<section class="space-y-4">
+<div class="relative">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-[16px] py-4 pl-4 pr-32 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary text-body-lg shadow-sm" placeholder="Search services..." type="text"/>
+<button class="absolute right-2 top-2 bottom-2 bg-primary text-on-primary-fixed-variant px-6 rounded-lg font-title-md flex items-center gap-2 hover:bg-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined">search</span>
+<span class="hidden sm:inline">Search</span>
+</button>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="flex-shrink-0 bg-primary-container text-on-primary-container font-label-caps text-label-caps px-4 py-2 rounded-full border border-primary-container">All Services</button>
+<button class="flex-shrink-0 bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors">Tractor Hire</button>
+<button class="flex-shrink-0 bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors">Veterinary</button>
+<button class="flex-shrink-0 bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors">Agronomist</button>
+<div class="w-px h-6 bg-outline-variant self-center mx-2"></div>
+<button class="flex-shrink-0 flex items-center gap-1 bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                    Urban
+                </button>
+<button class="flex-shrink-0 flex items-center gap-1 bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">map</span>
+                    Rural
+                </button>
+</div>
+</section>
+<!-- Payment Highlight -->
+<div class="glass-panel p-4 rounded-xl flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Pay securely with MoMo</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">0% booking fees for agricultural services this month.</p>
+</div>
+</div>
+</div>
+<!-- Listings Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Listing 1 -->
+<article class="bg-surface rounded-[16px] shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden border border-surface-dim hover:shadow-md transition-shadow flex flex-col">
+<div class="relative h-48 bg-surface-container-highest">
+<img alt="Tractor in field" class="w-full h-full object-cover" data-alt="A modern red tractor plowing a sunlit field with dark rich soil. Bright clear blue sky, modern agricultural setting, vibrant colors, clean lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKXfNERTJIukTUSbkJ6GfIO61SajdNZZAq8E345Rkr2sK48B21qbp7lDcHmhUmXkn_k9iTQaeSw5HzqQNqKEMDeLrnKFwKICCYY7br2TRyCKISOTVo9JIyEanoqeZi8puw_HOrUFaRpjG7FB1V9E1m7vXpriHgVAGXKyVexDspPYmcxuAqi42TC5pC38NKO8Avm39D5ONHbpR-8678J_7dMuT-7HtdhBdag0CUB0FlRMFOj6-3ok8noLfuknoarVGTFoN1JZ3WIeON"/>
+<div class="absolute top-3 left-3 bg-tertiary text-on-tertiary px-2 py-1 rounded font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                        Verified Pro
+                    </div>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-title-md text-title-md text-on-surface">Heavy Duty Tractor Plowing</h2>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-title-md text-body-sm font-bold">4.8</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Complete field preparation services. Experienced operators covering rural sectors.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold">R450</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/acre</span>
+</div>
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-lg font-title-md text-body-sm hover:bg-on-secondary-fixed-variant transition-colors">Book Now</button>
+</div>
+</div>
+</article>
+<!-- Listing 2 -->
+<article class="bg-surface rounded-[16px] shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden border border-surface-dim hover:shadow-md transition-shadow flex flex-col">
+<div class="relative h-48 bg-surface-container-highest">
+<img alt="Veterinarian with cow" class="w-full h-full object-cover" data-alt="A professional livestock veterinarian examining a healthy brown cow in a clean barn setting. Warm natural lighting, professional medical care for agriculture, modern farm environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwxuB5q0_prw90ZVaE9P8WxnEBNY6Hdr86x-tqwTtv_oipjVixZsIq_u2anp7yS3dkdXOTduksn76uam38J9IWM0R9uLlzKyImFuvh9xtOG4TVKwf0FczriuGjt99YDcFI2NEXVVCWWhSW5w0G5lV1s6-5r0N0W-pV-6ANqPhTI9Y_wh_Vm_XzxK45AMlq6n4IznbAenlz2bBq9kzJ33PlcJkdK6reNOz4oZFv-G4ZMTD3WG-m34QyGxWHSgwWLkGGuFuJq3nCnWav"/>
+<div class="absolute top-3 left-3 bg-tertiary text-on-tertiary px-2 py-1 rounded font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                        Verified Pro
+                    </div>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-title-md text-title-md text-on-surface">Livestock Health Consult</h2>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-title-md text-body-sm font-bold">4.9</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">On-site veterinary checks, vaccinations, and emergency care for cattle and sheep.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold">R850</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/session</span>
+</div>
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-lg font-title-md text-body-sm hover:bg-on-secondary-fixed-variant transition-colors">Book Now</button>
+</div>
+</div>
+</article>
+<!-- Listing 3 (AI Enhanced Example) -->
+<article class="glass-panel rounded-[16px] shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden hover:shadow-md transition-shadow flex flex-col relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-tertiary-container z-10"></div>
+<div class="relative h-48 bg-surface-container-highest">
+<img alt="Agronomist in field" class="w-full h-full object-cover" data-alt="An agronomist holding a digital tablet standing in a lush green maize field. Smart farming concept, bright sunny day, modern agricultural technology, professional and forward-looking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7GePI8jazHrpeKRx-ynFrRh_5HRyfWtqsREOlPgCbvfeENxeZNLwBfL409S7Qx1LBiybGKim2sLkDuM7VeYMXIeOTYrwDVMGQqvDHP5Dsc72mLMmZpOousFWvkGGrbsUTuOZV86stZ-dqCdj9dpIAUASkG36AhE3yAl32XyhmxlrozJwG1a3pbBrkSF5i5-wy-qAZcm4bvm-RYkHMOTUnEdbbhv7sr5h2kvApUufiJ0_gr9dX3dUnt49T_8x4Dhgz7H9e4KLp5Tcb"/>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur text-secondary px-2 py-1 rounded font-label-caps text-label-caps flex items-center gap-1 border border-secondary/20">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                        AI Recommended
+                    </div>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-title-md text-title-md text-on-surface">Soil &amp; Crop Analysis</h2>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-title-md text-body-sm font-bold">5.0</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Data-driven agronomist consultation. Optimize yield with precision farming insights.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold">R1200</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/consult</span>
+</div>
+<button class="bg-gradient-to-r from-secondary to-[#6b21a8] text-white px-4 py-2 rounded-lg font-title-md text-body-sm hover:opacity-90 transition-opacity flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                             Book Now
+                        </button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container dark:bg-surface-container border-t border-outline-variant shadow-lg flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 active:scale-90 transition-all duration-150 hover:bg-surface-container-highest dark:hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-container text-on-primary-container dark:text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-label-caps text-label-caps mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 active:scale-90 transition-all duration-150 hover:bg-surface-container-highest dark:hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-caps text-label-caps mt-1">Sell</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 active:scale-90 transition-all duration-150 hover:bg-surface-container-highest dark:hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-caps text-label-caps mt-1">Insights</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 active:scale-90 transition-all duration-150 hover:bg-surface-container-highest dark:hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

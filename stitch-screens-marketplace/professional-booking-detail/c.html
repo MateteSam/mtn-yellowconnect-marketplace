@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Provider Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#00458d",
+                      "on-tertiary-fixed-variant": "#004f57",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f6f3f2",
+                      "on-background": "#1c1b1b",
+                      "tertiary": "#006874",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#d6e3ff",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#00e7fe",
+                      "on-tertiary-fixed": "#001f24",
+                      "on-primary-fixed-variant": "#584400",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#745b00",
+                      "surface-dim": "#dcd9d9",
+                      "primary-fixed": "#ffe08b",
+                      "surface-variant": "#e5e2e1",
+                      "tertiary-fixed-dim": "#00daf0",
+                      "on-secondary-container": "#003c7c",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e5e2e1",
+                      "background": "#fcf9f8",
+                      "tertiary-fixed": "#95f1ff",
+                      "secondary-container": "#76a9ff",
+                      "primary-container": "#ffcc00",
+                      "surface-bright": "#fcf9f8",
+                      "inverse-on-surface": "#f3f0ef",
+                      "outline-variant": "#d2c5ab",
+                      "inverse-surface": "#313030",
+                      "on-tertiary-container": "#00646e",
+                      "outline": "#80765f",
+                      "surface-container": "#f0edec",
+                      "surface-container-high": "#ebe7e7",
+                      "inverse-primary": "#f1c100",
+                      "secondary-fixed-dim": "#aac7ff",
+                      "on-surface": "#1c1b1b",
+                      "surface": "#fcf9f8",
+                      "on-primary": "#ffffff",
+                      "primary": "#745b00",
+                      "primary-fixed-dim": "#f1c100",
+                      "on-surface-variant": "#4e4632",
+                      "secondary": "#1f5dae",
+                      "on-secondary-fixed": "#001b3e",
+                      "on-primary-container": "#6f5700",
+                      "on-primary-fixed": "#241a00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "48px",
+                      "gutter": "16px",
+                      "container-margin-mobile": "16px",
+                      "container-margin-desktop": "40px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "title-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-sm flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar (From JSON, Sub-page intent -> No Bottom Nav) -->
+<header class="w-full sticky top-0 bg-surface dark:bg-background shadow-sm dark:shadow-none transition-all duration-200 active:scale-95 flex items-center justify-between px-container-margin-mobile h-16 z-50">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 p-2 rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface dark:text-on-background">MoMo Verification</h1>
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 p-2 rounded-full">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Hero Profile Section -->
+<section class="bg-surface px-container-margin-mobile pt-6 pb-8 shadow-[0_4px_12px_rgba(0,0,0,0.02)] rounded-b-xl relative">
+<div class="flex flex-col items-center text-center">
+<div class="relative w-24 h-24 mb-4">
+<div class="w-full h-full rounded-full overflow-hidden border-2 border-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional corporate headshot of a confident male lawyer in his 40s, wearing a tailored dark navy suit and light blue tie. The lighting is soft and natural, suggesting a high-end, modern corporate office environment with large windows. The overall aesthetic is trustworthy, polished, and authoritative, fitting perfectly within a premium digital service directory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLVR8kaCr6qKpSdW44lwn_v-mp2zLC5-Xy-PdpnLafbkrXubmvwP2WxbUYq8nhXDJC4A11IPJPiNe1F45mQZqKn1DhiSNzKwnBmzpa8ujVqgyZEA4uShgygrn4MHOSKbHVMgB7CpuYXTGlHdzakSk-ljlpVtKGtV-uKi4fHenX-te2wSm50RNSHKipQKjnpoGHGRGsimNIO5TLn64dEOBwOCAvs4E2_YlYn_wnqP3dDOv8HKx2k3CzLg5-7KysKx4aY2eKWyZU0GZ_"/>
+</div>
+<!-- Verified Badge -->
+<div class="absolute bottom-0 right-0 bg-secondary text-on-secondary w-8 h-8 rounded-full flex items-center justify-center shadow-sm border-2 border-surface">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface mb-1">Atty. Michael O. Mensah</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Senior Corporate &amp; Contract Law</p>
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.9 (124 REVIEWS)</span>
+</div>
+</div>
+</section>
+<!-- Bento Stats Grid -->
+<section class="px-container-margin-mobile py-6">
+<div class="grid grid-cols-3 gap-3">
+<div class="bg-surface p-3 rounded-xl flex flex-col items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.02)] border border-surface-variant/50">
+<span class="material-symbols-outlined text-secondary mb-1">work_history</span>
+<span class="font-title-md text-[18px] text-on-surface">15+</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant text-center">YEARS EXP.</span>
+</div>
+<div class="bg-surface p-3 rounded-xl flex flex-col items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.02)] border border-surface-variant/50">
+<span class="material-symbols-outlined text-tertiary mb-1">gavel</span>
+<span class="font-title-md text-[18px] text-on-surface">450+</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant text-center">CASES WON</span>
+</div>
+<div class="bg-surface p-3 rounded-xl flex flex-col items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.02)] border border-surface-variant/50">
+<span class="material-symbols-outlined text-primary-fixed-dim mb-1">schedule</span>
+<span class="font-title-md text-[18px] text-on-surface">&lt;2h</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant text-center">RESP. TIME</span>
+</div>
+</div>
+</section>
+<!-- Certifications -->
+<section class="px-container-margin-mobile pb-6">
+<h3 class="font-title-md text-[16px] text-on-surface mb-3">Professional Credentials</h3>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 bg-surface-container p-3 rounded-lg">
+<div class="bg-surface w-10 h-10 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant">school</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm font-medium text-on-surface">LLB (Hons), University of Ghana</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">GRADUATED 2008</p>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container p-3 rounded-lg">
+<div class="bg-surface w-10 h-10 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant">local_police</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm font-medium text-on-surface">Ghana Bar Association Member</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">ACTIVE SINCE 2010</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Booking Calendar -->
+<section class="bg-surface pt-6 pb-8 border-t border-surface-variant shadow-[0_-4px_12px_rgba(0,0,0,0.02)]">
+<div class="px-container-margin-mobile mb-4 flex justify-between items-end">
+<h3 class="font-title-md text-[18px] text-on-surface">Select Date &amp; Time</h3>
+<span class="font-body-sm text-secondary cursor-pointer">October</span>
+</div>
+<!-- Date Scroller -->
+<div class="flex gap-2 overflow-x-auto hide-scrollbar px-container-margin-mobile pb-2">
+<button class="flex flex-col items-center justify-center min-w-[64px] py-2 rounded-xl bg-surface-container text-on-surface border border-transparent">
+<span class="font-label-caps text-[10px] opacity-70">MON</span>
+<span class="font-title-md text-[18px]">14</span>
+</button>
+<button class="flex flex-col items-center justify-center min-w-[64px] py-2 rounded-xl bg-primary-container text-on-primary-container border border-primary-fixed-dim shadow-sm">
+<span class="font-label-caps text-[10px]">TUE</span>
+<span class="font-title-md text-[18px]">15</span>
+</button>
+<button class="flex flex-col items-center justify-center min-w-[64px] py-2 rounded-xl bg-surface-container text-on-surface border border-transparent">
+<span class="font-label-caps text-[10px] opacity-70">WED</span>
+<span class="font-title-md text-[18px]">16</span>
+</button>
+<button class="flex flex-col items-center justify-center min-w-[64px] py-2 rounded-xl bg-surface-container text-on-surface border border-transparent">
+<span class="font-label-caps text-[10px] opacity-70">THU</span>
+<span class="font-title-md text-[18px]">17</span>
+</button>
+<button class="flex flex-col items-center justify-center min-w-[64px] py-2 rounded-xl bg-surface-container text-on-surface border border-transparent">
+<span class="font-label-caps text-[10px] opacity-70">FRI</span>
+<span class="font-title-md text-[18px]">18</span>
+</button>
+</div>
+<!-- Time Slots -->
+<div class="px-container-margin-mobile mt-4 grid grid-cols-3 gap-2">
+<button class="py-2.5 rounded-lg border border-surface-variant bg-surface text-on-surface-variant font-body-sm text-center line-through opacity-50" disabled="">
+                    09:00 AM
+                </button>
+<button class="py-2.5 rounded-lg border border-primary bg-primary/10 text-primary font-body-sm text-center font-medium">
+                    10:30 AM
+                </button>
+<button class="py-2.5 rounded-lg border border-surface-variant bg-surface text-on-surface font-body-sm text-center hover:bg-surface-container transition-colors">
+                    01:00 PM
+                </button>
+<button class="py-2.5 rounded-lg border border-surface-variant bg-surface text-on-surface font-body-sm text-center hover:bg-surface-container transition-colors">
+                    02:30 PM
+                </button>
+<button class="py-2.5 rounded-lg border border-surface-variant bg-surface text-on-surface font-body-sm text-center hover:bg-surface-container transition-colors">
+                    04:00 PM
+                </button>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Booking Action -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-md px-container-margin-mobile py-4 border-t border-surface-variant z-40 shadow-[0_-8px_24px_rgba(0,0,0,0.06)]">
+<div class="flex items-start gap-2 mb-3 px-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">info</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-tight">
+                A non-refundable consultation commitment fee of <strong>GHS 150</strong> will be deducted securely via MoMo to confirm this booking.
+            </p>
+</div>
+<button class="w-full bg-primary hover:bg-primary-fixed-dim text-on-primary-fixed-variant font-title-md text-title-md py-3.5 rounded-full flex items-center justify-center gap-2 transition-transform duration-200 active:scale-[0.98] shadow-sm">
+<span>Book with MoMo</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</body></html>

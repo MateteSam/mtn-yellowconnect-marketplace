@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Marketplace - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(31, 93, 174, 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#95f1ff",
+                        "outline-variant": "#d2c5ab",
+                        "on-primary-container": "#6f5700",
+                        "on-secondary-container": "#003c7c",
+                        "secondary-fixed": "#d6e3ff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#006874",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f0edec",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-primary": "#f1c100",
+                        "outline": "#80765f",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#00646e",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-high": "#ebe7e7",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-container": "#76a9ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "tertiary-container": "#00e7fe",
+                        "error-container": "#ffdad6",
+                        "primary": "#745b00",
+                        "primary-container": "#ffcc00",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "on-secondary-fixed": "#001b3e",
+                        "secondary": "#1f5dae",
+                        "inverse-surface": "#313030",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#4e4632",
+                        "primary-fixed": "#ffe08b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "base": "8px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-lg text-body-lg min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-container-margin-mobile h-16 w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim shadow-sm dark:bg-surface-container-high">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center overflow-hidden">
+<img alt="User Profile Picture" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a Ghanaian man with a friendly expression, set against a soft, blurred corporate office background. The lighting is warm and natural, following a high-trust professional aesthetic. The image uses a high-key color palette with clean white and subtle gray tones, reflecting the premium MTN Marketplace style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZwzG7zplS1FA3Z3qLs59r9ykNmiX0wUoPsuCpX5dhwzlt9G_ifPc8Btq6Xa_RIeG2zMc-8I9NDSCxCMOJTLqo9hs5zvLJv4qNAwJsvrscaMKIGiGec3rmLv0b8KMLfMkcIh0VjMTguEaWcWDqT7FaFdVO13jPvR670QkhNb-3Wm_YXr2_81W9hRPufYPbaiDhN0gKZHZG2iEXVP7MVvh8zgz-XJ4_IwysBUcOVMAMS-g3Dbv9j6r2OwQCN6RTv_r1EjRTe9PdGxs"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">MTN Marketplace</h1>
+</div>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim p-2 hover:bg-surface-variant transition-colors rounded-full" data-icon="search">search</button>
+</header>
+<main class="max-w-3xl mx-auto px-container-margin-mobile pt-8 space-y-section-gap">
+<!-- Header Section -->
+<section>
+<h2 class="font-headline-lg text-headline-lg mb-2">Settings</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg">Customize your marketplace experience and account preferences.</p>
+</section>
+<!-- Preferences Group -->
+<div class="space-y-4">
+<h3 class="font-label-caps text-label-caps text-outline uppercase tracking-widest px-1">App Preferences</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm">
+<!-- Language Selection -->
+<div class="flex items-center justify-between p-4 border-b border-outline-variant hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</div>
+<div>
+<p class="font-title-md text-title-md">Language</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">English (United Kingdom)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Theme Mode -->
+<div class="p-4 border-b border-outline-variant">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</div>
+<p class="font-title-md text-title-md">Appearance</p>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center gap-2 p-3 rounded-lg border-2 border-primary bg-primary-container text-on-primary-container transition-all" id="theme-light" onclick="setTheme('light')">
+<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>
+<span class="font-label-caps text-label-caps">Light</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-lg border border-outline-variant hover:bg-surface-variant transition-all" id="theme-dark" onclick="setTheme('dark')">
+<span class="material-symbols-outlined" data-icon="bedtime">bedtime</span>
+<span class="font-label-caps text-label-caps">Dark</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-lg border border-outline-variant hover:bg-surface-variant transition-all" id="theme-system" onclick="setTheme('system')">
+<span class="material-symbols-outlined" data-icon="devices">devices</span>
+<span class="font-label-caps text-label-caps">System</span>
+</button>
+</div>
+</div>
+<!-- Cache Management -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+</div>
+<div>
+<p class="font-title-md text-title-md">Storage</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">124 MB cached data</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-surface-variant text-on-surface-variant font-label-caps text-label-caps rounded-full active:scale-95 transition-transform hover:bg-outline-variant/30" onclick="clearCache()">
+                        Clear Cache
+                    </button>
+</div>
+</div>
+</div>
+<!-- AI Personalization (Glassmorphic) -->
+<section class="glass-ai p-6 rounded-2xl relative overflow-hidden border border-primary/10">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2 py-0.5 rounded-full bg-gradient-to-r from-secondary to-tertiary text-[10px] font-bold text-white uppercase tracking-widest">AI Enhanced</span>
+</div>
+<h3 class="font-title-md text-title-md mb-2">Smart Recommendations</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 max-w-md">Our AI Scout learns from your browsing habits to surface localized deals and relevant entrepreneurs across Africa.</p>
+<div class="flex items-center gap-3">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+<span class="font-label-caps text-label-caps">Personalized Feed</span>
+</div>
+</section>
+<!-- Help & Legal Group -->
+<div class="space-y-4">
+<h3 class="font-label-caps text-label-caps text-outline uppercase tracking-widest px-1">Support</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm">
+<div class="flex items-center justify-between p-4 border-b border-outline-variant hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help">help</span>
+<span class="font-body-lg text-body-lg">Help Center</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="open_in_new">open_in_new</span>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="description">description</span>
+<span class="font-body-lg text-body-lg">Terms of Service</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Log Out -->
+<button class="w-full p-4 text-error font-title-md text-title-md text-center border border-error/20 rounded-xl hover:bg-error/5 transition-colors active:scale-[0.98]">
+            Log Out
+        </button>
+<div class="text-center pb-8">
+<p class="font-label-caps text-label-caps text-outline">MTN Marketplace v2.4.0</p>
+</div>
+</main>
+<!-- NavigationDrawer (Mobile Placeholder / Side Nav Logic) -->
+<!-- Not rendered as it's a settings sub-page, but logic remains for shell integrity -->
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-dim shadow-[0px_-4px_12px_rgba(0,0,0,0.05)] border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-caps text-label-caps">Browse</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-caps text-label-caps">AI Scout</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:bg-surface-container-low transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-on-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-full px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+<script>
+        function setTheme(mode) {
+            const html = document.documentElement;
+            const buttons = ['theme-light', 'theme-dark', 'theme-system'];
+            
+            buttons.forEach(id => {
+                const btn = document.getElementById(id);
+                btn.classList.remove('border-primary', 'bg-primary-container', 'text-on-primary-container');
+                btn.classList.add('border-outline-variant');
+            });
+
+            const activeBtn = document.getElementById(`theme-${mode}`);
+            activeBtn.classList.add('border-primary', 'bg-primary-container', 'text-on-primary-container');
+            activeBtn.classList.remove('border-outline-variant');
+
+            if (mode === 'dark') {
+                html.classList.add('dark');
+            } else if (mode === 'light') {
+                html.classList.remove('dark');
+            } else {
+                // System preference
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    html.classList.add('dark');
+                } else {
+                    html.classList.remove('dark');
+                }
+            }
+        }
+
+        function clearCache() {
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = 'Clearing...';
+            btn.disabled = true;
+            btn.classList.add('opacity-50');
+            
+            setTimeout(() => {
+                btn.innerText = 'Cleared!';
+                btn.classList.remove('bg-surface-variant');
+                btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-50', 'bg-secondary-container', 'text-on-secondary-container');
+                    btn.classList.add('bg-surface-variant');
+                }, 2000);
+            }, 1200);
+        }
+    </script>
+</body></html>

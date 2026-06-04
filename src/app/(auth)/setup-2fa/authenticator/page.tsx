@@ -1,0 +1,156 @@
+'use client';
+
+import Link from 'next/link';
+import { useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function AuthenticatorSetupPage() {
+  const [digits, setDigits] = useState<string[]>(['', '', '', '', '', '']);
+  const [isLoading, setIsLoading] = useState(false);
+  const refs = useRef<(HTMLInputElement | null)[]>([]);
+  const router = useRouter();
+
+  const handleDigit = (idx: number, val: string) => {
+    if (!/^\d?$/.test(val)) return;
+    const next = [...digits];
+    next[idx] = val;
+    setDigits(next);
+    if (val && idx < 5) refs.current[idx + 1]?.focus();
+  };
+
+  const handleKeyDown = (idx: number, e: React.KeyboardEvent) => {
+    if (e.key === 'Backspace' && !digits[idx] && idx > 0) {
+      refs.current[idx - 1]?.focus();
+    }
+  };
+
+  const handleVerify = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    await new Promise(r => setTimeout(r, 1000));
+    setIsLoading(false);
+    router.push('/setup-2fa/success');
+  };
+
+  const isComplete = digits.every(d => d !== '');
+
+  return (
+    <div className="min-h-screen bg-background text-on-background flex flex-col">
+      {/* Header */}
+      <header className="sticky top-0 w-full flex items-center gap-4 px-container-margin-mobile py-2 bg-surface z-50 shadow-sm">
+        <Link
+          href="/setup-2fa"
+          className="p-2 rounded-full hover:bg-surface-container-low transition-colors flex items-center justify-center text-on-surface-variant"
+        >
+          <span className="material-symbols-outlined">arrow_back</span>
+        </Link>
+        <span className="text-title-md font-title-md font-bold text-primary">Setup 2FA</span>
+      </header>
+
+      <main className="flex-grow flex flex-col items-center justify-center p-container-margin-mobile md:p-container-margin-desktop">
+        <div className="w-full max-w-lg space-y-section-gap">
+          {/* Intro */}
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-container text-on-primary-container mb-4">
+              <span
+                className="material-symbols-outlined text-4xl"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                security
+              </span>
+            </div>
+            <h1 className="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg">
+              Protect Your Account
+            </h1>
+            <p className="text-body-lg font-body-lg text-on-surface-variant">
+              Follow the steps below to link your authenticator app.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {/* Step 1: QR Code */}
+            <div className="glass-panel rounded-xl p-6 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                {/* QR placeholder */}
+                <div className="flex-shrink-0 bg-white p-4 rounded-lg shadow-sm border border-outline-variant flex items-center justify-center w-32 h-32">
+                  <div className="grid grid-cols-5 gap-0.5 w-full h-full">
+                    {Array.from({ length: 25 }).map((_, i) => (
+                      <div
+                        key={i}
+                        className={`${Math.random() > 0.5 ? 'bg-on-surface' : 'bg-transparent'} rounded-[1px]`}
+                        style={{ width: '100%', aspectRatio: '1' }}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-3 text-center md:text-left">
+                  <h2 className="text-title-md font-title-md">Step 1: Scan QR Code</h2>
+                  <p className="text-body-sm font-body-sm text-on-surface-variant">
+                    Open Google Authenticator, Authy, or Microsoft Authenticator and scan this QR code.
+                  </p>
+                  <div className="pt-2">
+                    <span className="text-label-caps font-label-caps text-secondary cursor-pointer hover:underline">
+                      Can&apos;t scan? Use setup key
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2: OTP */}
+            <form className="glass-panel rounded-xl p-6 relative overflow-hidden space-y-6" onSubmit={handleVerify}>
+              <div className="absolute top-0 left-0 w-2 h-full bg-secondary" />
+              <div className="space-y-2">
+                <h2 className="text-title-md font-title-md">Step 2: Enter 6-digit Code</h2>
+                <p className="text-body-sm font-body-sm text-on-surface-variant">
+                  Enter the 6-digit code generated by your app to verify the setup.
+                </p>
+              </div>
+              <div className="flex justify-between md:justify-start gap-2 md:gap-4">
+                {digits.map((d, idx) => (
+                  <input
+                    key={idx}
+                    ref={el => { refs.current[idx] = el; }}
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={1}
+                    value={d}
+                    aria-label={`Digit ${idx + 1}`}
+                    onChange={e => handleDigit(idx, e.target.value)}
+                    onKeyDown={e => handleKeyDown(idx, e)}
+                    className="w-12 h-14 md:w-14 md:h-16 text-center text-title-md font-title-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface transition-all focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary"
+                  />
+                ))}
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-col-reverse md:flex-row gap-4 pt-2">
+                <Link
+                  href="/setup-2fa"
+                  className="w-full md:w-auto px-6 py-3 rounded-full border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors text-title-md font-title-md text-center"
+                >
+                  Cancel
+                </Link>
+                <button
+                  type="submit"
+                  disabled={!isComplete || isLoading}
+                  className="w-full md:flex-1 px-6 py-3 rounded-full bg-primary text-on-primary-fixed text-title-md font-title-md hover:bg-primary-container transition-colors shadow-md flex justify-center items-center gap-2 disabled:opacity-50"
+                >
+                  {isLoading ? (
+                    <div className="w-5 h-5 border-2 border-on-primary-fixed/30 border-t-on-primary-fixed rounded-full animate-spin" />
+                  ) : (
+                    <>
+                      Verify &amp; Activate
+                      <span className="material-symbols-outlined text-[20px]">check_circle</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}

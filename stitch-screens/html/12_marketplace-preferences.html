@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTN Marketplace - Merchant Preferences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(31, 93, 174, 0.2);
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #745b00;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ffcc00;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#95f1ff",
+                        "outline-variant": "#d2c5ab",
+                        "on-primary-container": "#6f5700",
+                        "on-secondary-container": "#003c7c",
+                        "secondary-fixed": "#d6e3ff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#006874",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f0edec",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-primary": "#f1c100",
+                        "outline": "#80765f",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#00646e",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#f1c100",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-high": "#ebe7e7",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-container": "#76a9ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "tertiary-container": "#00e7fe",
+                        "error-container": "#ffdad6",
+                        "primary": "#745b00",
+                        "primary-container": "#ffcc00",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#745b00",
+                        "on-secondary-fixed": "#001b3e",
+                        "secondary": "#1f5dae",
+                        "inverse-surface": "#313030",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#4e4632",
+                        "primary-fixed": "#ffe08b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "base": "8px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-lg min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-md high-elevation flex justify-between items-center px-container-margin-mobile h-16 w-full sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-primary active:scale-95 duration-100">arrow_back</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">MTN Marketplace</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">search</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="User Profile Picture" class="w-full h-full object-cover" data-alt="A professional headshot of a West African merchant smiling confidently, wearing a modern corporate blazer. The background is a clean, minimalist office setting with soft, high-key lighting, maintaining a high-trust professional aesthetic with neutral tones and a hint of MTN blue in the decor. The lighting is warm and natural." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUOm0PLpFxnm7DAJJDBV_0mWdRt_KEEuYpgy6qj3IKV7KhbCD6MWFntlkM3s1-XRQf86KFYDMj0kIdqqgMPxTlnbEyA3i35C_58V3pICGpHU5hDvKOZ6HJ0ZbRvcRlHOOMO6ghDAwvD4KIudYrfdNKHxgQawEruudFiy82EwrhHoYIfgHEJgCmbwJEeoXa3beiVKa7JWhdGVga_H_7oKMy8cl9RKXSceYTf-1ZVTZoJN8BjyDM6C4dATciHXKEEitLZ6GwAAUYHK0"/>
+</div>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-container-margin-mobile py-8 pb-32">
+<!-- Screen Title -->
+<div class="mb-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Merchant Preferences</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage your selling automation and marketplace visibility.</p>
+</div>
+<!-- Preferences List -->
+<div class="space-y-6">
+<!-- AI Glassmorphic Section -->
+<section class="glass-ai p-6 rounded-xl space-y-6 shadow-sm">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">AI Intelligence</span>
+</div>
+<!-- Enable AI-Assisted Pricing -->
+<div class="flex items-center justify-between gap-4">
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface">Enable AI-Assisted Pricing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automatically adjust your prices based on regional demand, competitor trends, and stock levels using MTN Scout AI.</p>
+</div>
+<div class="relative inline-block w-12 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer z-10" id="ai_pricing" name="ai_pricing" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer" for="ai_pricing"></label>
+</div>
+</div>
+<!-- Automatic Negotiation -->
+<div class="flex items-center justify-between gap-4">
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface">Automatic Negotiation</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Let the AI agent handle price negotiations with buyers within your pre-defined minimum margin.</p>
+</div>
+<div class="relative inline-block w-12 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer z-10" id="auto_neg" name="auto_neg" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer" for="auto_neg"></label>
+</div>
+</div>
+</section>
+<!-- Standard Settings Section -->
+<section class="bg-surface-container-low p-6 rounded-xl space-y-8 border border-outline-variant">
+<!-- International Shipping -->
+<div class="flex items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">public</span>
+<h3 class="font-title-md text-title-md text-on-surface">International Shipping</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Make your products available to buyers across the Pan-African network and beyond.</p>
+</div>
+<div class="relative inline-block w-12 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer z-10" id="intl_ship" name="intl_ship" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer" for="intl_ship"></label>
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<!-- Currency Selection -->
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">payments</span>
+<h3 class="font-title-md text-title-md text-on-surface">Currency Selection</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Select your primary settlement currency for all marketplace transactions.</p>
+<div class="relative group">
+<select class="w-full bg-surface-container-highest border-none rounded-lg p-4 font-body-lg text-body-lg appearance-none focus:ring-2 focus:ring-secondary cursor-pointer">
+<option value="GHS">GHS - Ghanaian Cedi</option>
+<option value="NGN">NGN - Nigerian Naira</option>
+<option value="ZAR">ZAR - South African Rand</option>
+<option selected="" value="USD">USD - United States Dollar</option>
+<option value="EUR">EUR - Euro</option>
+</select>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Save Button -->
+<div class="mt-12 flex flex-col gap-4">
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-4 rounded-xl active:scale-95 transition-transform duration-100 shadow-sm hover:shadow-md">
+                Save All Changes
+            </button>
+<button class="w-full text-secondary font-bold py-2 hover:underline">
+                Reset to Default Settings
+            </button>
+</div>
+</main>
+<!-- NavigationDrawer (Mobile Hidden Overlay) -->
+<!-- Determined not active for this specific task-focused screen, hidden but logic preserved -->
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container-highest border-t border-outline-variant high-elevation shadow-[0px_-4px_12px_rgba(0,0,0,0.05)] md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:bg-surface-container-low transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:bg-surface-container-low transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-label-caps">Browse</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:bg-surface-container-low transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-caps text-label-caps">AI Scout</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:bg-surface-container-low transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</button>
+<!-- ACTIVE TAB: Settings (closest match to Preferences) -->
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-on-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-full px-4 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</button>
+</nav>
+<script>
+        // Simple Interaction logic for toggles
+        document.querySelectorAll('.toggle-checkbox').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if (this.checked) {
+                    console.log(`${this.id} enabled`);
+                } else {
+                    console.log(`${this.id} disabled`);
+                }
+            });
+        });
+
+        // Atmospheric micro-interaction for the Glass AI card
+        const glassCard = document.querySelector('.glass-ai');
+        glassCard.addEventListener('mousemove', (e) => {
+            const rect = glassCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            glassCard.style.setProperty('--mouse-x', `${x}px`);
+            glassCard.style.setProperty('--mouse-y', `${y}px`);
+        });
+    </script>
+</body></html>

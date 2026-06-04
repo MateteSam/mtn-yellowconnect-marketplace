@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deliveries &amp; Logistics</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#4e4632",
+                        "on-secondary-container": "#003c7c",
+                        "secondary": "#1f5dae",
+                        "surface-container-high": "#ebe7e7",
+                        "primary-fixed": "#ffe08b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-secondary-fixed": "#001b3e",
+                        "secondary-container": "#76a9ff",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary": "#ffffff",
+                        "primary": "#745b00",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "tertiary": "#006874",
+                        "surface-tint": "#745b00",
+                        "inverse-surface": "#313030",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#f1c100",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-container": "#ffcc00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-fixed": "#241a00",
+                        "outline": "#80765f",
+                        "on-tertiary-container": "#00646e",
+                        "background": "#fcf9f8",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#00e7fe",
+                        "primary-fixed-dim": "#f1c100",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "on-primary-container": "#6f5700",
+                        "on-tertiary-fixed": "#001f24"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Glassmorphism utility for AI/Tech elements */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(118, 169, 255, 0.3); /* secondary-container tint */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar from JSON -->
+<header class="w-full sticky top-0 z-50 shadow-sm bg-surface">
+<div class="flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop py-base w-full max-w-7xl mx-auto">
+<!-- Leading: Avatar -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+</div>
+<!-- Headline/Brand -->
+<div class="absolute left-1/2 -translate-x-1/2">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary tracking-tight">Marketplace</h1>
+</div>
+<!-- Responsive Desktop Navigation (Hidden on Mobile) -->
+<nav class="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2 mt-16 bg-surface-container-low px-6 py-2 rounded-full shadow-sm">
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 px-3 py-1 rounded-md font-body-sm text-body-sm" href="#">Home</a>
+<a class="text-primary font-title-md text-title-md border-b-2 border-primary-container px-3 py-1 transition-all duration-200" href="#">Search</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 px-3 py-1 rounded-md font-body-sm text-body-sm" href="#">Bookings</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 px-3 py-1 rounded-md font-body-sm text-body-sm" href="#">Profile</a>
+</nav>
+<!-- Trailing: Icon -->
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-all duration-200 active:scale-95 text-on-surface-variant relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto pt-4 md:pt-12">
+<!-- Search Context & Category Filter -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-8">
+<div class="flex items-center gap-2 mb-4 bg-surface-container-low rounded-xl p-2 shadow-inner border border-surface-variant">
+<span class="material-symbols-outlined text-secondary ml-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full font-body-lg placeholder:text-on-surface-variant/60" placeholder="What needs delivering?" type="text"/>
+<button class="bg-primary-container text-on-primary-container font-title-md text-title-md px-4 py-2 rounded-lg hover:brightness-105 transition-all">Find</button>
+</div>
+<!-- Categories Horizontal Scroll -->
+<div class="flex overflow-x-auto gap-3 hide-scrollbar pb-2">
+<button class="flex-shrink-0 bg-secondary text-on-secondary px-4 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="two_wheeler">two_wheeler</span>
+                    Motorcycle
+                </button>
+<button class="flex-shrink-0 bg-surface-container-lowest border border-outline-variant text-on-surface-variant px-4 py-2 rounded-full font-label-caps text-label-caps hover:bg-surface-container transition-colors">
+                    Courier Services
+                </button>
+<button class="flex-shrink-0 bg-surface-container-lowest border border-outline-variant text-on-surface-variant px-4 py-2 rounded-full font-label-caps text-label-caps hover:bg-surface-container transition-colors">
+                    Package Delivery
+                </button>
+<button class="flex-shrink-0 bg-surface-container-lowest border border-outline-variant text-on-surface-variant px-4 py-2 rounded-full font-label-caps text-label-caps hover:bg-surface-container transition-colors">
+                    Moving Services
+                </button>
+<button class="flex-shrink-0 bg-surface-container-lowest border border-outline-variant text-on-surface-variant px-4 py-2 rounded-full font-label-caps text-label-caps hover:bg-surface-container transition-colors">
+                    Errand Running
+                </button>
+</div>
+</section>
+<!-- MoMo Booking Highlight (Bento Top) -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-section-gap">
+<div class="bg-gradient-to-r from-primary-container to-[#ffd633] rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between shadow-sm relative overflow-hidden">
+<!-- Decorative background pattern -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#745b00 1px, transparent 1px); background-size: 16px 16px;"></div>
+<div class="relative z-10 mb-4 md:mb-0">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="verified" data-weight="fill">verified</span>
+<h2 class="font-title-md text-title-md text-on-primary-container">MoMo Booking Guarantee</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary-container/80 max-w-md">Flat-rate deliveries across the city. Secure payments, zero hidden fees, and priority dispatch.</p>
+</div>
+<button class="relative z-10 bg-surface-container-lowest text-on-surface font-title-md text-title-md px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all whitespace-nowrap w-full md:w-auto text-center border border-outline-variant/30">
+                    Book Now
+                </button>
+</div>
+</section>
+<!-- Live Map Context -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-section-gap">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-title-md text-title-md text-on-surface">Nearby Couriers</h3>
+<div class="flex items-center gap-1 bg-surface-container-high rounded-full p-1">
+<button class="bg-surface-container-lowest rounded-full px-3 py-1 shadow-sm font-label-caps text-label-caps text-on-surface">Map</button>
+<button class="px-3 py-1 font-label-caps text-label-caps text-on-surface-variant">List</button>
+</div>
+</div>
+<div class="w-full h-48 md:h-64 rounded-2xl bg-surface-variant relative overflow-hidden shadow-inner group cursor-pointer" data-location="Kigali" style="">
+<!-- Pseudo-map background (Placeholder styling per rules, using gradient for simplicity without image generation bloat unless needed, but requirement asks for data-location on map image. We will use a div with background image and data-alt) -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A detailed, modern digital map interface displayed on a high-resolution screen, showing a dense city grid. The map uses a sleek, light-mode color palette with soft gray roads, subtle MTN yellow highlights for active routes, and MTN blue pins indicating available couriers. The aesthetic is clean, corporate, and highly legible, emphasizing efficiency and real-time tracking capabilities." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDO8uTpw-g72QkSlw3QH7ZQqMwy4QTgaN-zgrai7gOmoARRxtyFEkkYuOM-wrZkMDPfi2S2iqdBJ1KlxoWbtG_ffSZ3ohDYEfr-JJbdiWs9OaUc-ozRNkMjXkwJ20q88eyG7bKt0m5WQf9Le5kAQL-toy8cldiMAfVZUfbJ-LNgIEeLrTtEm9MvTtBz2_k7a8SxMcBOSD9zxZLG30sTF-3VTx6OHOA3zswP64EyPi4vc97yIgX_PvvT5WlN2QEeAK5Ok0CotefMVbzR');"></div>
+<!-- Glassmorphic Overlay Panel -->
+<div class="absolute bottom-4 left-4 right-4 md:right-auto md:w-80 glass-panel rounded-xl p-3 shadow-lg flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-[20px]" data-icon="my_location">my_location</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Active Area</p>
+<p class="font-title-md text-title-md text-on-surface">12 riders within 2km</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Listing (Bento Grid) -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: Express Motorcycle -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant shadow-sm hover:shadow-md transition-shadow flex flex-col relative overflow-hidden group">
+<!-- Tech/Speed Accent -->
+<div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-tertiary-container/30 to-transparent rounded-bl-full"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[28px]" data-icon="sports_motorsports">sports_motorsports</span>
+</div>
+<div class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-1 rounded-md font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="bolt">bolt</span>
+                            Fastest
+                        </div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Swift Bike Delivery</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">Ideal for documents, small parcels, and food. Navigates traffic with ease.</p>
+<div class="flex items-center justify-between border-t border-surface-variant pt-3 mt-auto">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">EST. TIME</span>
+<span class="font-title-md text-title-md text-on-surface">15-30 min</span>
+</div>
+<button class="material-symbols-outlined text-secondary hover:bg-secondary-container/20 p-2 rounded-full transition-colors" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</div>
+<!-- Card 2: Cargo / Moving (Glassmorphic tracking badge) -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant shadow-sm hover:shadow-md transition-shadow flex flex-col relative">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<!-- Glassmorphic AI/Tech Badge -->
+<div class="glass-panel text-secondary px-2 py-1 rounded-md font-label-caps text-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="radar">radar</span>
+                            Live Tracking
+                        </div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Heavy Cargo &amp; Moving</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">Furniture transport and large scale moving services with dedicated trucks.</p>
+<div class="flex items-center justify-between border-t border-surface-variant pt-3 mt-auto">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">STARTING FROM</span>
+<span class="font-title-md text-title-md text-secondary">R 450</span>
+</div>
+<button class="material-symbols-outlined text-secondary hover:bg-secondary-container/20 p-2 rounded-full transition-colors" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</div>
+<!-- Card 3: Errand Running -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant shadow-sm hover:shadow-md transition-shadow flex flex-col relative">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[28px]" data-icon="shopping_cart">shopping_cart</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Personal Errand Runner</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex-grow">Grocery pickup, pharmacy runs, or general tasks completed efficiently.</p>
+<div class="flex items-center justify-between border-t border-surface-variant pt-3 mt-auto">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">AVAILABILITY</span>
+<span class="font-title-md text-title-md text-tertiary">High</span>
+</div>
+<button class="material-symbols-outlined text-secondary hover:bg-secondary-container/20 p-2 rounded-full transition-colors" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar from JSON (Mobile Only per responsive pivot rules) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface shadow-[0px_-2px_10px_rgba(0,0,0,0.05)] md:hidden pb-safe">
+<div class="flex justify-around items-center px-4 pb-4 pt-2">
+<!-- Inactive: Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<!-- Active: Search (Mapped intent for listing page) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 transition-transform duration-200 active:scale-90 shadow-sm" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="search" data-weight="fill">search</span>
+<span class="font-label-caps text-label-caps">Search</span>
+</a>
+<!-- Inactive: Bookings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="event_note">event_note</span>
+<span class="font-label-caps text-label-caps">Bookings</span>
+</a>
+<!-- Inactive: Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</div>
+</nav>
+<!-- iOS safe area padding utility -->
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 1rem); }
+    </style>
+</body></html>

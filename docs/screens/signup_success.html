@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Welcome - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#fcf9f8",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#ffcc00",
+                      "on-secondary-fixed": "#001b3e",
+                      "primary-fixed": "#ffe08b",
+                      "tertiary-fixed": "#95f1ff",
+                      "surface-bright": "#fcf9f8",
+                      "on-secondary": "#ffffff",
+                      "on-surface": "#1c1b1b",
+                      "tertiary-fixed-dim": "#00daf0",
+                      "on-secondary-fixed-variant": "#00458d",
+                      "on-tertiary-fixed-variant": "#004f57",
+                      "inverse-primary": "#f1c100",
+                      "inverse-surface": "#313030",
+                      "tertiary-container": "#00e7fe",
+                      "on-primary-fixed-variant": "#584400",
+                      "surface-tint": "#745b00",
+                      "secondary-container": "#76a9ff",
+                      "surface-variant": "#e5e2e1",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#e5e2e1",
+                      "on-secondary-container": "#003c7c",
+                      "on-background": "#1c1b1b",
+                      "on-surface-variant": "#4e4632",
+                      "secondary": "#1f5dae",
+                      "error": "#ba1a1a",
+                      "outline": "#80765f",
+                      "on-primary": "#ffffff",
+                      "surface": "#fcf9f8",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#f3f0ef",
+                      "tertiary": "#006874",
+                      "secondary-fixed": "#d6e3ff",
+                      "on-primary-fixed": "#241a00",
+                      "primary": "#745b00",
+                      "outline-variant": "#d2c5ab",
+                      "primary-fixed-dim": "#f1c100",
+                      "on-primary-container": "#6f5700",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#00646e",
+                      "surface-container-high": "#ebe7e7",
+                      "surface-dim": "#dcd9d9",
+                      "surface-container": "#f0edec",
+                      "on-tertiary-fixed": "#001f24",
+                      "secondary-fixed-dim": "#aac7ff",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f6f3f2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "48px",
+                      "gutter": "16px",
+                      "container-margin-desktop": "40px",
+                      "base": "8px",
+                      "container-margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle entrance animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-sm relative overflow-hidden">
+<!-- Decorative background elements for a modern, high-trust feel -->
+<div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary-container rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-secondary-container rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
+<!-- Main Content Area: Centered for a transactional success screen -->
+<main class="flex-1 flex flex-col items-center justify-center px-container-margin-mobile md:px-container-margin-desktop py-12 z-10">
+<div class="max-w-md w-full flex flex-col items-center text-center">
+<!-- Celebratory Graphic -->
+<div class="relative w-64 h-64 mb-8 opacity-0 animate-fade-up">
+<!-- Image container with a subtle glassmorphic backdrop -->
+<div class="absolute inset-0 bg-white/40 backdrop-blur-md rounded-full border border-white/50 shadow-sm flex items-center justify-center overflow-hidden">
+<img alt="Success Illustration" class="w-full h-full object-cover opacity-90" data-alt="A modern, abstract 3D illustration representing success and security in a digital marketplace. The composition features smooth, floating geometric shapes like spheres and rounded cubes in a pristine light-mode setting. Soft, diffuse studio lighting highlights the premium textures. The color palette emphasizes high-trust MTN yellow and deep corporate blue against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoR-bcMYjGqfek7P31PsDlUWI30PMTEj44MaxiEZ_iO7I4K9CI-9Eaaag81cGcdh8A4-iGwHIL0cekf8yjZ6O3hLvDUZUdza90x6jKOjnD7QTGO9PicnoDhxDPI7OeCHbmILh8JNO0K4kr_Q7EF9wWhzOJ6glF3yOjEQ58KggmxKS00wcBUmcWIEia6Ji97NqnkIJ5SJ_rpTXiuSPQe0MY7Lhi9_DMRGZMkP2-xcjc0VKVSTnCyG-EpQWgIYfXWq6jVOtt7g5a1Is"/>
+</div>
+<!-- Floating Checkmark Badge -->
+<div class="absolute -bottom-2 -right-2 bg-secondary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg border-4 border-surface">
+<span class="material-symbols-outlined text-3xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-4 opacity-0 animate-fade-up delay-100">
+                Welcome to MTN Marketplace
+            </h1>
+<!-- Onboarding Message -->
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 px-4 opacity-0 animate-fade-up delay-200">
+                Your account is verified and ready. Connect with thousands of trusted buyers and sellers across the continent.
+            </p>
+<!-- Primary Action Button -->
+<div class="w-full opacity-0 animate-fade-up delay-300">
+<button class="w-full bg-primary-container text-on-surface font-title-md text-title-md py-4 px-6 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
+                    Start Exploring
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Secondary reassuring text -->
+<div class="mt-6 flex items-center justify-center gap-2 text-on-surface-variant font-body-sm opacity-0 animate-fade-up delay-300">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>Secure &amp; Verified Trading</span>
+</div>
+</div>
+</main>
+</body></html>

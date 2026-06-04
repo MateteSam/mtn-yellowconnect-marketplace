@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Profile - MTN Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "secondary": "#1f5dae",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "secondary-container": "#76a9ff",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "primary-fixed-dim": "#f1c100",
+                        "outline-variant": "#d2c5ab",
+                        "tertiary": "#006874",
+                        "on-surface": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#80765f",
+                        "on-error": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "on-surface-variant": "#4e4632",
+                        "inverse-primary": "#f1c100",
+                        "surface-tint": "#745b00",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#003c7c",
+                        "surface-container-low": "#f6f3f2",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary-container": "#6f5700",
+                        "primary-container": "#ffcc00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-variant": "#e5e2e1",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#00646e",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "primary": "#745b00",
+                        "surface-container": "#f0edec",
+                        "tertiary-container": "#00e7fe",
+                        "background": "#fcf9f8",
+                        "surface-container-high": "#ebe7e7",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001b3e",
+                        "on-background": "#1c1b1b",
+                        "on-primary-fixed": "#241a00",
+                        "primary-fixed": "#ffe08b",
+                        "surface-dim": "#dcd9d9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px",
+                        "container-margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-base bg-surface z-50 shadow-sm md:hidden">
+<button class="text-primary hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile font-bold text-primary">MTN Marketplace</h1>
+<button class="text-primary hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<!-- Desktop Navigation (Hidden on mobile) -->
+<header class="hidden md:flex sticky top-0 w-full justify-between items-center px-container-margin-desktop py-base bg-surface z-50 shadow-sm border-b border-surface-container">
+<div class="flex items-center gap-4">
+<h1 class="text-headline-lg font-headline-lg font-bold text-primary">MTN Marketplace</h1>
+</div>
+<nav class="flex gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">home</span> Home
+            </a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">search</span> Search
+            </a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">add_circle</span> Sell
+            </a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">chat_bubble</span> Messages
+            </a>
+<a class="text-primary border-b-2 border-primary font-bold flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">person</span> Profile
+            </a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKXaUD3uEdkdCAgr-1HIQHpXlkRjfcNMJ6CHGWJE21o-_ukeGgBL6i_TbEZwxotzpP47aMwE7zyDaLNIOk1hPOs653WkAO1ziJPRPi_JKkmgHBcwCEIT44nUO8uav4K2LJ4NQpb0X6MIS7gAWdoy4QIDHYhXEyjUPPcvtxUidQChezWygLwEV4_ttrQaufvv3Bl2sls8jw3kqcrQL2ZbYrwitu7SEzc3EQ1X5S0CdvIL13vn0fqA7zuwASF_vzRVzUNBLWj7Rhcys"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8">
+<!-- Profile Header Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-container p-6 mb-section-gap relative overflow-hidden">
+<!-- Decorative Background Element -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed opacity-10 rounded-bl-full -z-0 pointer-events-none"></div>
+<div class="flex flex-col md:flex-row items-start md:items-center gap-6 relative z-10">
+<!-- Avatar & Verification -->
+<div class="relative">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-surface shadow-md">
+<img alt="Seller Avatar" class="w-full h-full object-cover" data-alt="A professional portrait of an African business man in his 30s smiling confidently. He is wearing a crisp white collared shirt. The lighting is bright and even, creating a trustworthy and approachable mood. The background is a soft, out-of-focus modern office setting, aligning with a high-trust corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCAzlwFfKkjOjLbHL3A6DUQzqsHSXDPT4H98zScUN9K40ef3gaQsTNM3b-nY-eHo1anbZwB34BZ51sVZmhpzWnyZFJ7W9ejpssjNXjX61HYvGjw3vcs5-0jhmwJgv7DsMKe6Cr2s_4d2JMmcZ0WYt2CE_i7VUVnnTJ_JN1TDNeUbQrZsDgdM1J8zEh32KRCnFqMPCBG-CZHWCJ3G3mOG-_0vTjDDZ4LQ1LZmRpx8sgajvRfLX2J7jWQ271jyAei3woZe38Z2GRk6o"/>
+</div>
+<!-- Gold Badge -->
+<div class="absolute bottom-0 right-0 bg-[#FFD700] text-[#8B6508] p-1 rounded-full border-2 border-surface shadow-sm flex items-center justify-center" title="Gold Seller">
+<span class="material-symbols-outlined fill-icon text-lg">workspace_premium</span>
+</div>
+</div>
+<!-- Info -->
+<div class="flex-1">
+<div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+<div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg font-bold text-on-surface mb-1">TechHub Electronics</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-sm">location_on</span> Lagos, Nigeria
+                            </p>
+<!-- Ratings -->
+<div class="flex items-center gap-2 mb-4">
+<div class="flex text-primary">
+<span class="material-symbols-outlined fill-icon text-xl">star</span>
+<span class="material-symbols-outlined fill-icon text-xl">star</span>
+<span class="material-symbols-outlined fill-icon text-xl">star</span>
+<span class="material-symbols-outlined fill-icon text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star_half</span>
+</div>
+<span class="text-title-md font-title-md font-semibold text-on-surface">4.8</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">(1,245 reviews)</span>
+</div>
+<!-- Trust Badges -->
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container-low text-on-surface-variant rounded-full text-label-caps font-label-caps border border-outline-variant/50">
+<span class="material-symbols-outlined text-sm text-secondary">verified</span> ID Verified
+                                </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container-low text-on-surface-variant rounded-full text-label-caps font-label-caps border border-outline-variant/50">
+<span class="material-symbols-outlined text-sm text-secondary">phone_iphone</span> Phone Verified
+                                </span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-row md:flex-col gap-3 w-full md:w-auto mt-4 md:mt-0">
+<button class="flex-1 md:w-full bg-primary text-on-primary-fixed-variant font-bold py-3 px-6 rounded-lg hover:bg-surface-tint hover:text-white transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">chat_bubble</span> Chat
+                            </button>
+<button class="flex-1 md:w-full bg-surface text-primary border border-primary font-bold py-3 px-6 rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">person_add</span> Follow
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Bar -->
+<div class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-surface-container">
+<div class="text-center">
+<p class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider mb-1">Joined</p>
+<p class="text-title-md font-title-md text-on-surface font-semibold">Mar 2021</p>
+</div>
+<div class="text-center border-l border-r border-surface-container">
+<p class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider mb-1">Response Time</p>
+<p class="text-title-md font-title-md text-on-surface font-semibold">&lt; 1 hr</p>
+</div>
+<div class="text-center">
+<p class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider mb-1">Active Listings</p>
+<p class="text-title-md font-title-md text-on-surface font-semibold">42</p>
+</div>
+</div>
+</section>
+<!-- Listings Section -->
+<section>
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-title-md font-title-md font-bold text-on-surface">Active Listings</h3>
+<div class="flex gap-2">
+<select class="bg-surface border border-outline-variant text-on-surface text-body-sm rounded-lg focus:ring-secondary focus:border-secondary block p-2">
+<option>Most Recent</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+</select>
+</div>
+</div>
+<!-- Bento Grid Layout for Listings -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 (AI Enhanced) -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-outline-variant/30 flex flex-col relative">
+<!-- AI Badge -->
+<div class="absolute top-3 left-3 z-10 bg-white/80 backdrop-blur-md border border-tertiary-container text-tertiary px-2 py-1 rounded-md text-label-caps font-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> AI Verified Condition
+                    </div>
+<div class="h-48 w-full bg-surface-variant relative overflow-hidden">
+<img alt="Smartphone" class="w-full h-full object-cover" data-alt="A sleek, modern smartphone resting on a clean, light-grey surface. The screen is off, reflecting a subtle, bright light from above. The lighting is crisp and even, highlighting the phone's metallic edges. The overall mood is premium, tech-forward, and high-trust, fitting a modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtWL-bo6H9nccNVuFzH6lg55s1EI6Cjra9Jj83IYSFsibnTA-OauNGCPrpA2XIxpwUQzJTJCK5ZsqOajSY2V9DiTV4MW4hMGHhBYkBpf19xk2Ui657MgQD93QrTcXchTDiUwx2Us8QzAn_82FJfB-xkoaRo_CDD6f0aPaF4diBf1PP7hV6eivmE-cMVeoO3HeuyCV7DeE8q8_bOm1y4VNcXFeXMh8wNZmGBw3VTLI12fotIcda5lJDGTi3Pc-MtZm4JhWfYBezEOU"/>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface line-clamp-2">Samsung Galaxy S23 Ultra - 256GB, Phantom Black</h4>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite_border</span>
+</button>
+</div>
+<p class="text-title-md font-title-md font-bold text-secondary mt-auto">₦ 850,000</p>
+<div class="flex justify-between items-center mt-3 text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 2 days ago</span>
+<span class="flex items-center gap-1 bg-surface-container p-1 rounded"><span class="material-symbols-outlined text-sm">flag</span> NG</span>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="h-48 w-full bg-surface-variant relative overflow-hidden">
+<img alt="Laptop" class="w-full h-full object-cover" data-alt="A thin, silver laptop open on a minimalist white desk. The screen displays a subtle abstract graphic. Natural light floods in from off-camera, creating soft shadows and a bright, airy atmosphere. The setting feels clean, professional, and contemporary, aligning perfectly with a high-trust digital marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFNjwaO-DCMMw2AlQHAPg70uIJ7Uzhn6dPTWbizOi4UYusKvXK-Drfd1svX4tCvnoOsamo9p3Vdq5rRhCGuLmzdulVj7_3bpvX0ZD91jYgg--BMukfywFKEmEmqa2YJeEP_VGlR45yk3lMdTPrRjXt-lNbZUUuqsCyUByolWHosvBw2dcYbltSbEmCDYGwGO707yPJRnFv22JkexERtSwXDEix80IsRnFTSuoQ_j3_bpTYV1swsCRCdtd-7BYSZ_2TIPgCZ3KS2eM"/>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface line-clamp-2">MacBook Air M2 2022 - 8GB RAM, 256GB SSD</h4>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite_border</span>
+</button>
+</div>
+<p class="text-title-md font-title-md font-bold text-secondary mt-auto">₦ 1,150,000</p>
+<div class="flex justify-between items-center mt-3 text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 5 days ago</span>
+<span class="flex items-center gap-1 bg-surface-container p-1 rounded"><span class="material-symbols-outlined text-sm">flag</span> NG</span>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="h-48 w-full bg-surface-variant relative overflow-hidden">
+<img alt="Smartwatch" class="w-full h-full object-cover" data-alt="A modern smartwatch with a black digital face and a dark silicone band, laid flat on a pristine white surface. The lighting is studio-quality, creating soft highlights on the watch glass. The aesthetic is clean, technological, and premium, evoking a sense of modern corporate reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9ZYIHpWwuBDH5aKx0446uYwZeH04iqgezJwMEAIw35Cn9BsfWPZL87XPNyz6udERxIZakuJxcR9IHgXdRSj_jgqhhiL_tWBA8x86EGiMhS28wB8oDZZUaRbhKBmctCQ41T45ujRObhx58Od2xN2g-0jWbk4450MM5oKz_W6ye2QI5dJKnJl7FGp-ip06_Tt9gqcMK8mnYs_ebO1hO00uR6vt9PqbQQTYFuM0-OGH_UjdGaM65tg26yRZdCQH-qKMi7KvZuMzpcUk"/>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface line-clamp-2">Apple Watch Series 8 - 45mm GPS, Midnight</h4>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite_border</span>
+</button>
+</div>
+<p class="text-title-md font-title-md font-bold text-secondary mt-auto">₦ 320,000</p>
+<div class="flex justify-between items-center mt-3 text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 1 week ago</span>
+<span class="flex items-center gap-1 bg-surface-container p-1 rounded"><span class="material-symbols-outlined text-sm">flag</span> NG</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full flex justify-around items-center px-4 py-2 z-50 bg-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-caps font-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-caps font-label-caps mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-label-caps font-label-caps mt-1">Sell</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-label-caps font-label-caps mt-1">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 scale-90 duration-200" href="#">
+<span class="material-symbols-outlined fill-icon" data-icon="person">person</span>
+<span class="text-label-caps font-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

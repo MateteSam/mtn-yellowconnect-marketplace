@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Services Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#4e4632",
+                        "on-secondary-container": "#003c7c",
+                        "secondary": "#1f5dae",
+                        "surface-container-high": "#ebe7e7",
+                        "primary-fixed": "#ffe08b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-secondary-fixed": "#001b3e",
+                        "secondary-container": "#76a9ff",
+                        "outline-variant": "#d2c5ab",
+                        "on-secondary": "#ffffff",
+                        "primary": "#745b00",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-fixed": "#95f1ff",
+                        "surface-container": "#f0edec",
+                        "surface-bright": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "tertiary": "#006874",
+                        "surface-tint": "#745b00",
+                        "inverse-surface": "#313030",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#f1c100",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-container": "#ffcc00",
+                        "on-secondary-fixed-variant": "#00458d",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-fixed": "#241a00",
+                        "outline": "#80765f",
+                        "on-tertiary-container": "#00646e",
+                        "background": "#fcf9f8",
+                        "on-tertiary-fixed-variant": "#004f57",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed-variant": "#584400",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#00e7fe",
+                        "primary-fixed-dim": "#f1c100",
+                        "tertiary-fixed-dim": "#00daf0",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "on-primary-container": "#6f5700",
+                        "on-tertiary-fixed": "#001f24"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .glass-ai::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(to right, #745b00, #1f5dae);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 shadow-sm bg-surface dark:bg-surface-dim transition-all duration-200">
+<div class="flex items-center justify-between px-container-margin-mobile py-base w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest p-2 rounded-full cursor-pointer transition-all duration-200 active:scale-95" data-icon="menu">menu</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary dark:text-primary-fixed-dim">Marketplace</h1>
+</div>
+<div class="hidden md:flex gap-8">
+<nav class="flex gap-6 items-center">
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-title-md text-title-md text-primary flex flex-col items-center" href="#">
+                        Search
+                        <span class="h-1 w-full bg-primary rounded-t-full mt-1"></span>
+</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors" href="#">Bookings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim p-2 rounded-full cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 active:scale-95" data-icon="notifications">notifications</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden cursor-pointer border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional looking individual, symbolizing a user profile. The lighting is soft and studio-quality, emphasizing a modern corporate aesthetic with a neutral background. The overall tone is trustworthy and clean, fitting a high-end digital services marketplace context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFkY7jJhR1ZglVxe-aLtW2KGDdHaeC_nHMRs5Rb8Awv9b9pwo4AycD6h3X2iiAhNMQLclihG6dsN5EuLKibiN6NBYcmQ-nAy1Baet2U2f1jmLjmXMPAhgj0WZeq5mlzcTilsrI4SePr6AxjMZbE0XoXFbYd9n1NDRblo4Ncp_7dCdZKTJMzauDNrNhBuCH5RJk3jYZq8ZqIVdwmrUZuE_1oncLjN1smmcP_2Qqc4Q4_6NEv_-VYFZGDBSySvgc4q9DLXM86PInvQH"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-8">
+<!-- Search Section -->
+<section class="mb-section-gap">
+<div class="relative w-full max-w-3xl mx-auto">
+<div class="flex items-center bg-[#F5F5F5] rounded-xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] border border-transparent focus-within:border-secondary transition-colors overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant pl-4" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-lg text-body-lg text-on-surface py-4 px-4 placeholder:text-on-surface-variant" placeholder="Find digital services (e.g. Website development)" type="text"/>
+<button class="bg-primary-container text-on-primary-container font-title-md text-title-md px-8 py-4 hover:bg-primary hover:text-on-primary transition-colors h-full">
+                        Search
+                    </button>
+</div>
+<div class="flex gap-2 mt-4 overflow-x-auto pb-2 scrollbar-hide">
+<span class="font-label-caps text-label-caps text-on-surface-variant py-1 px-3 bg-surface-container rounded-full whitespace-nowrap cursor-pointer hover:bg-surface-container-high">Graphic design</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant py-1 px-3 bg-surface-container rounded-full whitespace-nowrap cursor-pointer hover:bg-surface-container-high">Web development</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant py-1 px-3 bg-surface-container rounded-full whitespace-nowrap cursor-pointer hover:bg-surface-container-high">Content creation</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant py-1 px-3 bg-surface-container rounded-full whitespace-nowrap cursor-pointer hover:bg-surface-container-high">Translation</span>
+</div>
+</div>
+</section>
+<!-- AI Enhanced Recommendations Bento Grid -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary" data-icon="auto_awesome" data-weight="fill">auto_awesome</span>
+<h2 class="font-title-md text-title-md text-on-surface">AI Matched Professionals</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Main Feature Card -->
+<div class="md:col-span-2 glass-ai rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(0,0,0,0.05)] cursor-pointer group">
+<div class="relative h-48 md:h-64 overflow-hidden">
+<img alt="Web Development Portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, modern desk setup featuring multiple monitors displaying complex website code and design wireframes. The environment is tech-focused with cool blue lighting accents and a clean, organized workspace. The image conveys professional web development expertise within a high-trust, innovative corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiNb0p2bc3n7GUrry_4-ukzSpyiALvyNANV9KVU9UTIeXu93TFzaFceUeTrbJcl4p7i6eJe31GP3zF22lrPC9dH6fGHpqQhE1AziYnFEJbQFkXDxVasvdnYSFwJwCUXGZMR6GV6xB3BOXvy8QJEfAcaoFE4Blah4_Ck8b7l6_ecDDrJEb3e-FvYj8DD_ZbWZCgjSCxkrfF2bjKo_6Imyp0P3sQWFWMoJp5CpYIcQkmTM1a2C6aRo5KrngIlsZvtr1HpeFYmpfXbLGI"/>
+<div class="absolute top-4 left-4 bg-primary-container text-on-primary-container font-label-caps text-label-caps px-2 py-1 rounded">TOP MATCH</div>
+<div class="absolute bottom-4 right-4 flex items-center gap-1 bg-surface-container-lowest/90 px-2 py-1 rounded-full border border-outline-variant">
+<span class="text-lg">🇿🇦</span> <span class="font-label-caps text-label-caps text-on-surface">ZAF</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors">Full-Stack E-commerce Setup</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Website development</p>
+</div>
+<span class="font-title-md text-title-md text-secondary">From 500k</span>
+</div>
+<div class="flex items-center gap-4 mt-4 border-t border-outline-variant/30 pt-3">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+<span class="font-label-caps text-label-caps">4.9 (120)</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-label-caps">MoMo Escrow Available</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden cursor-pointer group hover:shadow-lg transition-shadow">
+<div class="relative h-40 overflow-hidden">
+<img alt="Graphic Design Portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant and creative graphic design workspace showing a digital tablet with a colorful, abstract branding concept. The lighting is bright and natural, highlighting a modern, clean desk area. The aesthetic blends artistic creativity with professional, high-end corporate styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCASPaWbLRP7q4-IpJ0UGi9JeTPlNrsOFM2729A0Gvq3Fhmu6vHpv0L2raeu4i72xWVb2V_RaDsgh8A9xpJ-IU2vF2IwrGu1SnJbjPg2dUPVy_Fe1_GvYR7hxiG-h3WW2P47mfOs-kvhsudORIzkcT_PcxvXKRSu5mTtOTgkLNnzVGtHkcoRdrl5QmNZSb24ftLjqlInO2anYfw9ileWdo4HX6x9ZQiEpoPmXztZTC6xnA9AWXxgyBniJZd6GqkGZmFCukqqMBpgcLc"/>
+</div>
+<div class="p-4 flex flex-col h-[calc(100%-10rem)] justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface line-clamp-2">Brand Identity &amp; Logo Design Package</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Graphic design</p>
+</div>
+<div class="mt-4">
+<div class="font-title-md text-title-md text-secondary mb-2">From 150k</div>
+<div class="flex items-center gap-1 text-tertiary bg-tertiary/10 px-2 py-1 rounded w-fit">
+<span class="material-symbols-outlined text-sm" data-icon="shield">shield</span>
+<span class="font-label-caps text-label-caps">Secure Payouts</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-surface dark:bg-surface-dim shadow-[0px_-2px_10px_rgba(0,0,0,0.05)] z-50 transition-transform duration-200">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-transform duration-200 active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1 transition-transform duration-200 active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search" data-weight="fill">search</span>
+<span class="font-label-caps text-label-caps mt-1">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-transform duration-200 active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-label-caps text-label-caps mt-1">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-transform duration-200 active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</div>
+</nav>
+</body></html>
