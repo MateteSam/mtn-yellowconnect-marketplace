@@ -26,7 +26,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
         <Link href="/home" className="flex items-center gap-2">
           <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>language</span>
           <div className="flex flex-col">
-            <span className="text-title-md font-title-md font-bold text-primary">MTN Marketplace</span>
+            <span className="text-title-md font-title-md font-bold text-primary">Yel&apos;Low Mart</span>
             <div className="flex items-center gap-1 cursor-pointer">
               <span className="text-label-caps font-label-caps text-on-surface-variant">NIGERIA</span>
               <span className="material-symbols-outlined text-[14px] text-on-surface-variant">expand_more</span>

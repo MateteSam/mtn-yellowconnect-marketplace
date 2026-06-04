@@ -24,7 +24,7 @@ export default function SplashPage() {
             <span className="material-symbols-outlined text-on-primary-container text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>public</span>
           </div>
           <h1 className="font-title-md text-title-md text-on-surface tracking-tight">
-            MTN <span className="font-normal opacity-70">Marketplace</span>
+            Yel&apos;Low <span className="font-normal opacity-70">Mart</span>
           </h1>
         </div>
       </div>

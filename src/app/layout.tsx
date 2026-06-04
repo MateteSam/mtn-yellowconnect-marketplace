@@ -3,12 +3,10 @@ import { AuthContextProvider } from "@/hooks/use-auth";
 import './globals.css';
 
 export const metadata = {
-  title: 'MTN YellowConnect Marketplace',
+  title: "Yel'Low Mart",
   description: 'AI-powered pan-African marketplace. Trade locally, connect globally.',
   manifest: '/manifest.json',
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
     apple: '/icon.png',
   },
 };

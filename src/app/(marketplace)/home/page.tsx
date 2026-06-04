@@ -103,41 +103,42 @@ export default function HomePage() {
         </section>
 
         {/* ── MOMO PAYMENTS ── */}
-        <section className="relative bg-[#FFCC00] rounded-3xl p-6 md:p-10 shadow-lg overflow-hidden">
-          <div className="max-w-6xl mx-auto flex items-center">
-            <div className="flex-1 text-center px-6 py-6">
-              <div className="inline-block mb-3">
-                <div className="bg-black text-white px-3 py-1 rounded-md font-bold text-xs uppercase tracking-widest">MoMo</div>
+        <section className="relative bg-gradient-to-r from-[#FFCC00] to-[#FFD633] rounded-3xl p-6 md:p-8 shadow-md overflow-hidden border border-[#E6B800]/30">
+          <div className="max-w-6xl mx-auto flex items-center justify-between gap-6">
+            <div className="flex-1 text-left py-2">
+              <div className="inline-flex items-center gap-2 mb-3 bg-black text-[#FFCC00] px-3 py-1.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-sm">
+                <img src="/mtnmomo-logo-square-rounded-mtnmomo-logo-free-download-mtnmomo-logo-free-png.webp" alt="MoMo" className="w-4 h-4 object-contain rounded-md" />
+                <span>MTN MoMo</span>
               </div>
 
-              <h2 className="text-headline-md font-headline-md text-on-primary-fixed-variant font-black uppercase">Payments Integrated</h2>
+              <h2 className="text-headline-sm md:text-headline-md font-headline-md text-black font-black uppercase tracking-tight">Payments Integrated</h2>
 
-              <p className="mt-4 text-title-lg font-title-lg text-on-primary-fixed-variant/90 max-w-3xl mx-auto">
+              <p className="mt-3 text-body-lg md:text-title-medium text-black/80 max-w-2xl">
                 Pay for products and book services securely with MTN MoMo. Fast, reliable, and built into every checkout.
               </p>
 
-              <div className="flex items-center justify-center gap-4 mt-6">
-                <div className="flex items-center gap-2 bg-white/90 px-4 py-2 rounded-full shadow-sm">
-                  <span className="material-symbols-outlined text-[18px]">verified_user</span>
-                  <span className="font-medium">Encrypted</span>
+              <div className="flex items-center gap-3 mt-5">
+                <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm border border-white/40">
+                  <span className="material-symbols-outlined text-[16px] text-black">verified_user</span>
+                  <span className="text-xs font-semibold text-black">Encrypted</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/90 px-4 py-2 rounded-full shadow-sm">
-                  <span className="material-symbols-outlined text-[18px]">bolt</span>
-                  <span className="font-medium">Instant</span>
+                <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm border border-white/40">
+                  <span className="material-symbols-outlined text-[16px] text-black">bolt</span>
+                  <span className="text-xs font-semibold text-black">Instant Payouts</span>
                 </div>
               </div>
             </div>
 
-            <div className="hidden md:block w-1/3 relative pl-6">
-              <div className="absolute right-6 top-6 flex items-center gap-4">
-                <div className="w-24 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center transform -rotate-6 translate-y-4">
-                  <span className="material-symbols-outlined text-primary text-3xl">payments</span>
+            <div className="hidden md:flex w-1/3 h-40 relative items-center justify-end pr-4">
+              <div className="flex items-center gap-3">
+                <div className="w-20 h-14 bg-white/70 backdrop-blur-md rounded-2xl shadow-md flex items-center justify-center transform -rotate-12 translate-y-3 border border-white/50">
+                  <span className="material-symbols-outlined text-primary text-2xl">payments</span>
                 </div>
-                <div className="w-36 h-28 bg-white rounded-3xl shadow-2xl flex items-center justify-center z-10 transform -translate-y-2 rotate-3">
-                  <img src="/mtnmomoLogo.svg" alt="MoMo" className="w-24 h-20 object-contain" />
+                <div className="w-28 h-28 bg-white rounded-3xl shadow-xl flex items-center justify-center z-10 transform rotate-3 border border-outline-variant/10 p-2">
+                  <img src="/mtnmomo-logo-square-rounded-mtnmomo-logo-free-download-mtnmomo-logo-free-png.webp" alt="MoMo Logo" className="w-full h-full object-contain rounded-2xl" />
                 </div>
-                <div className="w-24 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center transform rotate-6 translate-y-6">
-                  <span className="material-symbols-outlined text-primary text-3xl">qr_code_2</span>
+                <div className="w-20 h-14 bg-white/70 backdrop-blur-md rounded-2xl shadow-md flex items-center justify-center transform rotate-12 translate-y-3 border border-white/50">
+                  <span className="material-symbols-outlined text-primary text-2xl">qr_code_2</span>
                 </div>
               </div>
             </div>
