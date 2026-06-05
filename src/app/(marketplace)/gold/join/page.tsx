@@ -18,7 +18,7 @@ export default function JoinGoldPage() {
   return (
     <div className="bg-background text-on-surface min-h-screen pb-24">
       {/* Hero with gradient */}
-      <div className="relative bg-gradient-to-b from-[#745b00] to-[#a07800] overflow-hidden">
+      <div className="relative bg-gradient-to-b from-[#916B0D] to-[#C9A03A] overflow-hidden">
         <Link href="/home" className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white z-10">
           <span className="material-symbols-outlined">arrow_back</span>
         </Link>

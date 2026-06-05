@@ -15,7 +15,7 @@ export default function GoldMembershipPage() {
   return (
     <div className="bg-background text-on-surface min-h-screen pb-24">
       {/* Premium Hero */}
-      <div className="relative bg-gradient-to-br from-[#745b00] via-[#a07800] to-[#FFCC00] text-white overflow-hidden">
+      <div className="relative bg-gradient-to-br from-[#916B0D] via-[#C9A03A] to-[#FFD700] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 80%, white 0%, transparent 60%)' }} />
         <div className="relative px-6 pt-12 pb-16 text-center">
           <Link href="/home" className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">

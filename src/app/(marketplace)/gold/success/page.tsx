@@ -13,7 +13,7 @@ export default function GoldSuccessPage() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-[#745b00] via-[#FFCC00]/80 to-background min-h-screen flex flex-col items-center justify-center p-6 text-center overflow-hidden">
+    <div className="bg-gradient-to-br from-[#916B0D] via-[#C9A03A]/80 to-background min-h-screen flex flex-col items-center justify-center p-6 text-center overflow-hidden">
       <main className="max-w-md w-full animate-in zoom-in-90 fade-in duration-700">
         {/* Trophy Icon */}
         <div className="relative inline-block mb-8">
@@ -51,7 +51,7 @@ export default function GoldSuccessPage() {
         <div className="space-y-3">
           <Link
             href="/home"
-            className="block w-full bg-white text-[#745b00] py-4 rounded-2xl font-bold text-lg shadow-xl active:scale-[0.99] transition-all"
+            className="block w-full bg-white text-[#916B0D] py-4 rounded-2xl font-bold text-lg shadow-xl active:scale-[0.99] transition-all"
           >
             Explore Marketplace
           </Link>

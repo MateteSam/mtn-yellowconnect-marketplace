@@ -4,9 +4,10 @@ export const runtime = 'edge';
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
-const PRODUCT = {
-  id: 'pro-99',
+const DEFAULT_PRODUCT = {
+  id: 'ultravision-pro-5g',
   name: 'UltraVision Pro 5G',
   usdPrice: '$1,299',
   kesPrice: 'KES 175,000',
@@ -22,10 +23,226 @@ const PRODUCT = {
     rating: '4.8',
     joined: '2 years ago',
     avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC-obA7DjGPlqgd2MI76YmlD7N1Tpfs3RZDcOCOakCVB-xo9Nr4xQ9iB1ZQejxpK8AnfnSv2KQPSrYIy0MaioQoZyErBaXQ1XKQydM5LiqWf3tvzmHCXGzauYJVIyCbBVKdn4s-9YGv_Q28L3w8KgWOggdcr4qjoxf-swxH6XzisRbEtHnyU9hblTxNM5I6CHRlhD_NaHAqxjUUiROV9eMTiRnvAGWwS-ZLN7X2sgThSyLTybD_0Vtgg-USzqEOG0IthH2R-l0BcNA'
-  }
+  },
+  specs: [
+    { icon: 'smartphone', label: 'Display', val: '6.8" OLED, 120Hz' },
+    { icon: 'memory', label: 'Storage', val: '256GB / 12GB RAM' },
+    { icon: 'photo_camera', label: 'Camera', val: '108MP Main + 12MP UW' },
+    { icon: 'battery_charging_full', label: 'Battery', val: '5000mAh, 65W Fast' },
+  ]
+};
+
+const PRODUCTS_DB: Record<string, typeof DEFAULT_PRODUCT> = {
+  'macbook-pro-m2-2023': {
+    id: 'macbook-pro-m2-2023',
+    name: 'MacBook Pro M2 2023',
+    usdPrice: '₦ 1,850,000',
+    kesPrice: 'approx. $1,250 USD',
+    location: 'Ikeja, Lagos',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDUY3jjiw2_wYR_bfUFgeWuY2tZUodVYCRRpiBrVS2828IHI1fGnMFC_e_2Z4YAnLrmlIpHtwuEcyIz2aTEIRKq8WjaYscY6valyjPIQ_DKrlPwdKXkrKLtgFtXVzUpAKVzgrlx5wtTImaumcv3nE6RCkc4_Wm479KfkpgVcQmU6njLaqZptPKzIzFWrTXBVw7OqiMkZdHSUF3tdnJWB1GQ0Q31xm8ma-dXqqfB3gmeKpc_Yb9Xtfn7y_iwr_484J4-xX3173GH8gA',
+      'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=600',
+    ],
+    seller: {
+      name: 'Adebayo O.',
+      rating: '4.9',
+      joined: '1 year ago',
+      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=120',
+    },
+    specs: [
+      { icon: 'memory', label: 'Processor', val: 'Apple M2 Pro Chip' },
+      { icon: 'analytics', label: 'RAM', val: '16GB Unified Memory' },
+      { icon: 'hard_drive', label: 'Storage', val: '512GB SSD' },
+      { icon: 'laptop_mac', label: 'Screen', val: '14.2" Liquid Retina XDR' },
+    ],
+  },
+  'toyota-camry-2018-le': {
+    id: 'toyota-camry-2018-le',
+    name: 'Toyota Camry 2018 LE',
+    usdPrice: '₦ 12,500,000',
+    kesPrice: 'approx. $8,500 USD',
+    location: 'Victoria Island, Lagos',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuAqUyJ-H0EjGhomf5baFPQ0QiSxi8D0Zxhk7iQCu6kQC4kSQ3wA7n46RTZud0nLlhcWODooxj9pLdXdDBLfkM8HJNwdNuNrYN3MuBNHuZ8FUwwcXr36iK1KzQndmPUh8UtXtQ7CdQKhPfFQ88APoY2Cqq4sYYVRZBJ0e3BsvY_VBFSuheGwJwGa_CALlz8C3-MrkzJsUpBsp7iMxgXruqk4w538blwnlVf4qgXc8XPRYwN36oARCwInnEIsdI1RCWHWqK21H0Kmgdw',
+      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&q=80&w=600',
+    ],
+    seller: {
+      name: 'Chidi K.',
+      rating: '4.7',
+      joined: '3 years ago',
+      avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&q=80&w=120',
+    },
+    specs: [
+      { icon: 'directions_car', label: 'Engine', val: '2.5L 4-Cylinder' },
+      { icon: 'speed', label: 'Mileage', val: '45,000 km' },
+      { icon: 'settings', label: 'Transmission', val: '8-Speed Automatic' },
+      { icon: 'local_gas_station', label: 'Fuel Type', val: 'Petrol' },
+    ],
+  },
+  '3-bed-semi-detached': {
+    id: '3-bed-semi-detached',
+    name: '3 Bed Semi-Detached Duplex',
+    usdPrice: '₦ 4,500,000/yr',
+    kesPrice: 'approx. $3,000 USD/yr',
+    location: 'Lekki Phase 1, Lagos',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuAUoJFywGogYjeMv1XVQpSIHrHzi9v-hwKLOEhsGmABiuVapL_8Ho14SPusQr4w82o9BRGuZgWD4AGslMznJMgJWwNGrRrHRmtMTJKIClO1RRMeET87hL7mLVLFL6AQRAMCCS8ci9agIERvnjH7JAqUOymc9mwH_6Ob8oWLitvNFzXH5mhASuSL9rpG3lwQr44RwYLc8Z8HY3xbo5HkiiwylANzY3Wpl44-AVPltrLunjcDhKmbpt7TFcxcxaHgy9lOY1pzfJJQ6-M',
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=600',
+    ],
+    seller: {
+      name: 'Luxe Properties',
+      rating: '4.9',
+      joined: '4 years ago',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120',
+    },
+    specs: [
+      { icon: 'bed', label: 'Bedrooms', val: '3 Beds' },
+      { icon: 'bathtub', label: 'Bathrooms', val: '3.5 Baths' },
+      { icon: 'home', label: 'Property Type', val: 'Semi-Detached Duplex' },
+      { icon: 'grid_view', label: 'Size', val: '320 sqm' },
+    ],
+  },
+  'iphone-15-pro-max': {
+    id: 'iphone-15-pro-max',
+    name: 'iPhone 15 Pro Max',
+    usdPrice: '₦ 950,000',
+    kesPrice: 'approx. $640 USD',
+    location: 'Surulere, Lagos',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuCn3-uhTrqrAOZ_7zRjd7wKEYK1PKExpnNEjLGUmHsticMQ0PKNTHPF7jd8rfwFN3SVIWGAjbnadoUzfEspUI_cZEQUOEhYsAtJcbXP85DSRQpakTj-aLJiFftIyLtze1tP7GzMwZ99l4d0Psgc-wtSP1c55_b34fPUlRk9CIX4G7wVK5S9mJ6ByuWSNeZo_XQ9yropWXq3iV65L0GE3DXInNv_2CyusAv__PPQYeEdlxkN5LVnRZzOKr-raOzmh6HfO9d2P7lk7C4',
+      'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=600',
+    ],
+    seller: {
+      name: 'David M.',
+      rating: '4.8',
+      joined: '2 years ago',
+      avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC-obA7DjGPlqgd2MI76YmlD7N1Tpfs3RZDcOCOakCVB-xo9Nr4xQ9iB1ZQejxpK8AnfnSv2KQPSrYIy0MaioQoZyErBaXQ1XKQydM5LiqWf3tvzmHCXGzauYJVIyCbBVKdn4s-9YGv_Q28L3w8KgWOggdcr4qjoxf-swxH6XzisRbEtHnyU9hblTxNM5I6CHRlhD_NaHAqxjUUiROV9eMTiRnvAGWwS-ZLN7X2sgThSyLTybD_0Vtgg-USzqEOG0IthH2R-l0BcNA',
+    },
+    specs: [
+      { icon: 'smartphone', label: 'Display', val: '6.7" Super Retina XDR' },
+      { icon: 'memory', label: 'Storage', val: '256GB / 8GB RAM' },
+      { icon: 'photo_camera', label: 'Camera', val: '48MP Main + 12MP UW + 12MP Tele' },
+      { icon: 'battery_charging_full', label: 'Battery', val: '4441mAh, 20W Charging' },
+    ],
+  },
+  'solar-irrigation-hub': {
+    id: 'solar-irrigation-hub',
+    name: 'Solar Irrigation Hub',
+    usdPrice: '₦ 450,000',
+    kesPrice: 'approx. $300 USD',
+    location: 'Nairobi, Kenya',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuAtcuAJp7EWk-rV6kAsBj34XxbtAqALKmVMypRd3n1jQIJSmUO66ghqtlm585dQB7OJ_4TT4lWQbTG0r9NoPWnk-ix3VtxTJempO33Zo4YppwM8BDQqKoy4agia3ZaZ3gYakbI2Bck4-LFqb_897lX82L4oruPDxRbnyfcux9F5BbKPd6h3nzjA2aZXMUDCEbzAXkmzSkAMFRIuK2gc0wbrk5ekbKEx9bSLD_ikdICEjzxL4o11gDFIiWbSYP85o61iVTBUFJwEaIU',
+      'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=600',
+    ],
+    seller: {
+      name: 'AgriTech Solutions',
+      rating: '4.9',
+      joined: '5 years ago',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120',
+    },
+    specs: [
+      { icon: 'solar_power', label: 'Power Source', val: '300W Solar Panels' },
+      { icon: 'water_drop', label: 'Flow Rate', val: '2,500 Liters/Hour' },
+      { icon: 'settings', label: 'Pressure', val: 'Max 3.5 Bar' },
+      { icon: 'electric_bolt', label: 'Battery', val: 'Lithium-ion Backup' },
+    ],
+  },
+  'nova-9-se': {
+    id: 'nova-9-se',
+    name: 'Nova 9 SE',
+    usdPrice: '$450',
+    kesPrice: 'approx. ₦ 300,000',
+    location: 'Nearby',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDB7Sid-pYaismy4CTfKfNmOpOOCN_DX93vKr7w53QLk-S7792TYTUnUftNoeUiDpNtP2IKI62EM3iHQgh7sSbuvMkR67npsHFr7jkpQjqWEPuBEB9nS3ySd_9O4Uo_U1qE-HeEjQUgyVF-MMpckTqsb9naRiIl1-ADyFvsDoyJJtPzj5z4aqczN32l1S0zjFsXRTNRRLUhN6skmkXKqrRTgiT_xDy-I7d6vJW7a7Mhcs0NgSBQTUVAyPvOLqVJWZVQFWQ1mdlWgZA',
+    ],
+    seller: {
+      name: 'Huawei Hub',
+      rating: '4.8',
+      joined: '1 year ago',
+      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=120',
+    },
+    specs: [
+      { icon: 'smartphone', label: 'Display', val: '6.78" IPS LCD, 90Hz' },
+      { icon: 'memory', label: 'Storage', val: '128GB / 8GB RAM' },
+      { icon: 'photo_camera', label: 'Camera', val: '108MP Quad Camera' },
+      { icon: 'battery_charging_full', label: 'Battery', val: '4000mAh, 66W Fast' },
+    ],
+  },
+  'pro-lens-kit': {
+    id: 'pro-lens-kit',
+    name: 'Pro Lens Kit',
+    usdPrice: '$120',
+    kesPrice: 'approx. ₦ 80,000',
+    location: 'Lagos, Nigeria',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuABZIko7S0p83g8K52iomVYK3zDoh8R8II0BBeLvV343MKyjrceisGcxrYLGKg3dUrqZJnZeq4beg0jnVJJJKGN1JutGWStcTUVj1FFSD0k_PYtS1p0yKWCaXd49kblVLqO0g6hQE0hgZCJfdb3wTZf2pPtypGPMkaIrZ0OUWGv91xeCAMwLYn5tZ0eeC6EkqbpMhwqXkGqfZ07Qom50_5OQnYJRmOwCnuxmPGyVWpUYgBn5FLQsyKtBBfqBMUcekNcR_uUZecRzHk',
+    ],
+    seller: {
+      name: 'Optics Master',
+      rating: '4.5',
+      joined: '6 months ago',
+      avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&q=80&w=120',
+    },
+    specs: [
+      { icon: 'photo_camera', label: 'Lenses', val: 'Macro + Wide + Telephoto' },
+      { icon: 'construction', label: 'Mount', val: 'Universal Clip-on' },
+      { icon: 'verified', label: 'Glass', val: 'Multi-coated HD Glass' },
+      { icon: 'cases', label: 'Case', val: 'Hard Travel Case Included' },
+    ],
+  },
+  'ultra-charge-20k': {
+    id: 'ultra-charge-20k',
+    name: 'Ultra Charge 20k Powerbank',
+    usdPrice: '$65',
+    kesPrice: 'approx. ₦ 45,000',
+    location: 'Fast Ship',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuCK3htZdv3YUWPHh4MOLyZGuSZW__w3_5TAhwu7NUce2zSVQB6PzK_xIqy9T6cCDiV89OT9zmPLEoAwVpMFmrYQ5ALrLUbg5fDhkNpGA1tyZxMer_EzV2HzvwLbCS93KmqcNXGZMLDggpxfkcIkDKlmJ4mYHWMAQQS-ChqO6kW0FkEBAUHW4VG_8g99wMqsC1oqeQtbNtcErah6JWTHfahy5AMls-4bnhgUwyiMjcCvkCKC3iO7ZENetZRMRW_mhjBUPCFv4jkNB9s',
+    ],
+    seller: {
+      name: 'Power Store',
+      rating: '4.9',
+      joined: '2 years ago',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120',
+    },
+    specs: [
+      { icon: 'battery_charging_full', label: 'Capacity', val: '20,000 mAh' },
+      { icon: 'electric_bolt', label: 'Output', val: '22.5W Max Fast Charge' },
+      { icon: 'input', label: 'Ports', val: '2x USB-A, 1x USB-C PD' },
+      { icon: 'speed', label: 'Protocol', val: 'QC 3.0 / PD 3.0' },
+    ],
+  },
+  'armor-case-x': {
+    id: 'armor-case-x',
+    name: 'Armor Case X',
+    usdPrice: '$25',
+    kesPrice: 'approx. ₦ 18,000',
+    location: 'Accra, Ghana',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuArEg7fexKGTmaVcpRb0rfWLEqwWjgxggtrUEF8_GtO06WjPWCjDEw5ESCSIVg-okURdI3xJZ65HHpIfnejQY6kp3as2kO5Nl5ppVBSzJvC8iDdWJ71jsNufXOxZYTEHaMVfjlnOf1L2G3PwWoJ0Av4zMMxc844hc7JTgFKy9aRClsiX5vA6e31mAq5yL0O58YAOS9BgD65QDfawg8NfF7tC4FSwISKPxKtl2WAz_kddpi_7xDptSxzQRygkzCInEv7iy0s4SD-fU0',
+    ],
+    seller: {
+      name: 'Shield Cases',
+      rating: '4.6',
+      joined: '1 year ago',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120',
+    },
+    specs: [
+      { icon: 'shield', label: 'Protection', val: 'Military Drop Tested' },
+      { icon: 'construction', label: 'Material', val: 'TPU + Polycarbonate' },
+      { icon: 'category', label: 'Design', val: 'Slim Profile Tactile Grip' },
+      { icon: 'electric_bolt', label: 'MagSafe', val: 'Compatible' },
+    ],
+  },
 };
 
 export default function ProductDetailPage() {
+  const params = useParams();
+  const slug = params.id as string;
+  const PRODUCT = PRODUCTS_DB[slug] || DEFAULT_PRODUCT;
+
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -46,7 +263,7 @@ export default function ProductDetailPage() {
         </button>
       </header>
 
-      <main className="pt-16 max-w-screen-md mx-auto w-full pb-10 md:pb-16 flex flex-col md:flex-row gap-8 px-0 md:px-6">
+      <main className="pt-16 max-w-6xl mx-auto w-full pb-10 md:pb-16 flex flex-col md:flex-row gap-8 px-0 md:px-6">
         <div className="flex-1">
           {/* Image Carousel */}
           <section className="relative w-full aspect-square bg-surface-container-lowest overflow-hidden">
@@ -163,12 +380,7 @@ export default function ProductDetailPage() {
           <section className="px-4 mb-6">
             <h3 className="text-[18px] font-bold text-on-surface mb-4">Specifications</h3>
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: 'smartphone', label: 'Display', val: '6.8" OLED, 120Hz' },
-                { icon: 'memory', label: 'Storage', val: '256GB / 12GB RAM' },
-                { icon: 'photo_camera', label: 'Camera', val: '108MP Main + 12MP UW' },
-                { icon: 'battery_charging_full', label: 'Battery', val: '5000mAh, 65W Fast' },
-              ].map((spec, i) => (
+              {PRODUCT.specs.map((spec, i) => (
                 <div key={i} className="bg-surface-container-low rounded-lg p-3">
                   <div className="flex items-center gap-2 mb-1 text-on-surface-variant">
                     <span className="material-symbols-outlined text-[16px]">{spec.icon}</span>
@@ -200,7 +412,7 @@ export default function ProductDetailPage() {
                   <span className="text-[12px] font-bold uppercase tracking-wider text-secondary">AI Enhanced Bundle</span>
                 </div>
                 <h2 className="text-[18px] md:text-[32px] font-bold text-primary mb-2">Bundle & Save</h2>
-                <p className="text-[14px] text-on-surface-variant mb-6">Our AI suggests these perfect companions for your UltraVision Pro 5G to maximize your experience.</p>
+                <p className="text-[14px] text-on-surface-variant mb-6">Our AI suggests these perfect companions for your {PRODUCT.name} to maximize your experience.</p>
                 <div className="flex items-center gap-2 bg-surface-container rounded-lg p-2">
                   <div className="text-center">
                     <span className="text-[16px] font-bold text-on-surface block">$1,299</span>
@@ -281,7 +493,7 @@ export default function ProductDetailPage() {
                         <span className="material-symbols-outlined text-[14px] text-on-surface-variant">flag</span>
                         <span className="text-[10px] font-bold text-on-surface-variant">{item.flag}</span>
                       </div>
-                      <Link href={`/product/${i}`} className="bg-primary text-white text-[12px] font-bold py-1.5 px-3 rounded hover:opacity-90 transition-opacity">
+                      <Link href={`/product/${item.name.toLowerCase().replace(/ /g, '-')}`} className="bg-primary text-white text-[12px] font-bold py-1.5 px-3 rounded hover:opacity-90 transition-opacity">
                         View
                       </Link>
                     </div>
@@ -344,21 +556,11 @@ export default function ProductDetailPage() {
           -webkit-backdrop-filter: blur(12px);
         }
         .glass-panel-bundle {
-          background: rgba(255, 255, 255, 0.8);
+          background: linear-gradient(hsl(var(--card) / 95%), hsl(var(--card) / 95%)) padding-box,
+                      linear-gradient(135deg, #FFCC00, #004F9F) border-box;
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
           border: 1px solid transparent;
-          background-clip: padding-box;
-          position: relative;
-        }
-        .glass-panel-bundle::before {
-          content: '';
-          position: absolute;
-          top: 0; right: 0; bottom: 0; left: 0;
-          z-index: -1;
-          margin: -1px;
-          border-radius: inherit;
-          background: linear-gradient(135deg, rgba(116,91,0,0.5) 0%, rgba(31,93,174,0.5) 100%);
         }
         .sparkle-ai {
           animation: sparkle 2s infinite ease-in-out;

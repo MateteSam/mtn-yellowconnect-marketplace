@@ -22,7 +22,7 @@ export default function GoldCheckoutPage() {
 
       <main className="flex-grow container mx-auto px-container-margin-mobile py-8 max-w-lg">
         {/* Order Summary */}
-        <div className="bg-gradient-to-r from-[#745b00] to-[#a07800] text-white rounded-2xl p-5 mb-6 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-[#916B0D] to-[#C9A03A] text-white rounded-2xl p-5 mb-6 flex items-center justify-between">
           <div>
             <p className="text-white/70 text-xs uppercase tracking-widest mb-1">Subscribing to</p>
             <p className="font-bold text-xl flex items-center gap-2">

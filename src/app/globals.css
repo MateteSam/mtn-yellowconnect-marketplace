@@ -79,21 +79,11 @@
 @layer utilities {
   /* Glassmorphic AI panel */
   .glass-ai {
-    background: rgba(255, 255, 255, 0.82);
+    background: linear-gradient(hsl(var(--card) / 95%), hsl(var(--card) / 95%)) padding-box,
+                linear-gradient(135deg, #FFCC00, #004F9F) border-box;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid transparent;
-    background-clip: padding-box;
-    position: relative;
-  }
-  .glass-ai::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    z-index: -1;
-    margin: -1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, #745b00, #1f5dae);
   }
 
   /* AI Badge glass */

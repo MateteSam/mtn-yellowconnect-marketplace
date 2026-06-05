@@ -37,11 +37,11 @@ export default function CheckoutBundlePage() {
           background: rgba(255, 255, 255, 0.8);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
-          border: 1px solid rgba(116, 91, 0, 0.1);
+          border: 1px solid rgba(0, 79, 159, 0.1);
         }
         .ai-border {
           border: 1px solid transparent;
-          background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), linear-gradient(to right, #745b00, #1f5dae);
+          background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), linear-gradient(to right, #FFCC00, #004F9F);
           background-clip: padding-box, border-box;
           background-origin: padding-box, border-box;
         }
